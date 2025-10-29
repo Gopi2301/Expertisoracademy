@@ -1,0 +1,171 @@
+/* src/index.css */
+
+
+
+/* Google Fonts: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* Self-hosted Clash Display Variable */
+@font-face {
+  font-family: "Clash Display Variable";
+  src: url("/src/assets/fonts/ClashDisplay-Variable.woff2") format("woff2"),
+       url("/src/assets/fonts/ClashDisplay-Variable.woff") format("woff");
+  font-weight: 200 700; /* adjust based on available range */
+  font-style: normal;
+}
+
+/* --- 1. Tailwind CSS Directives --- */
+/* These lines are essential for Tailwind CSS. They inject Tailwind's base styles,
+   component classes, and utility classes into your CSS build. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* --- 2. Global Layout and Sizing Fix --- */
+/* ✅ THIS IS THE FIX FOR THE BLANK SCREEN ISSUE.
+   This rule ensures that the main containers of your single-page application
+   (html, body, and the React root div) fill the entire viewport height.
+   Without this, they can collapse to a height of 0, making your app invisible. */
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* --- 3. Custom Utility and Component Styles --- */
+
+/* A custom class to create a gradient border effect. */
+.border-gradient {
+  border: 1px solid;
+  /* Creates a border image using a linear gradient. */
+  border-image-source: linear-gradient(90deg, #272300 0%, #5E5400 100%);
+  /* Ensures the entire border is covered by the gradient image. */
+  border-image-slice: 1;
+  border-radius: 8px; /* Optional: adds rounded corners to the border. */
+}
+
+/* --- Scrollbar Hiding (for aesthetics) --- */
+/* This set of rules hides the browser's default scrollbar while keeping
+   the ability to scroll. This is a common design choice for a cleaner look. */
+
+/* Universal selector to target scrollbars in all elements */
+* {
+  /* For Webkit-based browsers like Chrome, Safari */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* For IE and Edge */
+  -ms-overflow-style: none;
+  /* For Firefox */
+  scrollbar-width: none;
+}
+
+
+/* --- 4. Component-Specific Styles --- */
+/* These styles are for custom components that are not easily styled with
+   Tailwind utility classes alone. They are more complex or reused frequently. */
+
+/* === Styles for the Dashboard Button in the Header === */
+.dashboard-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem; /* 8px space between text and icon */
+  
+  background-color: #262626; /* Dark grey background (Tailwind's neutral-800) */
+  color: #e5e7eb; /* Light grey text (Tailwind's gray-200) */
+  padding: 8px 20px;
+  border-radius: 0.5rem; /* 8px rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border highlight */
+  
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+  height: 44px; /* Fixed height for alignment with other buttons */
+  box-sizing: border-box; /* Ensures padding and border are included in the height */
+}
+.dashboard-btn:hover {
+  background-color: #404040; /* Slightly lighter grey on hover (neutral-700) */
+}
+.dashboard-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* --- Styles for the Profile Dropdown Menu in the Header --- */
+.profile-dropdown {
+  position: relative; /* Establishes a positioning context for the dropdown menu. */
+}
+.profile-menu-button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #FFF200; /* Bright Yellow */
+  color: #111;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  height: 44px; /* Match Dashboard button height for alignment */
+  box-sizing: border-box;
+}
+.profile-menu-button .initials {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile-menu-button svg {
+  width: 16px;
+  height: 16px;
+  color: #111; /* Make chevron icon dark */
+}
+
+/* The dropdown menu itself, which is absolutely positioned relative to .profile-dropdown */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px); /* Position 8px below the button */
+  right: 0; /* Align to the right edge of the parent */
+  background-color: #111111;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  z-index: 50; /* Ensure it appears above other content */
+  width: 200px;
+  overflow: hidden;
+}
+
+/* The logout button inside the dropdown menu */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #000;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid #333;
+  transition: background-color 0.2s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+.logout-btn:hover {
+  background-color: #222;
+}
+.logout-btn svg {
+  width: 20px;
+  height: 20px;
+}
