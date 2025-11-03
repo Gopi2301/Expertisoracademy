@@ -1,21 +1,21 @@
-import "../../src/init.css";
-import "../../src/index.css";
+import "../init.css";
+import "../index.css";
 import "@fontsource/inter";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import SectionIntro from '../../src/initiativeComponents/SectionIntro';
-import Section2 from '../../src/initiativeComponents/Section2';
-import Section3 from '../../src/initiativeComponents/Section3';
-import FullStack from '../../src/initiativeComponents/FullStack';
-import Section4 from '../../src/initiativeComponents/Section4';
-import Section5 from '../../src/initiativeComponents/Section5';
-import Section6 from '../../src/initiativeComponents/Section6';
-import Section7 from '../../src/initiativeComponents/Section7';
-import Aboutus from '../../src/initiativeComponents/Aboutus';
-import StudReview from '../../src/initiativeComponents/StudReview';
+import SectionIntro from '../initiativeComponents/SectionIntro';
+import Section2 from '../initiativeComponents/Section2';
+import Section3 from '../initiativeComponents/Section3';
+import FullStack from '../initiativeComponents/FullStack';
+import Section4 from '../initiativeComponents/Section4';
+import Section5 from '../initiativeComponents/Section5';
+import Section6 from '../initiativeComponents/Section6';
+import Section7 from '../initiativeComponents/Section7';
+import Aboutus from '../initiativeComponents/AboutUs';
+import StudReview from '../initiativeComponents/StudReview';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';
-import Footer from '../../src/initiativeComponents/Footer';
+import Footer from '../initiativeComponents/Footer';
 
 function Initiative() {
   console.log("Initiative page load");
