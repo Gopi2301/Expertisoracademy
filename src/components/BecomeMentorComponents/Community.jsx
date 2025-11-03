@@ -1,29 +1,68 @@
-import React from "react";
+import React, { useState, useEffect, useRef, memo } from "react";
 import Lottie from "lottie-react";
 import mentors_run from "../../../src/mentors_run.json";
 import mentors_mobile from '../../../src/mentors_mobile.json'
 import StartButton from "../StartButton";
 import { pages } from "../../constants/pages";
 
-const Community = () => {
-    return (
-        <div className="relative w-full ">
-            {/* Fullscreen Lottie Background */}
-            <Lottie
-                animationData={mentors_run}
-                loop
-                autoplay
-                className="w-full xl:h-[500px] roundd-lg sm:block hidden"
-            />
+const Community = memo(() => {
+    const [isVisible, setIsVisible] = useState(false);
+    const containerRef = useRef(null);
 
-            {/* mobile below md */}
-            {/* <div className="w-full h-[500px]"> */}
-            <Lottie
-                animationData={mentors_mobile}
-                loop
-                autoplay
-                className="block sm:hidden w-full object-contain "
-            />
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsVisible(entry.isIntersecting);
+            },
+            {
+                rootMargin: '100px',
+                threshold: 0.1,
+            }
+        );
+
+        if (containerRef.current) {
+            observer.observe(containerRef.current);
+        }
+
+        return () => {
+            if (containerRef.current) {
+                observer.unobserve(containerRef.current);
+            }
+            observer.disconnect();
+        };
+    }, []);
+
+    return (
+        <div className="relative w-full" ref={containerRef}>
+            {/* Fullscreen Lottie Background */}
+            {isVisible && (
+                <>
+                    <Lottie
+                        animationData={mentors_run}
+                        loop
+                        autoplay={isVisible}
+                        className="w-full xl:h-[500px] roundd-lg sm:block hidden"
+                        rendererSettings={{
+                            preserveAspectRatio: 'xMidYMid slice',
+                            progressiveLoad: true,
+                        }}
+                        isClickToPauseDisabled={true}
+                    />
+
+                    {/* mobile below md */}
+                    <Lottie
+                        animationData={mentors_mobile}
+                        loop
+                        autoplay={isVisible}
+                        className="block sm:hidden w-full object-contain"
+                        rendererSettings={{
+                            preserveAspectRatio: 'xMidYMid slice',
+                            progressiveLoad: true,
+                        }}
+                        isClickToPauseDisabled={true}
+                    />
+                </>
+            )}
             {/* </div> */}
 
 
@@ -47,7 +86,9 @@ const Community = () => {
 
         </div>
     );
-};
+});
+
+Community.displayName = 'Community';
 
 export default Community;
 

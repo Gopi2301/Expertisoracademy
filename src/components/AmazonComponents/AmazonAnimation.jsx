@@ -1,11 +1,11 @@
-import React from "react";
+import React, { memo } from "react";
 import Lottie from "lottie-react";
 import animationData from "../../Amazon selling cart.json";
 import { pages } from "../../constants/pages";
 import StartButton from "../StartButton";
 import Download from "../Download";
 
-const AmazonAnimation = () => {
+const AmazonAnimation = memo(() => {
   return (
     <div className="relative w-full flex items-center justify-center h-screen">
       {/* Background animation */}
@@ -13,7 +13,12 @@ const AmazonAnimation = () => {
         animationData={animationData}
         loop={true}
         autoplay={true}
-        className=" w-full  "
+        className="w-full"
+        rendererSettings={{
+          preserveAspectRatio: 'xMidYMid slice',
+          progressiveLoad: true,
+        }}
+        isClickToPauseDisabled={true}
       />
 
       {/* Content overlay */}
@@ -52,7 +57,9 @@ const AmazonAnimation = () => {
         </div>
     </div>
   );
-};
+});
+
+AmazonAnimation.displayName = 'AmazonAnimation';
 
 export default AmazonAnimation;
 

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "optimize:images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@fontsource/inter": "^5.2.5",
@@ -40,8 +41,15 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "imagemin": "^9.0.1",
+    "imagemin-mozjpeg": "^10.0.0",
+    "imagemin-pngquant": "^10.0.0",
+    "imagemin-webp": "^8.0.0",
     "postcss": "^8.5.3",
+    "react-intersection-observer": "^10.0.0",
+    "sharp": "^0.34.4",
     "tailwindcss": "^3.4.17",
-    "vite": "^7.1.1"
+    "vite": "^7.1.1",
+    "vite-imagetools": "^9.0.0"
   }
 }

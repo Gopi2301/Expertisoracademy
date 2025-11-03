@@ -54,7 +54,7 @@ const Section2 = () => {
                                 key={index}
                                 className={`p-0 sm:p-4 rounded-xl shadow-lg text-white  flex flex-col justify-between  ${item.colSpan}`}>
                                 <div className="flex justify-center items-center h-[50%] sm:h-[70%]">
-                                    <img src={item.img} alt={item.title} className="w-full max-h-full " />
+                                    <img src={item.img} alt={item.title} className="w-full max-h-full" loading="lazy" decoding="async" />
                                 </div>
 
                                 <div className="h-[50%] sm:h-[30%] flex flex-col justify-center px-3 sm-p-0">

@@ -98,7 +98,7 @@ const Section3 = () => {
 
                     {playingVideo !== video.id ? (
                       <div className="absolute inset-0 cursor-pointer" onClick={() => setPlayingVideo(video.id)}>
-                        <img src={video.thumbnail} alt="Video Thumbnail" className="max-w-full h-full object-cover rounded-t-lg" />
+                        <img src={video.thumbnail} alt="Video Thumbnail" className="max-w-full h-full object-cover rounded-t-lg" loading="lazy" decoding="async" />
 
                         <div className="absolute bottom-0 left-0  bg-[#FFCC00] text-white rounded-sm px-2 py-1 sm:px-3 sm:py-2  lg:px-4 lg:py-3 text-center   ">
                           <p className="font-inter sm:font-normal  lg:font-medium text-[10px] sm:text-[12px] lg:text-[14px] leading-[100%] tracking-[0%] align-middle">{video.course}</p>
@@ -128,7 +128,7 @@ const Section3 = () => {
                     )}
                   </div>
                   <div>
-                    <img width={"100%"} src={pannel} alt="" />
+                    <img width={"100%"} src={pannel} alt="" loading="lazy" decoding="async" />
                   </div>
                 </div>
 
@@ -138,7 +138,7 @@ const Section3 = () => {
         </div>
       </div>
       <div className="absolute top-1 right-8 w-[59px] h-[61px]  sm:w-[100px] sm:h-[110px] md:w-[150px] md:h-[160px] lg:w-[189px] lg:h-[194px]">
-        <img src={two2} alt="" />
+        <img src={two2} alt="" loading="lazy" decoding="async" />
       </div>
     </section>
   );

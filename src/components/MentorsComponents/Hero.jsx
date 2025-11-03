@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { memo, useMemo } from 'react'
 import StatsSection from './StatsSection'
 import MentorsRun from './MentorsRun'
 import { pages } from '../../constants/pages'
 import Marquee from 'react-fast-marquee'
 
 
-const Hero = () => {
+const Hero = memo(() => {
+  const mentors = useMemo(() => pages?.become_mentors?.wall_of_mentors?.mentors || [], []);
+
   return (
     <>
       <div>
@@ -17,10 +19,10 @@ const Hero = () => {
         </div>
         <StatsSection />
         {/* <MentorsRun /> */}
-        <div className='my-14'>
+        <div className='my-14' style={{ willChange: 'transform' }}>
 
-          <Marquee speed={50}>
-            {pages?.become_mentors?.wall_of_mentors?.mentors?.map((mentor, i) => (
+          <Marquee speed={50} pauseOnHover={false}>
+            {mentors.map((mentor, i) => (
               <div
                 key={i}
                 className="relative mx-3 bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)] bg-black rounded-lg overflow-hidden"
@@ -31,6 +33,8 @@ const Hero = () => {
                     src={mentor?.img}
                     alt={mentor?.name}
                     className="w-full h-full object-cover rounded-lg"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
 
@@ -48,7 +52,7 @@ const Hero = () => {
                         key={i}
                         className="flex items-center gap-1 px-2 py-1 rounded-md bg-[linear-gradient(180deg,#2B1900_0%,#1A0F00_100%)]"
                       >
-                        <img src={data.sm_i} alt="" className="w-5 h-5 object-contain" />
+                        <img src={data.sm_i} alt="" className="w-5 h-5 object-contain" loading="lazy" />
                         <p className="text-white text-sm">{data.followers}</p>
                       </a>
                     ))}
@@ -72,6 +76,8 @@ const Hero = () => {
       </div>
     </>
   )
-}
+});
+
+Hero.displayName = 'Hero';
 
 export default Hero

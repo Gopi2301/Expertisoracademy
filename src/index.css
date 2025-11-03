@@ -88,6 +88,7 @@ body,
   transition: background-color 0.2s ease;
   height: 44px; /* Fixed height for alignment with other buttons */
   box-sizing: border-box; /* Ensures padding and border are included in the height */
+  will-change: background-color; /* Optimize for animation */
 }
 .dashboard-btn:hover {
   background-color: #404040; /* Slightly lighter grey on hover (neutral-700) */
@@ -161,9 +162,34 @@ body,
   transition: background-color 0.2s ease;
   box-sizing: border-box;
   cursor: pointer;
+  will-change: background-color; /* Optimize for animation */
 }
 .logout-btn:hover {
   background-color: #222;
+}
+
+/* Performance optimizations for animations */
+* {
+  /* Use GPU acceleration for transforms and opacity */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize common animation properties */
+[class*="transition"] {
+  will-change: transform, opacity;
+}
+
+/* Remove will-change after animation to prevent memory issues */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .logout-btn svg {
   width: 20px;

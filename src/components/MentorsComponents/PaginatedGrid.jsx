@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { memo, useMemo } from 'react';
 import ProfileCard from './ProfileCard';
 import { assets } from '../../assets/assets';
 import { pages } from '../../constants/pages';
+import LazyImage from '../LazyImage';
 
 
 // const images = [
@@ -19,7 +20,8 @@ import { pages } from '../../constants/pages';
 //   assets.m4,
 // ]
 
-const PaginatedGrid = () => {
+const PaginatedGrid = memo(() => {
+  const mentors = useMemo(() => pages.become_mentors.wall_of_mentors.mentors, []);
   // const [currentPage, setCurrentPage] = useState(1);
   // const cardsPerPage = 9;
 
@@ -43,7 +45,7 @@ const PaginatedGrid = () => {
 
       <div>
         <div className='mt-[32px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-4 lg:gap-5'>
-          {pages.become_mentors.wall_of_mentors.mentors.map((data, i) => (
+          {mentors.map((data, i) => (
             <div
               key={i}
               className='relative border  border-[#323232] rounded-lg bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)] bg-black bg-blend-screen overflow-hidden group'
@@ -63,7 +65,7 @@ const PaginatedGrid = () => {
 
 
               <div className="w-full aspect-[5/6] sm:aspect-[4/5] lg:aspect-[3/4] overflow-hidden">
-                <img
+                <LazyImage
                   src={data.img}
                   alt={data.name}
                   className="w-full h-full object-cover"
@@ -76,9 +78,14 @@ const PaginatedGrid = () => {
 
 
               {/* hover content */}
-              <div className="absolute inset-0  text-white p-4 flex flex-col  justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-blend-screen bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)]">
+              <div className="absolute inset-0 text-white p-4 flex flex-col justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-blend-screen bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)]">
                 <div className="w-24 min-h-34 rounded-lg overflow-hidden mb-3">
-                  <img src={data.img} alt={data.name} className="w-full h-full bg-[#473901] object-contain" />
+                  <img 
+                    src={data.img} 
+                    alt={data.name} 
+                    className="w-full h-full bg-[#473901] object-contain"
+                    loading="lazy"
+                  />
                 </div>
 
                 <div>
@@ -92,7 +99,7 @@ const PaginatedGrid = () => {
                   {
                     data?.rating?.map((value, i) => (
                       <div key={i} className="flex items-center gap-2">
-                        <img src={value.img} alt="" />
+                        <img src={value.img} alt="" loading="lazy" />
                         <span>{value.name}</span>
                       </div>
                     ))
@@ -104,10 +111,9 @@ const PaginatedGrid = () => {
                   {
                     data?.social_media?.map((value, i) => (
                       <a key={i} target="_blank" href={value.link} className="flex items-center justify-center gap-2 bg-[#2c2c2c] rounded-lg py-2">
-                        <img src={value.sm_i} alt="" />
+                        <img src={value.sm_i} alt="" loading="lazy" />
                         <p>{value.followers}</p>
-                        <img src={value.link_i} alt="" />
-
+                        <img src={value.link_i} alt="" loading="lazy" />
                       </a>
                     ))
                   }
@@ -140,6 +146,8 @@ const PaginatedGrid = () => {
       </div> */}
     </div>
   );
-};
+});
+
+PaginatedGrid.displayName = 'PaginatedGrid';
 
 export default PaginatedGrid;

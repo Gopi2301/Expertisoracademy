@@ -64,10 +64,10 @@ const StudWorksAt = () => {
     }}>
         <h4 className='py-6 xl:py-8 text-white text-center text-[20px] leading-[24px] font-medium'>Where do our students works at</h4>
         <div className='pb-7'>
-          <Marquee speed={60}  >
+          <Marquee speed={60} pauseOnHover={false} style={{ willChange: 'transform' }}>
             {comp.map((value, index) => (
               <div key={index} className='mr-20 '>
-                  <img src={value} alt="" />
+                  <img src={value} alt="" loading="lazy" decoding="async" />
               </div>
             ))}
           </Marquee>

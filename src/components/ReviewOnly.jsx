@@ -20,17 +20,18 @@
 
 
 // ReviewOnly.jsx (updated)
+import { memo } from "react";
 import Marquee from "react-fast-marquee";
 import Review from "./AffilateComponents/Review";
 
-const ReviewOnly = ({ review }) => {
+const ReviewOnly = memo(({ review }) => {
   return (
     // outer wrapper ensures the marquee is clipped to this column's width
-    <div className="my-8 sm:my-14 w-full overflow-hidden">
+    <div className="my-8 sm:my-14 w-full overflow-hidden" style={{ willChange: 'transform' }}>
       <div className="w-full">
         <Marquee
           speed={50}
-          pauseOnHover
+          pauseOnHover={false}
           gradient={true}
           gradientColor={[12, 12, 12]}
           className="w-full"
@@ -45,6 +46,8 @@ const ReviewOnly = ({ review }) => {
       </div>
     </div>
   );
-};
+});
+
+ReviewOnly.displayName = 'ReviewOnly';
 
 export default ReviewOnly;
