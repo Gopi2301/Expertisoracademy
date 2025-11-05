@@ -1,25 +1,35 @@
-import React from 'react'
-import Hero from '../components/BecomeMentorComponents/Hero'
-import Needs from '../components/BecomeMentorComponents/Needs'
-import StickyCards from '../components/BecomeMentorComponents/StickyCards'
-import KeyBenefits from '../components/BecomeMentorComponents/KeyBenefits'
-import StatsSection from '../components/BecomeMentorComponents/StatsSection'
-import Mentors from '../components/BecomeMentorComponents/Mentors'
-import HearMentors from '../components/BecomeMentorComponents/HearMentors'
-import Community from '../components/BecomeMentorComponents/Community'
+import React, { Suspense, lazy } from 'react'
 
+// Lazy load components for better code splitting
+const Hero = lazy(() => import('../components/BecomeMentorComponents/Hero'))
+const Needs = lazy(() => import('../components/BecomeMentorComponents/Needs'))
+const StickyCards = lazy(() => import('../components/BecomeMentorComponents/StickyCards'))
+const KeyBenefits = lazy(() => import('../components/BecomeMentorComponents/KeyBenefits'))
+const StatsSection = lazy(() => import('../components/BecomeMentorComponents/StatsSection'))
+const Mentors = lazy(() => import('../components/BecomeMentorComponents/Mentors'))
+const HearMentors = lazy(() => import('../components/BecomeMentorComponents/HearMentors'))
+const Community = lazy(() => import('../components/BecomeMentorComponents/Community'))
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="text-white text-lg">Loading...</div>
+  </div>
+)
 
 const BecomeMentor = () => {
   return (
     <div>
-      {/* <StickyCards/> */}
-      <Hero />
-      <Needs />
-      <KeyBenefits />
-      <StatsSection />
-      <Mentors />
-      <HearMentors/>
-      <Community/>
+      <Suspense fallback={<LoadingFallback />}>
+        {/* <StickyCards/> */}
+        <Hero />
+        <Needs />
+        <KeyBenefits />
+        <StatsSection />
+        <Mentors />
+        <HearMentors/>
+        <Community/>
+      </Suspense>
     </div>
   )
 }

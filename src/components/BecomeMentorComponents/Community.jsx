@@ -1,13 +1,22 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import Lottie from "lottie-react";
-import mentors_run from "../../../src/mentors_run.json";
-import mentors_mobile from '../../../src/mentors_mobile.json'
+// Lazy load large Lottie JSON files to reduce initial bundle size
+const mentors_run = () => import("../../../src/mentors_run.json").then(m => m.default);
+const mentors_mobile = () => import("../../../src/mentors_mobile.json").then(m => m.default);
 import StartButton from "../StartButton";
 import { pages } from "../../constants/pages";
 
 const Community = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
+    const [mentorsRunData, setMentorsRunData] = useState(null);
+    const [mentorsMobileData, setMentorsMobileData] = useState(null);
     const containerRef = useRef(null);
+
+    // Lazy load Lottie JSON files when component mounts
+    useEffect(() => {
+        mentors_run().then(setMentorsRunData);
+        mentors_mobile().then(setMentorsMobileData);
+    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -35,10 +44,10 @@ const Community = memo(() => {
     return (
         <div className="relative w-full" ref={containerRef}>
             {/* Fullscreen Lottie Background */}
-            {isVisible && (
+            {isVisible && mentorsRunData && mentorsMobileData && (
                 <>
                     <Lottie
-                        animationData={mentors_run}
+                        animationData={mentorsRunData}
                         loop
                         autoplay={isVisible}
                         className="w-full xl:h-[500px] roundd-lg sm:block hidden"
@@ -50,7 +59,7 @@ const Community = memo(() => {
 
                     {/* mobile below md */}
                     <Lottie
-                        animationData={mentors_mobile}
+                        animationData={mentorsMobileData}
                         loop
                         autoplay={isVisible}
                         className="block sm:hidden w-full object-contain"

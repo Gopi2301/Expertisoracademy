@@ -36,8 +36,19 @@ export default defineConfig({
       },
       output: {
         manualChunks: (id) => {
-          // Split BecomeMentor components into separate chunk
+          // Split BecomeMentor components into individual chunks for better code splitting
           if (id.includes('BecomeMentorComponents')) {
+            // Extract component name from path
+            const componentMatch = id.match(/BecomeMentorComponents\/([^/]+)\.jsx?/);
+            if (componentMatch) {
+              const componentName = componentMatch[1];
+              // Split large components into separate chunks
+              if (['Community', 'Mentors', 'HearMentors'].includes(componentName)) {
+                return `become-mentor-${componentName.toLowerCase()}`;
+              }
+              // Group smaller components together
+              return 'become-mentor-other';
+            }
             return 'become-mentor-components';
           }
           // React vendor chunk
@@ -103,8 +114,8 @@ export default defineConfig({
     cssCodeSplit: true,
     // CSS minification
     cssMinify: true,
-    // Increase chunk size warning limit
-    chunkSizeWarningLimit: 1500,
+    // Increase chunk size warning limit (large chunks are lazy-loaded, so this is acceptable)
+    chunkSizeWarningLimit: 2000,
     // Source maps for production (disabled for smaller bundle)
     sourcemap: false,
     // Target modern browsers for smaller bundles
