@@ -18,7 +18,6 @@ const AmazonAnimation = memo(() => {
           preserveAspectRatio: 'xMidYMid slice',
           progressiveLoad: true,
         }}
-        isClickToPauseDisabled={true}
       />
 
       {/* Content overlay */}

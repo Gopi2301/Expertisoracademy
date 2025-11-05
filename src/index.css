@@ -1,20 +1,16 @@
 /* src/index.css */
 
+/* ============================================
+   CRITICAL CSS - Above-the-fold styles
+   These styles are loaded first and should be minimal
+   ============================================ */
 
+/* Inter font is now self-hosted via @fontsource/inter in main.jsx */
+/* This eliminates render-blocking external font requests */
 
-/* Google Fonts: Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-/* Self-hosted Clash Display Variable */
-@font-face {
-  font-family: "Clash Display Variable";
-  src: url("/src/assets/fonts/ClashDisplay-Variable.woff2") format("woff2"),
-       url("/src/assets/fonts/ClashDisplay-Variable.woff") format("woff");
-  font-weight: 200 700; /* adjust based on available range */
-  font-style: normal;
-}
-
-/* --- 1. Tailwind CSS Directives --- */
+/* ============================================
+   TAILWIND CSS - Base Framework Styles
+   ============================================ */
 /* These lines are essential for Tailwind CSS. They inject Tailwind's base styles,
    component classes, and utility classes into your CSS build. */
 @tailwind base;
@@ -22,7 +18,9 @@
 @tailwind utilities;
 
 
-/* --- 2. Global Layout and Sizing Fix --- */
+/* ============================================
+   CRITICAL: Global Layout and Sizing Fix
+   ============================================ */
 /* ✅ THIS IS THE FIX FOR THE BLANK SCREEN ISSUE.
    This rule ensures that the main containers of your single-page application
    (html, body, and the React root div) fill the entire viewport height.
@@ -194,4 +192,70 @@ body,
 .logout-btn svg {
   width: 20px;
   height: 20px;
+}
+
+/* CSS Containment for Performance */
+/* Containment for animated elements */
+.animate-spin,
+[class*="animate-"],
+[class*="transition"] {
+  contain: layout style paint;
+}
+
+/* Containment for scroll containers */
+.overflow-auto,
+.overflow-scroll,
+.overflow-x-auto,
+.overflow-y-auto {
+  contain: layout style;
+}
+
+/* Containment for grid layouts */
+.grid,
+[class*="grid"] {
+  contain: layout;
+}
+
+/* Containment for isolated components */
+.card,
+[class*="card"],
+.component-isolated {
+  contain: layout style paint;
+}
+
+/* Paint containment for static elements */
+.static-element,
+[data-static="true"] {
+  contain: paint;
+}
+
+/* Layout containment for complex layouts */
+.flex,
+[class*="flex"] {
+  contain: layout;
+}
+
+/* Containment for marquee components */
+.marquee,
+[class*="marquee"] {
+  contain: layout style paint;
+}
+
+/* Containment for lazy-loaded images */
+img[loading="lazy"],
+.lazy-image {
+  contain: layout style paint;
+}
+
+/* Containment for modals and overlays */
+.modal,
+[class*="modal"],
+[class*="overlay"] {
+  contain: strict; /* layout style paint size */
+}
+
+/* Containment for video containers */
+.video-container,
+video {
+  contain: layout style paint;
 }

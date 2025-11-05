@@ -24,11 +24,22 @@ import App from './App.jsx';
 import CourseContextProvider from './context/CourseContextProvider.jsx';
 
 
-// --- 3. Import Global Styles ---
+// --- 3. Import Self-Hosted Fonts ---
+
+// Import Inter font weights (self-hosted via @fontsource/inter)
+// This eliminates render-blocking external font requests and improves PageSpeed
+import '@fontsource/inter/400.css'; // Regular weight
+import '@fontsource/inter/600.css'; // Semi-bold weight
+import '@fontsource/inter/700.css'; // Bold weight
+
+// --- 4. Import Global Styles ---
 
 // `index.css` contains your global styles, including Tailwind CSS base styles, components,
 // and utilities. Importing it here ensures that these styles are applied to the entire application.
 import './index.css';
+
+// Register service worker for offline support and caching
+import { registerServiceWorker } from './utils/registerServiceWorker';
 
 
 // --- 4. Application Root Creation and Rendering ---
@@ -58,6 +69,11 @@ root.render(
 
   </BrowserRouter>
 );
+
+// Register service worker (only in production)
+if (import.meta.env.PROD) {
+  registerServiceWorker();
+}
 
 // Note on <StrictMode>:
 // React's <StrictMode> is a development tool for highlighting potential problems in an application.

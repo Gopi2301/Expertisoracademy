@@ -46,7 +46,6 @@ const Community = memo(() => {
                             preserveAspectRatio: 'xMidYMid slice',
                             progressiveLoad: true,
                         }}
-                        isClickToPauseDisabled={true}
                     />
 
                     {/* mobile below md */}
@@ -59,7 +58,6 @@ const Community = memo(() => {
                             preserveAspectRatio: 'xMidYMid slice',
                             progressiveLoad: true,
                         }}
-                        isClickToPauseDisabled={true}
                     />
                 </>
             )}

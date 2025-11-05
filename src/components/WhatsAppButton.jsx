@@ -42,7 +42,6 @@ const WhatsAppButton = memo(() => {
           preserveAspectRatio: 'xMidYMid slice',
           progressiveLoad: true,
         }}
-        isClickToPauseDisabled={true}
       />
 
       <Lottie
@@ -54,7 +53,6 @@ const WhatsAppButton = memo(() => {
           preserveAspectRatio: 'xMidYMid slice',
           progressiveLoad: true,
         }}
-        isClickToPauseDisabled={true}
       />
       </a>
   );

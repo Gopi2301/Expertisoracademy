@@ -1,8 +1,11 @@
 import { useState, useEffect, useRef, memo } from 'react';
 
 /**
- * OptimizedImage component that supports WebP with fallback
+ * OptimizedImage component that supports WebP with fallback and srcset
  * Automatically uses WebP if supported, falls back to original format
+ * Supports responsive images with srcset
+ * @param {string} width - Image width (required for CLS prevention)
+ * @param {string} height - Image height (required for CLS prevention)
  */
 const OptimizedImage = memo(({ 
   src, 
@@ -11,6 +14,11 @@ const OptimizedImage = memo(({
   className, 
   loading = 'lazy',
   decoding = 'async',
+  srcSet,
+  sizes,
+  webpSrcSet,
+  width,
+  height,
   ...props 
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
@@ -82,6 +90,41 @@ const OptimizedImage = memo(({
     }
   };
 
+  // Use picture element if srcset is provided
+  if ((srcSet || webpSrcSet) && isInView) {
+    return (
+      <picture>
+        {webpSupported.current && webpSrcSet && (
+          <source
+            type="image/webp"
+            srcSet={webpSrcSet}
+            sizes={sizes}
+          />
+        )}
+        <img
+          ref={imgRef}
+          src={imgSrc}
+          srcSet={srcSet}
+          sizes={sizes}
+          alt={alt}
+          className={className}
+          loading={loading}
+          decoding={decoding}
+          width={width}
+          height={height}
+          onLoad={handleLoad}
+          onError={handleError}
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transition: 'opacity 0.3s ease-in-out',
+            ...props.style,
+          }}
+          {...props}
+        />
+      </picture>
+    );
+  }
+
   return (
     <img
       ref={imgRef}
@@ -90,6 +133,8 @@ const OptimizedImage = memo(({
       className={className}
       loading={loading}
       decoding={decoding}
+      width={width}
+      height={height}
       onLoad={handleLoad}
       onError={handleError}
       style={{

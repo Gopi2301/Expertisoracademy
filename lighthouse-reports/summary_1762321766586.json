@@ -1,0 +1,510 @@
+{
+  "summary": {
+    "desktop": {
+      "passed": 0,
+      "failed": 13,
+      "total": 13
+    },
+    "mobile": {
+      "passed": 0,
+      "failed": 13,
+      "total": 13
+    }
+  },
+  "results": [
+    {
+      "url": "http://localhost:4173/",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/__desktop_1762320900066.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/__mobile_1762320935139.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/courses",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_courses_desktop_1762320970258.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/courses",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_courses_mobile_1762321004838.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/testimonials",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_testimonials_desktop_1762321039397.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/testimonials",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_testimonials_mobile_1762321073851.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/mentors",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_mentors_desktop_1762321108313.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/mentors",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_mentors_mobile_1762321142794.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/techbundle",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_techbundle_desktop_1762321177350.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/techbundle",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_techbundle_mobile_1762321211858.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/reels-affiliate-marketing-tamil",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_reels-affiliate-marketing-tamil_desktop_1762321246301.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/reels-affiliate-marketing-tamil",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_reels-affiliate-marketing-tamil_mobile_1762321280812.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/3dsmax-tamil",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_3dsmax-tamil_desktop_1762321315305.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/3dsmax-tamil",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_3dsmax-tamil_mobile_1762321349863.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/termsandservices",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_termsandservices_desktop_1762321384337.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/termsandservices",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_termsandservices_mobile_1762321418843.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/privacypolicy",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_privacypolicy_desktop_1762321453247.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/privacypolicy",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_privacypolicy_mobile_1762321487862.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/RefundAndCertificationPolicy",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_RefundAndCertificationPolicy_desktop_1762321522266.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/RefundAndCertificationPolicy",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_RefundAndCertificationPolicy_mobile_1762321557368.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/creator-mentor",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_creator-mentor_desktop_1762321592179.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/creator-mentor",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_creator-mentor_mobile_1762321626580.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/solidworks-tamil",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_solidworks-tamil_desktop_1762321661016.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/solidworks-tamil",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_solidworks-tamil_mobile_1762321695700.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/civil3d-tamil",
+      "device": "desktop",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_civil3d-tamil_desktop_1762321730085.html",
+      "passed": false
+    },
+    {
+      "url": "http://localhost:4173/civil3d-tamil",
+      "device": "mobile",
+      "scores": {
+        "performance": 0,
+        "accessibility": 0,
+        "best-practices": 0,
+        "seo": 0
+      },
+      "metrics": {
+        "fcp": 0,
+        "lcp": 0,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 0
+      },
+      "filePath": "/Users/amanbhogal/Downloads/original_expertisor/lighthouse-reports/_civil3d-tamil_mobile_1762321764538.html",
+      "passed": false
+    }
+  ]
+}
