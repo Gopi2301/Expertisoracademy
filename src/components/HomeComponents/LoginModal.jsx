@@ -2,6 +2,7 @@
 
 // --- 1. Import Core Libraries and Components ---
 import React, { useState, useRef, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { MdEmail, MdLock } from "react-icons/md";
@@ -38,6 +39,14 @@ const LoginModal = ({ onClose }) => {
       setOtp(new Array(4).fill("")); // Clear previous OTP on re-entry.
     }
   }, [showOtpScreen]);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, []);
 
   // --- 3. Event Handlers ---
 
@@ -118,13 +127,24 @@ const LoginModal = ({ onClose }) => {
 
 
   // --- 4. JSX Render ---
-  return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center px-2 sm:px-4">
+  const modalContent = (
+    <div 
+      className="fixed inset-0 flex items-center justify-center px-2 sm:px-4"
+      style={{ zIndex: 10000, backgroundColor: 'rgba(0, 0, 0, 0)' }}
+    >
       {/* Dark overlay that closes the modal on click */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm" onClick={onClose}></div>
+      <div 
+        className="absolute inset-0 bg-black/70 backdrop-blur-sm" 
+        onClick={onClose}
+        style={{ zIndex: 9998, backgroundColor: 'rgba(0, 0, 0, 0.7)' }}
+      ></div>
 
       {/* Main modal container with responsive width and layout */}
-      <div className="relative bg-black rounded-2xl text-white w-full max-w-3xl mx-auto flex flex-col md:flex-row overflow-hidden">
+      <div 
+        className="relative bg-black rounded-2xl text-white w-full max-w-3xl mx-auto flex flex-col md:flex-row overflow-hidden"
+        style={{ zIndex: 10001, position: 'relative' }}
+        onClick={(e) => e.stopPropagation()}
+      >
 
         {/* Left side image panel (hidden on mobile) */}
         <div className="hidden md:flex md:w-1/2 items-center justify-center p-4">
@@ -234,6 +254,9 @@ const LoginModal = ({ onClose }) => {
       </div>
     </div>
   );
+
+  // Render modal using portal to ensure it's on top of everything
+  return createPortal(modalContent, document.body);
 };
 
 export default LoginModal;

@@ -342,7 +342,7 @@ const App = () => {
 
       {/* WhatsApp Button */}
       {!currentPath.includes('/eliteconnect') && (
-        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
+        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[5000]'>
           <WhatsAppButton />
         </div>
       )}
