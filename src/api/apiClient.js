@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 // This line is crucial for switching between development and production environments.
 // - In development (`npm run dev`), it uses the URL from your `.env` file (e.g., 'http://localhost:5001').
 // - In production (`npm run build`), it uses the URL from your `.env.production` file (e.g., 'https://api.expertisoracademy.in').
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.expertisoracademy.in';
 
 
 /**

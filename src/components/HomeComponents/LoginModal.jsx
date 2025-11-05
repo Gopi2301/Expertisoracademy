@@ -11,7 +11,7 @@ import { assets } from '../../assets/assets'; // For images
 import apiClient from '../../api/apiClient'; // For making API calls
 
 // Get the dynamic API URL from environment variables.
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.expertisoracademy.in';
 
 /**
  * A responsive modal component for handling user login and registration.

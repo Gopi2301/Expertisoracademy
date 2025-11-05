@@ -48,31 +48,45 @@ import { registerServiceWorker } from './utils/registerServiceWorker';
 // This is the anchor point where your entire React application will be mounted.
 const rootElement = document.getElementById('root');
 
+if (!rootElement) {
+  throw new Error('Root element not found. Make sure <div id="root"></div> exists in index.html');
+}
+
 // Next, we use `createRoot` to initialize the React application at that anchor point.
 const root = createRoot(rootElement);
 
 // Finally, we call `root.render()` to render your application's component tree.
 // The component tree is wrapped in providers to make their context available to all children.
-root.render(
-  // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
-  // to provide the necessary routing context.
-  <BrowserRouter>
-    
-    {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
-        inside <App> can access the course context via the `useContext` hook. */}
-    <CourseContextProvider>
+try {
+  root.render(
+    // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
+    // to provide the necessary routing context.
+    <BrowserRouter>
       
-      {/* <App /> is the entry point of your component hierarchy. */}
-      <App />
+      {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
+          inside <App> can access the course context via the `useContext` hook. */}
+      <CourseContextProvider>
+        
+        {/* <App /> is the entry point of your component hierarchy. */}
+        <App />
 
-    </CourseContextProvider>
+      </CourseContextProvider>
 
-  </BrowserRouter>
-);
+    </BrowserRouter>
+  );
+} catch (error) {
+  console.error('Error rendering app:', error);
+  rootElement.innerHTML = '<div style="color: white; padding: 20px; text-align: center;"><h1>Error Loading Application</h1><p>Please refresh the page. If the problem persists, contact support.</p></div>';
+}
 
 // Register service worker (only in production)
 if (import.meta.env.PROD) {
-  registerServiceWorker();
+  try {
+    registerServiceWorker();
+  } catch (error) {
+    console.error('Service worker registration failed:', error);
+    // Don't block the app if service worker fails
+  }
 }
 
 // Note on <StrictMode>:

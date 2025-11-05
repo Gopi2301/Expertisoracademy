@@ -12,7 +12,7 @@ const isLocalhost = Boolean(
 export function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     // Service worker is supported
-    const publicUrl = new URL(process.env.PUBLIC_URL || window.location.href);
+    const publicUrl = new URL(import.meta.env.BASE_URL || '/', window.location.href);
     
     // Don't register service worker on localhost in development
     if (publicUrl.origin !== window.location.origin) {
@@ -20,7 +20,7 @@ export function registerServiceWorker() {
     }
 
     window.addEventListener('load', () => {
-      const swUrl = `${process.env.PUBLIC_URL || ''}/sw.js`;
+      const swUrl = `${import.meta.env.BASE_URL || '/'}sw.js`;
 
       if (isLocalhost) {
         // Check if service worker still exists
