@@ -2,8 +2,10 @@ import React from 'react'
 import icon from '../../assets/images/icon.svg'
 import starIcon from '../../assets/images/star.svg'
 import learnLabel from '../../assets/images/learn_label.svg'
-import creatorsImage from '../../assets/images/creators.svg'
-import mobileCreatorsImage from '../../assets/images/m_creators.svg'
+import creatorsImage from '../../assets/optimized/images/creators.png'
+import creatorsImageWebp from '../../assets/optimized/images/creators.webp'
+import mobileCreatorsImage from '../../assets/optimized/images/m_creators.png'
+import mobileCreatorsImageWebp from '../../assets/optimized/images/m_creators.webp'
 
 const Hero = () => {
     return (
@@ -68,11 +70,17 @@ const Hero = () => {
 
 
                 <div className='hidden sm:block'>
-                    <img width={"100%"} src={creatorsImage} alt="" />
+                    <picture>
+                        <source srcSet={creatorsImageWebp} type="image/webp" />
+                        <img width={"100%"} src={creatorsImage} alt="Expertisor creators collage" loading="lazy" />
+                    </picture>
                 </div>
 
                 <div className='block sm:hidden'>
-                    <img width={"100%"} src={mobileCreatorsImage} alt="" />
+                    <picture>
+                        <source srcSet={mobileCreatorsImageWebp} type="image/webp" />
+                        <img width={"100%"} src={mobileCreatorsImage} alt="Expertisor creators collage mobile" loading="lazy" />
+                    </picture>
                 </div>
 
                 <div

@@ -94,9 +94,9 @@
 ```
 ✅ Total image size: ~5 MB (75% reduction)
 ✅ All 22 large images optimized
-✅ Lazy loading implemented
-✅ WebP with fallback support
-✅ Progressive loading strategy
+✅ Lazy loading implemented (hero/testimonial sections switched to `<picture>` sourcing optimized PNG/WebP variants)
+✅ WebP with fallback support (creators hero art, testimonial banners, key hero sections)
+✅ Progressive loading strategy (large SVG hero scenes converted to rasterized assets at multiple breakpoints)
 ✅ Reduced mobile data usage
 ```
 
@@ -536,6 +536,27 @@ assetsInlineLimit: 4096, // Inline assets < 4KB
 - Page-level JS chunks now land in the 25–35 kB gz range (`ThreeDMax-CAJ6UT_M.js`, `AffilateMarketing-DWwe4X-n.js`, etc.), versus the previous single mega bundle.
 - `npm run build` (Nov 6 2025) completes without errors; remaining Rollup notices relate to duplicate compressed assets and oversize SVG/video files, not JavaScript.
 - The architecture is ready for further lazy loading of data/imagery and aligns with the performance budgets documented above.
+
+---
+
+### 8. Targeted Hero/Testimonial Asset Slimming (Nov 2025)
+
+#### Problem
+
+- Home hero and testimonial sections still served multi-megabyte SVGs (5–6 MB desktop, 2 MB mobile) despite earlier image compression work.
+- SVG complexity prevented further gains via `svgo`, inflating above-the-fold payloads.
+
+#### Fix
+
+- Exported responsive raster sets (`creators.{png,webp}`, `m_creators.{png,webp}`, `tes_s_bg.{png,webp}`, `test_bg_mob.{png,webp}`) via `sharp`.
+- Updated hero/testimonial components to use `<picture>` with WebP primary sources, PNG fallbacks, and `loading="lazy"`.
+
+#### Result
+
+- Desktop hero payload: **~5.2 MB → 0.37 MB (PNG) / 0.14 MB (WebP)**.
+- Mobile hero payload: **~1.6 MB → 0.20 MB (PNG) / 0.08 MB (WebP)**.
+- Testimonial backgrounds: **~2.0 MB SVG → 0.7 MB PNG / 0.27 MB WebP** (desktop) and **~1.4 MB SVG → 1.0 MB PNG / 0.33 MB WebP** (mobile).
+- `npm run build` (Nov 6 2025) completes cleanly; new `dist/assets/png/webp` derivatives replace prior SVG entries for these sections.
 
 ---
 

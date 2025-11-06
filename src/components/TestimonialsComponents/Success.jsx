@@ -1,6 +1,8 @@
 import React from 'react'
-import testimonialsBackground from '../../assets/images/tes_s_bg.svg'
-import testimonialsBackgroundMobile from '../../assets/images/test_bg_mob.svg'
+import testimonialsBackground from '../../assets/optimized/images/tes_s_bg.png'
+import testimonialsBackgroundWebp from '../../assets/optimized/images/tes_s_bg.webp'
+import testimonialsBackgroundMobile from '../../assets/optimized/images/test_bg_mob.png'
+import testimonialsBackgroundMobileWebp from '../../assets/optimized/images/test_bg_mob.webp'
 
 const Success = () => {
     return (
@@ -8,13 +10,20 @@ const Success = () => {
             <div className='pb-16 pt-9 sm:py-0 '>
                 <div className=" relative mx-4 ">
                     {/* bg image */}
-                    <img
-                        src={testimonialsBackground}
-                        alt="Banner"
-                        className="hidden sm:block w-full "
-                    />
+                    <picture className="hidden sm:block w-full">
+                        <source srcSet={testimonialsBackgroundWebp} type="image/webp" />
+                        <img
+                            src={testimonialsBackground}
+                            alt="Learner success banner"
+                            className="w-full"
+                            loading="lazy"
+                        />
+                    </picture>
 
-                    <img src={testimonialsBackgroundMobile} alt="" className='block sm:hidden w-full' />
+                    <picture className='block sm:hidden w-full'>
+                        <source srcSet={testimonialsBackgroundMobileWebp} type="image/webp" />
+                        <img src={testimonialsBackgroundMobile} alt="Learner success banner mobile" className='w-full' loading='lazy' />
+                    </picture>
 
                     {/* content overlay */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-3">
