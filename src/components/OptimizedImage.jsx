@@ -4,8 +4,6 @@ import { useState, useEffect, useRef, memo } from 'react';
  * OptimizedImage component that supports WebP with fallback and srcset
  * Automatically uses WebP if supported, falls back to original format
  * Supports responsive images with srcset
- * @param {string} width - Image width (required for CLS prevention)
- * @param {string} height - Image height (required for CLS prevention)
  */
 const OptimizedImage = memo(({ 
   src, 
@@ -17,8 +15,6 @@ const OptimizedImage = memo(({
   srcSet,
   sizes,
   webpSrcSet,
-  width,
-  height,
   ...props 
 }) => {
   const [imgSrc, setImgSrc] = useState(src);
@@ -110,8 +106,6 @@ const OptimizedImage = memo(({
           className={className}
           loading={loading}
           decoding={decoding}
-          width={width}
-          height={height}
           onLoad={handleLoad}
           onError={handleError}
           style={{
@@ -133,8 +127,6 @@ const OptimizedImage = memo(({
       className={className}
       loading={loading}
       decoding={decoding}
-      width={width}
-      height={height}
       onLoad={handleLoad}
       onError={handleError}
       style={{

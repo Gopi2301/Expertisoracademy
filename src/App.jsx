@@ -280,8 +280,8 @@ const App = () => {
   const currentPath = location.pathname.replace(/\/$/, '');
 
   // Header and main margin condition
-  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden;
-  const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
+const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden;
+const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
   return (
     <div className='font-inter bg-black min-h-screen flex flex-col text-white'>
@@ -342,7 +342,7 @@ const App = () => {
 
       {/* WhatsApp Button */}
       {!currentPath.includes('/eliteconnect') && (
-        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[5000]'>
+        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
           <WhatsAppButton />
         </div>
       )}

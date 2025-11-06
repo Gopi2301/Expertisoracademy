@@ -1,22 +1,13 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import Lottie from "lottie-react";
-// Lazy load large Lottie JSON files to reduce initial bundle size
-const mentors_run = () => import("../../../src/mentors_run.json").then(m => m.default);
-const mentors_mobile = () => import("../../../src/mentors_mobile.json").then(m => m.default);
+import mentors_run from "../../../src/mentors_run.json";
+import mentors_mobile from '../../../src/mentors_mobile.json'
 import StartButton from "../StartButton";
 import { pages } from "../../constants/pages";
 
 const Community = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
-    const [mentorsRunData, setMentorsRunData] = useState(null);
-    const [mentorsMobileData, setMentorsMobileData] = useState(null);
     const containerRef = useRef(null);
-
-    // Lazy load Lottie JSON files when component mounts
-    useEffect(() => {
-        mentors_run().then(setMentorsRunData);
-        mentors_mobile().then(setMentorsMobileData);
-    }, []);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -44,10 +35,10 @@ const Community = memo(() => {
     return (
         <div className="relative w-full" ref={containerRef}>
             {/* Fullscreen Lottie Background */}
-            {isVisible && mentorsRunData && mentorsMobileData && (
+            {isVisible && (
                 <>
                     <Lottie
-                        animationData={mentorsRunData}
+                        animationData={mentors_run}
                         loop
                         autoplay={isVisible}
                         className="w-full xl:h-[500px] roundd-lg sm:block hidden"
@@ -55,11 +46,12 @@ const Community = memo(() => {
                             preserveAspectRatio: 'xMidYMid slice',
                             progressiveLoad: true,
                         }}
+                        isClickToPauseDisabled={true}
                     />
 
                     {/* mobile below md */}
                     <Lottie
-                        animationData={mentorsMobileData}
+                        animationData={mentors_mobile}
                         loop
                         autoplay={isVisible}
                         className="block sm:hidden w-full object-contain"
@@ -67,6 +59,7 @@ const Community = memo(() => {
                             preserveAspectRatio: 'xMidYMid slice',
                             progressiveLoad: true,
                         }}
+                        isClickToPauseDisabled={true}
                     />
                 </>
             )}

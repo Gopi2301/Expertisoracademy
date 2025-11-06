@@ -5,8 +5,8 @@
    These styles are loaded first and should be minimal
    ============================================ */
 
-/* Inter font is now self-hosted via @fontsource/inter in main.jsx */
-/* This eliminates render-blocking external font requests */
+/* Google Fonts: Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 /* ============================================
    TAILWIND CSS - Base Framework Styles

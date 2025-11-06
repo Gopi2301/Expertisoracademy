@@ -1,11 +1,6 @@
 import { useState, useEffect, useRef, memo } from 'react';
 
-/**
- * LazyImage component with intersection observer for lazy loading
- * @param {string} width - Image width (required for CLS prevention)
- * @param {string} height - Image height (required for CLS prevention)
- */
-const LazyImage = memo(({ src, alt, className, width, height, ...props }) => {
+const LazyImage = memo(({ src, alt, className, ...props }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef(null);
@@ -46,8 +41,6 @@ const LazyImage = memo(({ src, alt, className, width, height, ...props }) => {
           className={className}
           loading="lazy"
           decoding="async"
-          width={width}
-          height={height}
           onLoad={() => setIsLoaded(true)}
           style={{ 
             opacity: isLoaded ? 1 : 0,
@@ -57,11 +50,7 @@ const LazyImage = memo(({ src, alt, className, width, height, ...props }) => {
           {...props}
         />
       ) : (
-        <div 
-          ref={imgRef} 
-          className={className}
-          style={{ width, height, ...props.style }}
-        />
+        <div ref={imgRef} className={className} />
       )}
     </>
   );

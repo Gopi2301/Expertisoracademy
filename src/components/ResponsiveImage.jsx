@@ -14,8 +14,6 @@ import { useInView } from 'react-intersection-observer';
  * @param {string} className - CSS classes
  * @param {string} loading - Loading strategy ('lazy' or 'eager')
  * @param {Object} breakpoints - Breakpoint sizes in pixels (default: [400, 800, 1200, 1600])
- * @param {string|number} width - Image width (required for CLS prevention)
- * @param {string|number} height - Image height (required for CLS prevention)
  */
 const ResponsiveImage = memo(({
   src,
@@ -25,8 +23,6 @@ const ResponsiveImage = memo(({
   className = '',
   loading = 'lazy',
   breakpoints = [400, 800, 1200, 1600],
-  width,
-  height,
   ...props
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -66,7 +62,7 @@ const ResponsiveImage = memo(({
 
   // Don't render until in view (for lazy loading)
   if (loading === 'lazy' && !inView) {
-    return <div ref={ref} className={className} style={{ width, height, aspectRatio: width && height ? `${width}/${height}` : '16/9' }} />;
+    return <div ref={ref} className={className} style={{ aspectRatio: '16/9' }} />;
   }
 
   // Determine which format to use
@@ -122,8 +118,6 @@ const ResponsiveImage = memo(({
         className={className}
         loading={loading}
         decoding="async"
-        width={width}
-        height={height}
         onLoad={handleLoad}
         style={{
           opacity: isLoaded ? 1 : 0,

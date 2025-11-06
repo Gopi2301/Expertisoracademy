@@ -4,39 +4,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Expertisor Academy - Quality tech education accessible to everyone" />
 
   <!-- ✅ Updated Favicon -->
   <link rel="icon" type="image/svg+xml" href="/expertisor-icon.svg" />
 
-  <!-- Critical CSS - Inline for above-the-fold content to prevent render-blocking -->
-  <style>
-    /* Critical above-the-fold styles */
-    html,body,#root{height:100%;width:100%;margin:0;padding:0}
-    body{background-color:#000;color:#fff;font-family:Inter,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-    *{box-sizing:border-box}
-  </style>
-
   <!-- Resource Hints for Performance Optimization -->
   
-  <!-- DNS Prefetch for external domains (fonts removed - now self-hosted) -->
+  <!-- DNS Prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://api.fontshare.com" />
   <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
   <link rel="dns-prefetch" href="https://www.youtube.com" />
   <link rel="dns-prefetch" href="https://img.youtube.com" />
   
-  <!-- Preconnect for third-party domains with high priority -->
-  <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  <!-- Preconnect for critical resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin />
   
-  <!-- Preload critical assets -->
-  <link rel="preload" href="/expertisor-icon.svg" as="image" type="image/svg+xml" />
-  
-  <!-- Modulepreload for critical JS chunks (will be populated by build process) -->
-  <!-- These help the browser discover and preload critical JavaScript modules -->
-  
-  <!-- Prefetch likely next pages (lower priority) -->
+  <!-- Prefetch likely next pages -->
   <link rel="prefetch" href="/courses" as="document" />
   <link rel="prefetch" href="/mentors" as="document" />
+  
+  <!-- Font from Fontshare -->
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@1&display=swap" rel="stylesheet" />
 
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-N4KBW3CR');</script>
+  <!-- End Google Tag Manager -->
 
   <!-- ✅ Updated Title -->
   <title>Expertisor Academy</title>
@@ -46,18 +47,6 @@
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 
-  <!-- Google Tag Manager - Deferred to prevent render-blocking -->
-  <script>
-    // Defer GTM loading until after page load
-    window.addEventListener('load', function() {
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-N4KBW3CR');
-    });
-  </script>
-  
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N4KBW3CR" height="0" width="0"
       style="display:none;visibility:hidden"></iframe></noscript>

@@ -42,6 +42,7 @@ const WhatsAppButton = memo(() => {
           preserveAspectRatio: 'xMidYMid slice',
           progressiveLoad: true,
         }}
+        style={{ pointerEvents: 'none' }}
       />
 
       <Lottie
@@ -53,6 +54,7 @@ const WhatsAppButton = memo(() => {
           preserveAspectRatio: 'xMidYMid slice',
           progressiveLoad: true,
         }}
+        style={{ pointerEvents: 'none' }}
       />
       </a>
   );

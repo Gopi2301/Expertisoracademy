@@ -24,15 +24,7 @@ import App from './App.jsx';
 import CourseContextProvider from './context/CourseContextProvider.jsx';
 
 
-// --- 3. Import Self-Hosted Fonts ---
-
-// Import Inter font weights (self-hosted via @fontsource/inter)
-// This eliminates render-blocking external font requests and improves PageSpeed
-import '@fontsource/inter/400.css'; // Regular weight
-import '@fontsource/inter/600.css'; // Semi-bold weight
-import '@fontsource/inter/700.css'; // Bold weight
-
-// --- 4. Import Global Styles ---
+// --- 3. Import Global Styles ---
 
 // `index.css` contains your global styles, including Tailwind CSS base styles, components,
 // and utilities. Importing it here ensures that these styles are applied to the entire application.
@@ -48,45 +40,31 @@ import { registerServiceWorker } from './utils/registerServiceWorker';
 // This is the anchor point where your entire React application will be mounted.
 const rootElement = document.getElementById('root');
 
-if (!rootElement) {
-  throw new Error('Root element not found. Make sure <div id="root"></div> exists in index.html');
-}
-
 // Next, we use `createRoot` to initialize the React application at that anchor point.
 const root = createRoot(rootElement);
 
 // Finally, we call `root.render()` to render your application's component tree.
 // The component tree is wrapped in providers to make their context available to all children.
-try {
-  root.render(
-    // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
-    // to provide the necessary routing context.
-    <BrowserRouter>
+root.render(
+  // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
+  // to provide the necessary routing context.
+  <BrowserRouter>
+    
+    {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
+        inside <App> can access the course context via the `useContext` hook. */}
+    <CourseContextProvider>
       
-      {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
-          inside <App> can access the course context via the `useContext` hook. */}
-      <CourseContextProvider>
-        
-        {/* <App /> is the entry point of your component hierarchy. */}
-        <App />
+      {/* <App /> is the entry point of your component hierarchy. */}
+      <App />
 
-      </CourseContextProvider>
+    </CourseContextProvider>
 
-    </BrowserRouter>
-  );
-} catch (error) {
-  console.error('Error rendering app:', error);
-  rootElement.innerHTML = '<div style="color: white; padding: 20px; text-align: center;"><h1>Error Loading Application</h1><p>Please refresh the page. If the problem persists, contact support.</p></div>';
-}
+  </BrowserRouter>
+);
 
 // Register service worker (only in production)
 if (import.meta.env.PROD) {
-  try {
-    registerServiceWorker();
-  } catch (error) {
-    console.error('Service worker registration failed:', error);
-    // Don't block the app if service worker fails
-  }
+  registerServiceWorker();
 }
 
 // Note on <StrictMode>:
