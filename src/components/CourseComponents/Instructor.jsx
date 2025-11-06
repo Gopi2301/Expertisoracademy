@@ -1,21 +1,30 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import starOutline from '../../assets/images/star_outline.svg';
+import studentOutline from '../../assets/images/stud_outline.svg';
+import bookOutline from '../../assets/images/book_outline.svg';
+import instructorImage from '../../assets/images/inst_sathish.svg';
+import instituteLogo from '../../assets/images/ins_ex_logo.svg';
+import instagramLogo from '../../assets/images/insta.svg';
+import xLogo from '../../assets/images/x.svg';
+import youtubeLogo from '../../assets/images/youtube.svg';
+import linkedinLogo from '../../assets/images/linkedin.svg';
+import linkIcon from '../../assets/images/link_icon.svg';
 
 import { FaInstagram, FaXTwitter, FaYoutube, FaLinkedin } from 'react-icons/fa6';
 import { LuExternalLink } from "react-icons/lu";
 
 const Instructor = () => {
     const inst = [
-        { img: assets.star_outline, name: '4.7 Ratings' },
-        { img: assets.stud_outline, name: '1025 Students' },
-        { img: assets.book_outline, name: '4 Courses' }
+        { img: starOutline, name: '4.7 Ratings' },
+        { img: studentOutline, name: '1025 Students' },
+        { img: bookOutline, name: '4 Courses' }
     ]
 
     const sm = [
-        { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com" },
-        { logo: assets.x, name: 'X (Twitter)', link_i: assets.link_icon, link: "https://twitter.com" },
-        { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com" },
-        { logo: assets.linkedin, name: 'LinkedIn', link_i: assets.link_icon, link: "https://www.linkedin.com" },
+        { logo: instagramLogo, name: 'Instagram', link_i: linkIcon, link: "https://www.instagram.com" },
+        { logo: xLogo, name: 'X (Twitter)', link_i: linkIcon, link: "https://twitter.com" },
+        { logo: youtubeLogo, name: 'YouTube', link_i: linkIcon, link: "https://www.youtube.com" },
+        { logo: linkedinLogo, name: 'LinkedIn', link_i: linkIcon, link: "https://www.linkedin.com" },
     ]
 
     const para=[
@@ -56,7 +65,7 @@ const Instructor = () => {
                 <div className='mt-4 flex justify-between'>
                     <div className='flex gap-5 '>
                         <div className='flex items-start'>
-                            <img src={assets.inst_sathish} alt="" />
+                            <img src={instructorImage} alt="" />
                         </div>
                         <div>
                             <h4 className='text-yellow font-inter font-semibold text-[16px] leading-[17.5px] tracking-[0] align-middle'>Sathesh PC</h4>
@@ -75,7 +84,7 @@ const Instructor = () => {
                     </div>
 
                     <div className='hidden md:block'>
-                        <img src={assets.ins_ex_logo} alt="" className='border-[8px] rounded-2xl border-[#181818] mr-14' />
+                        <img src={instituteLogo} alt="" className='border-[8px] rounded-2xl border-[#181818] mr-14' />
                     </div>
                 </div>
 

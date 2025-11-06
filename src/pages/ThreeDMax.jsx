@@ -6,7 +6,6 @@ import Course from '../components/ThreeDMaxComponents/Course'
 import Mentor from '../components/Mentor'
 import StudentsSay from '../components/HomeComponents/StudentsSay'
 import AffiliateReview from '../components/AffilateComponents/AffiliateReview'
-import { pages } from '../constants/pages'
 import AboutUs from '../components/HomeComponents/AboutUs'
 import FreAQ from '../components/AffilateComponents/FreAQ'
 import PassiveIncome from '../components/AffilateComponents/PassiveIncome'
@@ -14,7 +13,7 @@ import OfferBanner from '../components/OfferBanner'
 import BestMentors from '../components/BestMentors'
 import CoursePreview from '../components/CoursePreview'
 import ReviewOnly from '../components/ReviewOnly'
-
+import threeDMax from '../constants/data/threeDMax'
 
 
 const ThreeDMax = () => {
@@ -23,19 +22,19 @@ const ThreeDMax = () => {
       <Hero />
       {/* <BestMentors/> */}
       <SoftwareScroll />
-      <Course course_data={pages.ThreeDMax.course_section} />
+      <Course course_data={threeDMax.course_section} />
       <div className='pb-24 sm:pb-20 md:pb-[120px]'>
-        <CoursePreview lessons_data={pages.ThreeDMax.lessons_comp} />
+        <CoursePreview lessons_data={threeDMax.lessons_comp} />
       </div>
-      <Mentor data={pages.ThreeDMax.mentor_section} />
-      <StudentsSay students_say={pages.ThreeDMax.students_say_video} />
-      {/* <AffiliateReview review={pages.ThreeDMax.course_review} /> */}
-      <ReviewOnly review={pages.ThreeDMax.course_review}/>
-      <PassiveIncome p_income={pages.ThreeDMax.passive_income} />
+      <Mentor data={threeDMax.mentor_section} />
+      <StudentsSay students_say={threeDMax.students_say_video} />
+      {/* <AffiliateReview review={threeDMax.course_review} /> */}
+      <ReviewOnly review={threeDMax.course_review}/>
+      <PassiveIncome p_income={threeDMax.passive_income} />
       <AboutUs />
-      <FreAQ data={pages.ThreeDMax.FAQ} />
+      <FreAQ data={threeDMax.FAQ} />
       <div className="fixed bottom-0 left-0 w-full z-[1]">
-        <OfferBanner offer_detail={pages.ThreeDMax.OfferBanner} />
+        <OfferBanner offer_detail={threeDMax.OfferBanner} />
       </div>
     </>
   )

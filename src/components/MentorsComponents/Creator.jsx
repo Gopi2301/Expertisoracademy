@@ -1,5 +1,9 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import creatorHeroOne from '../../assets/images/cre1.svg'
+import creatorHeroTwo from '../../assets/images/cre2.svg'
+import separatorBorder from '../../assets/images/cre_border.svg'
+import checkCircleIcon from '../../assets/images/check_circle.svg'
+import errorIcon from '../../assets/images/error.svg'
 
 const Creator = () => {
     const creator = [
@@ -29,14 +33,14 @@ const Creator = () => {
 
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-4 items-stretch my-14'>
                     <div className='p-6 bg-[#161616] flex flex-col gap-5 rounded-lg h-full'>
-                        <img src={assets.cre1} alt="" className='max-h-[280px]' />
+                        <img src={creatorHeroOne} alt="" className='max-h-[280px]' />
                         <h3 className='font-clash font-semibold text-[20px] sm:text-[28px] leading-none tracking-[0] text-center uppercase'>Creator mentor</h3>
-                        <img src={assets.cre_border} alt="" />
+                        <img src={separatorBorder} alt="" />
                         <div className='flex flex-col gap-6'>
                             {
-                                creator.map((data, i) => (
-                                    <div className='flex gap-4 '>
-                                        <img src={assets.check_circle} alt="" className='w-6 h-6' />
+                                creator.map((data, index) => (
+                                    <div key={`creator-${index}`} className='flex gap-4 '>
+                                        <img src={checkCircleIcon} alt="" className='w-6 h-6' />
                                         <p className='font-inter font-normal text-base leading-6 align-middle'>{data}</p>
                                     </div>
                                 ))
@@ -46,14 +50,14 @@ const Creator = () => {
                     </div>
 
                     <div className='p-6 bg-[#161616] flex flex-col gap-5 rounded-lg h-full'>
-                        <img src={assets.cre2} alt="" className='max-h-[280px]' />
+                        <img src={creatorHeroTwo} alt="" className='max-h-[280px]' />
                         <h3 className='font-clash font-semibold text-[20px] sm:text-[28px] leading-none tracking-[0] text-center uppercase'>Non-Creator mentor</h3>
-                        <img src={assets.cre_border} alt="" />
+                        <img src={separatorBorder} alt="" />
                         <div className='flex flex-col gap-6'>
                             {
-                                nonCreator.map((data) => (
-                                    <div className='flex gap-4 '>
-                                        <img src={assets.error} alt="" className='w-6 h-6' />
+                                nonCreator.map((data, index) => (
+                                    <div key={`non-creator-${index}`} className='flex gap-4 '>
+                                        <img src={errorIcon} alt="" className='w-6 h-6' />
                                         <p className='font-inter font-normal text-base leading-6 align-middle'>{data}</p>
                                     </div>
                                 ))

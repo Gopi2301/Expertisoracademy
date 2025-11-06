@@ -1,27 +1,35 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import studworkBackground from '../../assets/images/studwork.png'
+import companyLogo1 from '../../assets/images/studetsworkat/c1.svg'
+import companyLogo2 from '../../assets/images/studetsworkat/c2.svg'
+import companyLogo3 from '../../assets/images/studetsworkat/c3.svg'
+import companyLogo4 from '../../assets/images/studetsworkat/c4.svg'
+import companyLogo5 from '../../assets/images/studetsworkat/c5.svg'
+import companyLogo6 from '../../assets/images/studetsworkat/c6.svg'
+import companyLogo7 from '../../assets/images/studetsworkat/c7.svg'
+import companyLogo8 from '../../assets/images/studetsworkat/c8.svg'
 import Marquee from 'react-fast-marquee'
 
 
 const StudWorksAt = () => {
 
   const comp=[
-    assets.c1,
-    assets.c2,
-    assets.c3,
-    assets.c4,
-    assets.c5,
-    assets.c6,
-    assets.c7,
-    assets.c8,
-    assets.c1,
-    assets.c2,
-    assets.c3,
-    assets.c4,
-    assets.c5,
-    assets.c6,
-    assets.c7,
-    assets.c8,
+    companyLogo1,
+    companyLogo2,
+    companyLogo3,
+    companyLogo4,
+    companyLogo5,
+    companyLogo6,
+    companyLogo7,
+    companyLogo8,
+    companyLogo1,
+    companyLogo2,
+    companyLogo3,
+    companyLogo4,
+    companyLogo5,
+    companyLogo6,
+    companyLogo7,
+    companyLogo8,
   ]
 
   return (
@@ -57,7 +65,7 @@ const StudWorksAt = () => {
 
     <div>
       <div className=" my-20" style={{
-    backgroundImage: `url(${assets.studwork})`,
+    backgroundImage: `url(${studworkBackground})`,
     backgroundRepeat: 'no-repeat',         // or 'no-repeat', 'repeat-x', etc.
     backgroundSize: 'cover',
     backgroundPosition: 'center',

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Download } from "lucide-react";
-import { assets } from "../assets/assets";
+import tokenIcon from "../assets/images/affilate/token.svg";
+import clockIcon from "../assets/images/clock_icon.svg";
 
 
 const OfferBanner = ({offer_detail}) => {
@@ -52,7 +53,7 @@ const OfferBanner = ({offer_detail}) => {
 
   const Coupon = () => (
     <div className="flex gap-2 items-center">
-      <img src={assets.token} alt="coupon" />
+      <img src={tokenIcon} alt="coupon" />
       <p className="lg:block hidden text-[#8A8A8A] font-inter font-normal text-[14px] leading-[16px]">Coupon Code</p>
       <div className="inline-flex gap-1 border border-dashed border-[#383838] items-center p-1">
         <p className="font-inter font-semibold text-[12px] text-white">
@@ -125,7 +126,7 @@ const OfferBanner = ({offer_detail}) => {
             <Coupon />
           </div>
           <div className="flex items-center gap-1 ">
-            <img src={assets.clock_icon} alt="clock" />
+            <img src={clockIcon} alt="clock" />
             <p className="text-[12px] text-[#FF4343]">
               {d} days {String(h).padStart(2, "0")} hours {String(m).padStart(2, "0")} minutes
             </p>

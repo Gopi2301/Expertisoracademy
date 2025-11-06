@@ -1,5 +1,4 @@
 import React from 'react'
-import { pages } from '../../constants/pages'
 import Heading from '../Heading'
 
 const Course = ({course_data}) => {

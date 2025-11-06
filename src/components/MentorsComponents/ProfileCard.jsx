@@ -1,138 +1,10 @@
-// import React from 'react';
-
-// const ProfileCard = ({ imgSrc }) => {
-//   return (
-//     <div className="relative group w-full h-full rounded-lg overflow-hidden">
-//       {/* Static Image */}
-//       <img
-//         src={imgSrc}
-//         alt="Creator Mentor"
-//         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-//       />
-
-//       {/* Hover Overlay */}
-//       <div className="absolute inset-0 bg-black  flex flex-col items-center justify-center text-center p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-//         <h3 className="font-clash font-semibold text-[24px] text-white uppercase mb-2">
-//           Creator Mentor
-//         </h3>
-//         <p className="font-inter text-white text-sm mb-4">
-//           Learn from top creators with real-world projects and guided mentorship.
-//         </p>
-//         <button className="bg-yellow text-black font-semibold px-4 py-2 rounded hover:bg-yellow-300 transition">
-//           View Details
-//         </button>
-//       </div>
-//     </div>
-
-//   );
-// };
-
-// export default ProfileCard;
-
-
-
-
-
-// import React from 'react';
-// import { assets } from '../../assets/assets';
-
-
-// const ProfileCard = ({ imgSrc }) => {
-//   return (
-//     <div className="relative group w-full  overflow-hidden rounded-lg cursor-pointer">
-//       {/* Image that slides up fully */}
-//       <img
-//         src={imgSrc}
-//         alt="Creator Mentor"
-//         className="
-//           w-full h-full object-cover
-//           transition-transform duration-500 ease-in-out 
-//           group-hover:-translate-y-full 
-//         "
-//       />
-
-
-//       {/* Details overlay on bottom without fully blocking image */}
-//       <div className="
-//         absolute top-0 left-0 w-full
-//         p-4
-//         opacity-0 group-hover:opacity-100
-//         transition-opacity duration-500 ease-in-out
-//       ">
-//         <div className=''>
-//           <div className='flex flex-col '>
-//             {/* name */}
-//             <div className='flex justify-between'>
-//               <div>
-//                 <h3 className='font-inter font-semibold xl:text-[36px]'>Sathish PC</h3>
-//                 <p className='font-inter font-normal text-[14px] leading-[17.5px]'>Instructor, Java Specialist, YouTuber</p>
-//               </div>
-//               <img src={assets.settings} alt="" />
-//             </div>
-
-//             {/* reviews */}
-//             <div className='flex flex-col gap-2 pl-2 py-3'>
-//               <div className='flex gap-3 items-center'>
-//                 <img src={assets.star_outline} alt="" className='w-5 h-5' />
-//                 <p className='font-inter font-normal text-[14px] leading-[17.5px]'>4.7 Ratings</p>
-//               </div>
-//               <div className='flex gap-3 items-center'>
-//                 <img src={assets.star_outline} alt="" className='w-5 h-5' />
-//                 <p className='font-inter font-normal text-[14px] leading-[17.5px]'>4.7 Ratings</p>
-//               </div>
-//               <div className='flex gap-3 items-center'>
-//                 <img src={assets.star_outline} alt="" className='w-5 h-5' />
-//                 <p className='font-inter font-normal text-[14px] leading-[17.5px]'>4.7 Ratings</p>
-//               </div>
-//             </div>
-
-//             {/* para */}
-//             <p className='line-clamp-3'>A college broken kid with unstable internet and a passion for tech education at the age of 21, I founded Expertisor Academy to transform traditional education making it core, accessible, and fun to learn directly from top tech creator mentors.</p>
-
-//             <div className="flex gap-2 pt-5">
-//               <a className="flex items-center gap-1 bg-neutral-800 rounded-md px-1 py-1 text-xs cursor-pointer">
-//                 <img src={assets.insta} alt="" />
-//                 <span>50.1K</span>
-//               </a>
-//               <a className="flex items-center gap-1 bg-neutral-800 rounded-md px-1 py-1 text-xs cursor-pointer">
-//                 <img src={assets.x} alt="" />
-//                 <span>50.1K</span>
-//               </a>
-//               <a className="flex items-center gap-1 bg-neutral-800 rounded-md px-1 py-1 text-xs cursor-pointer">
-//                 <img src={assets.youtube} alt="" />
-//                 <span>50.1K</span>
-//               </a>
-//               <a className="flex items-center gap-1 bg-neutral-800 rounded-md px-1 py-1 text-xs cursor-pointer">
-//                 <img src={assets.linkedin} alt="" />
-//                 <span>50.1K</span>
-//               </a>
-//             </div>
-
-
-
-//           </div>
-//         </div>
-
-
-
-
-
-
-
-
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ProfileCard;
-
-
-
-
-
 import React from 'react';
-import { assets } from '../../assets/assets';
+import settingsIcon from '../../assets/images/settings.svg';
+import starOutline from '../../assets/images/star_outline.svg';
+import instagramIcon from '../../assets/images/insta.svg';
+import xIcon from '../../assets/images/x.svg';
+import youtubeIcon from '../../assets/images/youtube.svg';
+import linkedinIcon from '../../assets/images/linkedin.svg';
 
 const ProfileCard = ({ imgSrc }) => {
   return (
@@ -172,14 +44,14 @@ const ProfileCard = ({ imgSrc }) => {
                 Instructor, Java Specialist
               </p>
             </div>
-            <img src={assets.settings} alt="settings" className="w-9 h-9" />
+            <img src={settingsIcon} alt="settings" className="w-9 h-9" />
           </div>
 
           {/* Ratings */}
           <div className="flex flex-col gap-1 ">
             {['4.7 Ratings', '4.7 Ratings', '4.7 Ratings'].map((text, idx) => (
               <div key={idx} className="flex gap-1 items-center">
-                <img src={assets.star_outline} alt="star" className="w-4 h-4" />
+                <img src={starOutline} alt="star" className="w-4 h-4" />
                 <p className="text-[15px]">{text}</p>
               </div>
             ))}
@@ -193,10 +65,10 @@ A college broken kid with unstable internet and a passion for tech education at 
         {/* Social Links */}
         <div className="flex flex-wrap gap-1">
           {[
-            { icon: assets.insta, label: '50.1K' },
-            { icon: assets.x, label: '50.1K' },
-            { icon: assets.youtube, label: '50.1K' },
-            { icon: assets.linkedin, label: '50.1K' },
+            { icon: instagramIcon, label: '50.1K' },
+            { icon: xIcon, label: '50.1K' },
+            { icon: youtubeIcon, label: '50.1K' },
+            { icon: linkedinIcon, label: '50.1K' },
           ].map((item, idx) => (
             <a
               key={idx}

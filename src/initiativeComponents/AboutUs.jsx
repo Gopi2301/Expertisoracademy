@@ -20,16 +20,11 @@ const Aboutus = () => {
         "Struggling to Crack Interviews?"
     ]
 
-    const [images, setImages] = useState(false)
-
-
-
     const [visibleIndex, setVisibleIndex] = useState(null);
 
 
     const toggleParagraph = (index) => {
         setVisibleIndex((prevIndex) => (prevIndex === index ? null : index));
-        setImages((prev) => (!prev))
     };
     
     const faqs = [
@@ -66,7 +61,7 @@ const Aboutus = () => {
 
                                 <p className="text-[14px] sm:text-[16px]">We're on a mission to impact 1 million students’ lives.</p>
 
-                                <p className="text-[14px] sm:text-[16px]">Our Philosophy: Top-quality education should be affordable and driven by value. Money is a by-product of creating real impact</p>
+                                <p className="text-[14px] sm:text-[16px]">Our Philosophy: Top-quality education should be affordable and driven by value. Money is a by-product of creating real impact.</p>
 
                             </div>
                         </div>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
-import { pages } from '../../constants/pages';
-import { assets } from '../../assets/assets';
+import downArrow from '../../assets/images/down_arrow.svg';
 
 
 const FreAQ = ({data}) => {
@@ -9,7 +8,6 @@ const FreAQ = ({data}) => {
 
     const toggleParagraph = (index) => {
         setVisibleIndex((prevIndex) => (prevIndex === index ? null : index));
-        setImages((prev) => (!prev))
     };
 
 
@@ -48,7 +46,7 @@ const FreAQ = ({data}) => {
                                 </div>
 
                                 <img
-                                    src={assets.down_arrow}
+                                    src={downArrow}
                                     alt="Toggle"
                                     className="cursor-pointer w-6 h-6 transition-transform duration-300"
                                     style={{

@@ -1,6 +1,4 @@
 import React from 'react'
-import { pages } from '../../constants/pages'
-import Marquee from 'react-fast-marquee'
 
 
 const Review = ({ data,height }) => {

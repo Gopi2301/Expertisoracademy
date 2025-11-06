@@ -16,7 +16,7 @@ const Footer = () => {
 
         </div>
 
-        <p className="mt-2 font-inter text-center">© 2025 Expertisor Academy. All Rights Reserved.</p>
+        <p className="mt-2 font-inter text-center">© 2025 Expertisor Academy. All Rights Reserved.</p>
 
       </div>
     </div>

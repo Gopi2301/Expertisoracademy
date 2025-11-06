@@ -1,25 +1,28 @@
-import { assets } from "../../assets/assets";
+import patamIcon from "../../assets/images/mentreviews/patam.svg";
+import clockIcon from "../../assets/images/mentreviews/clock.svg";
+import subscriptionsIcon from "../../assets/images/mentreviews/subscriptions.svg";
+import contIcon from "../../assets/images/mentreviews/cont.svg";
 
 
 const StatsSection = () => {
     const stats = [
         {
-            icon: assets.patam,
+            icon: patamIcon,
             number: '1,00,000+',
             label: 'IMPACTED STUDENTS',
         },
         {
-            icon: assets.clock,
+            icon: clockIcon,
             number: '65000+',
             label: 'WATCH HOURS',
         },
         {
-            icon: assets.subscriptions,
+            icon: subscriptionsIcon,
             number: '50+',
             label: 'COURSES',
         },
         {
-            icon: assets.cont,
+            icon: contIcon,
             number: '10M+',
             label: 'TOTAL FOLLOWERS',
         },

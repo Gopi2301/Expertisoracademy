@@ -6,7 +6,8 @@
 
 import React, { useState } from "react";
 import { Star, Clock, Video, Users } from "lucide-react";
-import { assets } from "../../assets/assets";
+import starBadge from "../../assets/images/star.svg";
+import rightArrow from "../../assets/images/affilate/r_long_arrow.svg";
 import { useNavigate } from "react-router-dom";
 
 const Sessions = ({ data,mentorKey }) => {
@@ -101,7 +102,7 @@ const Sessions = ({ data,mentorKey }) => {
                             <h3 className="font-inter font-semibold text-[18px]">{item.title}</h3>
                             <div className="flex flex-wrap items-center gap-2 text-gray-400 text-sm mt-2 mb-3">
                                 <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-[#FFC2211A]">
-                                    <img src={assets.star} alt="" />
+                                    <img src={starBadge} alt="" />
                                     <span className="font-inter font-normal text-[14px] text-[#ffffff]">
                                         {item.rating}
                                     </span>
@@ -150,19 +151,6 @@ const Sessions = ({ data,mentorKey }) => {
                                     </div>
                                 )}
 
-                                {/* <a
-                                    href={data.book_now_link}
-                                    className="bg-yellow cursor-pointer text-black font-inter font-semibold text-[16px] px-3 py-2 rounded-[4px] inline-flex items-center gap-2"
-                                >
-                                    Book Now
-                                    <img
-                                        src={assets.r_long_arrow}
-                                        alt="arrow"
-                                        className="w-4 h-4 object-contain text-nowrap"
-                                    />
-                                </a> */}
-
-
                                 <button
                                     onClick={() => {
                                         if (item.route?.startsWith("http")) {
@@ -177,7 +165,7 @@ const Sessions = ({ data,mentorKey }) => {
                                 >
                                     Book Now
                                     <img
-                                        src={assets.r_long_arrow}
+                                        src={rightArrow}
                                         alt="arrow"
                                         className="w-4 h-4 object-contain text-nowrap"
                                     />

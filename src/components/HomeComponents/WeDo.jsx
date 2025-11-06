@@ -1,5 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import { assets } from '../../assets/assets'
+import React, { useState } from 'react'
+import coursesImage from '../../assets/images/courses.png'
+import webinarsImage from '../../assets/images/webinars.png'
+import consultImage from '../../assets/images/consult.png'
+import corporatesImage from '../../assets/images/corporates.png'
 import { Link } from 'react-router-dom';
 // import { captureUTMParams } from '../../../utils/utmUtils';
 
@@ -29,7 +32,7 @@ const WeDo = () => {
 
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
-                  src={assets.courses}
+                  src={coursesImage}
                   alt="Courses"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
                 />
@@ -47,7 +50,7 @@ const WeDo = () => {
 
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
-                  src={assets.webinars}
+                  src={webinarsImage}
                   alt="Courses"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
                 />
@@ -65,7 +68,7 @@ const WeDo = () => {
 
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
-                  src={assets.consult}
+                  src={consultImage}
                   alt="Courses"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
                 />
@@ -83,7 +86,7 @@ const WeDo = () => {
 
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
-                  src={assets.corporates}
+                  src={corporatesImage}
                   alt="Courses"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
                 />

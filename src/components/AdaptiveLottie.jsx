@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef, memo } from 'react';
 import Lottie from 'lottie-react';
 import { useInView } from 'react-intersection-observer';
 import {
-  getRecommendedAnimationQuality,
   shouldReduceAnimations,
   getDeviceCapabilities,
 } from '../utils/deviceCapabilities';
@@ -40,7 +39,6 @@ const AdaptiveLottie = memo(({
 
   // Get device capabilities
   const deviceCapabilities = getDeviceCapabilities();
-  const recommendedQuality = getRecommendedAnimationQuality();
 
   useEffect(() => {
     setIsVisible(inView);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
-import bghome from '../../assets/images/bg_gradient.png'
-import { assets } from '../../assets/assets'
+import icon from '../../assets/images/icon.svg'
+import starIcon from '../../assets/images/star.svg'
+import pauseIcon from '../../assets/images/pause.png'
 
 
 const Hero = () => {
@@ -27,8 +28,8 @@ const Hero = () => {
                     <div className=' text-center pb-10 lg:pb-16'>
                         <div className='flex justify-center'>
                             <div className='flex gap-2 p-2 border border-[#FFFFFF] items-center rounded-lg'>
-                                <img src={assets.icon} alt="" />
-                                <img src={assets.star_i} alt="" className='w-6 h-6' />
+                                <img src={icon} alt="" />
+                                <img src={starIcon} alt="" className='w-6 h-6' />
                                 <p className='text-[#DBDBDB] font-inter text-nowrap'>4.9 (7462 reviews)</p>
                             </div>
                         </div>
@@ -52,7 +53,7 @@ const Hero = () => {
 
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className="bg-yellow p-2 sm:p-3  rounded-full">
-                                            <img src={assets.pause} alt="" className='w-[33px] h-[33px] sm:w-[60px] sm:h-[60px]' />
+                                            <img src={pauseIcon} alt="" className='w-[33px] h-[33px] sm:w-[60px] sm:h-[60px]' />
                                         </div>
                                     </div>
                                 </div>

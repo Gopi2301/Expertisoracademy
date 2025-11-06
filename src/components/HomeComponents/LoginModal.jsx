@@ -7,7 +7,9 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { MdEmail, MdLock } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
-import { assets } from '../../assets/assets'; // For images
+import desktopLogo from '../../assets/images/ex_logo.svg';
+import mobileLogo from '../../assets/images/ex_logo_mob.svg';
+import closeIcon from '../../assets/images/close.svg';
 import apiClient from '../../api/apiClient'; // For making API calls
 
 // Get the dynamic API URL from environment variables.
@@ -148,14 +150,14 @@ const LoginModal = ({ onClose }) => {
 
         {/* Left side image panel (hidden on mobile) */}
         <div className="hidden md:flex md:w-1/2 items-center justify-center p-4">
-          <img src={assets.ex_logo} alt="Expertisor Academy Logo" className="max-w-full h-auto object-contain" />
+          <img src={desktopLogo} alt="Expertisor Academy Logo" className="max-w-full h-auto object-contain" />
         </div>
 
         {/* Mobile-specific header with a smaller logo and a close button */}
         <div className="relative w-full md:hidden flex items-center justify-center px-4 pt-4 pb-2">
-          <img src={assets.ex_logo_mob} alt="Expertisor Academy Logo" className="max-h-36 w-auto object-contain" />
+          <img src={mobileLogo} alt="Expertisor Academy Logo" className="max-h-36 w-auto object-contain" />
           <img
-            src={assets.close}
+            src={closeIcon}
             alt="Close modal"
             className="absolute top-2 right-2 border p-2 rounded-lg border-[#373737] cursor-pointer"
             onClick={onClose}
@@ -205,23 +207,22 @@ const LoginModal = ({ onClose }) => {
               <a href={`${API_URL}/auth/github`} className="flex items-center justify-center gap-3 px-4 py-2 bg-[#0F0F0F] hover:bg-gray-800 rounded-md">
                 <FaGithub className="w-5 h-5" /> Continue with GitHub
               </a>
-{/* 
-              {/* <div className="text-center text-sm text-gray-400 my-4">or</div> */}
 
-              {/* Conditional Signup Fields */}
-              {/* {mode === 'signup' && (
+              <div className="text-center text-sm text-gray-400 my-4">or continue with email</div>
+
+              {mode === 'signup' && (
                 <label className="flex items-center w-full bg-[#0F0F0F] text-white rounded-md mb-2 px-4 py-2">
                   <IoPersonSharp className="text-gray-400 mr-2" />
                   <input type="text" placeholder="Enter Name" value={name} onChange={e => setName(e.target.value)} required className="w-full bg-transparent outline-none text-sm" />
                 </label>
-              )} */}
-              {/* Email Input (common to both modes) */}
-              {/* <label className="flex items-center w-full bg-[#0F0F0F] text-white rounded-md mb-2 px-4 py-2">
+              )}
+
+              <label className="flex items-center w-full bg-[#0F0F0F] text-white rounded-md mb-2 px-4 py-2">
                 <MdEmail className="text-gray-400 mr-2" />
                 <input type="email" placeholder="Enter Email address" value={email} onChange={e => setEmail(e.target.value)} required className="w-full bg-transparent outline-none text-sm" />
-              </label> */}
-              {/* Conditional Signup Password Fields */}
-              {/* {mode === 'signup' && (
+              </label>
+
+              {mode === 'signup' && (
                 <>
                   <label className="flex items-center w-full bg-[#0F0F0F] text-white rounded-md mb-2 px-4 py-2">
                     <MdLock className="text-gray-400 mr-2" />
@@ -235,19 +236,17 @@ const LoginModal = ({ onClose }) => {
               )}
 
               {error && <p className="text-red-500 text-center text-sm my-2">{error}</p>}
-              
-              {/* Main Action Button */}
-              {/* <button type="submit" disabled={loading} className="bg-yellow text-black w-full py-2 rounded-md font-semibold disabled:opacity-50">
+
+              <button type="submit" disabled={loading} className="bg-yellow text-black w-full py-2 rounded-md font-semibold disabled:opacity-50">
                 {loading ? 'Processing...' : (mode === 'signup' ? 'Create Account' : 'Continue with Email')}
-              </button> */}
-              
-              {/* Toggle link between Login and Signup modes */}
-              {/* <p className="text-sm mt-4 text-center">
-                {mode === 'signup' ? "Already have an account?" : "Don't have an account?"}{' '}
+              </button>
+
+              <p className="text-sm mt-4 text-center">
+                {mode === 'signup' ? 'Already have an account?' : "Don't have an account?"}{' '}
                 <span className="text-yellow cursor-pointer" onClick={() => { setMode(mode === 'signup' ? 'login' : 'signup'); setError(''); }}>
-                  {mode === 'signup' ? "Log In" : "Sign Up"}
+                  {mode === 'signup' ? 'Log In' : 'Sign Up'}
                 </span>
-              </p>  */}
+              </p>
             </form>
           )}
         </div>

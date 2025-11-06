@@ -1,6 +1,4 @@
 import React, { memo, useMemo } from 'react';
-import ProfileCard from './ProfileCard';
-import { assets } from '../../assets/assets';
 import { pages } from '../../constants/pages';
 import LazyImage from '../LazyImage';
 

@@ -3,7 +3,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { IoRocketOutline, IoClose } from 'react-icons/io5';
-import { assets } from '../assets/assets';
+import logo from '../assets/images/logo_ex.png';
+import menuIcon from '../assets/images/menu.svg';
 import UserProfile from './UserProfile';
 import { logout } from '../api/apiClient';
 import { decodeJwt } from '../utils/decodeJwt';
@@ -24,7 +25,6 @@ const GRAPHY_URL = "https://learn.expertisoracademy.in/t/u/activecourses";
 const Header = ({ onLoginClick }) => {
   const [userInfo, setUserInfo] = useState(null);
   const [dashboardUrl, setDashboardUrl] = useState('');
-  const [scrolled, setScrolled] = useState(false);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
@@ -44,7 +44,7 @@ const Header = ({ onLoginClick }) => {
             } else { logout(); }
           }
         }
-      } catch (error) { logout(); }
+      } catch { logout(); }
     };
     checkLoginStatus();
   }, []);
@@ -85,30 +85,15 @@ const Header = ({ onLoginClick }) => {
   const activeClass = 'inline-block py-2 md:py-3 px-2 rounded border border-white/60 bg-gradient-to-b from-black/10 to-yellow-500/10';
   const inActiveClass = 'inline-block py-2 md:py-3 px-2 rounded';
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
   return (
     <>
-      {/* ${scrolled ? 'bg-black shadow-md' : 'bg-transparent'} */}
       <header className={`w-full  fixed top-0 left-0 z-[1000] transition-all duration-300 bg-black `}>
         {/* ✅ This parent div now uses flexbox to align its three main children */}
         <div className="flex justify-between items-center py-4 px-4  md:px-14 lg:px-20 ">
 
           {/* Item 1: Logo */}
           <div className="flex-shrink-0">
-            <Link to="/"><img src={assets.logo_ex} alt="Expertisor Academy Logo" className="h-8" /></Link>
+            <Link to="/"><img src={logo} alt="Expertisor Academy Logo" className="h-8" /></Link>
           </div>
 
           {/* ✅ Item 2: Navigation - It now grows to fill space and centers its content */}
@@ -142,7 +127,7 @@ const Header = ({ onLoginClick }) => {
 
             {/* Mobile Hamburger Icon */}
             <div className='sm:hidden block' onClick={handleMobileMenuClick}>
-              <img src={assets.menu} alt="menu icon" className='h-6 w-6 cursor-pointer' />
+              <img src={menuIcon} alt="menu icon" className='h-6 w-6 cursor-pointer' />
             </div>
           </div>
         </div>

@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import CoursesCard from '../CourseComponents/CoursesCard';
 import { CourseContext } from '../../context/CourseContextProvider';
-import CourseOfferCard from '../CourseComponents/CourseOfferCard';
 import BundleCourse from '../CourseComponents/BundleCourse';
 import { Link } from 'react-router-dom';
 
@@ -43,7 +41,7 @@ const Skills = () => {
     useEffect(() => {
         let data = courses.slice()
 
-        data = data.filter((value, i) =>
+        data = data.filter((value) =>
             value.domain.toLowerCase().includes(searched.toLowerCase()) ||
             value.mentors.toLowerCase().includes(searched.toLowerCase()) ||
             value.language.toLowerCase().includes(searched.toLowerCase())
@@ -58,7 +56,7 @@ const Skills = () => {
 
         setSearchCourse(data)
 
-    }, [searched, activeCategory])
+    }, [searched, activeCategory, courses])
 
 
 

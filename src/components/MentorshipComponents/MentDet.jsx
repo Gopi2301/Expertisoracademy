@@ -1,31 +1,21 @@
-
-
-
-
-import React from "react";
-import { useParams, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { pages } from "../../constants/pages";
-import Heading from "../Heading";
-import { assets } from "../../assets/assets";
-import { useState } from "react";
+import verifiedIcon from "../../assets/images/affilate/verified.svg";
 import SeatsBanner from "./SeatsBanner";
 
 
 const MentDet = () => {
 
     const { mentorKey } = useParams();
-    const location = useLocation();
-    const sessionId = location.state?.sessionId; // get from navigation state
+    const [playVideo, setPlayVideo] = useState(false);
+    const [thumbIndex, setThumbIndex] = useState(0);
 
     // Get mentor data
     const mentor = pages.mentorship[mentorKey];
-    if (!mentor) return <p className="text-center text-red-500">Mentor not found!</p>;
-
-    // Get session data if sessionId exists
-    const session = sessionId
-        ? mentor.sessions.consulting.find((s) => s.id === sessionId)
-        : null;
-
+    if (!mentor) {
+        return <p className="text-center text-red-500">Mentor not found!</p>;
+    }
 
     const features = [
         "1:1 Mentorship Calls with Raghulan Gowthamian",
@@ -33,9 +23,6 @@ const MentDet = () => {
         "A Personalized Strategy Blueprint for Your Mindset, Career, and Business",
         "Continuous Support for Real Transformation",
     ];
-
-    const [playVideo, setPlayVideo] = useState(false);
-    const [thumbIndex, setThumbIndex] = useState(0);
 
 
     const thumbnails = [
@@ -120,7 +107,7 @@ const MentDet = () => {
                     <ul className="font-inter font-normal text-[14px] sm:text-[16px] leading-[20px] space-y-3 text-left md:text-center list-none">
                         {features.map((feature, index) => (
                             <li key={index} className="flex items-center gap-2">
-                                <img src={assets.verified} alt="tick" className="w-5 h-5" />
+                                <img src={verifiedIcon} alt="tick" className="w-5 h-5" />
                                 <span>{feature}</span>
                             </li>
                         ))}

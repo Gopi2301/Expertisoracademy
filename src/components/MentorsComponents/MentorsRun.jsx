@@ -1,22 +1,25 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import mentorOne from '../../assets/images/mentors/m1.svg'
+import mentorTwo from '../../assets/images/mentors/m2.svg'
+import mentorThree from '../../assets/images/mentors/m3.svg'
+import mentorFour from '../../assets/images/mentors/m4.svg'
 import Marquee from 'react-fast-marquee'
 
 
 const MentorsRun = () => {
     const datas=[
-        assets.m1,
-        assets.m2,
-        assets.m3,
-        assets.m4,
-        assets.m1,
-        assets.m2,
-        assets.m3,
-        assets.m4,
-        assets.m1,
-        assets.m2,
-        assets.m3,
-        assets.m4,
+        mentorOne,
+        mentorTwo,
+        mentorThree,
+        mentorFour,
+        mentorOne,
+        mentorTwo,
+        mentorThree,
+        mentorFour,
+        mentorOne,
+        mentorTwo,
+        mentorThree,
+        mentorFour,
     ]
 
     return (

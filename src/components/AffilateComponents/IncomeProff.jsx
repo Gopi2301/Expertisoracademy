@@ -2,10 +2,9 @@ import IncomeCard from "./IncomeCard";
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { CourseContext } from "../../context/CourseContextProvider";
 import { useContext } from "react";
-import { pages } from "../../constants/pages"
 
 
-const IncomeProff = () => {
+const IncomeProff = ({ items = [] }) => {
     const { scrollLeft, scrollRight, scrollRef } = useContext(CourseContext)
 
     return (
@@ -41,11 +40,9 @@ const IncomeProff = () => {
                     </div>
 
                     <div ref={scrollRef} className="flex overflow-x-auto space-x-3 mt-8 px-3">
-                        {
-                            pages.marketing_affilate.mentor_section.income_proof.map((data, i) => (
-                                <IncomeCard data={data} key={i} />
-                            ))
-                        }
+                        {items.map((data, i) => (
+                            <IncomeCard data={data} key={i} />
+                        ))}
                     </div>
 
                 </div>

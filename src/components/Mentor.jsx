@@ -15,7 +15,7 @@ const Mentor = ({data}) => {
 
                     <OurMentor mentor_det={data}/>
 
-                    {data.income_proof ? <IncomeProff/> : null}
+                    {data?.income_proof?.length ? <IncomeProff items={data.income_proof} /> : null}
 
                     <Mission mission_det={data.mission}/>
                 </div>

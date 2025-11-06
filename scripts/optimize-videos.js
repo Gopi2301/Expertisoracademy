@@ -1,3 +1,5 @@
+/* eslint-env node */
+
 /**
  * Video optimization script
  * Compresses and generates multiple quality variants of video files
@@ -8,9 +10,14 @@
  * Usage: node scripts/optimize-videos.js
  */
 
-const fs = require('fs');
-const path = require('path');
-const { execSync } = require('child_process');
+import fs from 'fs';
+import path from 'path';
+import process from 'node:process';
+import { execSync } from 'child_process';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Configuration
 const VIDEO_QUALITIES = {
@@ -53,7 +60,7 @@ function checkFFmpeg() {
   try {
     execSync('ffmpeg -version', { stdio: 'ignore' });
     return true;
-  } catch (error) {
+  } catch {
     console.error('❌ FFmpeg is not installed. Please install it first:');
     console.error('   macOS: brew install ffmpeg');
     console.error('   Linux: apt-get install ffmpeg');
@@ -135,7 +142,7 @@ function generatePoster(inputPath, outputDir) {
 /**
  * Main optimization function
  */
-function optimizeVideos() {
+export function optimizeVideos() {
   console.log('🎬 Starting video optimization...\n');
 
   // Check if ffmpeg is available
@@ -206,10 +213,12 @@ function optimizeVideos() {
   console.log('   />');
 }
 
-// Run optimization
-if (require.main === module) {
+// Run optimization when executed directly
+const isDirectExecution = process.argv[1] && path.resolve(process.argv[1]) === __filename;
+
+if (isDirectExecution) {
   optimizeVideos();
 }
 
-module.exports = { optimizeVideos, VIDEO_QUALITIES };
+export { VIDEO_QUALITIES };
 

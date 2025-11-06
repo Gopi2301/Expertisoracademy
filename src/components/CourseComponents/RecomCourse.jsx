@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
-import { assets } from '../../assets/assets'
+import rightArrow from '../../assets/images/r_arrow.svg'
 import { CourseContext } from '../../context/CourseContextProvider'
 import CoursesCard from './CoursesCard'
 import { useNavigate } from 'react-router-dom'
@@ -15,13 +15,6 @@ const RecomCourse = () => {
     const [recCourse, setRecCourse] = useState([])
 
     const scrollRef = useRef(null);
-    const scrollLeft = () => {
-        console.log(scrollRef.current)
-        scrollRef.current.scrollBy({ left: -310, behavior: 'smooth' });
-    };
-    const scrollRight = () => {
-        scrollRef.current.scrollBy({ left: 310, behavior: 'smooth' });
-    };
 
 
     useEffect(() => {
@@ -34,7 +27,7 @@ const RecomCourse = () => {
         setRecCourse(data)
 
 
-    }, [])
+    }, [courses])
 
 
     return (
@@ -46,7 +39,7 @@ const RecomCourse = () => {
                         <h4 className='font-inter font-semibold text-[20px] leading-[28px] tracking-[0] align-middle'>Recommended courses</h4>
                         <div className='flex gap-3 items-center cursor-pointer' onClick={()=>( navigate('/courses'))}>
                             <p className='font-inter font-semibold text-[14px] leading-[20px] '>View all</p>
-                            <img src={assets.r_arrow} alt="" />
+                            <img src={rightArrow} alt="" />
                         </div>
                     </div>
 

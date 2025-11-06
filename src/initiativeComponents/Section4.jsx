@@ -6,7 +6,7 @@ import Infinite from './Infinite'
 import three3 from "../assets/numbers/three3.png"
 // import { redirectToCourse } from "../utils/navigation"
 
-const Section4 = ({ urlParams }) => {
+const Section4 = () => {
 
     const data = [
         { value: "Job searching strategies" },

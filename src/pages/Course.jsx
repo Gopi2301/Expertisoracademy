@@ -52,7 +52,6 @@ import Skill from '../components/CourseComponents/Skill';
 import Yvideo from '../components/CourseComponents/Yvideo';
 import VidReview from '../components/CourseComponents/VidReview';
 import RecomCourse from '../components/CourseComponents/RecomCourse';
-import { assets } from '../assets/assets';
 import CourseOfferCard from '../components/CourseComponents/CourseOfferCard';
 import BundleCourse from '../components/CourseComponents/BundleCourse';
 

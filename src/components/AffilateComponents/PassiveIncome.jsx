@@ -1,5 +1,4 @@
 import React from 'react'
-import { pages } from '../../constants/pages'
 import StartButton from '../StartButton'
 import Heading from '../Heading'
 

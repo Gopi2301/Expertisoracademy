@@ -1,6 +1,9 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
-import bghome from '../../assets/images/bg_gradient.png'
+import icon from '../../assets/images/icon.svg'
+import starIcon from '../../assets/images/star.svg'
+import learnLabel from '../../assets/images/learn_label.svg'
+import creatorsImage from '../../assets/images/creators.svg'
+import mobileCreatorsImage from '../../assets/images/m_creators.svg'
 
 const Hero = () => {
     return (
@@ -21,8 +24,8 @@ const Hero = () => {
                 <div className=' text-center px-3'>
                     <div className='flex justify-center'>
                         <div className='flex gap-2 p-2 border border-[#FFFFFF] rounded-lg items-center'>
-                            <img src={assets.icon} alt="" />
-                            <img src={assets.star_i} alt="" className='w-6 h-6' />
+                            <img src={icon} alt="" />
+                            <img src={starIcon} alt="" className='w-6 h-6' />
                             <p className='text-[#DBDBDB] font-inter text-nowrap'>4.9 (7462 reviews)</p>
                         </div>
                     </div>
@@ -57,7 +60,7 @@ const Hero = () => {
                                 <p className='text-[#BDBDBD] mt-1'>Impacted students</p>
                             </div>
 
-                            <img src={assets.learn_label} alt="" className='absolute top-[-40px] right-[-8px] sm:top-[-40px] sm:right-[-40px] w-[60px] h-[60px] sm:w-[88px] sm:h-[88px]'/>
+                            <img src={learnLabel} alt="" className='absolute top-[-40px] right-[-8px] sm:top-[-40px] sm:right-[-40px] w-[60px] h-[60px] sm:w-[88px] sm:h-[88px]'/> 
 
                         </div>
                     </div>
@@ -65,11 +68,11 @@ const Hero = () => {
 
 
                 <div className='hidden sm:block'>
-                    <img width={"100%"} src={assets.creators} alt="" />
+                    <img width={"100%"} src={creatorsImage} alt="" />
                 </div>
 
                 <div className='block sm:hidden'>
-                    <img width={"100%"} src={assets.m_creators} alt="" />
+                    <img width={"100%"} src={mobileCreatorsImage} alt="" />
                 </div>
 
                 <div

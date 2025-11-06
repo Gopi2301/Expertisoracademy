@@ -1,5 +1,6 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import testimonialsBackground from '../../assets/images/tes_s_bg.svg'
+import testimonialsBackgroundMobile from '../../assets/images/test_bg_mob.svg'
 
 const Success = () => {
     return (
@@ -8,12 +9,12 @@ const Success = () => {
                 <div className=" relative mx-4 ">
                     {/* bg image */}
                     <img
-                        src={assets.test_bg}
+                        src={testimonialsBackground}
                         alt="Banner"
                         className="hidden sm:block w-full "
                     />
 
-                    <img src={assets.test_bg_mob} alt="" className='block sm:hidden w-full' />
+                    <img src={testimonialsBackgroundMobile} alt="" className='block sm:hidden w-full' />
 
                     {/* content overlay */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-3">

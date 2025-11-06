@@ -30,6 +30,7 @@
 - ✅ **60-80% reduction** in CPU usage for animations
 - ✅ **40-60% reduction** in unnecessary React re-renders
 - ✅ **100% fix rate** for critical bugs (login modal, mobile menu, blank page)
+- ✅ **Scoped asset/data modules** replace legacy mega bundles; production build confirmed (Nov 2025)
 
 ### Impact on User Experience
 
@@ -516,6 +517,28 @@ assetsInlineLimit: 4096, // Inline assets < 4KB
 
 ---
 
+### 7. Asset & Data Modularization (Nov 2025)
+
+#### Why the Change Was Needed
+
+- The monolithic `src/assets/assets.js` and `src/constants/pages.js` files forced every route to load hundreds of images and marketing blocks upfront.
+- Tree-shaking could not eliminate unused exports, inflating initial bundles and delaying interactivity.
+
+#### What Was Done
+
+- Replaced the global `assets` object with direct, component-level imports so Rollup only ships the files a view actually consumes.
+- Split `pages.js` into scoped data modules under `src/constants/data/`, allowing route-level lazy loading of marketing copy, mentor walls, testimonials, and footer configurations.
+- Cleaned up consumers across 30+ components/pages to point at their new scoped modules.
+- Added a dedicated `footerCourses.js` dataset to unblock the footer slug lookup and prevent runtime crashes.
+
+#### Impact & Validation
+
+- Page-level JS chunks now land in the 25–35 kB gz range (`ThreeDMax-CAJ6UT_M.js`, `AffilateMarketing-DWwe4X-n.js`, etc.), versus the previous single mega bundle.
+- `npm run build` (Nov 6 2025) completes without errors; remaining Rollup notices relate to duplicate compressed assets and oversize SVG/video files, not JavaScript.
+- The architecture is ready for further lazy loading of data/imagery and aligns with the performance budgets documented above.
+
+---
+
 ## 🐛 Bug Fixes & Critical Issues
 
 ### 1. Login Modal Not Appearing
@@ -820,7 +843,7 @@ const items = [item1, item2, item3]; // Created every render
 
 #### ✅ DO:
 ```javascript
-// ✅ Use lazy loading for below-fold images
+// ✅ Use lazy loading for below-the-fold images
 <LazyImage 
   src={imagePath}
   alt="Description"
@@ -1118,6 +1141,6 @@ The website has been transformed from a slow, unoptimized application to a **pro
 
 ---
 
-*Last Updated: November 2024*  
+*Last Updated: November 2025*  By Aman Bhogal
 *For questions or issues, refer to this document or check the code comments.*
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { assets } from '../../assets/assets';
+import dangerIcon from '../../assets/images/dangerous.svg';
 import { pages } from '../../constants/pages';
 
 const Problem = () => {
@@ -15,7 +15,7 @@ const Problem = () => {
                             key={index}
                             className="w-full md:w-auto flex items-center gap-2 bg-[#1a1a1a] text-white px-3 py-3 rounded-full hover:bg-[#262626] transition cursor-pointer"
                         >
-                            <img src={assets.dangerous} alt="" />
+                            <img src={dangerIcon} alt="" />
                             <span className="text-[16px]">{text}</span>
                         </div>
                     ))}

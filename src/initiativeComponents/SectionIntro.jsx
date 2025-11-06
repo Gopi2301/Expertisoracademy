@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import JoinNowButton from '../components/JoinNowButton';
 import '../../src/init.css'
-import { useState, useEffect } from 'react'
 import enroll from "../assets/enroll.png"
 import right_arrow from "../assets/right_arrow.png"
 import Union from "../assets/Union.png"
@@ -11,7 +10,7 @@ import deegre from "../assets/deegre.png"
 // import { redirectToCourse } from "../utils/navigation"
 
 
-const SectionIntro = ({ urlParams = {} }) => {
+const SectionIntro = () => {
     const videos = {
         id: 1,
         url: "https://www.youtube.com/embed/v02U7mvaIvk",

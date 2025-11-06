@@ -8,9 +8,9 @@ import AboutUs from '../components/HomeComponents/AboutUs'
 import PassiveIncome from '../components/AffilateComponents/PassiveIncome'
 import FreAQ from '../components/AffilateComponents/FreAQ'
 import AffiliateReview from '../components/AffilateComponents/AffiliateReview'
-import { pages } from '../constants/pages'
 import OfferBanner from '../components/OfferBanner'
 import CoursePreview from '../components/CoursePreview'
+import marketingAffiliate from '../constants/data/marketingAffiliate'
 
 
 const AffilateMarketing = () => {
@@ -18,18 +18,18 @@ const AffilateMarketing = () => {
     <div>
       <Hero />
       <System />
-      <Works works={pages.marketing_affilate.works} />
+      <Works works={marketingAffiliate.works} />
       <div className='pb-24 sm:pb-20 md:pb-[120px]'>
-      <CoursePreview lessons_data={pages.marketing_affilate.lessons_comp} />
+      <CoursePreview lessons_data={marketingAffiliate.lessons_comp} />
       </div>
-      <Mentor data={pages.marketing_affilate.mentor_section}/>
-      {/* <StudentsSay students_say={pages.marketing_affilate.students_say_video} /> */}
-      <AffiliateReview review={pages?.marketing_affilate?.affiliate_review} />
-      <PassiveIncome p_income={pages.marketing_affilate.passive_income} />
+      <Mentor data={marketingAffiliate.mentor_section}/>
+      {/* <StudentsSay students_say={marketingAffiliate.students_say_video} /> */}
+      <AffiliateReview review={marketingAffiliate.affiliate_review} />
+      <PassiveIncome p_income={marketingAffiliate.passive_income} />
       <AboutUs />
-      <FreAQ data={pages.marketing_affilate.FAQ} />
+      <FreAQ data={marketingAffiliate.FAQ} />
       <div className="fixed bottom-0 left-0 w-full z-[1]">
-        <OfferBanner offer_detail={pages.marketing_affilate.OfferBanner} />
+        <OfferBanner offer_detail={marketingAffiliate.OfferBanner} />
       </div>
     </div>
   )

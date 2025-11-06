@@ -2,13 +2,13 @@ import React from 'react'
 import { pages } from '../../constants/pages'
 import StartButton from '../StartButton'
 import Download from '../Download'
-import { assets } from '../../assets/assets'
+import civilHeroBackground from '../../assets/images/civil3D/civil3D_hero_bg.svg'
 
 
 const Hero = ({ data }) => {
     return (
         <div className=' relative w-full h-screen '>
-            <img src={assets.civil3D_hero_bg} alt="" className='w-full h-full object-cover ' />
+            <img src={civilHeroBackground} alt="" className='w-full h-full object-cover ' />
             <div className='px-3 sm:px-14 lg:px-20 mt-10 sm:mt-14 absolute top-0 flex flex-col  items-center h-full w-full'>
                 <div className='flex w-full justify-center items-center'>
                     <div className='flex gap-2 p-2 sm:bg-[#1B1B1B99] sm:border border-gray-600 rounded-lg items-center'>

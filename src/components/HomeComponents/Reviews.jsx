@@ -1,7 +1,8 @@
 import React from 'react'
 // import coma from "../assets/coma.png";
 // import cap from "../assets/cap.png"
-import { assets } from '../../assets/assets'
+import quotationMark from '../../assets/images/coma.png'
+import capIcon from '../../assets/images/cap.png'
 
 const Reviews = ({ value }) => {
     return (
@@ -9,7 +10,7 @@ const Reviews = ({ value }) => {
             <div className="w-[298px] h-[230px] rounded-[8px] p-[16px] bg-[#141300] border border-[#494900] flex flex-col justify-between gap-1">
                 <div >
                     <div>
-                        <img src={assets.coma} alt="" />
+                        <img src={quotationMark} alt="" />
                     </div>
                     <p className=" font-inter font-normal text-[14px] leading-[20px] tracking-normal text-white mt-3 line-clamp-5">
                         {value.para}
@@ -25,7 +26,7 @@ const Reviews = ({ value }) => {
                         </p> */}
                     </div>
                     <div>
-                        <img src={assets.cap} alt="" />
+                        <img src={capIcon} alt="" />
                     </div>
                 </div>
             </div>

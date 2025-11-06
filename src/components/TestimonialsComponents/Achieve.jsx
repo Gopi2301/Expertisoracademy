@@ -1,5 +1,9 @@
 import React from 'react'
-import { assets } from '../../assets/assets'
+import placementIcon from '../../assets/images/a1.svg'
+import salaryIcon from '../../assets/images/a2.svg'
+import hikeIcon from '../../assets/images/a3.svg'
+import starDecor from '../../assets/images/star_des.svg'
+import starDecorAlt from '../../assets/images/star_des_1.svg'
 import Marquee from 'react-fast-marquee'
 
 const Achieve = () => {
@@ -21,7 +25,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center'>
-                            <img src={assets.a1} alt="" />
+                            <img src={placementIcon} alt="" />
                         </div>
                     </div>
 
@@ -32,7 +36,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center'>
-                            <img src={assets.a2} alt="" />
+                            <img src={salaryIcon} alt="" />
                         </div>
                     </div>
 
@@ -43,7 +47,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center '>
-                            <img src={assets.a3} alt="" />
+                            <img src={hikeIcon} alt="" />
                         </div>
                     </div>
 
@@ -57,7 +61,7 @@ const Achieve = () => {
                         <div key={index} className='mr-10'>
                             <div className='flex gap-10'>
                                 <h2 className='text-yellow font-clash font-semibold text-[30px] md:text-[50.4px] leading-[55.2px] tracking-[0%] text-center'>{value}</h2>
-                                <img src={ index % 2 == 0 ? assets.star_des_1 : assets.star_des } alt="" />
+                                <img src={ index % 2 == 0 ? starDecorAlt : starDecor } alt="" />
                             </div>
                         </div>
                     ))}

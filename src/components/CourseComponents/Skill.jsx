@@ -1,16 +1,21 @@
 import React from 'react'
-import { assets } from '../../assets/assets';
+import htmlIcon from '../../assets/images/html.svg';
+import javascriptIcon from '../../assets/images/js.svg';
+import reactIcon from '../../assets/images/react.svg';
+import nodeIcon from '../../assets/images/node.svg';
+import expressIcon from '../../assets/images/express.svg';
+import githubIcon from '../../assets/images/github_im.svg';
 
 
 const Skill = () => {
 
     const skills = [
-        { name: 'HTML', img: assets.html,bg:'bg-[#3A1400]' },
-        { name: 'Javascript', img: assets.js,bg:'bg-[#3A2C00]' },
-        { name: 'React-JS', img: assets.react,bg:'bg-[#00283A]' },
-        { name: 'Node-JS', img: assets.node,bg:'bg-[#003A1A]' },
-        { name: 'Express-JS', img: assets.express,bg:'bg-[#3A0034]' },
-        { name: 'Github', img: assets.github_im ,bg:'bg-[#3A3A3A]'},
+        { name: 'HTML', img: htmlIcon, bg: 'bg-[#3A1400]' },
+        { name: 'Javascript', img: javascriptIcon, bg: 'bg-[#3A2C00]' },
+        { name: 'React-JS', img: reactIcon, bg: 'bg-[#00283A]' },
+        { name: 'Node-JS', img: nodeIcon, bg: 'bg-[#003A1A]' },
+        { name: 'Express-JS', img: expressIcon, bg: 'bg-[#3A0034]' },
+        { name: 'Github', img: githubIcon, bg: 'bg-[#3A3A3A]' },
     ];
 
     return (

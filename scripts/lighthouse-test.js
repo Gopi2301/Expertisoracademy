@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-env node */
 
 /**
  * Lighthouse Testing Script
@@ -9,6 +10,7 @@ import lighthouse from 'lighthouse';
 import * as chromeLauncher from 'chrome-launcher';
 import fs from 'fs';
 import path from 'path';
+import process from 'node:process';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -197,7 +199,7 @@ async function waitForServer(url, maxAttempts = 30) {
         console.log(`✅ Server is ready!\n`);
         return true;
       }
-    } catch (error) {
+    } catch {
       // Server not ready yet
     }
     await new Promise(resolve => setTimeout(resolve, 1000));

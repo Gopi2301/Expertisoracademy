@@ -1,8 +1,6 @@
 import React from 'react'
 import ImgRun from './ImgRun'
-import swi1 from "../assets/swi/swi1.jpeg"
 import { useState } from "react";
-import { Play, Pause } from "lucide-react";
 import {stud} from "../assets/Meetup"
 
 

@@ -1,13 +1,4 @@
-
-
-
-
-
-
-
-
-
-import { assets } from "../../assets/assets";
+import shareIcon from "../../assets/images/mentorship/raghulan_mentor/share.svg";
 
 const Banner = ({ data }) => {
   // Handler for system share
@@ -33,7 +24,7 @@ const Banner = ({ data }) => {
       try {
         await navigator.clipboard.writeText(currentUrl);
         alert('Profile link copied to clipboard!');
-      } catch (err) {
+      } catch {
         alert('Failed to copy link. Please copy manually.');
       }
     }
@@ -134,7 +125,7 @@ const Banner = ({ data }) => {
               onClick={handleShare}
               className="w-full sm:w-auto flex items-center justify-center py-[10px] px-16 gap-2 bg-[#F2F2F21A] border border-[#A7A7A7] rounded-md hover:bg-[#F2F2F233] transition"
             >
-              <img src={assets.share} alt="Share" className="h-5 w-5" />
+              <img src={shareIcon} alt="Share" className="h-5 w-5" />
               <p className="font-inter font-medium text-[14px] text-white">
                 Share profile
               </p>

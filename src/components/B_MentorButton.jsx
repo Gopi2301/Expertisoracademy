@@ -1,5 +1,5 @@
 import React from 'react'
-import { assets } from '../assets/assets'
+import rightArrow from '../assets/images/affilate/r_long_arrow.svg'
 
 const B_MentorButton = () => {
     return (
@@ -11,7 +11,7 @@ const B_MentorButton = () => {
                     <p className="text-black font-inter font-semibold text-[18px] leading-[100%]">
                         Become a Mentor
                     </p>
-                    <img src={assets.r_long_arrow} alt="Right arrow" />
+                    <img src={rightArrow} alt="Right arrow" />
                 </div>
             </a>
         </div>)

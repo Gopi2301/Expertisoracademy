@@ -1,7 +1,8 @@
 
 
 import React from 'react'
-import { assets } from '../../assets/assets'
+import awsCardImage from '../../assets/images/awscard.png'
+import starIcon from '../../assets/images/star.svg'
 import { Link } from 'react-router-dom'
 import Rating from './Rating'
 
@@ -14,13 +15,13 @@ const CoursesCard = ({ course, width }) => {
                     style={{ width }}
                 >
                     <div>
-                        <img src={assets.awscard} alt="" className='rounded-lg w-full' />
+                        <img src={awsCardImage} alt="" className='rounded-lg w-full' />
                     </div>
                     <div className='flex flex-col justify-between gap-[6px] mt-2 h-full'>
                         <div className='flex justify-between items-center'>
                             <p className='py-[6.5px] px-[8px] bg-[#00DC281A] text-[#00DC28] rounded-[4px] font-inter font-medium text-[12px] leading-[100%] tracking-[0] align-middle'>All levels</p>
                             <div className='flex gap-1 items-center'>
-                                <img src={assets.star_i} alt="" />
+                                <img src={starIcon} alt="" />
                                 <span className='text-white'>4.9</span>
                                 <span>(1742)</span>
                             </div>

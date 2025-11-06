@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 import { useAnimatedInView } from '../hooks/useAnimatedInView';
 import { fadeInUp, reducedMotion } from '../utils/animationVariants';
 
+const MotionDiv = motion.div;
+
 /**
  * AnimatedSection - Scroll-triggered animation wrapper component
  * 
@@ -26,7 +28,7 @@ const AnimatedSection = ({
   const animationVariant = prefersReducedMotion ? reducedMotion : variant;
 
   return (
-    <motion.div
+    <MotionDiv
       ref={ref}
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
@@ -39,7 +41,7 @@ const AnimatedSection = ({
       {...props}
     >
       {children}
-    </motion.div>
+    </MotionDiv>
   );
 };
 

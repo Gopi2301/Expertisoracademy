@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import enroll from "../../assets/enroll.png";
 import right_arrow from "../../assets/right_arrow.png";
 import Union from "../../assets/Union.png";

@@ -1,29 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ImgRun from './ImgRun';
 
-import { assets } from '../../assets/assets'
+import raguImage from '../../assets/images/ragu.png'
+import sathishImage from '../../assets/images/sathish.png'
+import meetupImage1 from '../../assets/images/techmeetup/1.jpg'
+import meetupImage2 from '../../assets/images/techmeetup/2.jpg'
+import meetupImage3 from '../../assets/images/techmeetup/3.jpg'
+import meetupImage4 from '../../assets/images/techmeetup/4.jpg'
+import meetupImage5 from '../../assets/images/techmeetup/5.jpg'
+import meetupImage6 from '../../assets/images/techmeetup/6.jpg'
+import meetupImage7 from '../../assets/images/techmeetup/7.jpg'
+import meetupImage8 from '../../assets/images/techmeetup/8.jpg'
+import meetupImage9 from '../../assets/images/techmeetup/m1.jpg'
+import meetupImage10 from '../../assets/images/techmeetup/m2.jpg'
 
 const AboutUs = () => {
 
-    const videos = {
-        id: 1,
-        url: "https://www.youtube.com/embed/wO0cNJOXqCs",
-        thumbnail: "https://img.youtube.com/vi/wO0cNJOXqCs/hqdefault.jpg"
-    };
-
-    const [playing, setPlaying] = useState(false);
-
     const slide1 = [
-        assets.a,
-        assets.b,
-        assets.c,
-        assets.d,
-        assets.e,
-        assets.f,
-        assets.g,
-        assets.h,
-        assets.i,
-        assets.j,
+        meetupImage1,
+        meetupImage2,
+        meetupImage3,
+        meetupImage4,
+        meetupImage5,
+        meetupImage6,
+        meetupImage7,
+        meetupImage8,
+        meetupImage9,
+        meetupImage10,
     ]
 
 
@@ -66,14 +69,14 @@ const AboutUs = () => {
                             <div className='text-center '>
                                 <div className='flex justify-center  sm:hidden'>
                                     <div className='flex'>
-                                        <img src={assets.ragu} alt="" />
-                                        <img src={assets.sathish} alt="" />
+                                        <img src={raguImage} alt="" />
+                                        <img src={sathishImage} alt="" />
                                     </div>
                                 </div>
                                 <div className='flex items-center justify-around'>
-                                    <img src={assets.ragu} alt="" className='hidden sm:block' />
+                                    <img src={raguImage} alt="" className='hidden sm:block' />
                                     <h4 className='text-[#ffffff] font-clash font-normal text-[20px] sm:text-[24px] leading-[34px] tracking-[0%] text-center'>Two college-broken minds,<span className='xl:block'>One <span className='text-yellow font-semibold'>big vision</span>.</span></h4>
-                                    <img src={assets.sathish} alt="" className='hidden sm:block' />
+                                    <img src={sathishImage} alt="" className='hidden sm:block' />
                                 </div>
 
                                 <p className='mt-4 text-[#B8B8B8] font-inter font-normal text-[16px] sm:text-[18px] leading-[20px] sm:leading-[22px] tracking-[0%] align-middle'>We saw the gap ,education teaches but reality demands more. True mastery comes from learning directly from those who have done it, implemented it, and created real impact.</p>

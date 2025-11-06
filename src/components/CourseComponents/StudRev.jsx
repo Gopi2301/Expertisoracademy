@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { assets } from '../../assets/assets'
+import reviewImage from '../../assets/images/rev_img.svg'
+import downArrow from '../../assets/images/down_arrow.svg'
 import Rating from './Rating'
 
 
@@ -8,56 +9,56 @@ const StudRev = () => {
 
   const rev = [
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Nolan Siphron',
       days: '5 days ago',
       rating: 3.5,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 4.5,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 4,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 5,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 3.5,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 4.5,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 4,
       para: 'Mastering Data Science is an exceptional course that delves deep into the world of machine learning. It covers a wide array of techniques, tools, and best practices tailored for aspiring data scientists. The curriculum is designed to provide both theoretical knowledge and practical skills,',
     },
     {
-      profile: assets.rev_img,
+      profile: reviewImage,
       name: 'Jaylon Passaquindici Arcand',
       days: '5 days ago',
       rating: 5,
@@ -70,21 +71,21 @@ const StudRev = () => {
     <div className='text-white'>
       <div>
         {
-          (seemore ? rev.slice(0, 4) : rev).map((Review, i) => (
-            <div className='mb-6'>
+          (seemore ? rev.slice(0, 4) : rev).map((review, index) => (
+            <div key={`${review.name}-${index}`} className='mb-6'>
               <div className='flex justify-between'>
                 <div className='flex gap-4 items-center'>
-                  <img src={Review.profile} alt="" className='w-11 h-11 rounded-full' />
+                  <img src={review.profile} alt="" className='w-11 h-11 rounded-full' />
                   <div>
-                    <h5 className='mb-1 font-inter text-[16px] leading-[1] font-normal truncate max-w-[160px]'>{Review.name}</h5>
-                    <Rating value={Review.rating}/>
+                    <h5 className='mb-1 font-inter text-[16px] leading-[1] font-normal truncate max-w-[160px]'>{review.name}</h5>
+                    <Rating value={review.rating}/>
                   </div>
                 </div>
-                <p className='text-[#A7A7A7] font-inter text-[14px] leading-[1] font-normal'>{Review.days}</p>
+                <p className='text-[#A7A7A7] font-inter text-[14px] leading-[1] font-normal'>{review.days}</p>
               </div>
 
               <div className='mt-3'>
-                <p className='font-inter text-[#A7A7A7] text-[16px] leading-[20px] font-normal'>{Review.para}</p>
+                <p className='font-inter text-[#A7A7A7] text-[16px] leading-[20px] font-normal'>{review.para}</p>
               </div>
             </div>
           ))
@@ -96,7 +97,7 @@ const StudRev = () => {
 
         <div className='flex gap-2 items-center justify-center py-2 text-white' onClick={() => setSeemore((prev) => !prev)}>
           <p>{seemore ? 'See More' : 'See Less'}</p>
-          <img src={assets.down_arrow} alt="" />
+          <img src={downArrow} alt="" />
         </div>
       </div>
 

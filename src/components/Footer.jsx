@@ -1,7 +1,6 @@
 // import React from 'react';
 // import { FaYoutube, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
 // import { SiGoogleplay, SiAppstore } from 'react-icons/si';
-// import { assets } from '../assets/assets';
 // import { Link, useLocation } from 'react-router-dom';
 // import { pages } from '../constants/pages';
 
@@ -198,7 +197,7 @@
 
 import React from 'react';
 import { FaYoutube, FaTwitter, FaFacebookF, FaLinkedinIn, FaInstagram } from 'react-icons/fa';
-import { assets } from '../assets/assets';
+import logo from '../assets/images/logo_ex.png';
 import { Link, useLocation } from 'react-router-dom';
 // import { courses } from '../constants/courses'; // ✅ single source of truth
 import { pages } from '../constants/pages';
@@ -221,7 +220,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-6 gap-5 ">
             {/* Column 1: Logo + About + Social */}
             <div className="col-span-2 sm:col-span-4 md:col-span-2">
-              <img src={assets.logo_ex} alt="Expertisor" className="mb-4 h-10" />
+              <img src={logo} alt="Expertisor" className="mb-4 h-10" />
               <p className="text-[#8A8A8A] font-inter font-normal text-[14px] leading-5">
                 Expertisor Academy was founded by two college-broken minds with one big vision to bridge the gap between education and what reality demands. We believe true mastery comes from learning directly from those who have done it, implemented it, and created real impact.
               </p>
@@ -302,7 +301,7 @@ const Footer = () => {
 
           <div className='text-center my-10'>
             <div className="flex justify-center items-center mb-4">
-              <img src={assets.logo_ex} alt="Expertisor" />
+              {/* logo placeholder retained intentionally */}
             </div>
 
             <p className="max-w-3xl mx-auto text-sm leading-5 font-inter">

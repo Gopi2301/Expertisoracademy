@@ -1,10 +1,7 @@
-import imagemin from 'imagemin';
-import imageminWebp from 'imagemin-webp';
-import imageminMozjpeg from 'imagemin-mozjpeg';
-import imageminPngquant from 'imagemin-pngquant';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import sharp from 'sharp';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -30,37 +27,44 @@ const config = {
   ],
 };
 
-async function optimizeImage(filePath, outputDir, format = 'webp') {
+const normalizedOutputDir = path.normalize(config.outputDir);
+
+async function optimizeImage(filePath, outputDir) {
   const fileName = path.basename(filePath);
-  const ext = path.extname(fileName);
+  const ext = path.extname(fileName).toLowerCase();
   const nameWithoutExt = path.basename(fileName, ext);
-  
+
+  const originalOutputPath = path.join(outputDir, fileName);
+  const webpOutputPath = path.join(outputDir, `${nameWithoutExt}.webp`);
+
   try {
-    if (format === 'webp') {
-      await imagemin([filePath], {
-        destination: outputDir,
-        plugins: [
-          imageminWebp({ quality: config.quality.webp }),
-        ],
-      });
-      return path.join(outputDir, `${nameWithoutExt}.webp`);
-    } else if (ext === '.jpg' || ext === '.jpeg') {
-      await imagemin([filePath], {
-        destination: outputDir,
-        plugins: [
-          imageminMozjpeg({ quality: config.quality.jpeg }),
-        ],
-      });
-      return path.join(outputDir, fileName);
+    const image = sharp(filePath);
+    const metadata = await image.metadata();
+
+    if (ext === '.jpg' || ext === '.jpeg') {
+      await image.jpeg({
+        quality: config.quality.jpeg,
+        chromaSubsampling: '4:4:4',
+        mozjpeg: true,
+      }).toFile(originalOutputPath);
     } else if (ext === '.png') {
-      await imagemin([filePath], {
-        destination: outputDir,
-        plugins: [
-          imageminPngquant({ quality: [0.6, 0.8] }),
-        ],
-      });
-      return path.join(outputDir, fileName);
+      await image.png({
+        compressionLevel: 9,
+        adaptiveFiltering: true,
+        palette: true,
+        quality: config.quality.png,
+      }).toFile(originalOutputPath);
     }
+
+    await sharp(filePath)
+      .webp({ quality: config.quality.webp })
+      .toFile(webpOutputPath);
+
+    return {
+      original: fs.existsSync(originalOutputPath) ? originalOutputPath : null,
+      webp: fs.existsSync(webpOutputPath) ? webpOutputPath : null,
+      metadata,
+    };
   } catch (error) {
     console.error(`Error optimizing ${filePath}:`, error);
     return null;
@@ -75,6 +79,10 @@ async function getLargeImages(dir, fileList = []) {
     const stat = fs.statSync(filePath);
     
     if (stat.isDirectory()) {
+      const normalizedPath = path.normalize(filePath);
+      if (normalizedPath.startsWith(normalizedOutputDir)) {
+        continue;
+      }
       await getLargeImages(filePath, fileList);
     } else {
       const ext = path.extname(file).toLowerCase();
@@ -125,30 +133,20 @@ async function main() {
     console.log(`Optimizing: ${img.name}...`);
     
     // Create compressed original
-    const compressedOriginal = await optimizeImage(
-      img.path,
-      outputSubDir,
-      path.extname(img.name).slice(1)
-    );
-    
-    // Create WebP version
-    const webpVersion = await optimizeImage(
-      img.path,
-      outputSubDir,
-      'webp'
-    );
-    
-    if (compressedOriginal || webpVersion) {
+    const result = await optimizeImage(img.path, outputSubDir);
+
+    if (result) {
       optimized.push({
         original: img.path,
-        compressed: compressedOriginal,
-        webp: webpVersion,
+        compressed: result.original,
+        webp: result.webp,
         originalSize: img.size,
+        metadata: result.metadata,
       });
       console.log(`  ✅ Optimized: ${img.name}`);
       
-      if (compressedOriginal) {
-        const newSize = fs.statSync(compressedOriginal).size;
+      if (result.original) {
+        const newSize = fs.statSync(result.original).size;
         const reduction = ((1 - newSize / img.size) * 100).toFixed(1);
         console.log(`     Size reduction: ${reduction}%`);
       }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { FaHeart } from 'react-icons/fa';
-import { assets } from '../../assets/assets'
+import reviewStar from '../../assets/images/rev_star.svg';
+import starIcon from '../../assets/images/star.svg';
 
 const CourseRatings = () => {
   const ratings = [
@@ -28,7 +29,7 @@ const CourseRatings = () => {
           {/* Left Side - Ratings */}
           <div className="flex flex-col ">
             <div className="flex items-center text-yellow text-4xl">
-              <img src={assets.rev_star} alt="" />
+              <img src={reviewStar} alt="" />
               <span className="text-white font-inter font-bold text-[44px] leading-[100%] align-middle ml-2">4.9</span>
             </div>
             <p className="font-inter font-normal text-[14px] leading-[100%] align-middle text-gray-400 mt-1">250 ratings and 124 reviews</p>
@@ -38,7 +39,7 @@ const CourseRatings = () => {
           <div className="flex-1 space-y-3 mt-1">
             {ratings.map((rating, index) => (
               <div key={index} className="flex items-center gap-2">
-                <img src={assets.star_i} alt="" />
+                <img src={starIcon} alt="" />
                 <span className="font-inter font-normal text-[16px] leading-[100%] align-middle w-3">{rating.stars}</span>
 
                 <div className="flex-1 bg-[#242424] h-2 max-w-[250px] lg:max-w-none">

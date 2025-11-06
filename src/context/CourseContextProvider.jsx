@@ -1,5 +1,17 @@
 import React, { createContext, useState, useRef } from 'react'
-import { assets } from '../assets/assets'
+import allBundleImage from '../assets/images/all_bundle.jpg';
+import starIcon from '../assets/images/star.svg';
+import bookIcon from '../assets/images/book.svg';
+import scheduleIcon from '../assets/images/schedule.svg';
+import mentorIcon from '../assets/images/ment_icon.svg';
+import affiliateCardImage from '../assets/images/affilate/affilate_card_img.svg';
+import languageIcon from '../assets/images/lang_i.svg';
+import sridharMentorIcon from '../assets/images/sridhar_ment_i.svg';
+import threeDsMaxCard from '../assets/images/courses_card/threeDsmax.svg';
+import raghulanMentorIcon from '../assets/images/courses_card/raghulan_ment_i.svg';
+import solidworksCard from '../assets/images/courses_card/solidworks.svg';
+import elavarasanMentorIcon from '../assets/images/courses_card/elavarasan_ment_i.svg';
+import civil3dCard from '../assets/images/courses_card/civil3D.svg';
 
 
 
@@ -13,21 +25,21 @@ const CourseContextProvider = (props) => {
     const courses = [
         {
             page_link: "/techbundle",
-            img: assets.all_bundle,
+            img: allBundleImage,
             type: "bundle course",
             level: "All levels",
-            star_i: assets.star_i,
+            star_i: starIcon,
             rating: 4.9,
             rating_persons: 7941,
             domain: "All-in-One Tech Career Bundle",
             // bundle
-            bundle_i: assets.book,
+            bundle_i: bookIcon,
             bundle_tot_courses: "4 Courses",
             more_count: "+6more",
             // -----
-            schedule_i: assets.schedule,
+            schedule_i: scheduleIcon,
             hours: "70h15m",
-            ment_icon: assets.ment_icon,
+            ment_icon: mentorIcon,
             mentors: "Code Javid,Raghulann,sathesh",
             para: " Full Stack, Cloud (AWS & Azure), Linux Admin, Prompt Engineering, Data Science, VMware",
             language: "tamil",
@@ -38,20 +50,20 @@ const CourseContextProvider = (props) => {
         // individual course
         {
             page_link: "/reels-affiliate-marketing-tamil",
-            img: assets.affilate_card_img,
+            img: affiliateCardImage,
             type: "individual course",
             level: "All levels",
-            star_i: assets.star_i,
+            star_i: starIcon,
             rating: 4.8,
             rating_persons: 3649,
             domain: "Learn Reels Affiliate Marketing",
             // individual course
-            indi_lang_i: assets.lang_i,
+            indi_lang_i: languageIcon,
             lang_detail: "tamil",
             // -------
-            schedule_i: assets.schedule,
+            schedule_i: scheduleIcon,
             hours: "8h10m",
-            ment_icon: assets.sridhar_ment_i,
+            ment_icon: sridharMentorIcon,
             mentors: "Sridhar S",
             para: " Amazon, Flipkart, Meesho, Secret Platform and more",
             language: "tamil",
@@ -61,20 +73,20 @@ const CourseContextProvider = (props) => {
         // 3DMax
         {
             page_link: "/3dsmax-tamil",
-            img: assets.threeDsmax,
+            img: threeDsMaxCard,
             type: "individual course",
             level: "Beginner",
-            star_i: assets.star_i,
+            star_i: starIcon,
             rating: 4.9,
             rating_persons: 4217,
             domain: "3DS Max Mastery Program",
             // individual course
-            indi_lang_i: assets.lang_i,
+            indi_lang_i: languageIcon,
             lang_detail: "Tamil",
             // -------
-            schedule_i: assets.schedule,
+            schedule_i: scheduleIcon,
             hours: "15h",
-            ment_icon: assets.raghulan_ment_i,
+            ment_icon: raghulanMentorIcon,
             mentors: "Raghulan Gowthaman",
             para: " Modeling, Texturing, Animation, Rendering and more.",
             language: "Tamil",
@@ -108,20 +120,20 @@ const CourseContextProvider = (props) => {
         // solidworks
         {
             page_link: "/solidworks-tamil",
-            img: assets.solidworks,
+            img: solidworksCard,
             type: "individual course",
             level: "All levels",
-            star_i: assets.star_i,
+            star_i: starIcon,
             rating: 4.8,
             rating_persons: 963,
             domain: "SolidWorks Design Mastery",
             // individual course
-            indi_lang_i: assets.lang_i,
+            indi_lang_i: languageIcon,
             lang_detail: "Tamil",
             // -------
-            schedule_i: assets.schedule,
+            schedule_i: scheduleIcon,
             hours: "12h",
-            ment_icon: assets.elavarasan_ment_i,
+            ment_icon: elavarasanMentorIcon,
             mentors: "Elavarasan S",
             para: "3D Modeling, Assembly, Simulation, Sheet Metal, Drafting",
             language: "Tamil",
@@ -132,20 +144,20 @@ const CourseContextProvider = (props) => {
         // civil3D
         {
             page_link: "/civil3d-tamil",
-            img: assets.civil3D,
+            img: civil3dCard,
             type: "individual course",
             level: "All levels",
-            star_i: assets.star_i,
+            star_i: starIcon,
             rating: 4.9,
             rating_persons: 3485,
             domain: "AutoCAD Civil 3D",
             // individual course
-            indi_lang_i: assets.lang_i,
+            indi_lang_i: languageIcon,
             lang_detail: "Tamil",
             // -------
-            schedule_i: assets.schedule,
+            schedule_i: scheduleIcon,
             hours: "12h",
-            ment_icon: assets.raghulan_ment_i,
+            ment_icon: raghulanMentorIcon,
             mentors: "Raghulan Gowthaman",
             para: "Site Design, Surveying Tools, Transportation Design, Land Development 3D Visualization",
             language: "Tamil",

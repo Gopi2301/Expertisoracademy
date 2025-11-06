@@ -2,25 +2,6 @@ import React, { useState } from 'react';
 import Heading from '../Heading';
 
 const VideoListLayout = ({ students_say }) => {
-    const renderHeading = () => {
-        let result = [];
-        let remaining = students_say.title;
-
-        students_say.highlights.forEach((word, index) => {
-            const parts = remaining.split(word);
-            result.push(parts[0]); // normal text before highlight
-            result.push(
-                <span key={index} className="text-yellow">
-                    {word}
-                </span>
-            );
-            remaining = parts[1]; // continue after highlight
-        });
-
-        result.push(remaining); // add the last remaining text
-        return result;
-    };
-
     const [selectedVideo, setSelectedVideo] = useState(students_say.videos[0]);
 
     return (

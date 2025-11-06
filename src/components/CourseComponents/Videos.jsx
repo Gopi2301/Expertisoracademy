@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
-import { assets } from '../../assets/assets';
+import pauseIcon from '../../assets/images/pause.png';
+import starIcon from '../../assets/images/star.svg';
+import downArrow from '../../assets/images/down_arrow.svg';
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 
@@ -42,7 +44,7 @@ const Videos = () => {
                                     />
                                     <div className="absolute inset-0 flex items-center justify-center">
                                         <div className={`bg-yellow ${video.col == 'col-span-2' ? 'w-[80px] h-[80px]' : 'w-[40px] h-[40px]'} w-[40px] h-[40px] rounded-full flex justify-center items-center`}>
-                                            <img src={assets.pause} alt="" className={`${video.col == 'col-span-2' ? 'w-[55px] h-[55px]' : 'w-[27px] h-[27px]'}`} />
+                                            <img src={pauseIcon} alt="" className={`${video.col == 'col-span-2' ? 'w-[55px] h-[55px]' : 'w-[27px] h-[27px]'}`} />
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +69,7 @@ const Videos = () => {
                                     </div>
                                 </div>
                                 <div className='flex gap-1 items-center'>
-                                    <img src={assets.star_i} alt="" className='w-5 h-5 ' />
+                                    <img src={starIcon} alt="" className='w-5 h-5 ' />
                                     <p>5</p>
                                 </div>
                             </div>
@@ -81,7 +83,7 @@ const Videos = () => {
 
                 <div className='flex gap-2 items-center justify-center py-2 text-white' onClick={()=> setSeemore((prev)=>!prev)}>
                     <p>{seemore ? 'See More' : 'See Less'}</p>
-                    <img src={assets.down_arrow} alt="" />
+                    <img src={downArrow} alt="" />
                 </div>
             </div>
         </div>

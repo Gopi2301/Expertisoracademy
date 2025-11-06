@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import { FaCheck} from 'react-icons/fa';
-import { assets } from '../../assets/assets';
-
+import mobileFilterIcon from '../../assets/images/mob_filter.svg';
 
 
 const OurMentors = () => {
@@ -73,7 +72,7 @@ const OurMentors = () => {
                     </div>
 
                     <div className='block sm:hidden'>
-                         <img src={assets.mob_filter} alt="" className='w-10 h-10'/>
+                         <img src={mobileFilterIcon} alt="" className='w-10 h-10'/>
                     </div>
                 </div>
 
