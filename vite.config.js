@@ -22,42 +22,9 @@ export default defineConfig({
     }),
   ],
   build: {
-    // Optimize chunk splitting
+    // Optimize chunk output names for better caching
     rollupOptions: {
       output: {
-        manualChunks: (id) => {
-          // React vendor chunk
-          if (id.includes('node_modules/react') || 
-              id.includes('node_modules/react-dom')) {
-            return 'react-vendor';
-          }
-          // Router vendor chunk
-          if (id.includes('node_modules/react-router')) {
-            return 'router-vendor';
-          }
-          // Animation libraries chunk
-          if (id.includes('node_modules/lottie') || 
-              id.includes('node_modules/react-fast-marquee') ||
-              id.includes('node_modules/framer-motion')) {
-            return 'animation-vendor';
-          }
-          // UI libraries chunk
-          if (id.includes('node_modules/react-hot-toast') ||
-              id.includes('node_modules/react-icons') ||
-              id.includes('node_modules/lucide-react')) {
-            return 'ui-vendor';
-          }
-          // Utilities chunk
-          if (id.includes('node_modules/axios') ||
-              id.includes('node_modules/js-cookie')) {
-            return 'utils-vendor';
-          }
-          // Large vendor libraries
-          if (id.includes('node_modules')) {
-            return 'vendor';
-          }
-        },
-        // Optimize chunk file names for better caching
         chunkFileNames: 'assets/js/[name]-[hash].js',
         entryFileNames: 'assets/js/[name]-[hash].js',
         assetFileNames: 'assets/[ext]/[name]-[hash].[ext]',
