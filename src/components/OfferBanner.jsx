@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Download } from "lucide-react";
+import { Download } from "../utils/lucideSafeForwardRef";
 import tokenIcon from "../assets/images/affilate/token.svg";
 import clockIcon from "../assets/images/clock_icon.svg";
 

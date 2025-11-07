@@ -1,7 +1,7 @@
 import React from 'react'
 import ImgRun from './ImgRun'
 import { useState } from "react";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause } from "../../utils/lucideSafeForwardRef";
 import {stud} from "../../assets/Meetup"
 
 

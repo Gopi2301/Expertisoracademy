@@ -1,4 +1,4 @@
-// import { X } from "lucide-react"; // red X icon
+// import { X } from "../../utils/lucideSafeForwardRef"; // red X icon
 
 // const problems = [
 //   "Spending too much on ads, but sales are not improving",

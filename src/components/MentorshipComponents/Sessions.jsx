@@ -5,7 +5,12 @@
 
 
 import React, { useState } from "react";
-import { Star, Clock, Video, Users } from "lucide-react";
+import {
+  Star,
+  Clock,
+  Video,
+  Users,
+} from "../../utils/lucideSafeForwardRef";
 import starBadge from "../../assets/images/star.svg";
 import rightArrow from "../../assets/images/affilate/r_long_arrow.svg";
 import { useNavigate } from "react-router-dom";
