@@ -1,59 +1,83 @@
-import React from 'react'
-import { pages } from '../../constants/pages'
-import StartButton from '../StartButton'
-import Download from '../Download'
+import React from 'react';
+import StartButton from '../StartButton';
+import Download from '../Download';
 
-const Hero = ({data}) => {
-    return (
-        <div className='  '>
-            <div className='px-3 sm:px-14 lg:px-20 mt-10 sm:mt-14 '>
-                <div className='flex w-full justify-center items-center'>
-                    <div className='flex gap-2 p-2 sm:bg-[#1B1B1B99] sm:border border-gray-600 rounded-lg items-center'>
-                        <img src={data.icon.threed_icon} alt="" />
-                        <p className='font-inter font-normal text-[12px] sm:text-[16px] inline'>Learn from Industry Expert with 3+ <span className='block sm:inline'>years of experience</span></p>
-                    </div>
-                </div>
+const Hero = ({ data, startCTA, downloadCTA }) => {
+  if (!data) return null;
 
+  const { icon, para, features = [], car_video: videoSrc } = data;
 
-                <div className='my-5 md:my-10 '>
-                    <h2 className='font-clash font-semibold text-[28px] md:text-[35px] lg:text-[50px] leading-tight tracking-[0%] text-center'>Struggling to Land <span className='text-yellow'>Core Mechanical Jobs</span>? <span className='lg:block'>Master SolidWorks & Land <span className='text-yellow'>₹7LPA+</span> Job</span></h2>
-                    <p className='mt-3 md:mt-5 font-inter font-normal text-[14px] sm:text-[20px] leading-tight tracking-[0%] text-center text-[#DBDBDB]'>{data.para}</p>
-                </div>
-
-                <div className='sm:flex-row flex flex-col   justify-center gap-3 w-full'>
-                    <StartButton data={pages?.solidworks?.start_button}/>
-
-                    <Download data={pages?.solidworks?.download}/>
-                </div>
-
-
-
-                <div className="flex justify-center sm:gap-2 flex-wrap mt-4 ">
-                    {data.features.map((data, i) => (
-                        <div key={i} className="flex items-center gap-2 p-2">
-                            <img src={data.i} alt="" />
-                            <p className="font-inter font-normal text-[14px] sm:text-[16px] leading-[20px] whitespace-nowrap">
-                                {data.para}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-
+  return (
+    <section className="pb-5 pt-10 sm:pt-14 lg:pt-16">
+      <div className="px-3 sm:px-14 lg:px-20">
+        {icon ? (
+          <div className="flex w-full justify-center">
+            <div className="flex items-center gap-2 rounded-lg border border-gray-600/60 bg-[#1B1B1B99] px-3 py-2 text-center">
+              {icon.threed_icon && (
+                <img src={icon.threed_icon} alt="" className="h-8 w-8 sm:h-10 sm:w-10" />
+              )}
+              <p className="font-inter text-[12px] text-white sm:text-[16px]">
+                {icon.para ?? (
+                  <>
+                    Learn from Industry Expert with 3+{' '}
+                    <span className="block sm:inline">years of experience</span>
+                  </>
+                )}
+              </p>
             </div>
+          </div>
+        ) : null}
 
-            <div className='relative my-5'>
-                <video
-                    src={data.car_video}   // your video path (public folder or imported asset)
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className=" w-full "
-                ></video>
-            </div>
+        <div className="my-6 text-center md:my-10">
+          <h1 className="font-clash text-[28px] font-semibold leading-tight text-white sm:text-[36px] lg:text-[50px]">
+            Struggling to Land <span className="text-yellow">Core Mechanical Jobs</span>?{' '}
+            <span className="block lg:inline">
+              Master SolidWorks &amp; Land <span className="text-yellow">₹7LPA+</span> Job
+            </span>
+          </h1>
+          {para && (
+            <p className="mt-4 font-inter text-[14px] leading-tight text-[#DBDBDB] sm:text-[18px]">
+              {para}
+            </p>
+          )}
+        </div>
 
+        <div className="flex w-full flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <StartButton data={startCTA} />
+          <Download data={downloadCTA} />
+        </div>
 
-        </div>)
-}
+        {features.length > 0 && (
+          <ul className="mt-6 flex flex-wrap justify-center gap-3 text-left">
+            {features.map((feature, idx) => (
+              <li
+                key={idx}
+                className="flex items-center gap-2 rounded-md bg-[#151515] px-3 py-2 text-white"
+              >
+                {feature.i && <img src={feature.i} alt="" className="h-6 w-6" />}
+                <span className="font-inter text-[14px] leading-[20px] sm:text-[16px]">
+                  {feature.para}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
-export default Hero
+      {videoSrc && (
+        <div className="relative mt-8 overflow-hidden rounded-2xl px-3 sm:px-14 lg:px-20">
+          <video
+            src={videoSrc}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full rounded-2xl border border-[#2A2A2A]"
+          />
+        </div>
+      )}
+    </section>
+  );
+};
+
+export default Hero;

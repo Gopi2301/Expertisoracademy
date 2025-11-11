@@ -45,6 +45,7 @@
 
 
 
+import { useContext, useMemo } from 'react';
 import { Outlet } from 'react-router-dom';
 import CourseRatings from '../components/CourseComponents/CourseRatings';
 import Instructor from '../components/CourseComponents/Instructor';
@@ -54,8 +55,16 @@ import VidReview from '../components/CourseComponents/VidReview';
 import RecomCourse from '../components/CourseComponents/RecomCourse';
 import CourseOfferCard from '../components/CourseComponents/CourseOfferCard';
 import BundleCourse from '../components/CourseComponents/BundleCourse';
+import { CourseContext } from '../context/CourseContextProvider';
 
 const Course = () => {
+  const { courses } = useContext(CourseContext);
+
+  const featuredCourses = useMemo(
+    () => (Array.isArray(courses) ? courses.slice(0, 3) : []),
+    [courses],
+  );
+
   return (
     <div className='px-3 sm:px-14 lg:px-10 xl:px-20'>
       <div className='flex justify-between'>
@@ -63,6 +72,16 @@ const Course = () => {
           <Yvideo />
           <div className='lg:hidden block'>
             <CourseOfferCard />
+            <div className='mt-6 grid grid-cols-1 gap-4'>
+              {featuredCourses.map((course, idx) => (
+                <BundleCourse
+                  key={course?.page_link ?? idx}
+                  course={course}
+                  variant='grid'
+                  className='min-h-[320px]'
+                />
+              ))}
+            </div>
           </div>
           <Skill />
           <Instructor />
@@ -72,9 +91,6 @@ const Course = () => {
             <VidReview />
             <Outlet />
           </div>
-          <div className='lg:hidden block'>
-            <BundleCourse />
-          </div>
           <RecomCourse />
         </div>
 
@@ -82,7 +98,16 @@ const Course = () => {
 
           <div className="hidden lg:block">
             <CourseOfferCard />
-            <BundleCourse />
+            <div className='mt-6 flex flex-col gap-4'>
+              {featuredCourses.map((course, idx) => (
+                <BundleCourse
+                  key={course?.page_link ?? idx}
+                  course={course}
+                  variant='sidebar'
+                  className='min-h-[320px]'
+                />
+              ))}
+            </div>
           </div>
 
         </div>

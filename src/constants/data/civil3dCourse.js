@@ -46,7 +46,7 @@ const civil3dCourse = {
     name: 'Start Your Civil3D Journey',
   },
   download: {
-    link: '/AutoCAD-Civil3d -Tamil.pdf',
+    link: '/Civil3D Course.pdf',
     name: 'Download Brochure',
   },
   hero_section: {
@@ -175,7 +175,7 @@ const civil3dCourse = {
   },
   lessons_comp: {
     download: {
-      link: '/AutoCAD-Civil3d -Tamil.pdf',
+      link: '/Civil3D Course.pdf',
       name: 'Download Broucher',
     },
     head: "What You'll Learn Inside the Course",
@@ -469,7 +469,7 @@ const civil3dCourse = {
     discount_percent: 44,
     no_days: 2,
     joinNow_link: 'https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84',
-    d_broucher: '/AutoCAD-Civil3d -Tamil.pdf',
+    d_broucher: '/Civil3D Course.pdf',
   },
 };
 

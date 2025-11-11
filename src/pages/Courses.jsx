@@ -262,7 +262,12 @@ const Courses = () => {
                                         ) : (
                                             searchCourse.map((data, i) =>
                                                 data ? (
-                                                    <BundleCourse key={i} course={data} />
+                                                    <BundleCourse
+                                                        key={i}
+                                                        course={data}
+                                                        variant="grid"
+                                                        className="min-h-[360px]"
+                                                    />
                                                 ) : (
                                                     <div key={i} className="flex items-center justify-center space-x-1 p-6">
                                                         <p className="text-gray-300 font-medium">Loading</p>

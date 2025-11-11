@@ -16,7 +16,11 @@ import Course from '../components/ThreeDMaxComponents/Course'
 const Civil3D = () => {
     return (
         <div>
-            <Hero data={pages?.civil3d?.hero_section} />
+            <Hero
+                data={pages?.civil3d?.hero_section}
+                startCTA={pages?.civil3d?.start_button}
+                downloadCTA={pages?.civil3d?.download}
+            />
             <Rating data={pages.civil3d.rating_sec}/>
             <CivilDemands data={pages.civil3d.civil_demands}/>
             {/* <CourseFor data={pages.civil3d.course_for}/> */}

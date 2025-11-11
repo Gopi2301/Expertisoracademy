@@ -13,7 +13,7 @@ const Skills = () => {
 
     const emojiMap = {
         Technology: "📡",
-        Bussiness: "📈",
+        Business: "📈",
         Civil: "👷",
         Mechanical: "🛠️",
         Medical: "🩺",
@@ -125,13 +125,13 @@ const Skills = () => {
                         {searchCourse.length == 0 ? <p className='text-yellow font-medium text-xl text-center '>Coming Soon</p> :
                             <div ref={scrollRef} className='flex  overflow-x-auto space-x-6 px-5 sm:px-10 scrollbar-hidden items-stretch'>
                                 {
-                                    searchCourse.map((data, i) =>
+                                    searchCourse.map((data, i) => (
                                         <BundleCourse
                                             key={i}
                                             course={data}
-                                            width="305px"
+                                            variant="slider"
                                         />
-                                    )
+                                    ))
                                 }
                             </div>}
 

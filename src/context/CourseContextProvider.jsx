@@ -67,7 +67,7 @@ const CourseContextProvider = (props) => {
             mentors: "Sridhar S",
             para: " Amazon, Flipkart, Meesho, Secret Platform and more",
             language: "tamil",
-            category: "Bussiness",
+            category: "Business",
         },
 
         // 3DMax
@@ -172,7 +172,7 @@ const CourseContextProvider = (props) => {
 
     const categories = [
         "Technology",
-        "Bussiness",
+        "Business",
         "Civil",
         "Mechanical",
         "Medical",

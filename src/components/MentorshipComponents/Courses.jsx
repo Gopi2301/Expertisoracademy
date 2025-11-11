@@ -133,7 +133,12 @@ const Courses = ({ name }) => {
               className="flex flex-row lg:flex-col gap-4 overflow-x-auto px-4 sm:px-10 lg:px-0 scrollbar-hidden items-stretch"
             >
               {displayedCourses.map((data, i) => (
-                <BundleCourse key={i} course={data} width="290px" />
+                <BundleCourse
+                  key={i}
+                  course={data}
+                  variant={isLargeScreen ? 'grid' : 'slider'}
+                  className={isLargeScreen ? 'min-h-[320px]' : ''}
+                />
               ))}
             </div>
           )}

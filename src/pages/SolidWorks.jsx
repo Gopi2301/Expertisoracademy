@@ -17,7 +17,11 @@ import ReviewOnly from '../components/ReviewOnly'
 const SolidWorks = () => {
     return (
         <div className=''>
-            <Hero data={pages.solidworks.hero_section} />
+            <Hero
+                data={pages.solidworks.hero_section}
+                startCTA={pages.solidworks.start_button}
+                downloadCTA={pages.solidworks.download}
+            />
             <Rating data={pages.solidworks.rating_sec} />
             <DreamJob dreamjob={pages.solidworks.dream_job} />
             <Course course_data={pages.solidworks.course_section} />

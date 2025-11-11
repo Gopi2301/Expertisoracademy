@@ -1,75 +1,159 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
+const ratingFormatter = new Intl.NumberFormat('en-IN');
 
-const BundleCourse = ({ width, course }) => {
+const pillStyles = {
+  bundle: 'bg-[#FFF2001A] text-yellow',
+  individual: 'bg-[#00DC281A] text-[#00DC28]',
+};
 
-    return (
-        <Link to={`${course.page_link}`}>
-            <div className='h-full'>
+const variantStyles = {
+  slider: 'min-w-[280px] max-w-[320px]',
+  grid: 'w-full',
+  sidebar: 'w-full',
+};
 
-                {/* Image */}
-                {/* bg-[#1D1D1D] */}
-                <div className=' h-full flex flex-col p-3 bg-black  rounded-lg text-white text-left cursor-pointer border border-[#7B6E3E] bg-[radial-gradient(circle_at_bottom_center,#705900_0%,rgba(0,0,0,0.3)_38%),radial-gradient(circle_at_top_right,#705900_0%,rgba(0,0,0,0.3)_36%)] bg-blend-screen' style={{ width }}>
+const BundleCourse = ({
+  course,
+  width,
+  variant = 'grid',
+  className = '',
+}) => {
+  if (!course) return null;
 
-                    <div>
-                        <img src={course.img} alt="AWS" className="w-full rounded-md" />
-                    </div>
+  const {
+    page_link,
+    img,
+    level,
+    rating,
+    rating_persons,
+    star_i,
+    domain,
+    bundle_tot_courses,
+    bundle_i,
+    indi_lang_i,
+    lang_detail,
+    schedule_i,
+    hours,
+    ment_icon,
+    mentors,
+    more_count,
+    para,
+    type,
+  } = course;
 
-{/* justify-between */}
-                    <div className='flex flex-col  gap-[6px] mt-2 h-full'>
-                        <div className='flex justify-between items-center'>
-                            <p className='py-[6.5px] px-[8px] bg-[#00DC281A] text-[#00DC28] rounded-[4px] font-inter font-medium text-[12px] leading-[100%] tracking-[0] align-middle'>{course.level}</p>
-                            <div className='flex gap-1 items-center'>
-                                <img src={course.star_i} alt="" className='' />
-                                <p className='text-white'>{course.rating} <span>({course.rating_persons})</span></p>
-                            </div>
-                        </div>
-                        {/* Title */}
-                        <h3 className="font-semibold text-[16px] leading-[20px] ">{course.domain}</h3>
+  const pillClass =
+    type && pillStyles[type.toLowerCase()] ? pillStyles[type.toLowerCase()] : 'bg-[#121212] text-[#C0C0C0]';
 
-                        {/* Course Info */}
-                        <div className=" flex items-center text-[#8A8A8A] text-[13px] space-x-3">
-                            {
-                                course.bundle_tot_courses && (<div className="flex items-center space-x-1">
-                                    <img src={course.bundle_i} alt="" />
-                                    <span className='font-normal text-[14px] leading-[20px] align-middle'>{course.bundle_tot_courses} </span>
-                                </div>)
-                            }
-                            {
-                                course.indi_lang_i && (<div className="flex items-center space-x-1">
-                                    <img src={course.indi_lang_i} alt="" />
-                                    <span className='font-normal text-[14px] leading-[20px] align-middle'>{course.lang_detail} </span>
-                                </div>)
-                            }
-                            <div className="flex items-center space-x-1">
-                                <img src={course.schedule_i} alt="" />
-                                <span className='font-normal text-[14px] leading-[20px] align-middle'>{course.hours}</span>
-                            </div>
-                        </div>
+  const variantClass = variantStyles[variant] ?? variantStyles.grid;
 
-                        {/* Instructors */}
-                        <div className=" flex items-center  gap-1">
-                            {/* Avatars */}
-                            <div className="">
-                                <img src={course.ment_icon} alt="" />
-                            </div>
-                            {/* Names */}
-                            <p className=" font-inter font-normal text-[14px]  leading-[20px] align-middle flex items-center gap-1">
-                                <span className={`truncate ${course.bundle_i && 'max-w-[110px]'}  block`}>{course.mentors}</span>
-                                <span>{course.more_count}</span>
-                            </p>
-                        </div>
+  const formattedRatingCount =
+    typeof rating_persons === 'number'
+      ? ratingFormatter.format(rating_persons)
+      : rating_persons;
 
-                        {/* Description */}
-                        <p className="  font-inter font-normal text-[14px] leading-[20px] align-middle line-clamp-2">
-                            {course.para}
-                        </p>
-                    </div>
-                </div>
+  return (
+    <Link to={page_link ?? '#'} className="block h-full">
+      <article
+        className={`relative h-full ${variantClass} ${className}`}
+        style={width ? { width } : undefined}
+      >
+        <div className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-[#4E410E] bg-[#0F0F0F] p-3 shadow-[0_12px_40px_rgba(255,242,0,0.04)] transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_18px_50px_rgba(255,242,0,0.10)]">
+          <figure className="overflow-hidden rounded-lg">
+            <img
+              src={img}
+              alt={domain}
+              loading="lazy"
+              className="aspect-[16/10] w-full rounded-lg object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </figure>
+
+          <div className="mt-3 flex flex-1 flex-col gap-3">
+            <div className="flex items-center justify-between gap-2">
+              {level && (
+                <span className="rounded-[4px] px-2 py-1 text-[12px] font-medium uppercase text-[#00DC28] bg-[#00DC281A]">
+                  {level}
+                </span>
+              )}
+
+              {(rating || rating === 0) && (
+                <span className="flex items-center gap-1 text-sm text-[#F6F6F6]">
+                  {star_i && <img src={star_i} alt="" className="h-4 w-4" />}
+                  <span className="font-semibold">{rating}</span>
+                  {formattedRatingCount && (
+                    <span className="text-xs text-[#B8B8B8]">
+                      ({formattedRatingCount})
+                    </span>
+                  )}
+                </span>
+              )}
             </div>
-        </Link>
-    )
-}
 
-export default BundleCourse
+            <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-[#9D8B4D]">
+              <span className={`rounded-[4px] px-2 py-1 font-semibold ${pillClass}`}>
+                {type ? type : 'Course'}
+              </span>
+              {course.category && (
+                <span className="hidden rounded-[4px] bg-[#1A1A1A] px-2 py-1 font-semibold text-[#C0C0C0] sm:inline-block">
+                  {course.category}
+                </span>
+              )}
+            </div>
+
+            <h3 className="font-clash text-[18px] leading-[24px] text-white md:text-[20px]">
+              {domain}
+            </h3>
+
+            {para && (
+              <p className="text-[14px] leading-[20px] text-[#C0C0C0] line-clamp-2">
+                {para}
+              </p>
+            )}
+
+            <div className="flex flex-wrap items-center gap-3 text-xs text-[#C0C0C0] sm:text-sm">
+              {bundle_tot_courses && bundle_i && (
+                <span className="flex items-center gap-1">
+                  <img src={bundle_i} alt="" className="h-4 w-4" />
+                  <span>{bundle_tot_courses}</span>
+                </span>
+              )}
+              {indi_lang_i && lang_detail && (
+                <span className="flex items-center gap-1">
+                  <img src={indi_lang_i} alt="" className="h-4 w-4" />
+                  <span>{lang_detail}</span>
+                </span>
+              )}
+              {schedule_i && hours && (
+                <span className="flex items-center gap-1">
+                  <img src={schedule_i} alt="" className="h-4 w-4" />
+                  <span>{hours}</span>
+                </span>
+              )}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center gap-3 border-t border-[#252525] pt-3">
+            {ment_icon && (
+              <img
+                src={ment_icon}
+                alt={mentors}
+                className="h-10 w-10 rounded-full object-cover"
+              />
+            )}
+            <div className="min-w-0">
+              <p className="truncate text-sm font-medium text-white">
+                {mentors}
+              </p>
+              {more_count && (
+                <p className="text-xs text-[#B8B8B8]">{more_count}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      </article>
+    </Link>
+  );
+};
+
+export default BundleCourse;

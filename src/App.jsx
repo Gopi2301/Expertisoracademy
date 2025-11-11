@@ -220,6 +220,7 @@ import LoginModal from './components/HomeComponents/LoginModal';
 import WhatsAppButton from './components/WhatsAppButton';
 import PageLoader from './components/PageLoader';
 import ErrorBoundary from './components/ErrorBoundary';
+import CourseContextProvider from './context/CourseContextProvider.jsx';
 
 // Lazy load pages for code splitting
 const Home = lazy(() => import('./pages/Home'));
@@ -229,7 +230,6 @@ const Course = lazy(() => import('./pages/Course'));
 const Videos = lazy(() => import('./components/CourseComponents/Videos'));
 const StudRev = lazy(() => import('./components/CourseComponents/StudRev'));
 const Mentors = lazy(() => import('./pages/Mentors'));
-const CourseContextProvider = lazy(() => import('./context/CourseContextProvider.jsx'));
 const Initiative = lazy(() => import('./pages/Initiative'));
 const AuthSuccess = lazy(() => import('./pages/AuthSuccess'));
 const AffilateMarketing = lazy(() => import('./pages/AffilateMarketing'));
@@ -301,45 +301,40 @@ const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
       {/* Main Content */}
       <main className={mainClasses}>
         <ErrorBoundary>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route
-                path='/courses'
-                element={
-                  <CourseContextProvider>
-                    <Courses />
-                  </CourseContextProvider>
-                }
-              />
-              <Route path='/testimonials' element={<Testimonials />} />
-              <Route path='/course/:id' element={<Course />}>
-                <Route index element={<Videos />} />
-                <Route path='review' element={<StudRev />} />
-              </Route>
-              <Route path='/mentors' element={<Mentors />} />
-              <Route path='/techbundle' element={<Initiative />} />
-              <Route path='/auth/success' element={<AuthSuccess />} />
-              <Route path='/reels-affiliate-marketing-tamil' element={<AffilateMarketing />} />
-              <Route path='/3dsmax-tamil' element={<ThreeDMax />} />
-              <Route path='/termsandservices' element={<TermsAndServices />} />
-              <Route path='/privacypolicy' element={<PrivacyPolicy />} />
-              <Route path='/RefundAndCertificationPolicy' element={<RefundAndCertificationPolicy />} />
-              {/* <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} /> */}
-              <Route path='/creator-mentor' element={<BecomeMentor />} />
-              <Route path="/whylearncourse/:slug" element={<WhyLearnCourse />} />
-              <Route path='/solidworks-tamil' element={<SolidWorks />} />
-              <Route path='/civil3d-tamil' element={<Civil3D />} />
+          <CourseContextProvider>
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/courses' element={<Courses />} />
+                <Route path='/testimonials' element={<Testimonials />} />
+                <Route path='/course/:id' element={<Course />}>
+                  <Route index element={<Videos />} />
+                  <Route path='review' element={<StudRev />} />
+                </Route>
+                <Route path='/mentors' element={<Mentors />} />
+                <Route path='/techbundle' element={<Initiative />} />
+                <Route path='/auth/success' element={<AuthSuccess />} />
+                <Route path='/reels-affiliate-marketing-tamil' element={<AffilateMarketing />} />
+                <Route path='/3dsmax-tamil' element={<ThreeDMax />} />
+                <Route path='/termsandservices' element={<TermsAndServices />} />
+                <Route path='/privacypolicy' element={<PrivacyPolicy />} />
+                <Route path='/RefundAndCertificationPolicy' element={<RefundAndCertificationPolicy />} />
+                {/* <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} /> */}
+                <Route path='/creator-mentor' element={<BecomeMentor />} />
+                <Route path="/whylearncourse/:slug" element={<WhyLearnCourse />} />
+                <Route path='/solidworks-tamil' element={<SolidWorks />} />
+                <Route path='/civil3d-tamil' element={<Civil3D />} />
 
-              {/* Eliteconnect Routes */}
-              <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />
-              <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
-              <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
+                {/* Eliteconnect Routes */}
+                <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />
+                <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
+                <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
 
-              {/* Fallback */}
-              <Route path="*" element={<div>Page Not Found</div>} />
-            </Routes>
-          </Suspense>
+                {/* Fallback */}
+                <Route path="*" element={<div>Page Not Found</div>} />
+              </Routes>
+            </Suspense>
+          </CourseContextProvider>
         </ErrorBoundary>
       </main>
 
