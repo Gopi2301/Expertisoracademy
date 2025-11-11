@@ -3,14 +3,14 @@ import allBundleImage from '../assets/images/all_bundle.jpg';
 import starIcon from '../assets/images/star.svg';
 import bookIcon from '../assets/images/book.svg';
 import scheduleIcon from '../assets/images/schedule.svg';
-import mentorIcon from '../assets/images/ment_icon.svg';
+import mentorIcon from '../assets/optimized/becomeMentor/ment_icon.webp';
 import affiliateCardImage from '../assets/images/affilate/affilate_card_img.svg';
 import languageIcon from '../assets/images/lang_i.svg';
 import sridharMentorIcon from '../assets/images/sridhar_ment_i.svg';
 import threeDsMaxCard from '../assets/images/courses_card/threeDsmax.svg';
-import raghulanMentorIcon from '../assets/images/courses_card/raghulan_ment_i.svg';
+import raghulanMentorIcon from '../assets/optimized/courses/raghulan_ment_i.webp';
 import solidworksCard from '../assets/images/courses_card/solidworks.svg';
-import elavarasanMentorIcon from '../assets/images/courses_card/elavarasan_ment_i.svg';
+import elavarasanMentorIcon from '../assets/optimized/courses/elavarasan_ment_i.webp';
 import civil3dCard from '../assets/images/courses_card/civil3D.svg';
 
 

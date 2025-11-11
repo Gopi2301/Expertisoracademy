@@ -1,7 +1,7 @@
 import headsetIcon from '../../assets/images/3DMax/Headset.svg';
 import updatesIcon from '../../assets/images/3DMax/ArrowClockwise.svg';
 import studentBadge from '../../assets/images/solidworks/sld_stud_icon.svg';
-import heroCoach from '../../assets/images/solidworks/solidworks_mentor.svg';
+import heroCoach from '../../assets/optimized/courses/solidworks_mentor.webp';
 import heroVideo from '../../assets/images/solidworks/Video_Solidworks.mp4';
 import ratingBackground from '../../assets/images/solidworks/bg_car_rating.png';
 import challengeEmptyPortfolio from '../../assets/images/solidworks/chall1.svg';
@@ -14,7 +14,7 @@ import courseCard4 from '../../assets/images/3DMax/course/co4.svg';
 import courseCard5 from '../../assets/images/3DMax/course/co5.svg';
 import courseCard6 from '../../assets/images/3DMax/course/co6.svg';
 import syllabusDownloadIcon from '../../assets/images/affilate/verified.svg';
-import mentorPortrait from '../../assets/images/solidworks/sw_mentor.svg';
+import mentorPortrait from '../../assets/optimized/courses/sw_mentor.webp';
 import mentorLogo from '../../assets/images/ins_ex_logo.svg';
 import starOutlineIcon from '../../assets/images/star_outline.svg';
 import studentOutlineIcon from '../../assets/images/stud_outline.svg';

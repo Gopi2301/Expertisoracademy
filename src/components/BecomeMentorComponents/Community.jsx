@@ -1,12 +1,14 @@
 import React, { useState, useEffect, useRef, memo } from "react";
 import Lottie from "lottie-react";
-import mentors_run from "../../../src/mentors_run.json";
-import mentors_mobile from '../../../src/mentors_mobile.json'
 import StartButton from "../StartButton";
 import { pages } from "../../constants/pages";
 
 const Community = memo(() => {
     const [isVisible, setIsVisible] = useState(false);
+    const [animationData, setAnimationData] = useState({
+        desktop: null,
+        mobile: null,
+    });
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -32,13 +34,45 @@ const Community = memo(() => {
         };
     }, []);
 
+    useEffect(() => {
+        let isCancelled = false;
+
+        async function loadAnimations() {
+            try {
+                const [desktop, mobile] = await Promise.all([
+                    import("../../mentors_run.json"),
+                    import("../../mentors_mobile.json"),
+                ]);
+
+                if (!isCancelled) {
+                    setAnimationData({
+                        desktop: desktop.default,
+                        mobile: mobile.default,
+                    });
+                }
+            } catch (error) {
+                if (import.meta.env.DEV) {
+                    console.error("Failed to load mentor animations", error);
+                }
+            }
+        }
+
+        if (!animationData.desktop || !animationData.mobile) {
+            loadAnimations();
+        }
+
+        return () => {
+            isCancelled = true;
+        };
+    }, [animationData.desktop, animationData.mobile]);
+
     return (
         <div className="relative w-full" ref={containerRef}>
             {/* Fullscreen Lottie Background */}
-            {isVisible && (
+            {isVisible && animationData.desktop && animationData.mobile && (
                 <>
                     <Lottie
-                        animationData={mentors_run}
+                        animationData={animationData.desktop}
                         loop
                         autoplay={isVisible}
                         className="w-full xl:h-[500px] roundd-lg sm:block hidden"
@@ -51,7 +85,7 @@ const Community = memo(() => {
 
                     {/* mobile below md */}
                     <Lottie
-                        animationData={mentors_mobile}
+                        animationData={animationData.mobile}
                         loop
                         autoplay={isVisible}
                         className="block sm:hidden w-full object-contain"

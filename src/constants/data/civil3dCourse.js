@@ -17,7 +17,7 @@ import courseCardThree from '../../assets/images/3DMax/course/co3.svg';
 import courseCardFour from '../../assets/images/3DMax/course/co4.svg';
 import courseCardFive from '../../assets/images/3DMax/course/co5.svg';
 import courseCardSix from '../../assets/images/3DMax/course/co6.svg';
-import heroIcon from '../../assets/images/courses_card/raghulan_ment_i.svg';
+import heroIcon from '../../assets/optimized/courses/raghulan_ment_i.webp';
 import mentorPortrait from '../../assets/images/3DMax/mentor/raghulan_ment.svg';
 import mentorLogo from '../../assets/images/ins_ex_logo.svg';
 import starOutlineIcon from '../../assets/images/star_outline.svg';

@@ -18,12 +18,6 @@ import { BrowserRouter } from 'react-router-dom';
 // header, footer, and the <Routes> definition for all your pages.
 import App from './App.jsx';
 
-// `CourseContextProvider` is a custom React Context Provider you've created.
-// It's responsible for managing and providing state related to courses (e.g., fetching course data,
-// managing the current course) to any child components that need it, without "prop drilling".
-import CourseContextProvider from './context/CourseContextProvider.jsx';
-
-
 // --- 3. Import Global Styles ---
 
 // `index.css` contains your global styles, including Tailwind CSS base styles, components,
@@ -49,16 +43,9 @@ root.render(
   // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
   // to provide the necessary routing context.
   <BrowserRouter>
-    
-    {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
-        inside <App> can access the course context via the `useContext` hook. */}
-    <CourseContextProvider>
-      
-      {/* <App /> is the entry point of your component hierarchy. */}
-      <App />
 
-    </CourseContextProvider>
-
+    {/* <App /> is the entry point of your component hierarchy. */}
+    <App />
   </BrowserRouter>
 );
 

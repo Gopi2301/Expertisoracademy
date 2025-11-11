@@ -229,6 +229,7 @@ const Course = lazy(() => import('./pages/Course'));
 const Videos = lazy(() => import('./components/CourseComponents/Videos'));
 const StudRev = lazy(() => import('./components/CourseComponents/StudRev'));
 const Mentors = lazy(() => import('./pages/Mentors'));
+const CourseContextProvider = lazy(() => import('./context/CourseContextProvider.jsx'));
 const Initiative = lazy(() => import('./pages/Initiative'));
 const AuthSuccess = lazy(() => import('./pages/AuthSuccess'));
 const AffilateMarketing = lazy(() => import('./pages/AffilateMarketing'));
@@ -303,7 +304,14 @@ const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
           <Suspense fallback={<PageLoader />}>
             <Routes>
               <Route path='/' element={<Home />} />
-              <Route path='/courses' element={<Courses />} />
+              <Route
+                path='/courses'
+                element={
+                  <CourseContextProvider>
+                    <Courses />
+                  </CourseContextProvider>
+                }
+              />
               <Route path='/testimonials' element={<Testimonials />} />
               <Route path='/course/:id' element={<Course />}>
                 <Route index element={<Videos />} />

@@ -1,8 +1,8 @@
 import React from 'react'
-import mentorOne from '../../assets/images/mentors/m1.svg'
-import mentorTwo from '../../assets/images/mentors/m2.svg'
-import mentorThree from '../../assets/images/mentors/m3.svg'
-import mentorFour from '../../assets/images/mentors/m4.svg'
+import mentorOne from '../../assets/optimized/mentorsRun/m1.webp'
+import mentorTwo from '../../assets/optimized/mentorsRun/m2.webp'
+import mentorThree from '../../assets/optimized/mentorsRun/m3.webp'
+import mentorFour from '../../assets/optimized/mentorsRun/m4.webp'
 import Marquee from 'react-fast-marquee'
 
 

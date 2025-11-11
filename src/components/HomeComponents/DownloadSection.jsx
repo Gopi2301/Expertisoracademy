@@ -1,6 +1,6 @@
 import bgDownload from '../../assets/images/bg_download.png';
 import googlePlayBadge from '../../assets/images/gplay.svg';
-import mobilePhoneImage from '../../assets/images/mobile_phone.svg';
+import mobilePhoneImage from '../../assets/optimized/becomeMentor/mobile_phone.webp';
 
 
 const DownloadSection = () => {

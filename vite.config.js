@@ -2,25 +2,36 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { imagetools } from 'vite-imagetools'
 import { compression } from 'vite-plugin-compression2'
+import { visualizer } from 'rollup-plugin-visualizer'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    react(), 
+    react(),
     imagetools(),
     // Gzip compression
     compression({
       algorithm: 'gzip',
       exclude: [/\.(br)$/, /\.(gz)$/],
       threshold: 1024, // Only compress files larger than 1KB
+      extension: '.gz',
+      deleteOriginalAssets: false,
     }),
     // Brotli compression
     compression({
       algorithm: 'brotliCompress',
       exclude: [/\.(br)$/, /\.(gz)$/],
       threshold: 1024,
+      extension: '.br',
+      deleteOriginalAssets: false,
     }),
-  ],
+    process.env.ANALYZE && visualizer({
+      filename: 'dist/stats.html',
+      open: true,
+      gzipSize: true,
+      brotliSize: true,
+    }),
+  ].filter(Boolean),
   build: {
     // Optimize chunk output names for better caching
     rollupOptions: {

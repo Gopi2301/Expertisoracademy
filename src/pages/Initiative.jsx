@@ -1,8 +1,6 @@
 import "../init.css";
 import "../index.css";
 import "@fontsource/inter";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import SectionIntro from '../initiativeComponents/SectionIntro';
 import Section2 from '../initiativeComponents/Section2';
 import Section3 from '../initiativeComponents/Section3';

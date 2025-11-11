@@ -1,7 +1,7 @@
 import React from 'react'
 import Heading from '../Heading'
 import { pages } from '../../constants/pages'
-import keyBenefitsImage from '../../assets/images/BecomeMentor/key_ben_mentors.svg';
+import keyBenefitsImage from '../../assets/optimized/becomeMentor/key_ben_mentors.webp';
 
 
 const KeyBenefits = () => {
