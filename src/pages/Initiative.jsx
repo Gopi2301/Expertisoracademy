@@ -11,7 +11,7 @@ import Section4 from '../../src/initiativeComponents/Section4';
 import Section5 from '../../src/initiativeComponents/Section5';
 import Section6 from '../../src/initiativeComponents/Section6';
 import Section7 from '../../src/initiativeComponents/Section7';
-import Aboutus from '../../src/initiativeComponents/Aboutus';
+import Aboutus from '../../src/initiativeComponents/AboutUs';
 import StudReview from '../../src/initiativeComponents/StudReview';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect } from 'react';

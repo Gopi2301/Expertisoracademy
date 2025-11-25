@@ -1,8 +1,35 @@
-import React from 'react'
+import React, { memo, useEffect, useMemo } from 'react'
 import { assets } from '../../assets/assets'
-import bghome from '../../assets/images/bg_gradient.png'
 
 const Hero = () => {
+    const reviewAvatars = useMemo(() => [
+        assets.a,
+        assets.b,
+        assets.c,
+        assets.d,
+        assets.e,
+        assets.f,
+        assets.g
+    ], []);
+
+    useEffect(() => {
+        const heroImages = [assets.creators, assets.m_creators];
+        const links = heroImages.map((src) => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+            return link;
+        });
+        return () => {
+            links.forEach((link) => {
+                if (link.parentNode) {
+                    link.parentNode.removeChild(link);
+                }
+            });
+        };
+    }, []);
     return (
         <>
             {/* <div className='absolute top-0  z-[-1]  w-full'>
@@ -20,10 +47,25 @@ const Hero = () => {
                 {/* side padding for modile */}
                 <div className=' text-center px-3'>
                     <div className='flex justify-center'>
-                        <div className='flex gap-2 p-2 border border-[#FFFFFF] rounded-lg items-center'>
-                            <img src={assets.icon} alt="" />
-                            <img src={assets.star_i} alt="" className='w-6 h-6' />
-                            <p className='text-[#DBDBDB] font-inter text-nowrap'>4.9 (7462 reviews)</p>
+                        <div className='flex items-center gap-4 px-4 py-2 border border-[#FFFFFF] rounded-full bg-black/60 backdrop-blur-sm'>
+                            <div className='flex -space-x-3'>
+                                {reviewAvatars.map((avatar, index) => (
+                                    <img
+                                        key={avatar + index}
+                                        src={avatar}
+                                        alt='Student avatar'
+                                        className='w-9 h-9 rounded-full border border-black object-cover'
+                                        loading='lazy'
+                                        decoding='async'
+                                        width={36}
+                                        height={36}
+                                    />
+                                ))}
+                            </div>
+                            <div className='flex items-center gap-2 text-[#DBDBDB] font-inter text-sm sm:text-base'>
+                                <span aria-hidden className='text-[#FFF200] text-xl leading-none'>★</span>
+                                <p className='text-nowrap'>4.9 (7462 reviews)</p>
+                            </div>
                         </div>
                     </div>
                 
@@ -57,7 +99,7 @@ const Hero = () => {
                                 <p className='text-[#BDBDBD] mt-1'>Impacted students</p>
                             </div>
 
-                            <img src={assets.learn_label} alt="" className='absolute top-[-40px] right-[-8px] sm:top-[-40px] sm:right-[-40px] w-[60px] h-[60px] sm:w-[88px] sm:h-[88px]'/>
+                            <img src={assets.learn_label} alt="Learn label" className='absolute top-[-40px] right-[-8px] sm:top-[-40px] sm:right-[-40px] w-[60px] h-[60px] sm:w-[88px] sm:h-[88px]' width={88} height={88} loading="lazy" decoding="async"/>
 
                         </div>
                     </div>
@@ -65,11 +107,11 @@ const Hero = () => {
 
 
                 <div className='hidden sm:block'>
-                    <img width={"100%"} src={assets.creators} alt="" />
+                    <img width={"100%"} src={assets.creators} alt="Creator mentors collage" loading="eager" decoding="async"/>
                 </div>
 
                 <div className='block sm:hidden'>
-                    <img width={"100%"} src={assets.m_creators} alt="" />
+                    <img width={"100%"} src={assets.m_creators} alt="Creator mentors collage mobile" loading="lazy" decoding="async"/>
                 </div>
 
                 <div
@@ -85,4 +127,4 @@ const Hero = () => {
     )
 }
 
-export default Hero
+export default memo(Hero)

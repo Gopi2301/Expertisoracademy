@@ -3,7 +3,7 @@ import { Download } from "lucide-react";
 import { assets } from "../assets/assets";
 
 
-const OfferBanner = ({offer_detail}) => {
+const OfferBanner = ({ offer_detail }) => {
   // total duration 
   const DURATION = offer_detail.no_days * 24 * 60 * 60;
 
@@ -70,10 +70,17 @@ const OfferBanner = ({offer_detail}) => {
       <a href={offer_detail.joinNow_link} className="bg-yellow text-black text-[14px] lg:text-[18px] font-semibold px-4 lg:px-5 py-2 lg:py-3  rounded">
         Join Now
       </a>
-      <a href={offer_detail.d_broucher} target="_blank" download className="flex items-center gap-2 bg-[#F2F2F21A] border border-[#FFFFFF33] p-[8px] lg:px-5 lg:py-3 rounded">
-        <span className="hidden md:block text-[14px] lg:text-[18px]">Brochure</span>
-        <Download size={18} />
-      </a>
+
+      {
+        offer_detail.d_broucher &&
+        <a href={offer_detail.d_broucher} target="_blank" download className="flex items-center gap-2 bg-[#F2F2F21A] border border-[#FFFFFF33] p-[8px] lg:px-5 lg:py-3 rounded">
+          <span className="hidden md:block text-[14px] lg:text-[18px]">Brochure</span>
+          <Download size={18} />
+        </a>
+      }
+
+
+
     </div>
   );
 

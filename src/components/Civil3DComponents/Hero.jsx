@@ -24,9 +24,9 @@ const Hero = ({ data }) => {
                 </div>
 
                 <div className='sm:flex-row flex flex-col   justify-center gap-3 w-full'>
-                    <StartButton data={pages?.civil3d?.start_button}/>
+                    <StartButton data={data?.start_button}/>
 
-                    <Download data={pages?.civil3d?.download}/>
+                    <Download data={data?.download}/>
                 </div>
 
 

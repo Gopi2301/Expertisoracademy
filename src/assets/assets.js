@@ -280,7 +280,27 @@ import share from './images/mentorship/raghulan_mentor/share.svg'
 import silver_diamond from './images/mentorship/silver_diamond.svg'
 import gold_diamond from './images/mentorship/gold_diamond.svg'
 
+// blockchain
+import tag_icon from './images/blockchain/tag_icon.svg'
+import growth from './images/blockchain/growth.svg'
+import rev_bg from './images/blockchain/rev_bg.png'
+import ment_img from './images/blockchain/ment_img.svg'
+import Blockchain from './images/blockchain/Blockchain.mp4'
+import avg_salary from './images/blockchain/avg_salary.svg'
+import adoption from './images/blockchain/adoption.svg'
+import military_tech from './images/blockchain/military_tech.svg'
+import global from './images/blockchain/global.svg'
+import blockchain_ment from './images/blockchain/blockchain_ment.jpeg'
+import bc_bw_1 from './images/blockchain/bc_bw_1.svg';
+import bc_bw_2 from './images/blockchain/bc_bw_2.svg';
+import bc_bw_3 from './images/blockchain/bc_bw_3.svg';
+import bc_y_1 from './images/blockchain/bc_y_1.svg';
+import bc_y_2 from './images/blockchain/bc_y_2.svg';
+import bc_y_3 from './images/blockchain/bc_y_3.svg';
+import income_bg from './images/blockchain/income_bg.jpg'
 
+import threeDMax_eng from "./images/3DMax/threeDMax_eng.jpg"
+import civil_3d_eng from "./images/civil3D/civil_3d_eng.jpg"
 
 export const assets = {
     logo_ex,
@@ -362,6 +382,7 @@ export const assets = {
     sivaraman, javid, fakir, raghulan, sathesh, muthupandiyan, sridhar, reyroi, anton, swaminathan, dhivagar, therikumar, tharun, manosundar, elavarasan, akash, siva, ashok_kumar, allan,
     highdemand_1,highdemand_2,highdemand_3,threeDsmax,solidworks,civil3D,amazon,raghulan_ment_i,swaminathan_ment_i,elavarasan_ment_i,
     sld_path1,sld_path2,sld_path3,proj,rupee_circle,sld_stud_icon,
-    raghulan_profile,banner_raghulan,banner_raghulan_mob,spec_img1,spec_img2,share,silver_diamond,gold_diamond
-
+    raghulan_profile,banner_raghulan,banner_raghulan_mob,spec_img1,spec_img2,share,silver_diamond,gold_diamond,
+    tag_icon,growth,rev_bg,ment_img,Blockchain,avg_salary,adoption,military_tech,global,blockchain_ment,
+    bc_bw_1,bc_bw_2,bc_bw_3,bc_y_1,bc_y_2,bc_y_3,income_bg,threeDMax_eng,civil_3d_eng
 }

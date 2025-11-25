@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useMemo } from 'react';
 import ProfileCard from './ProfileCard';
 import { assets } from '../../assets/assets';
 import { pages } from '../../constants/pages';
@@ -20,6 +20,7 @@ import { pages } from '../../constants/pages';
 // ]
 
 const PaginatedGrid = () => {
+  const mentors = useMemo(() => pages.become_mentors.wall_of_mentors.mentors, []);
   // const [currentPage, setCurrentPage] = useState(1);
   // const cardsPerPage = 9;
 
@@ -43,7 +44,7 @@ const PaginatedGrid = () => {
 
       <div>
         <div className='mt-[32px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 sm:gap-4 lg:gap-5'>
-          {pages.become_mentors.wall_of_mentors.mentors.map((data, i) => (
+          {mentors.map((data, i) => (
             <div
               key={i}
               className='relative border  border-[#323232] rounded-lg bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)] bg-black bg-blend-screen overflow-hidden group'
@@ -67,6 +68,8 @@ const PaginatedGrid = () => {
                   src={data.img}
                   alt={data.name}
                   className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
 
@@ -78,7 +81,7 @@ const PaginatedGrid = () => {
               {/* hover content */}
               <div className="absolute inset-0  text-white p-4 flex flex-col  justify-start opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black bg-blend-screen bg-[radial-gradient(191.1%_153.45%_at_14.26%_121.55%,#705900_0%,rgba(0,0,0,0.3)_66.08%)]">
                 <div className="w-24 min-h-34 rounded-lg overflow-hidden mb-3">
-                  <img src={data.img} alt={data.name} className="w-full h-full bg-[#473901] object-contain" />
+                  <img src={data.img} alt={data.name} className="w-full h-full bg-[#473901] object-contain" loading="lazy" decoding="async" />
                 </div>
 
                 <div>
@@ -90,9 +93,9 @@ const PaginatedGrid = () => {
 
                 <div className="space-y-2 mb-4 w-full font-inter font-normal text-[14px]">
                   {
-                    data?.rating?.map((value, i) => (
-                      <div key={i} className="flex items-center gap-2">
-                        <img src={value.img} alt="" />
+                    data?.rating?.map((value, idx) => (
+                      <div key={idx} className="flex items-center gap-2">
+                        <img src={value.img} alt={value.name} loading="lazy" decoding="async" width={20} height={20}/>
                         <span>{value.name}</span>
                       </div>
                     ))
@@ -102,11 +105,11 @@ const PaginatedGrid = () => {
                 <div className="grid grid-cols-2 gap-2 w-full font-inter font-medium text-[14px]">
 
                   {
-                    data?.social_media?.map((value, i) => (
-                      <a key={i} target="_blank" href={value.link} className="flex items-center justify-center gap-2 bg-[#2c2c2c] rounded-lg py-2">
-                        <img src={value.sm_i} alt="" />
+                    data?.social_media?.map((value, idx) => (
+                      <a key={idx} target="_blank" href={value.link} rel="noreferrer" className="flex items-center justify-center gap-2 bg-[#2c2c2c] rounded-lg py-2">
+                        <img src={value.sm_i} alt={`${data.name} ${value.followers}`} loading="lazy" decoding="async" width={20} height={20}/>
                         <p>{value.followers}</p>
-                        <img src={value.link_i} alt="" />
+                        <img src={value.link_i} alt="External link icon" loading="lazy" decoding="async" width={16} height={16}/>
 
                       </a>
                     ))
@@ -142,4 +145,4 @@ const PaginatedGrid = () => {
   );
 };
 
-export default PaginatedGrid;
+export default memo(PaginatedGrid);

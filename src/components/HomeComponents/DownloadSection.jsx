@@ -34,14 +34,11 @@
 
 
 
-import { useNavigate } from 'react-router-dom';
+import React, { memo } from 'react';
 import { assets } from '../../assets/assets';
 
 
 const DownloadSection = () => {
-    const navigate=useNavigate()
-
-
     return (
         <div className='px-3 sm:px-14 lg:px-20'>
             <div
@@ -60,13 +57,29 @@ const DownloadSection = () => {
                         </p>
                         <div >
                             <a href="https://play.google.com/store/apps/details?id=triggerupacademy.com ">
-                            <img src={assets.gplay} alt="" className='my-6' />
+                            <img
+                                src={assets.gplay}
+                                alt="Download on Google Play"
+                                className='my-6'
+                                loading="lazy"
+                                decoding="async"
+                                width={180}
+                                height={54}
+                            />
                             </a>
                         </div>
                     </div>
 
                     <div className="flex-1 flex justify-center items-end">
-                        <img src={assets.mobile_phone} alt="Phone" className="w-64 md:w-96 drop-shadow-2xl" />
+                        <img
+                            src={assets.mobile_phone}
+                            alt="Expertisor mobile app preview"
+                            className="w-64 md:w-96 drop-shadow-2xl"
+                            loading="lazy"
+                            decoding="async"
+                            width={384}
+                            height={768}
+                        />
                     </div>
                 </div>
             </div>
@@ -74,4 +87,4 @@ const DownloadSection = () => {
     );
 };
 
-export default DownloadSection;
+export default memo(DownloadSection);

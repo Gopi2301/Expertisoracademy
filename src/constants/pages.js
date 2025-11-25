@@ -236,7 +236,6 @@ export const pages = {
                 rocket_i: assets.rocket_i,
                 rocket_bg: assets.rocket_launch
             }
-
         },
         students_say_video: {
             title: "Real Success Stories From People Just Like You",
@@ -455,6 +454,17 @@ export const pages = {
             name: "Download Brochre"
         },
         hero_section: {
+            head: "Confused by complex 3D software and don’t know where to start?",
+
+            highlights: ["complex 3D software", "start"],
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+                name: "Become a 3D Pro"
+            },
+            download: {
+                link: "/3DSMax-Mastery-Program.pdf",
+                name: "Download Brochre"
+            },
             icon: {
                 threed_icon: assets.threemax_icon,
                 para: "Learn 3ds Max from Scratch",
@@ -813,7 +823,394 @@ export const pages = {
             coupen_code: "MAXOFFER43",
             discount_percent: 44,
             no_days: 2,
-            joinNow_link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            d_broucher: "/3DSMax-Mastery-Program.pdf"
+        }
+    },
+
+    // english
+    ThreeDMax_english: {
+        start_button: {
+            link: "https://learn.expertisoracademy.in/courses/3ds-max-English---Fundamentals-68f7abe77b85e0020d2a6ab5",
+            name: "Become a 3D Pro"
+        },
+        download: {
+            link: "/3DSMax-Mastery-Program.pdf",
+            name: "Download Brochre"
+        },
+        hero_section: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/3ds-max-English---Fundamentals-68f7abe77b85e0020d2a6ab5",
+                name: "Become a 3D Pro"
+            },
+            download: {
+                link: "/3DSMax-Mastery-Program.pdf",
+                name: "Download Brochre"
+            },
+
+            head: "Confused by complex 3D software and don’t know where to start?",
+
+            highlights: ["complex 3D software", "start"],
+            icon: {
+                threed_icon: assets.threemax_icon,
+                para: "Learn 3ds Max from Scratch",
+            },
+            para: "Turn your 3D passion into a profession with our beginner friendly 3ds Max course. Learn 3D modeling, animation and rendering step by step so you can create studio quality visuals that match global project standards.",
+            features: [
+                {
+                    i: assets.Headset,
+                    para: "Lifetime support",
+                },
+                {
+                    i: assets.ArrowClockwise,
+                    para: "Monthly mentor Q&A sessions",
+                },
+                {
+                    i: assets.threeD_stud_i,
+                    para: "8K+ Happy students",
+                },
+
+            ]
+        },
+        motion_section: {
+            para: "Master the fundamentals and use them in any 3D software you prefer.",
+            software_motion: [
+                assets.so6,
+                assets.so2,
+                assets.so4,
+                assets.so3,
+                assets.so1,
+                assets.so7,
+                assets.so5,
+                assets.so6,
+                assets.so2,
+                assets.so4,
+                assets.so3,
+                assets.so1,
+                assets.so7,
+                assets.so5,
+                assets.so6,
+                assets.so2,
+                assets.so4,
+                assets.so3,
+                assets.so1,
+                assets.so7,
+                assets.so5,
+
+            ]
+        },
+        course_section: {
+            title: "Why This Course?",
+            highlights: ["Course?"],
+            p1: "Unlock your creative potential and master 3D design with our",
+            p2: "beginner friendly course",
+            path_way: [
+                {
+                    img: assets.co1,
+                    title: "Beginner Friendly",
+                    para: "No prior experience required. We provide all the training you need to succeed.",
+                },
+                {
+                    img: assets.co2,
+                    title: "Step by Step Guidance",
+                    para: "Enjoy quick, engaging video lessons that are easy to grasp.",
+                },
+                {
+                    img: assets.co3,
+                    title: "Hands On Projects",
+                    para: "Engage actively to solidify your understanding, rather than just watching.",
+                },
+                {
+                    img: assets.co4,
+                    title: "Lifetime Access",
+                    para: "Enjoy lifetime access to the course, community, and exclusive webinars.",
+                },
+                {
+                    img: assets.co5,
+                    title: "Mentor Support",
+                    para: "Get help and feedback anytime from mentors who guide you on your creative journey.",
+                },
+                {
+                    img: assets.co6,
+                    title: "Certificate",
+                    para: "Earn certificates upon course completion to enhance your resume and career prospects.",
+                },
+            ]
+        },
+        mentor_section: {
+            ment_img: assets.raghulan_ment,
+            ment_detail: {
+                name: "Raghulan Gowthaman",
+                logo: assets.ins_ex_logo,
+                domain: "(Founder @ Virtua Tech | Tech & Civil Expert)",
+                course_detail: [
+                    {
+                        i: assets.star_outline,
+                        para: "4.9 Ratings"
+                    },
+                    {
+                        i: assets.stud_outline,
+                        para: "8375 Students"
+                    },
+                    {
+                        i: assets.book_outline,
+                        para: "7 Course"
+                    },
+                ],
+                social_media: [
+                    { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com/askraghulan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                    { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com/@AskRaghulan" },
+                ],
+                desc1: "Back in 2012 I lost my job. It was the hardest moment of my life, but also the turning point. Instead of giving up, I started my own company Virtua Tech, which later grew into a million dollar company. With 20+ years of experience in Technology and Civil Engineering, I decided to document my entire knowledge here so learners like you don’t have to start from zero.",
+                desc2: "As the Founder and CEO of Virtua Finance Pty Ltd, I am at the forefront of blockchain innovation, leading the development of VirtuaCoin and VirtuaSWAP products. Our mission is to enhance the virtual economy through multi-utility crypto tokens and a comprehensive native wallet app, driving the play-to-earn ecosystem and fostering community trading of tokens and NFTs. With a strategic vision, my role is pivotal in capital raising efforts, presenting our projects to venture capitalists and board members, and shaping the future of decentralized finance.",
+                pathway: [
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.path1,
+                        para: "Lost my job, found my vision"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path2,
+                        para: "Built a Million-Dollar Company"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path3,
+                        para: "Worked on FIFO & Large-Scale Projects"
+                    },
+                ],
+                desc3: "Today, I bring you 3ds Max courses to help you avoid the mistakes I made and grow faster in your career. With expertise in design, visualization, and architecture, I share practical, real world insights that go beyond theory.",
+                desc4: "With my experience, the best way to learn is from someone who has done it all"
+
+            },
+
+            ment_info: [
+                {
+                    head: "students trained",
+                    num: " 8375+",
+                    i: assets.hat
+                },
+                {
+                    head: "Followers on YouTube",
+                    num: "172K +",
+                    i: assets.per,
+
+                },
+                {
+                    head: "Followers on Instagram",
+                    num: "26.4K +",
+                    i: assets.per
+                },
+                {
+                    head: "Average reviews ",
+                    num: "4.9",
+                    i: assets.kid_stars
+                },
+            ],
+
+            mission: {
+                start_button: {
+                    link: "https://learn.expertisoracademy.in/courses/3ds-max-English---Fundamentals-68f7abe77b85e0020d2a6ab5",
+                    name: "Become a 3D Pro"
+                },
+                head: "My Mission",
+                para: "My mission is to make 3ds Max simple and practical for learners. I want to help students and professionals create visuals that match the standards of the biggest industries and projects worldwide.",
+                rocket_i: assets.rocket_i,
+                rocket_bg: assets.rocket_launch
+            }
+
+        },
+        lessons_comp: {
+            download: {
+                link: "/3DSMax-Mastery-Program.pdf",
+                name: "Download Syllabus"
+            },
+            head: "What You'll Learn Inside the Course",
+            highlights: ["Learn"],
+            p1: "Master the fundamentals of 3D modeling, texturing, lighting, ",
+            p2: "animation, and rendering to bring your creative visions to life!",
+            video_id: "wUyHHTPHcdQ",
+            video_thumbnail: assets.affilate_video
+        },
+        students_say_video: {
+            title: "Real Success Stories From People Just Like You",
+            p1: "Hear from Our Students: Turning Aspirations into Technological",
+            p2: "Breakthroughs for Everyone.",
+            highlights: ["Success Stories"],
+            videos: [
+                { id: 1, title: 'From Confused to Clear: Clarity Through Mentorship🤝', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/yjN8BcnCShM/hqdefault.jpg', youtubeId: 'yjN8BcnCShM' },
+                { id: 2, title: 'No Placement Scams ❌ Value is Our Big Promise ❤', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/0byxBZjb7DA/hqdefault.jpg', youtubeId: '0byxBZjb7DA' },
+            ],
+        },
+        course_review: [
+            {
+                review: "I was completely new to 3ds Max, but this course made everything so simple. The step-by-step explanations were so clear that I completed my first 3D project within a week. Totally worth it!",
+                name: "Rahul Menon, Bangalore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I always thought 3ds Max was difficult, but the trainer explained everything in such a simple way. Now I’ve started creating realistic room renders confidently.",
+                name: "Suresh Kumar, Trichy",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I had tried YouTube tutorials before, but they always left me confused. This course gave me a proper structure, and I finally understood how to model and render correctly. Highly recommended!",
+                name: "Priya Sharma, Pune",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I watched many YouTube tutorials before, but I always got confused halfway. This course has a proper flow, making it very easy to follow from beginning to end.",
+                name: "Harini R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "As a civil engineering student, I always wanted to create realistic building models. After completing this course, my college projects look much more professional.",
+                name: "Aravind R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I needed a 3D elevation for my college project, and this course helped me complete the entire design independently. My classmates were impressed by the final result!",
+                name: "Pranav R, Salem",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This is such a practical course. Instead of spending time on unnecessary theory, the trainer shows how to apply every tool directly. That hands-on approach helped me learn faster.",
+                name: "Divya Nair, Kochi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer was very friendly and explained all doubts clearly with examples. Because of that, my basics are now very strong.",
+                name: "Janani S, Madurai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I enrolled with zero knowledge, but now I can create 3D furniture and interiors easily. My friends are shocked at how realistic my renders look!",
+                name: "Sanjay Kumar, Chennai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I’m a fresher, but after completing this course I’ve already started trying for freelance projects. I feel much more confident now, and I believe this skill will help me earn extra income.",
+                name: "Vijay Anand, Chennai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer’s teaching style is very student-friendly. Even as a beginner, I never felt lost. Every doubt was cleared, which boosted my confidence.",
+                name: "Megha R, Hyderabad",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course didn’t just teach me software—it felt like a career upgrade. I started freelancing after finishing it and even got my first client project within weeks.",
+                name: "Ajay Singh, Delhi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I loved the assignments in this course. They pushed me to practice consistently, and that’s where I learned the most. I feel much more skilled now.",
+                name: "Anitha K, Madurai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Compared to other online courses, this one feels very genuine. No shortcuts, no fake promises—just real skills taught in a clear, structured manner.",
+                name: "Mohammed Irfan, Mumbai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Best investment I made this year. The rendering techniques I learned are already helping me in my architectural designs. Absolutely worth it.",
+                name: "Varsha P, Trichy",
+                box_ex: assets.box_ex,
+            },
+        ],
+
+        passive_income: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/3ds-max-English---Fundamentals-68f7abe77b85e0020d2a6ab5",
+                name: "Become a 3D Pro"
+            },
+            head: "Ready to dive into the 3D universe?",
+            highlights: ["Ready", "3D", "universe"],
+            p1: "Get ready to explore the vast 3D universe! Unleash your creativity and start your ",
+            p2: "adventure. Don’t forget to use the coupon before it expires!",
+            bg: assets.TD_income_bg,
+            card: {
+                price: "₹ 6,999",
+                original_price: "₹ 12,499",
+                name: "3DS Max Mastery Program",
+                token_img: assets.token,
+                time: assets.time,
+                coupon_code: "MAXOFFER43",
+                discount_percent: "44%",
+                expires_in: "1 days 23 hours 59 minutes"
+            },
+            what_you_get: {
+                head: "What you'll get",
+                tick_img: assets.verified,
+                benefit: [
+                    "Master skills in 3D modeling, animation, and rendering",
+                    "Create studio-quality visuals with confidence",
+                    "Mentor connect every month through live sessions",
+                    "24/7 dedicated support",
+                    "Lifetime access to all lessons & updates",
+                    "Community & peer support"
+                ]
+            }
+        },
+        FAQ: [
+            {
+                question: "What is 3ds Max, and why should I learn it?",
+                answer: "3ds Max is one of the most powerful 3D modeling and rendering software used in architecture, interior design, and animation. Learning it will help you create realistic designs and boost your career in the design industry."
+            },
+            {
+                question: "Do I need any prior design or software knowledge to join this course?",
+                answer: "No. This course is beginner-friendly. Even if you have zero background, we teach step by step from basics to advanced tools."
+            },
+            {
+                question: "Is this course only for civil or architecture students?",
+                answer: "Not at all. It is perfect for civil engineers, architecture students, interior designers, as well as anyone interested in 3D visualization."
+            },
+            {
+                question: "What skills will I gain after completing the 3ds Max course?",
+                answer: "You’ll learn 3D modeling, texturing, lighting, rendering, walkthroughs, and creating realistic architectural and interior designs."
+            },
+            {
+                question: "How long does it take to complete the course?",
+                answer: "On average, the course takes 4–6 weeks to complete depending on your pace. You also get access to practice files to continue learning."
+            },
+            {
+                question: "Will I get practical projects to work on?",
+                answer: "Yes. The course is project-based with real-world assignments, so you’ll build a portfolio while learning."
+            },
+            {
+                question: "Is the course online or offline?",
+                answer: "We provide online training with recorded classes + live sessions. You can learn at your own speed from anywhere."
+            },
+            {
+                question: "Do I receive a certificate after the course?",
+                answer: "Yes, you’ll get a course completion certificate which can add weight to your resume or portfolio."
+            },
+            {
+                question: "Will this course help me get freelance or job opportunities?",
+                answer: "Definitely. Many students have started freelancing after this course, and others use their 3ds Max skills to crack interviews in architecture, civil, and design companies."
+            },
+            {
+                question: "Can I learn interior and furniture design using this course?",
+                answer: "Yes, the course covers interiors, furniture, and architectural visualization, making it useful for both students and professionals."
+            },
+            {
+                question: "What kind of support will I get during the course?",
+                answer: "You’ll have doubt-clearing sessions, mentor support, and lifetime access to recordings for revision."
+            },
+            {
+                question: "Is this course worth it compared to free YouTube tutorials?",
+                answer: "Free tutorials often confuse you without structure. This course is step by step, practical, and designed to take you from beginner to professional level with guided practice."
+            }
+        ],
+
+        OfferBanner: {
+            title: "3DS Max Mastery Program",
+            coupen_code: "MAXOFFER43",
+            discount_percent: 44,
+            no_days: 2,
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
             d_broucher: "/3DSMax-Mastery-Program.pdf"
         }
     },
@@ -1092,7 +1489,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "This isn't just theory. It's a full roadmap to build and grow your",
             p2: "affiliate income from scratch.",
-            video_id: "b3J14Dpe14I",
+            video_id: "np-6uTzTqJo",
         },
         passive_income: {
             start_button: {
@@ -2541,7 +2938,7 @@ export const pages = {
             coupen_code: "DESIGN44",
             discount_percent: 44,
             no_days: 2,
-            joinNow_link: "https://learn.expertisoracademy.in/courses/SolidWorks-Mastery-Tamil-68dbbc8dbbb2bc35f09266c1",
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
             d_broucher: "/SolidWorks-Design-Mastery-Program.pdf"
         }
     },
@@ -2551,10 +2948,18 @@ export const pages = {
             name: "Start Your Civil3D Journey"
         },
         download: {
-            link: "/AutoCAD-Civil3d -Tamil.pdf",
+            link: "/AutoCAD-Civil3d.pdf",
             name: "Download Brochure"
         },
         hero_section: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
+                name: "Start Your Civil3D Journey"
+            },
+            download: {
+                link: "/AutoCAD-Civil3d.pdf",
+                name: "Download Brochure"
+            },
             icon: {
                 threed_icon: assets.raghulan_ment_i,
                 para: "Learn from Industry Expert with 20+ years of experience",
@@ -2619,9 +3024,9 @@ export const pages = {
         rating_sec: {
             rating: [
                 { number: "1000+", label: "Students Enrolled" },
-                { number: "4.8/5", label: "Average Rating" },
-                { number: "14+", label: "Hours of Content" },
-                { number: "Tamil,English", label: "Languages" },
+                { number: "4.9/5", label: "Average Rating" },
+                { number: "43", label: "Modules" },
+                { number: "Tamil", label: "Languages" },
             ],
             // bg_img: assets.bg_car_rating,
         },
@@ -2688,7 +3093,7 @@ export const pages = {
         },
         lessons_comp: {
             download: {
-                link: "/AutoCAD-Civil3d -Tamil.pdf",
+                link: "/AutoCAD-Civil3d.pdf",
                 name: "Download Broucher"
             },
             head: "What You'll Learn Inside the Course",
@@ -2950,8 +3355,428 @@ export const pages = {
             coupen_code: "C3D44",
             discount_percent: 44,
             no_days: 2,
-            joinNow_link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
-            d_broucher: "/AutoCAD-Civil3d -Tamil.pdf"
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            d_broucher: "/AutoCAD-Civil3d.pdf"
+        }
+
+
+    },
+    civil3d_english: {
+        start_button: {
+            link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Fundamentals--English-68f7aff1de86d57a8c80fb22",
+            name: "Start Your Civil3D Journey"
+        },
+        download: {
+            link: "/AutoCAD-Civil3d.pdf",
+            name: "Download Brochure"
+        },
+        hero_section: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Fundamentals--English-68f7aff1de86d57a8c80fb22",
+                name: "Start Your Civil3D Journey"
+            },
+            download: {
+                link: "/AutoCAD-Civil3d.pdf",
+                name: "Download Brochure"
+            },
+            icon: {
+                threed_icon: assets.raghulan_ment_i,
+                para: "Learn from Industry Expert with 20+ years of experience",
+            },
+            para: "No matter your starting point, we'll turn you into a job-ready civil engineer with practical 3D design skills, real-world projects, and expert guidance until you succeed.",
+
+            features: [
+                {
+                    i: assets.Headset,
+                    para: "Lifetime support",
+                },
+                {
+                    i: assets.ArrowClockwise,
+                    para: "Monthly mentor Q&A sessions",
+                },
+                {
+                    i: assets.civil3D_stud_i,
+                    para: "2k+ Happy Engineers",
+                },
+
+            ],
+            car_video: assets.Video_Solidworks
+        },
+        civil_demands: {
+            title: "Why Is Civil 3D in High Demand ?",
+            highlights: ["Civil", "3D"],
+            p1: "Civil 3D is transforming how civil engineers design infrastructure projects from roads ",
+            p2: "and highways to land development and drainage systems.",
+            card1: {
+                salary_range: "₹5.5 – ₹8.2 LPA",
+                title: "Average Annual Salary",
+                description: "Salary increases with hands on project experience, especially in road design, BIM workflows, and infrastructure projects.",
+                sources: [
+                    {
+                        link: "",
+                        img: assets.glassdoor
+                    },
+                    {
+                        link: "",
+                        img: assets.naukri
+                    },
+                    {
+                        link: "",
+                        img: assets.ambition_box
+                    },
+                ],
+                desc_img: assets.highdemand_1
+            },
+            card2: {
+                percentage: "80%",
+                title: "Widespread Industry Use",
+                description: "Most of the civil engineering firms now use Civil 3D or similar design software in planning and execution.",
+                desc_img: assets.highdemand_2
+            },
+            card3: {
+                percentage: "200%",
+                title: "Rising Demand Across India",
+                description: "Rapid urban development, Smart Cities Mission, NHAI road projects, and increasing infrastructure spending from 2020 to 2024.",
+                desc_img: assets.highdemand_3
+            }
+        },
+        rating_sec: {
+            rating: [
+                { number: "1000+", label: "Students Enrolled" },
+                { number: "4.9/5", label: "Average Rating" },
+                { number: "43", label: "Modules" },
+                { number: "English", label: "Languages" },
+            ],
+            // bg_img: assets.bg_car_rating,
+        },
+        dream_job: {
+            title: "Is  Your  Mechanical  Degree  Enough  to Land Your Dream Job?",
+            highlights: ["Mechanical", "Degree", "Enough"],
+            p1: "College teaches you the theory, but the industry demands practical skills. If you feel ",
+            p2: "a gap, you're not alone.",
+            challenges: [
+                {
+                    img: assets.chall1,
+                    title: "Empty Portfolio",
+                    desc: "Struggling to showcase practical skills to recruiters beyond your college projects.",
+                },
+                {
+                    img: assets.chall2,
+                    title: "Career Stagnation",
+                    desc: "Stuck in a non-design role and looking for a clear path into product design and development.",
+                },
+                {
+                    img: assets.chall3,
+                    title: "Interview Anxiety",
+                    desc: "Feeling unprepared to answer technical questions about real-world design and drafting.",
+                }
+            ]
+        },
+        course_section: {
+            title: "Why Expertisor Academy over others?",
+            highlights: ["Expertisor", "Academy"],
+            p1: "Civil 3D is one of the most in demand tools in civil engineering. Whether you're working on road design, land",
+            p2: "development, or infrastructure projects Civil 3D helps you design faster, smarter, and more accurately.",
+            path_way: [
+                {
+                    img: assets.co1,
+                    title: "Beginner Friendly",
+                    para: "No prior experience required. We provide all the training you need to succeed.",
+                },
+                {
+                    img: assets.co2,
+                    title: "Step by Step Guidance",
+                    para: "Enjoy quick, engaging video lessons that are easy to grasp.",
+                },
+                {
+                    img: assets.co3,
+                    title: "Hands On Projects",
+                    para: "Engage actively to solidify your understanding, rather than just watching.",
+                },
+                {
+                    img: assets.co4,
+                    title: "Lifetime Access",
+                    para: "Enjoy lifetime access to the course, community, and exclusive webinars.",
+                },
+                {
+                    img: assets.co5,
+                    title: "Mentor Support",
+                    para: "Get help and feedback anytime from mentors who guide you on your creative journey.",
+                },
+                {
+                    img: assets.co6,
+                    title: "Certificate",
+                    para: "Earn certificates upon course completion to enhance your resume and career prospects.",
+                },
+            ]
+        },
+        lessons_comp: {
+            download: {
+                link: "/AutoCAD-Civil3d.pdf",
+                name: "Download Broucher"
+            },
+            head: "What You'll Learn Inside the Course",
+            highlights: ["Learn"],
+            p1: "Learn to design roads, surfaces, profiles, and pipe networks using Civil 3D with real  ",
+            p2: "world civil engineering projects.",
+            video_id: "wYCJ_EdKZwA",
+        },
+        mentor_section: {
+            ment_img: assets.raghulan_ment,
+            ment_detail: {
+                name: "Raghulan Gowthaman",
+                logo: assets.ins_ex_logo,
+                domain: "(Founder @ Virtua Tech | Tech & Civil Expert)",
+                course_detail: [
+                    {
+                        i: assets.star_outline,
+                        para: "4.9 Ratings"
+                    },
+                    {
+                        i: assets.stud_outline,
+                        para: "8375 Students"
+                    },
+                    {
+                        i: assets.book_outline,
+                        para: "7 Course"
+                    },
+                ],
+                social_media: [
+                    { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com/askraghulan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                    { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com/@AskRaghulan" },
+                ],
+                desc1: "Back in 2012 I lost my job. It was the hardest moment of my life, but also the turning point. Instead of giving up, I started my own company Virtua Tech, which later grew into a million dollar company. With 20+ years of experience in Technology and Civil Engineering, I decided to document my entire knowledge here so learners like you don’t have to start from zero.",
+                desc2: "As the Founder and CEO of Virtua Finance Pty Ltd, I am at the forefront of blockchain innovation, leading the development of VirtuaCoin and VirtuaSWAP products. Our mission is to enhance the virtual economy through multi-utility crypto tokens and a comprehensive native wallet app, driving the play-to-earn ecosystem and fostering community trading of tokens and NFTs. With a strategic vision, my role is pivotal in capital raising efforts, presenting our projects to venture capitalists and board members, and shaping the future of decentralized finance.",
+                pathway: [
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.path1,
+                        para: "Lost my job, found my vision"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path2,
+                        para: "Built a Million-Dollar Company"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path3,
+                        para: "Worked on FIFO & Large-Scale Projects"
+                    },
+                ],
+                desc3: "Today, I bring you Civil 3D courses to help you avoid the mistakes I made and accelerate your career. With expertise in surveying, site design, and infrastructure projects, I share practical, real world insights that go far beyond theory.",
+                desc4: "With my experience, the best way to learn is from someone who has done it all"
+
+            },
+
+            ment_info: [
+                {
+                    head: "students trained",
+                    num: " 8375+",
+                    i: assets.hat
+                },
+                {
+                    head: "Followers on YouTube",
+                    num: "172K +",
+                    i: assets.per,
+
+                },
+                {
+                    head: "Followers on Instagram",
+                    num: "26.4K +",
+                    i: assets.per
+                },
+                {
+                    head: "Average reviews ",
+                    num: "4.9",
+                    i: assets.kid_stars
+                },
+            ],
+
+            mission: {
+                start_button: {
+                    link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Fundamentals--English-68f7aff1de86d57a8c80fb22",
+                    name: "Start Your Civil3D Journey"
+                },
+                head: "My Mission",
+                para: "My mission is to empower individuals to master 3ds Max, equipping them with innovative techniques and insights that propel their careers forward.",
+                rocket_i: assets.rocket_i,
+                rocket_bg: assets.rocket_launch
+            }
+
+        },
+        passive_income: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Fundamentals--English-68f7aff1de86d57a8c80fb22",
+                name: "Start Your Civil3D Journey"
+            },
+            head: "Join our Civil 3D course and kickstart your career!",
+            highlights: ["kickstart", "your", "career!"],
+            p1: "Get ready to explore the vast 3D universe! Unleash your creativity and start your ",
+            p2: "adventure. Don't forget to use the coupon before it expires!",
+            bg: assets.sw_bg,
+            card: {
+                price: "₹ 8999",
+                original_price: "₹ 16,070",
+                name: "Civil 3D Masterclass: From Beginner to Project Ready Civil Engineer 2025",
+                token_img: assets.token,
+                time: assets.time,
+                coupon_code: "C3D44",
+                discount_percent: "44%",
+                expires_in: "1 days 23 hours 59 minutes"
+            },
+
+            what_you_get: {
+                head: "What you'll get",
+                tick_img: assets.verified,
+                benefit: [
+                    "Master skills in Civil 3D for designing and modeling infrastructure projects",
+                    "Learn to create detailed site plans, grading, and corridor modeling",
+                    "Monthly mentor live Q&A sessions for personalized guidance",
+                    "24/7 dedicated support to help you anytime",
+                    "Lifetime access to all lessons, updates, and course materials",
+                    "Community & peer support to collaborate and grow together"
+                ]
+
+            }
+        },
+        course_review: [
+            {
+                review: "The trainer explained the Civil 3D concepts with great clarity. Road design, alignment, everything was taught practically. Now it's super easy to use these tools in my projects.",
+                name: 'Praveen Kumar',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I am a civil engineering student, and after joining this course my drawings look much more professional. Even my college professors appreciated my work.",
+                name: 'Divya S',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The classes were very interactive. Every doubt was solved with real examples, which gave me confidence to apply the concepts in actual site work.",
+                name: 'Arun Raj',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Many people struggle with Civil 3D basics, but here everything was taught step-by-step, making it very easy to understand and follow.",
+                name: 'Meena Lakshmi',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The course doesn’t cover just theory — the trainer also teaches industry-level tips and tricks. That’s what adds real value to this course.",
+                name: 'Karthik M',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This Civil 3D course is extremely practical. I could apply the concepts directly in my site drawings, and it saved me so much time.",
+                name: 'Rahul Menon',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I had no prior Civil 3D experience, but the trainer explained everything very clearly. Now I can confidently create surfaces, profiles, and road designs on my own.",
+                name: 'Ananya Sharma',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "As a civil engineer, I wanted software skills to improve my career opportunities. This course helped me achieve exactly that—I even impressed my manager with my first project.",
+                name: 'Vikram Rao',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The assignments were extremely useful. They pushed me to practice, and that’s where I truly understood the tools. Great course for hands-on learners.",
+                name: 'Sneha Iyer',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Compared to other courses, this one feels specifically designed for civil engineers. The real-world examples make the learning relatable and highly effective.",
+                name: 'Arjun Patel',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer answered every doubt with patience. Even small details were explained very clearly with examples, which made the entire learning process smooth.",
+                name: 'Deepika Nair',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course really boosted my confidence. I was struggling earlier, but now I can prepare professional-quality drawings that match industry standards.",
+                name: 'Mohammed Irfan',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I loved how the lessons were short, simple, and to the point. No unnecessary content—only practical skills. Perfect for both students and working professionals.",
+                name: 'Kavya R',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "After completing this course, I cleared my design engineer interview easily. The Civil 3D skills I learned here gave me a huge advantage.",
+                name: 'Sanjay Kumar',
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course is the best career investment I’ve made. It’s affordable, practical, and filled with truly valuable knowledge. Highly recommended!",
+                name: 'Harini P',
+                box_ex: assets.box_ex,
+            },
+        ],
+
+
+        FAQ: [
+            {
+                question: "What is AutoDesk Civil 3D and why should I learn it?",
+                answer: "Civil 3D is industry-standard software for civil engineering design and documentation. Learning it helps you design roads, highways, land development, and other infrastructure projects professionally."
+            },
+            {
+                question: "Who is this course suitable for?",
+                answer: "This course is perfect for civil engineering students, fresh graduates, site engineers, and professionals who want to upgrade their design skills."
+            },
+            {
+                question: "Do I need any prior software knowledge before joining?",
+                answer: "No prior Civil 3D knowledge is required. Basic civil engineering concepts will be enough to get started."
+            },
+            {
+                question: "What will I be able to do after completing this course?",
+                answer: "You’ll be able to design alignments, profiles, surfaces, corridors, and create professional drawings that meet industry standards."
+            },
+            {
+                question: "Is this course useful for college projects?",
+                answer: "Yes, many students use Civil 3D for their academic projects. It makes drawings look professional and helps you stand out in evaluations."
+            },
+            {
+                question: "How is this course different from free tutorials online?",
+                answer: "Unlike random YouTube tutorials, this course is structured step by step, covers real-world examples, and includes assignments to ensure you practice and learn properly."
+            },
+            {
+                question: "Will I get practice files and assignments?",
+                answer: "Yes, you’ll receive practice files along with guided assignments to strengthen your hands-on skills."
+            },
+            {
+                question: "Can this course help me get a job?",
+                answer: "Absolutely. Many companies expect Civil 3D knowledge for design roles. Completing this course will make you job-ready and give you an edge in interviews."
+            },
+            {
+                question: "How long will it take to complete the course?",
+                answer: "On average, students complete the course in 4–6 weeks depending on their pace. It’s flexible, so you can learn as per your schedule."
+            },
+            {
+                question: "Will I get a certificate after completion?",
+                answer: "Yes, you’ll receive a recognized certificate that you can showcase on your resume and LinkedIn profile."
+            },
+            {
+                question: "Is the trainer experienced?",
+                answer: "Yes, the trainer has real industry experience and focuses on practical applications, not just theory."
+            },
+            {
+                question: "Can I access the course content after finishing?",
+                answer: "Yes, lifetime access is provided, so you can revisit the lessons anytime for revision."
+            }
+        ]
+        ,
+        OfferBanner: {
+            title: "Master AutoCAD Civil 3D",
+            coupen_code: "C3D44",
+            discount_percent: 44,
+            no_days: 2,
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            d_broucher: "/AutoCAD-Civil3d.pdf"
         }
 
 
@@ -3083,64 +3908,69 @@ export const pages = {
             ]
         },
         {
-            slug: "civil3d-tamil",
-            name: "Civil 3D course need?",
-            title: "Why Sell Expertisor Academy’s Civil 3D Course?",
+            slug: "3dsmax-english",
+            name: "3dsmax need ?",
+            title: "Why Sell Expertisor Academy's 3ds Max Course?",
             sections: [
                 {
                     title: "1. High Demand",
                     content:
-                        "Civil 3D skills are highly valued in civil engineering, infrastructure, and construction projects.",
+                        "3D design & visualization skills are in huge demand in architecture, interior design, and animation industries.",
                 },
                 {
                     title: "2. Trusted Brand",
                     content:
-                        "Expertisor Academy is known for practical, job-oriented training.",
+                        "Expertisor Academy is known for career-oriented, practical training.",
                 },
                 {
-                    title: "3. Industry-Relevant Curriculum",
+                    title: "3. Easy to Sell",
                     content:
-                        "Course content is designed to match real construction & design industry needs.",
+                        "Students and professionals are actively searching for 3D design courses.",
                 },
                 {
                     title: "4. Job-Oriented Skill",
                     content:
-                        "Learners can directly apply this software in real-world projects, boosting career opportunities.",
+                        "Learners gain practical knowledge that helps them build careers or freelance projects.",
                 },
                 {
                     title: "5. Beginner-Friendly Format",
                     content:
-                        "The course is designed step-by-step, so even freshers can understand easily.",
+                        "Step-by-step teaching makes even complex tools simple.",
                 },
                 {
                     title: "6. Wide Audience",
-                    listTitle: "This course is ideal for:",
+                    listTitle: "Target groups include:",
                     listItems: [
-                        "Civil engineers",
-                        "CAD designers",
-                        "Construction professionals",
-                        "Students",
+                        "Architecture students",
+                        "Interior designers",
+                        "Engineers",
+                        "Freelancers"
                     ],
                 },
                 {
                     title: "7. Evergreen Career Skill",
                     content:
-                        "Civil 3D expertise will always be relevant in design & infrastructure industries.",
+                        "3ds Max expertise is a long-term career advantage, not a passing trend.",
                 },
                 {
                     title: "8. Proven Results",
                     content:
-                        "Student projects, testimonials, and portfolios build trust.",
+                        "Student success stories and portfolios add strong credibility.",
                 },
                 {
-                    title: "9. Important Disclaimers",
+                    title: "9. Passive Income",
+                    content:
+                        "Once promoted, the course can keep generating sales over time.",
+                },
+                {
+                    title: "10. Important Disclaimers",
                     listItems: [
-                        "This site is not a part of Autodesk™ or endorsed by Autodesk™. AUTODESK™ & CIVIL 3D™ are trademarks of Autodesk, Inc.",
+                        "This site is not a part of Autodesk™ or endorsed by Autodesk™. AUTODESK™ & 3DS MAX™ are trademarks of Autodesk, Inc.",
                         "No guaranteed results or earnings; outcomes depend on learner effort and market conditions.",
-                        "This is not a get-rich-quick scheme, but a professional skill that requires practice and consistent learning.",
+                        "This is not a get-rich-quick scheme, but a real career skill that requires practice and consistent learning."
                     ],
                 },
-            ],
+            ]
         },
         {
             slug: "creator-mentor",
@@ -3266,7 +4096,312 @@ export const pages = {
                     ],
                 }
             ]
-        }
+        },
+        {
+            slug: "civil3d-tamil",
+            name: "Civil 3D course need?",
+            title: "Why Sell Expertisor Academy’s Civil 3D Course?",
+            sections: [
+                {
+                    title: "1. High Demand",
+                    content:
+                        "Civil 3D skills are highly valued in civil engineering, infrastructure, and construction projects.",
+                },
+                {
+                    title: "2. Trusted Brand",
+                    content:
+                        "Expertisor Academy is known for practical, job-oriented training.",
+                },
+                {
+                    title: "3. Industry-Relevant Curriculum",
+                    content:
+                        "Course content is designed to match real construction & design industry needs.",
+                },
+                {
+                    title: "4. Job-Oriented Skill",
+                    content:
+                        "Learners can directly apply this software in real-world projects, boosting career opportunities.",
+                },
+                {
+                    title: "5. Beginner-Friendly Format",
+                    content:
+                        "The course is designed step-by-step, so even freshers can understand easily.",
+                },
+                {
+                    title: "6. Wide Audience",
+                    listTitle: "This course is ideal for:",
+                    listItems: [
+                        "Civil engineers",
+                        "CAD designers",
+                        "Construction professionals",
+                        "Students",
+                    ],
+                },
+                {
+                    title: "7. Evergreen Career Skill",
+                    content:
+                        "Civil 3D expertise will always be relevant in design & infrastructure industries.",
+                },
+                {
+                    title: "8. Proven Results",
+                    content:
+                        "Student projects, testimonials, and portfolios build trust.",
+                },
+                {
+                    title: "9. Important Disclaimers",
+                    listItems: [
+                        "This site is not a part of Autodesk™ or endorsed by Autodesk™. AUTODESK™ & CIVIL 3D™ are trademarks of Autodesk, Inc.",
+                        "No guaranteed results or earnings; outcomes depend on learner effort and market conditions.",
+                        "This is not a get-rich-quick scheme, but a professional skill that requires practice and consistent learning.",
+                    ],
+                },
+            ],
+        },
+        {
+            slug: "civil3d-english",
+            name: "Civil 3D course need?",
+            title: "Why Sell Expertisor Academy’s Civil 3D Course?",
+            sections: [
+                {
+                    title: "1. High Demand",
+                    content:
+                        "Civil 3D skills are highly valued in civil engineering, infrastructure, and construction projects.",
+                },
+                {
+                    title: "2. Trusted Brand",
+                    content:
+                        "Expertisor Academy is known for practical, job-oriented training.",
+                },
+                {
+                    title: "3. Industry-Relevant Curriculum",
+                    content:
+                        "Course content is designed to match real construction & design industry needs.",
+                },
+                {
+                    title: "4. Job-Oriented Skill",
+                    content:
+                        "Learners can directly apply this software in real-world projects, boosting career opportunities.",
+                },
+                {
+                    title: "5. Beginner-Friendly Format",
+                    content:
+                        "The course is designed step-by-step, so even freshers can understand easily.",
+                },
+                {
+                    title: "6. Wide Audience",
+                    listTitle: "This course is ideal for:",
+                    listItems: [
+                        "Civil engineers",
+                        "CAD designers",
+                        "Construction professionals",
+                        "Students",
+                    ],
+                },
+                {
+                    title: "7. Evergreen Career Skill",
+                    content:
+                        "Civil 3D expertise will always be relevant in design & infrastructure industries.",
+                },
+                {
+                    title: "8. Proven Results",
+                    content:
+                        "Student projects, testimonials, and portfolios build trust.",
+                },
+                {
+                    title: "9. Important Disclaimers",
+                    listItems: [
+                        "This site is not a part of Autodesk™ or endorsed by Autodesk™. AUTODESK™ & CIVIL 3D™ are trademarks of Autodesk, Inc.",
+                        "No guaranteed results or earnings; outcomes depend on learner effort and market conditions.",
+                        "This is not a get-rich-quick scheme, but a professional skill that requires practice and consistent learning.",
+                    ],
+                },
+            ],
+        },
+        {
+            slug: "blockchain-course-for-students",
+            name: "Blockchain course need?",
+            title: "Why Sell Expertisor Academy’s Blockchain Course?",
+            sections: [
+                {
+                    title: "1. High Demand",
+                    content:
+                        "Blockchain skills are in massive demand across tech, finance, Web3, cybersecurity, and startup industries.",
+                },
+                {
+                    title: "2. Trusted Brand",
+                    content:
+                        "Expertisor Academy is known for practical, project-based, job-oriented training.",
+                },
+                {
+                    title: "3. Industry-Relevant Curriculum",
+                    content:
+                        "Course content covers real-world blockchain concepts—smart contracts, crypto, NFTs, DeFi, and Web3 tools used in the industry.",
+                },
+                {
+                    title: "4. Job-Oriented Skill",
+                    content:
+                        "Learners gain practical skills to build smart contracts, decentralised apps (DApps), and blockchain projects, improving career and freelance opportunities.",
+                },
+                {
+                    title: "5. Beginner-Friendly Format",
+                    content:
+                        "The course is explained step-by-step in Tamil, making it easy for beginners and non-tech students to understand.",
+                },
+                {
+                    title: "6. Wide Audience",
+                    listTitle: "This course is ideal for:",
+                    listItems: [
+                        "Students & freshers",
+                        "Software developers",
+                        "Web developers",
+                        "Tech enthusiasts",
+                        "Crypto/Web3 learners",
+                    ],
+                },
+                {
+                    title: "7. Evergreen Career Skill",
+                    content:
+                        "Blockchain is a future-proof skill used in banking, fintech, gaming, logistics, and cybersecurity industries.",
+                },
+                {
+                    title: "8. Proven Results",
+                    content:
+                        "Hands-on projects, GitHub portfolios, and practical assignments help learners showcase real blockchain work.",
+                },
+                {
+                    title: "9. Important Disclaimers",
+                    listItems: [
+                        "This site is not affiliated with or endorsed by Ethereum™, Polygon™, Binance™, or any blockchain company.",
+                        "No guaranteed profits; crypto markets involve risk, and outcomes depend on learner skill & effort.",
+                        "This is not a financial advice or investment scheme—it's a technical skill-building course.",
+                    ],
+                },
+            ],
+        },
+        {
+            slug: "blockchain-course-for-working-professionals",
+            name: "Blockchain course need?",
+            title: "Why Sell Expertisor Academy’s Blockchain Course?",
+            sections: [
+                {
+                    title: "1. High Demand",
+                    content:
+                        "Blockchain skills are in massive demand across tech, finance, Web3, cybersecurity, and startup industries.",
+                },
+                {
+                    title: "2. Trusted Brand",
+                    content:
+                        "Expertisor Academy is known for practical, project-based, job-oriented training.",
+                },
+                {
+                    title: "3. Industry-Relevant Curriculum",
+                    content:
+                        "Course content covers real-world blockchain concepts—smart contracts, crypto, NFTs, DeFi, and Web3 tools used in the industry.",
+                },
+                {
+                    title: "4. Job-Oriented Skill",
+                    content:
+                        "Learners gain practical skills to build smart contracts, decentralised apps (DApps), and blockchain projects, improving career and freelance opportunities.",
+                },
+                {
+                    title: "5. Beginner-Friendly Format",
+                    content:
+                        "The course is explained step-by-step in Tamil, making it easy for beginners and non-tech students to understand.",
+                },
+                {
+                    title: "6. Wide Audience",
+                    listTitle: "This course is ideal for:",
+                    listItems: [
+                        "Students & freshers",
+                        "Software developers",
+                        "Web developers",
+                        "Tech enthusiasts",
+                        "Crypto/Web3 learners",
+                    ],
+                },
+                {
+                    title: "7. Evergreen Career Skill",
+                    content:
+                        "Blockchain is a future-proof skill used in banking, fintech, gaming, logistics, and cybersecurity industries.",
+                },
+                {
+                    title: "8. Proven Results",
+                    content:
+                        "Hands-on projects, GitHub portfolios, and practical assignments help learners showcase real blockchain work.",
+                },
+                {
+                    title: "9. Important Disclaimers",
+                    listItems: [
+                        "This site is not affiliated with or endorsed by Ethereum™, Polygon™, Binance™, or any blockchain company.",
+                        "No guaranteed profits; crypto markets involve risk, and outcomes depend on learner skill & effort.",
+                        "This is not a financial advice or investment scheme—it's a technical skill-building course.",
+                    ],
+                },
+            ],
+        },
+        {
+            slug: "blockchain-course-for-business",
+            name: "Blockchain course need?",
+            title: "Why Sell Expertisor Academy’s Blockchain Course?",
+            sections: [
+                {
+                    title: "1. High Demand",
+                    content:
+                        "Blockchain skills are in massive demand across tech, finance, Web3, cybersecurity, and startup industries.",
+                },
+                {
+                    title: "2. Trusted Brand",
+                    content:
+                        "Expertisor Academy is known for practical, project-based, job-oriented training.",
+                },
+                {
+                    title: "3. Industry-Relevant Curriculum",
+                    content:
+                        "Course content covers real-world blockchain concepts—smart contracts, crypto, NFTs, DeFi, and Web3 tools used in the industry.",
+                },
+                {
+                    title: "4. Job-Oriented Skill",
+                    content:
+                        "Learners gain practical skills to build smart contracts, decentralised apps (DApps), and blockchain projects, improving career and freelance opportunities.",
+                },
+                {
+                    title: "5. Beginner-Friendly Format",
+                    content:
+                        "The course is explained step-by-step in Tamil, making it easy for beginners and non-tech students to understand.",
+                },
+                {
+                    title: "6. Wide Audience",
+                    listTitle: "This course is ideal for:",
+                    listItems: [
+                        "Students & freshers",
+                        "Software developers",
+                        "Web developers",
+                        "Tech enthusiasts",
+                        "Crypto/Web3 learners",
+                    ],
+                },
+                {
+                    title: "7. Evergreen Career Skill",
+                    content:
+                        "Blockchain is a future-proof skill used in banking, fintech, gaming, logistics, and cybersecurity industries.",
+                },
+                {
+                    title: "8. Proven Results",
+                    content:
+                        "Hands-on projects, GitHub portfolios, and practical assignments help learners showcase real blockchain work.",
+                },
+                {
+                    title: "9. Important Disclaimers",
+                    listItems: [
+                        "This site is not affiliated with or endorsed by Ethereum™, Polygon™, Binance™, or any blockchain company.",
+                        "No guaranteed profits; crypto markets involve risk, and outcomes depend on learner skill & effort.",
+                        "This is not a financial advice or investment scheme—it's a technical skill-building course.",
+                    ],
+                },
+            ],
+        },
+
+
 
 
 
@@ -3437,7 +4572,7 @@ export const pages = {
                         duration: "60 min",
                         type: "Video Meeting",
                         oldPrice: "₹3999",
-                        newPrice: "₹1299",
+                        newPrice: "₹2999",
                         description:
                             "Discover the right, high-paying career path designed around your strengths, gain clarity and direction for your next move.",
                         diamond: assets.silver_diamond,
@@ -3452,7 +4587,7 @@ export const pages = {
                         duration: "60 min",
                         type: "Video Meeting",
                         oldPrice: "₹4499",
-                        newPrice: "₹1999",
+                        newPrice: "₹2999",
                         description:
                             "Help you shift your mindset, overcome limits, and move toward a more purposeful life.",
                         diamond: assets.silver_diamond,
@@ -3577,5 +4712,1074 @@ export const pages = {
             ]
 
         }
-    }
+    },
+    blockchain_students: {
+        hero_section: {
+            icon: {
+                threed_icon: assets.tag_icon,
+                para: "“ This Blockchain course transformed my view and opened new career opportunities! “",
+            },
+
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            download: {
+                link: "/AutoCAD-Civil3d -Tamil.pdf",
+                name: "Download Brochure"
+            },
+
+            heading:
+                "Tired of Chasing Competitive Tech Jobs? Learn Blockchain and Step Into the Future of High Paying Digital Careers.",
+
+            highlights: ["Blockchain", "High Paying"],
+
+            para: "Stand out from the crowd with future-ready blockchain skills",
+
+            features: [
+                {
+                    i: assets.Headset,
+                    para: "Lifetime support",
+                },
+                {
+                    i: assets.ArrowClockwise,
+                    para: "Monthly mentor Q&A sessions",
+                },
+                {
+                    i: assets.tag_icon,
+                    para: "3K+ Happy students",
+                },
+            ],
+        },
+        students_say_video: {
+            title: "Real Success Stories From People Just Like You",
+            p1: "Hear from Our Students: Turning Aspirations into Technological",
+            p2: "Breakthroughs for Everyone.",
+            highlights: ["Success Stories"],
+            videos: [
+                { id: 1, title: 'From Confused to Clear: Clarity Through Mentorship🤝', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/yjN8BcnCShM/hqdefault.jpg', youtubeId: 'yjN8BcnCShM' },
+                { id: 2, title: 'No Placement Scams ❌ Value is Our Big Promise ❤', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/0byxBZjb7DA/hqdefault.jpg', youtubeId: '0byxBZjb7DA' },
+            ],
+        },
+        civil_demands: {
+            title: "WHY BLOCKCHAIN IS IN HIGH DEMAND?",
+            highlights: ["BLOCKCHAIN"],
+            p1: "Blockchain is shaping the future of technology and digital careers. Learning it now",
+            p2: "helps you stand out and build skills that every industry needs.",
+            card1: {
+                salary_range: "₹8.5 – ₹16.2 LPA",
+                title: "Average Annual Salary",
+                description: "Blockchain developers, analysts, and consultants are among the highest-paid tech professionals. Earnings rise with hands-on projects, experience, and real-world applications.",
+                sources: [
+                    {
+                        link: "",
+                        img: assets.glassdoor
+                    },
+                    {
+                        link: "",
+                        img: assets.naukri
+                    },
+                    {
+                        link: "",
+                        img: assets.ambition_box
+                    },
+                ],
+                desc_img: assets.avg_salary
+            },
+            card2: {
+                percentage: "85%",
+                title: "Enterprise Adoption",
+                description: "Major tech and financial companies have already integrated blockchain into their operations. The demand for certified blockchain professionals continues to rise every year.",
+                desc_img: assets.adoption
+            },
+            card3: {
+                percentage: "300%",
+                title: "Job Growth Worldwide",
+                description: "The global shift toward Web3, digital assets, and blockchain-based systems is creating rapid growth and new career opportunities for skilled talent.",
+                desc_img: assets.growth
+            }
+        },
+        rating_sec: {
+            rating: [
+                { number: "874+", label: "Students Enrolled" },
+                { number: "4.8/5", label: "Average Rating" },
+                { number: "17+", label: "Chapters" },
+                { number: "English", label: "Languages" },
+            ],
+            bg_img: assets.rev_bg,
+        },
+        lessons_comp: {
+            // download: {
+            //     link: "",
+            //     name: "Download Broucher"
+            // },
+            head: "What You'll Learn Inside the Course",
+            highlights: ["Learn"],
+            p1: "Learn blockchain fundamentals, smart contracts, Web3, and decentralized",
+            p2: "applications step by step.",
+            video_id: "JEPwcjGUS2w",
+        },
+        mentor_section: {
+            ment_img: assets.ment_img,
+            ment_detail: {
+                name: "Sathya P",
+                logo: assets.ins_ex_logo,
+                domain: "(Blockchain Architect &  Mentor)",
+                course_detail: [
+                    {
+                        i: assets.star_outline,
+                        para: "4.8 Ratings"
+                    },
+                    {
+                        i: assets.stud_outline,
+                        para: "874 Students"
+                    },
+                    {
+                        i: assets.book_outline,
+                        para: "1 Course"
+                    },
+                ],
+                social_media: [
+                    // { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com/askraghulan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                    // { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com/@AskRaghulan" },
+                ],
+                desc1: "I was a backbencher curious, always asking the questions others ignored. A few years ago, I received part of a real estate payment in Bitcoin. I stored it in a foreign wallet, and one day, it got hacked.",
+                desc2: "That mistake changed everything. It pushed me deep into the world of blockchain , nights of learning, experimenting, and rebuilding. Over time, I discovered it’s not just about crypto; it’s about power, trust, and the future of digital ownership.",
+                pathway: [
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.military_tech,
+                        para: "From Backbencher to Blockchain Architect"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path2,
+                        para: "Built Blockchain Systems for Leading Companies"
+                    },
+                ],
+                desc3: "Now, I help learners understand blockchain the real way  through clarity, practical knowledge, and lessons built from experience."
+
+            },
+
+            ment_info: [
+                {
+                    head: "students trained",
+                    num: " 874+",
+                    i: assets.hat
+                },
+                {
+                    head: "Job Blueprint",
+                    num: "₹ 8.5 LPA+",
+                    // i: assets.per,
+                },
+                {
+                    head: "Industry Projects Completed",
+                    num: "60+",
+                    // i: assets.per
+                },
+                {
+                    head: "Average reviews ",
+                    num: "4.8",
+                    i: assets.kid_stars
+                },
+            ],
+
+            mission: {
+                start_button: {
+                    link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                    name: "Start Learning Now"
+                },
+                head: "My Mission",
+                para: "My mission is to help students master blockchain skills that build confidence, open high-paying career paths, and prepare them for the digital future.",
+                rocket_i: assets.rocket_i,
+                rocket_bg: assets.rocket_launch
+            }
+
+        },
+        passive_income: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            head: "Ready to Unlock Your Potential with  Blockchain?",
+            highlights: ["Ready", "to", "Unlock"],
+            p1: "Get ready to start building your own houses, bridges etc., Unleash your creativity and",
+            p2: "start your adventure. Don’t forget to use the coupon before it expires!",
+            bg: assets.income_bg,
+            card: {
+                price: "₹ 4999",
+                original_price: "₹ 14,000",
+                name: "Blockchain Masterclass: Become a Project-Ready Developer in 2025",
+                token_img: assets.token,
+                time: assets.time,
+                coupon_code: "BLOCKCHAIN",
+                discount_percent: "49%",
+                expires_in: "1 days 23 hours 59 minutes"
+            },
+
+            what_you_get: {
+                head: "What you'll get",
+                tick_img: assets.verified,
+                benefit: [
+                    "Learn blockchain fundamentals, smart contracts, Web3, and decentralized applications step by step.",
+                    "Master practical skills in blockchain development, crypto wallets, and real-world integrations.",
+                    "Live mentor Q&A sessions every month for personalized guidance and career direction.",
+                    "24/7 dedicated learner support to help you overcome technical or project challenges.",
+                    "Lifetime access to all lessons, updates, and future course materials.",
+                    "Community and peer support to connect, collaborate, and grow together in the blockchain space."
+                ]
+            }
+        },
+        course_review: [
+            {
+                review: "I was totally new to blockchain, but this course made everything easy to understand. The step-by-step explanations built my confidence quickly. Definitely worth it!",
+                name: "Rahul Verma, Bangalore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I always thought blockchain was too complicated, but the trainer explained everything in a simple and clear way. Now I understand Web3 and crypto basics confidently.",
+                name: "Suresh Kumar, Trichy",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I used to watch random YouTube videos but always ended up confused. This course gave me a proper learning structure and now I understand wallets, mining, and blockchain networks clearly.",
+                name: "Priya Desai, Pune",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "YouTube tutorials used to confuse me halfway, but this course followed a proper flow. It was very easy to follow and complete.",
+                name: "Harini R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "As a computer science student, I always wanted to understand Web3. After completing this course, I finally understand blockchain fundamentals and smart contracts clearly.",
+                name: "Aravind R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I needed a blockchain-based model for my college project. This course helped me so much that I was able to complete the entire project independently.",
+                name: "Pranav R, Salem",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "This is such a practical course. Instead of just theory, the trainer shows real-world blockchain applications. The hands-on approach helped me learn faster.",
+                name: "Divya Nair, Kochi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer was very friendly and explained concepts with simple examples. My basics became very strong.",
+                name: "Janani S, Madurai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I enrolled with zero knowledge about blockchain. Now I can explain it to others and even participate in Web3 projects. Huge confidence boost!",
+                name: "Sanjay Kumar, Chennai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I’m a fresher, but after completing this course I feel confident to try freelance work in blockchain and Web3.",
+                name: "Vijay Anand, Chennai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "The trainer teaches in a very friendly way and cleared every doubt with examples. I gained a lot of clarity and confidence.",
+                name: "Megha R, Hyderabad",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course genuinely helped my career. I added blockchain skills to my resume and already started receiving interview calls for Web3 roles.",
+                name: "Ajay Singh, Delhi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I loved the assignments and practical tasks. They helped me understand transactions, networks, and decentralized apps deeply.",
+                name: "Anitha K, Madurai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Compared to other online courses, this one felt very authentic. No hype—just clear and real explanations step by step.",
+                name: "Mohammed Irfan, Mumbai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Best investment I made this year. The strong foundation in blockchain and smart contracts is directly helping in my project work.",
+                name: "Varsha P, Trichy",
+                box_ex: assets.box_ex,
+            },
+        ],
+        FAQ: [
+            {
+                question: "What is Blockchain and why should I learn it?",
+                answer: "Blockchain is the technology behind cryptocurrencies and modern decentralized applications. Learning it helps you understand Web3, smart contracts, crypto transactions, and future digital systems."
+            },
+            {
+                question: "Who is this course suitable for?",
+                answer: "This course is perfect for students, fresh graduates, IT professionals, freelancers, and anyone interested in Web3, crypto, or emerging technologies."
+            },
+            {
+                question: "Do I need any prior technical knowledge before joining?",
+                answer: "No prior blockchain experience is required. Basic computer or programming knowledge is helpful but not mandatory."
+            },
+            {
+                question: "What will I be able to do after completing this course?",
+                answer: "You will understand how blockchain works, create wallets, explore crypto networks, work with smart contracts, and start building simple Web3 projects."
+            },
+            {
+                question: "Is this course useful for college or academic projects?",
+                answer: "Yes, many students use blockchain concepts for their mini-projects and final-year projects. This course helps you build practical, unique project ideas."
+            },
+            {
+                question: "How is this course different from free videos on YouTube?",
+                answer: "This course is structured step by step, covers real-world concepts, and provides hands-on examples. It ensures clarity—without the confusion of random videos."
+            },
+            {
+                question: "Will I get practical tasks or assignments?",
+                answer: "Yes, you will receive practical tasks that help you understand transactions, wallets, networks, and basic smart contract operations."
+            },
+            {
+                question: "Can this course help me get a job?",
+                answer: "Absolutely. Blockchain and Web3 skills are in high demand. Completing this course strengthens your resume and increases your chances in interviews for Web3, crypto, and tech roles."
+            },
+            {
+                question: "How long will it take to complete the course?",
+                answer: "Most students complete the course in 4–6 weeks depending on their learning pace. You can learn anytime at your convenience."
+            },
+            {
+                question: "Will I receive a certificate?",
+                answer: "Yes, you will receive a recognized course completion certificate to showcase on your resume and LinkedIn."
+            },
+            {
+                question: "Is the trainer experienced?",
+                answer: "Yes, the trainer has real industry experience and explains blockchain concepts with practical, easy-to-understand examples."
+            },
+
+        ],
+        OfferBanner: {
+            title: "Blockchain Masterclass English",
+            coupen_code: "BLOCKCHAIN",
+            discount_percent: 49,
+            no_days: 2,
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            // d_broucher: ""
+        }
+    },
+    blockchain_working: {
+        hero_section: {
+            icon: {
+                threed_icon: assets.tag_icon,
+                para: "“ This Blockchain course transformed my view and opened new career opportunities! “",
+            },
+
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            download: {
+                link: "",
+                name: "Download Brochure"
+            },
+
+            heading:
+                "Feeling Stuck in Your Career? Learn Blockchain and Unlock High-Growth Opportunities in the Digital Future.",
+
+            highlights: ["Feeling Stuck ", "Blockchain", " High-Growth "],
+
+            para: "Stand out from the crowd with future-ready blockchain skills",
+
+            features: [
+                {
+                    i: assets.Headset,
+                    para: "Lifetime support",
+                },
+                {
+                    i: assets.ArrowClockwise,
+                    para: "Monthly mentor Q&A sessions",
+                },
+                {
+                    i: assets.tag_icon,
+                    para: "3K+ Happy students",
+                },
+            ],
+        },
+        students_say_video: {
+            title: "Real Success Stories From People Just Like You",
+            p1: "Hear from Our Students: Turning Aspirations into Technological",
+            p2: "Breakthroughs for Everyone.",
+            highlights: ["Success Stories"],
+            videos: [
+                { id: 1, title: 'From Confused to Clear: Clarity Through Mentorship🤝', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/yjN8BcnCShM/hqdefault.jpg', youtubeId: 'yjN8BcnCShM' },
+                { id: 2, title: 'No Placement Scams ❌ Value is Our Big Promise ❤', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/0byxBZjb7DA/hqdefault.jpg', youtubeId: '0byxBZjb7DA' },
+            ],
+        },
+        civil_demands: {
+            title: "WHY BLOCKCHAIN IS IN HIGH DEMAND?",
+            highlights: ["BLOCKCHAIN"],
+            p1: "Blockchain is shaping the future of technology and digital careers. Learning it now",
+            p2: "helps you stand out and build skills that every industry needs.",
+            card1: {
+                salary_range: "₹8.5 – ₹16.2 LPA",
+                title: "Average Annual Salary",
+                description: "Blockchain developers, analysts, and consultants are among the highest-paid tech professionals. Earnings rise with hands-on projects, experience, and real-world applications.",
+                sources: [
+                    {
+                        link: "",
+                        img: assets.glassdoor
+                    },
+                    {
+                        link: "",
+                        img: assets.naukri
+                    },
+                    {
+                        link: "",
+                        img: assets.ambition_box
+                    },
+                ],
+                desc_img: assets.avg_salary
+            },
+            card2: {
+                percentage: "85%",
+                title: "Enterprise Adoption",
+                description: "Major tech and financial companies have already integrated blockchain into their operations. The demand for certified blockchain professionals continues to rise every year.",
+                desc_img: assets.adoption
+            },
+            card3: {
+                percentage: "300%",
+                title: "Job Growth Worldwide",
+                description: "The global shift toward Web3, digital assets, and blockchain-based systems is creating rapid growth and new career opportunities for skilled talent.",
+                desc_img: assets.growth
+            }
+        },
+        rating_sec: {
+            rating: [
+                { number: "874+", label: "Students Enrolled" },
+                { number: "4.8/5", label: "Average Rating" },
+                { number: "17+", label: "Chapters" },
+                { number: "English", label: "Languages" },
+            ],
+            bg_img: assets.rev_bg,
+        },
+        lessons_comp: {
+            // download: {
+            //     link: "",
+            //     name: "Download Broucher"
+            // },
+            head: "What You'll Learn Inside the Course",
+            highlights: ["Learn"],
+            p1: "Learn blockchain fundamentals, smart contracts, Web3, and decentralized",
+            p2: "applications step by step.",
+            video_id: "JEPwcjGUS2w",
+        },
+        mentor_section: {
+            ment_img: assets.ment_img,
+            ment_detail: {
+                name: "Sathya P",
+                logo: assets.ins_ex_logo,
+                domain: "(Blockchain Architect &  Mentor)",
+                course_detail: [
+                    {
+                        i: assets.star_outline,
+                        para: "4.8 Ratings"
+                    },
+                    {
+                        i: assets.stud_outline,
+                        para: "874 Students"
+                    },
+                    {
+                        i: assets.book_outline,
+                        para: "1 Course"
+                    },
+                ],
+                social_media: [
+                    // { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com/askraghulan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                    // { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com/@AskRaghulan" },
+                ],
+                desc1: "I was a backbencher curious, always asking the questions others ignored. A few years ago, I received part of a real estate payment in Bitcoin. I stored it in a foreign wallet, and one day, it got hacked.",
+                desc2: "That mistake changed everything. It pushed me deep into the world of blockchain , nights of learning, experimenting, and rebuilding. Over time, I discovered it’s not just about crypto; it’s about power, trust, and the future of digital ownership.",
+                pathway: [
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.military_tech,
+                        para: "From Backbencher to Blockchain Architect"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path2,
+                        para: "Built Blockchain Systems for Leading Companies"
+                    },
+                ],
+                desc3: "Now, I help learners understand blockchain the real way  through clarity, practical knowledge, and lessons built from experience."
+
+            },
+
+            ment_info: [
+                {
+                    head: "students trained",
+                    num: " 874+",
+                    i: assets.hat
+                },
+                {
+                    head: "Job Blueprint",
+                    num: "₹ 8.5 LPA+",
+                    // i: assets.per,
+                },
+                {
+                    head: "Industry Projects Completed",
+                    num: "60+",
+                    // i: assets.per
+                },
+                {
+                    head: "Average reviews ",
+                    num: "4.8",
+                    i: assets.kid_stars
+                },
+            ],
+
+            mission: {
+                start_button: {
+                    link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                    name: "Start Learning Now"
+                },
+                head: "My Mission",
+                para: "My mission is to help students master blockchain skills that build confidence, open high-paying career paths, and prepare them for the digital future.",
+                rocket_i: assets.rocket_i,
+                rocket_bg: assets.rocket_launch
+            }
+
+        },
+        passive_income: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            head: "Ready to Unlock Your Potential with  Blockchain?",
+            highlights: ["Ready", "to", "Unlock"],
+            p1: "Get ready to start building your own houses, bridges etc., Unleash your creativity and",
+            p2: "start your adventure. Don’t forget to use the coupon before it expires!",
+            bg: assets.income_bg,
+            card: {
+                price: "₹ 4999",
+                original_price: "₹ 10,000",
+                name: "Blockchain Masterclass: Become a Project-Ready Developer in 2025",
+                token_img: assets.token,
+                time: assets.time,
+                coupon_code: "BLOCKCHAIN",
+                discount_percent: "49%",
+                expires_in: "1 days 23 hours 59 minutes"
+            },
+
+            what_you_get: {
+                head: "What you'll get",
+                tick_img: assets.verified,
+                benefit: [
+                    "Learn blockchain fundamentals, smart contracts, Web3, and decentralized applications step by step.",
+                    "Master practical skills in blockchain development, crypto wallets, and real-world integrations.",
+                    "Live mentor Q&A sessions every month for personalized guidance and career direction.",
+                    "24/7 dedicated learner support to help you overcome technical or project challenges.",
+                    "Lifetime access to all lessons, updates, and future course materials.",
+                    "Community and peer support to connect, collaborate, and grow together in the blockchain space."
+                ]
+            }
+        },
+        course_review: [
+            {
+                review: "I was totally new to blockchain, but this course made everything easy to understand. The step-by-step explanations built my confidence quickly. Definitely worth it!",
+                name: "Rahul Verma, Bangalore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I always thought blockchain was too complicated, but the trainer explained everything in a simple and clear way. Now I understand Web3 and crypto basics confidently.",
+                name: "Suresh Kumar, Trichy",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I used to watch random YouTube videos but always ended up confused. This course gave me a proper learning structure and now I understand wallets, mining, and blockchain networks clearly.",
+                name: "Priya Desai, Pune",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "YouTube tutorials used to confuse me halfway, but this course followed a proper flow. It was very easy to follow and complete.",
+                name: "Harini R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "As a computer science student, I always wanted to understand Web3. After completing this course, I finally understand blockchain fundamentals and smart contracts clearly.",
+                name: "Aravind R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I needed a blockchain-based model for my college project. This course helped me so much that I was able to complete the entire project independently.",
+                name: "Pranav R, Salem",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "This is such a practical course. Instead of just theory, the trainer shows real-world blockchain applications. The hands-on approach helped me learn faster.",
+                name: "Divya Nair, Kochi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer was very friendly and explained concepts with simple examples. My basics became very strong.",
+                name: "Janani S, Madurai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I enrolled with zero knowledge about blockchain. Now I can explain it to others and even participate in Web3 projects. Huge confidence boost!",
+                name: "Sanjay Kumar, Chennai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I’m a fresher, but after completing this course I feel confident to try freelance work in blockchain and Web3.",
+                name: "Vijay Anand, Chennai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "The trainer teaches in a very friendly way and cleared every doubt with examples. I gained a lot of clarity and confidence.",
+                name: "Megha R, Hyderabad",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course genuinely helped my career. I added blockchain skills to my resume and already started receiving interview calls for Web3 roles.",
+                name: "Ajay Singh, Delhi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I loved the assignments and practical tasks. They helped me understand transactions, networks, and decentralized apps deeply.",
+                name: "Anitha K, Madurai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Compared to other online courses, this one felt very authentic. No hype—just clear and real explanations step by step.",
+                name: "Mohammed Irfan, Mumbai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Best investment I made this year. The strong foundation in blockchain and smart contracts is directly helping in my project work.",
+                name: "Varsha P, Trichy",
+                box_ex: assets.box_ex,
+            },
+        ],
+        FAQ: [
+            {
+                question: "What is Blockchain and why should I learn it?",
+                answer: "Blockchain is the technology behind cryptocurrencies and modern decentralized applications. Learning it helps you understand Web3, smart contracts, crypto transactions, and future digital systems."
+            },
+            {
+                question: "Who is this course suitable for?",
+                answer: "This course is perfect for students, fresh graduates, IT professionals, freelancers, and anyone interested in Web3, crypto, or emerging technologies."
+            },
+            {
+                question: "Do I need any prior technical knowledge before joining?",
+                answer: "No prior blockchain experience is required. Basic computer or programming knowledge is helpful but not mandatory."
+            },
+            {
+                question: "What will I be able to do after completing this course?",
+                answer: "You will understand how blockchain works, create wallets, explore crypto networks, work with smart contracts, and start building simple Web3 projects."
+            },
+            {
+                question: "Is this course useful for college or academic projects?",
+                answer: "Yes, many students use blockchain concepts for their mini-projects and final-year projects. This course helps you build practical, unique project ideas."
+            },
+            {
+                question: "How is this course different from free videos on YouTube?",
+                answer: "This course is structured step by step, covers real-world concepts, and provides hands-on examples. It ensures clarity—without the confusion of random videos."
+            },
+            {
+                question: "Will I get practical tasks or assignments?",
+                answer: "Yes, you will receive practical tasks that help you understand transactions, wallets, networks, and basic smart contract operations."
+            },
+            {
+                question: "Can this course help me get a job?",
+                answer: "Absolutely. Blockchain and Web3 skills are in high demand. Completing this course strengthens your resume and increases your chances in interviews for Web3, crypto, and tech roles."
+            },
+            {
+                question: "How long will it take to complete the course?",
+                answer: "Most students complete the course in 4–6 weeks depending on their learning pace. You can learn anytime at your convenience."
+            },
+            {
+                question: "Will I receive a certificate?",
+                answer: "Yes, you will receive a recognized course completion certificate to showcase on your resume and LinkedIn."
+            },
+            {
+                question: "Is the trainer experienced?",
+                answer: "Yes, the trainer has real industry experience and explains blockchain concepts with practical, easy-to-understand examples."
+            },
+
+        ],
+        OfferBanner: {
+            title: "Blockchain Masterclass English",
+            coupen_code: "BLOCKCHAIN",
+            discount_percent: 49,
+            no_days: 2,
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            // d_broucher: ""
+        }
+    },
+    blockchain_bussiness: {
+        hero_section: {
+            icon: {
+                threed_icon: assets.tag_icon,
+                para: "“ This Blockchain course transformed my view and opened new career opportunities! “",
+            },
+
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            download: {
+                link: "/AutoCAD-Civil3d -English.pdf",
+                name: "Download Brochure"
+            },
+
+            heading:
+                "Still Running Your Business the Old Way? Learn How Blockchain Can Build Trust, Cut Costs, and Scale Your Growth.",
+
+            highlights: ["Business", "the", "Old", "Way", "Trust", "Cut Costs", "Growth"],
+
+            para: "Stand out from the crowd with future-ready blockchain skills",
+
+            features: [
+                {
+                    i: assets.Headset,
+                    para: "Lifetime support",
+                },
+                {
+                    i: assets.ArrowClockwise,
+                    para: "Monthly mentor Q&A sessions",
+                },
+                {
+                    i: assets.tag_icon,
+                    para: "3K+ Happy students",
+                },
+            ],
+        },
+        students_say_video: {
+            title: "Real Success Stories From People Just Like You",
+            p1: "Hear from Our Students: Turning Aspirations into Technological",
+            p2: "Breakthroughs for Everyone.",
+            highlights: ["Success Stories"],
+            videos: [
+                { id: 1, title: 'From Confused to Clear: Clarity Through Mentorship🤝', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/yjN8BcnCShM/hqdefault.jpg', youtubeId: 'yjN8BcnCShM' },
+                { id: 2, title: 'No Placement Scams ❌ Value is Our Big Promise ❤', subtitle: 'Student, Degree', thumbnail: 'https://img.youtube.com/vi/0byxBZjb7DA/hqdefault.jpg', youtubeId: '0byxBZjb7DA' },
+            ],
+        },
+
+        civil_demands: {
+            title: "WHY BLOCKCHAIN IS IN HIGH DEMAND?",
+            highlights: ["BLOCKCHAIN"],
+            p1: "Blockchain is shaping the future of technology and digital careers. Learning it now",
+            p2: "helps you stand out and build skills that every industry needs.",
+            card1: {
+                salary_range: "30–50% savings",
+                title: "Cost Efficiency & Transparency",
+                description: "Blockchain helps automate transactions, reduce manual errors, and improve accountability ,saving time and operational costs.",
+                sources: [
+                    {
+                        link: "",
+                        img: assets.glassdoor
+                    },
+                    {
+                        link: "",
+                        img: assets.naukri
+                    },
+                    {
+                        link: "",
+                        img: assets.ambition_box
+                    },
+                ],
+                desc_img: assets.avg_salary
+            },
+            card2: {
+                percentage: "80%",
+                title: "Global Business Adoption",
+                description: "Leading industries such as supply chain, finance, healthcare, and logistics are already using blockchain to secure and track operations.",
+                desc_img: assets.global
+            },
+            card3: {
+                percentage: "99.99%",
+                title: "Scalable & Secure Systems",
+                description: "Blockchain allows businesses to scale confidently with tamper-proof records, smart contracts, and traceable workflows.",
+                desc_img: assets.growth
+            }
+        },
+        rating_sec: {
+            rating: [
+                { number: "874+", label: "Students Enrolled" },
+                { number: "4.8/5", label: "Average Rating" },
+                { number: "17+", label: "Chapters" },
+                { number: "English", label: "Languages" },
+            ],
+            bg_img: assets.rev_bg,
+        },
+        lessons_comp: {
+            // download: {
+            //     link: "",
+            //     name: "Download Broucher"
+            // },
+            head: "What You'll Learn Inside the Course",
+            highlights: ["Learn"],
+            p1: "Learn blockchain fundamentals, smart contracts, Web3, and decentralized",
+            p2: "applications step by step.",
+            video_id: "JEPwcjGUS2w",
+        },
+        mentor_section: {
+            ment_img: assets.ment_img,
+            ment_detail: {
+                name: "Sathya P",
+                logo: assets.ins_ex_logo,
+                domain: "(Blockchain Architect &  Mentor)",
+                course_detail: [
+                    {
+                        i: assets.star_outline,
+                        para: "4.8 Ratings"
+                    },
+                    {
+                        i: assets.stud_outline,
+                        para: "874 Students"
+                    },
+                    {
+                        i: assets.book_outline,
+                        para: "1 Course"
+                    },
+                ],
+                social_media: [
+                    // { logo: assets.insta, name: 'Instagram', link_i: assets.link_icon, link: "https://www.instagram.com/askraghulan?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" },
+                    // { logo: assets.youtube, name: 'YouTube', link_i: assets.link_icon, link: "https://www.youtube.com/@AskRaghulan" },
+                ],
+                desc1: "I was a backbencher curious, always asking the questions others ignored. A few years ago, I received part of a real estate payment in Bitcoin. I stored it in a foreign wallet, and one day, it got hacked.",
+                desc2: "That mistake changed everything. It pushed me deep into the world of blockchain , nights of learning, experimenting, and rebuilding. Over time, I discovered it’s not just about crypto; it’s about power, trust, and the future of digital ownership.",
+                pathway: [
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.military_tech,
+                        para: "From Backbencher to Blockchain Architect"
+                    },
+                    {
+                        bg: "#1C1C1C",
+                        icon: assets.threeD_path2,
+                        para: "Built Blockchain Systems for Leading Companies"
+                    },
+                ],
+                desc3: "Now, I help learners understand blockchain the real way  through clarity, practical knowledge, and lessons built from experience."
+
+            },
+
+            ment_info: [
+                {
+                    head: "students trained",
+                    num: " 874+",
+                    i: assets.hat
+                },
+                {
+                    head: "Job Blueprint",
+                    num: "₹ 8.5 LPA+",
+                    // i: assets.per,
+                },
+                {
+                    head: "Industry Projects Completed",
+                    num: "60+",
+                    // i: assets.per
+                },
+                {
+                    head: "Average reviews ",
+                    num: "4.8",
+                    i: assets.kid_stars
+                },
+            ],
+
+            mission: {
+                start_button: {
+                    link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                    name: "Start Learning Now"
+                },
+                head: "My Mission",
+                para: "My mission is to help students master blockchain skills that build confidence, open high-paying career paths, and prepare them for the digital future.",
+                rocket_i: assets.rocket_i,
+                rocket_bg: assets.rocket_launch
+            }
+
+        },
+        passive_income: {
+            start_button: {
+                link: "https://learn.expertisoracademy.in/courses/Blockchain--691f0d24af1f66588136299f",
+                name: "Start Learning Now"
+            },
+            head: "Ready to Unlock Your Potential with  Blockchain?",
+            highlights: ["Ready", "to", "Unlock"],
+            p1: "Get ready to start building your own houses, bridges etc., Unleash your creativity and",
+            p2: "start your adventure. Don’t forget to use the coupon before it expires!",
+            bg: assets.income_bg,
+            card: {
+                price: "₹ 4999",
+                original_price: "₹ 10,000",
+                name: "Blockchain Masterclass: Become a Project-Ready Developer in 2025",
+                token_img: assets.token,
+                time: assets.time,
+                coupon_code: "BLOCKCHAIN",
+                discount_percent: "49%",
+                expires_in: "1 days 23 hours 59 minutes"
+            },
+
+            what_you_get: {
+                head: "What you'll get",
+                tick_img: assets.verified,
+                benefit: [
+                    "Learn blockchain fundamentals, smart contracts, Web3, and decentralized applications step by step.",
+                    "Master practical skills in blockchain development, crypto wallets, and real-world integrations.",
+                    "Live mentor Q&A sessions every month for personalized guidance and career direction.",
+                    "24/7 dedicated learner support to help you overcome technical or project challenges.",
+                    "Lifetime access to all lessons, updates, and future course materials.",
+                    "Community and peer support to connect, collaborate, and grow together in the blockchain space."
+                ]
+            }
+        },
+        course_review: [
+            {
+                review: "I was totally new to blockchain, but this course made everything easy to understand. The step-by-step explanations built my confidence quickly. Definitely worth it!",
+                name: "Rahul Verma, Bangalore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I always thought blockchain was too complicated, but the trainer explained everything in a simple and clear way. Now I understand Web3 and crypto basics confidently.",
+                name: "Suresh Kumar, Trichy",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I used to watch random YouTube videos but always ended up confused. This course gave me a proper learning structure and now I understand wallets, mining, and blockchain networks clearly.",
+                name: "Priya Desai, Pune",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "YouTube tutorials used to confuse me halfway, but this course followed a proper flow. It was very easy to follow and complete.",
+                name: "Harini R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "As a computer science student, I always wanted to understand Web3. After completing this course, I finally understand blockchain fundamentals and smart contracts clearly.",
+                name: "Aravind R, Coimbatore",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I needed a blockchain-based model for my college project. This course helped me so much that I was able to complete the entire project independently.",
+                name: "Pranav R, Salem",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "This is such a practical course. Instead of just theory, the trainer shows real-world blockchain applications. The hands-on approach helped me learn faster.",
+                name: "Divya Nair, Kochi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "The trainer was very friendly and explained concepts with simple examples. My basics became very strong.",
+                name: "Janani S, Madurai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "I enrolled with zero knowledge about blockchain. Now I can explain it to others and even participate in Web3 projects. Huge confidence boost!",
+                name: "Sanjay Kumar, Chennai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I’m a fresher, but after completing this course I feel confident to try freelance work in blockchain and Web3.",
+                name: "Vijay Anand, Chennai",
+                box_ex: assets.box_ex,
+            },
+
+            {
+                review: "The trainer teaches in a very friendly way and cleared every doubt with examples. I gained a lot of clarity and confidence.",
+                name: "Megha R, Hyderabad",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "This course genuinely helped my career. I added blockchain skills to my resume and already started receiving interview calls for Web3 roles.",
+                name: "Ajay Singh, Delhi",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "I loved the assignments and practical tasks. They helped me understand transactions, networks, and decentralized apps deeply.",
+                name: "Anitha K, Madurai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Compared to other online courses, this one felt very authentic. No hype—just clear and real explanations step by step.",
+                name: "Mohammed Irfan, Mumbai",
+                box_ex: assets.box_ex,
+            },
+            {
+                review: "Best investment I made this year. The strong foundation in blockchain and smart contracts is directly helping in my project work.",
+                name: "Varsha P, Trichy",
+                box_ex: assets.box_ex,
+            },
+        ],
+
+
+        FAQ: [
+            {
+                question: "What is Blockchain and why should I learn it?",
+                answer: "Blockchain is the technology behind cryptocurrencies and modern decentralized applications. Learning it helps you understand Web3, smart contracts, crypto transactions, and future digital systems."
+            },
+            {
+                question: "Who is this course suitable for?",
+                answer: "This course is perfect for students, fresh graduates, IT professionals, freelancers, and anyone interested in Web3, crypto, or emerging technologies."
+            },
+            {
+                question: "Do I need any prior technical knowledge before joining?",
+                answer: "No prior blockchain experience is required. Basic computer or programming knowledge is helpful but not mandatory."
+            },
+            {
+                question: "What will I be able to do after completing this course?",
+                answer: "You will understand how blockchain works, create wallets, explore crypto networks, work with smart contracts, and start building simple Web3 projects."
+            },
+            {
+                question: "Is this course useful for college or academic projects?",
+                answer: "Yes, many students use blockchain concepts for their mini-projects and final-year projects. This course helps you build practical, unique project ideas."
+            },
+            {
+                question: "How is this course different from free videos on YouTube?",
+                answer: "This course is structured step by step, covers real-world concepts, and provides hands-on examples. It ensures clarity—without the confusion of random videos."
+            },
+            {
+                question: "Will I get practical tasks or assignments?",
+                answer: "Yes, you will receive practical tasks that help you understand transactions, wallets, networks, and basic smart contract operations."
+            },
+            {
+                question: "Can this course help me get a job?",
+                answer: "Absolutely. Blockchain and Web3 skills are in high demand. Completing this course strengthens your resume and increases your chances in interviews for Web3, crypto, and tech roles."
+            },
+            {
+                question: "How long will it take to complete the course?",
+                answer: "Most students complete the course in 4–6 weeks depending on their learning pace. You can learn anytime at your convenience."
+            },
+            {
+                question: "Will I receive a certificate?",
+                answer: "Yes, you will receive a recognized course completion certificate to showcase on your resume and LinkedIn."
+            },
+            {
+                question: "Is the trainer experienced?",
+                answer: "Yes, the trainer has real industry experience and explains blockchain concepts with practical, easy-to-understand examples."
+            },
+
+        ],
+        OfferBanner: {
+            title: "Blockchain Masterclass English",
+            coupen_code: "BLOCKCHAIN",
+            discount_percent: 49,
+            no_days: 2,
+            joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
+            // d_broucher: ""
+        }
+    },
+
 }

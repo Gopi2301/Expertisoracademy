@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { memo, useState } from 'react'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
 // import { captureUTMParams } from '../../../utils/utmUtils';
@@ -30,8 +30,12 @@ const WeDo = () => {
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
                   src={assets.courses}
-                  alt="Courses"
+                  alt="Courses illustration"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
+                  width={160}
+                  height={120}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -48,8 +52,12 @@ const WeDo = () => {
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
                   src={assets.webinars}
-                  alt="Courses"
+                  alt="Webinars illustration"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
+                  width={160}
+                  height={120}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -66,8 +74,12 @@ const WeDo = () => {
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
                   src={assets.consult}
-                  alt="Courses"
+                  alt="Consulting illustration"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
+                  width={160}
+                  height={120}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -84,8 +96,12 @@ const WeDo = () => {
               <div className="order-1 sm:order-2 flex-shrink-0 bg-gradient-to-b from-[#3B2D00] to-[#816D00] p-2 rounded-md">
                 <img
                   src={assets.corporates}
-                  alt="Courses"
+                  alt="Corporate training illustration"
                   className="w-full sm:w-[160px] h-[120px] object-contain"
+                  width={160}
+                  height={120}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -99,4 +115,4 @@ const WeDo = () => {
   )
 }
 
-export default WeDo
+export default memo(WeDo)

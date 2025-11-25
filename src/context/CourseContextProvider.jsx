@@ -1,5 +1,7 @@
 import React, { createContext, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets'
+import ProfessionModal from '../components/ProfessionModal'
 
 
 
@@ -8,6 +10,7 @@ export const CourseContext = createContext()
 
 const CourseContextProvider = (props) => {
 
+    const navigate = useNavigate();
 
 
     const courses = [
@@ -34,8 +37,54 @@ const CourseContextProvider = (props) => {
             category: "technology",
         },
 
+        // civil3D
+        {
+            page_link: "/civil3d-tamil",
+            img: assets.civil3D,
+            type: "individual course",
+            level: "All levels",
+            star_i: assets.star_i,
+            rating: 4.9,
+            rating_persons: 3485,
+            domain: "AutoCAD Civil 3D",
+            // individual course
+            indi_lang_i: assets.lang_i,
+            lang_detail: "Tamil",
+            // -------
+            schedule_i: assets.schedule,
+            hours: "43 Modules",
+            ment_icon: assets.raghulan_ment_i,
+            mentors: "Raghulan Gowthaman",
+            para: "Site Design, Surveying Tools, Transportation Design, Land Development 3D Visualization",
+            language: "Tamil",
+            category: "Civil",
+        },
 
-        // individual course
+        // 3DMax
+        {
+            page_link: "/3dsmax-tamil",
+            img: assets.threeDsmax,
+            type: "individual course",
+            level: "Beginner",
+            star_i: assets.star_i,
+            rating: 4.9,
+            rating_persons: 4217,
+            domain: "3DS Max Mastery Program",
+            // individual course
+            indi_lang_i: assets.lang_i,
+            lang_detail: "Tamil",
+            // -------
+            schedule_i: assets.schedule,
+            hours: "32 Modules",
+            ment_icon: assets.raghulan_ment_i,
+            mentors: "Raghulan Gowthaman",
+            para: " Modeling, Texturing, Animation, Rendering and more.",
+            language: "Tamil",
+            category: "Civil",
+        },
+
+
+        // affilate
         {
             page_link: "/reels-affiliate-marketing-tamil",
             img: assets.affilate_card_img,
@@ -57,53 +106,6 @@ const CourseContextProvider = (props) => {
             language: "tamil",
             category: "Bussiness",
         },
-
-        // 3DMax
-        {
-            page_link: "/3dsmax-tamil",
-            img: assets.threeDsmax,
-            type: "individual course",
-            level: "Beginner",
-            star_i: assets.star_i,
-            rating: 4.9,
-            rating_persons: 4217,
-            domain: "3DS Max Mastery Program",
-            // individual course
-            indi_lang_i: assets.lang_i,
-            lang_detail: "Tamil",
-            // -------
-            schedule_i: assets.schedule,
-            hours: "15h",
-            ment_icon: assets.raghulan_ment_i,
-            mentors: "Raghulan Gowthaman",
-            para: " Modeling, Texturing, Animation, Rendering and more.",
-            language: "Tamil",
-            category: "Civil",
-        },
-
-        // Amazon
-        // {
-        //     page_link: "/amazon-seller-tamil-course",
-        //     img: assets.amazon,
-        //     type: "individual course",
-        //     level: "All levels",
-        //     star_i: assets.star_i,
-        //     rating: 4.9,
-        //     rating_persons: 2376,
-        //     domain: "Amazon Business Profit Blueprint",
-        //     // individual course
-        //     indi_lang_i: assets.lang_i,
-        //     lang_detail: "Tamil",
-        //     // -------
-        //     schedule_i: assets.schedule,
-        //     hours: "6h",
-        //     ment_icon: assets.swaminathan_ment_i,
-        //     mentors: "Swaminathan yuvaraj",
-        //     para: " Amazon Ads,Scaling Strategies,Listing Optimization,Product Research",
-        //     language: "Tamil",
-        //     category: "Bussiness",
-        // },
-
 
         // solidworks
         {
@@ -128,29 +130,107 @@ const CourseContextProvider = (props) => {
             category: "Mechanical",
         },
 
-
-        // civil3D
+        // blockchain
         {
-            page_link: "/civil3d-tamil",
-            img: assets.civil3D,
+            page_link: "/blockchain-course",
+            img: assets.blockchain_ment,
+            type: "individual course",
+            level: "All levels",
+            star_i: assets.star_i,
+            rating: 4.8,
+            rating_persons: 874,
+            domain: "Blockchain Masterclass English",
+            indi_lang_i: assets.lang_i,
+            lang_detail: "English",
+            schedule_i: assets.schedule,
+            // hours: "9h 45m",
+            ment_icon: assets.ment_img,
+            mentors: "Sathya P",
+            para: "Web3, Crypto, Smart Contracts, Blockchain Projects",
+            language: "English",
+            category: "Technology"
+        },
+
+        // civil3D english
+        {
+            page_link: "/civil3d-english",
+            img: assets.civil_3d_eng,
             type: "individual course",
             level: "All levels",
             star_i: assets.star_i,
             rating: 4.9,
-            rating_persons: 3485,
+            rating_persons: 1753,
             domain: "AutoCAD Civil 3D",
+            // individual course
+            indi_lang_i: assets.lang_i,
+            lang_detail: "English",
+            // -------
+            schedule_i: assets.schedule,
+            hours: "43 Modules",
+            ment_icon: assets.raghulan_ment_i,
+            mentors: "Raghulan Gowthaman",
+            para: "Site Design, Surveying Tools, Transportation Design, Land Development 3D Visualization",
+            language: "English",
+            category: "Civil",
+        },
+
+
+        // 3Dsmax english
+        {
+            page_link: "/3dsmax-english",
+            img: assets.threeDMax_eng,
+            type: "individual course",
+            level: "Beginner",
+            star_i: assets.star_i,
+            rating: 4.9,
+            rating_persons: 1346,
+            domain: "3DS Max Mastery Program",
+            // individual course
+            indi_lang_i: assets.lang_i,
+            lang_detail: "English",
+            // -------
+            schedule_i: assets.schedule,
+            hours: "32 Modules",
+            ment_icon: assets.raghulan_ment_i,
+            mentors: "Raghulan Gowthaman",
+            para: " Modeling, Texturing, Animation, Rendering and more.",
+            language: "English",
+            category: "Civil",
+        },
+
+        // Amazon
+        {
+            page_link: "/amazon-seller-tamil-course",
+            img: assets.amazon,
+            type: "individual course",
+            level: "All levels",
+            star_i: assets.star_i,
+            rating: 4.9,
+            rating_persons: 2376,
+            domain: "Amazon Business Profit Blueprint",
             // individual course
             indi_lang_i: assets.lang_i,
             lang_detail: "Tamil",
             // -------
             schedule_i: assets.schedule,
-            hours: "12h",
-            ment_icon: assets.raghulan_ment_i,
-            mentors: "Raghulan Gowthaman",
-            para: "Site Design, Surveying Tools, Transportation Design, Land Development 3D Visualization",
+            hours: "6h",
+            ment_icon: assets.swaminathan_ment_i,
+            mentors: "Swaminathan yuvaraj",
+            para: " Amazon Ads,Scaling Strategies,Listing Optimization,Product Research",
             language: "Tamil",
-            category: "Civil",
+            category: "Bussiness",
         },
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -215,12 +295,47 @@ const CourseContextProvider = (props) => {
         scrollRef.current.scrollBy({ left: 310, behavior: 'smooth' });
     };
 
+    // blockchain
+
+    const [showModal, setShowModal] = useState(false);
+
+    const isProfessionModalCourse = (course) => {
+        const link = (course?.page_link || "").toLowerCase();
+        const domain = (course?.domain || "").toLowerCase();
+        // match your blockchain course by page_link or domain containing "blockchain"
+        return link.includes('blockchain') || domain.includes('blockchain');
+    }
+
+    function handleCourseClick(course) {
+        if (isProfessionModalCourse(course)) {
+            // setCurrentCourse(course);
+            setShowModal(true);
+        } else {
+            console.log(course)
+            navigate(course.page_link);
+        }
+    }
+
+    function handleModalNavigate(dest) {
+        setShowModal(false);
+        // setCurrentCourse(null);
+        navigate(dest);
+    }
 
 
-    const value = { courses, selectedCategories, setSelectedCategories, handleCheckboxChange, categories, languages, mentors, scrollRef, scrollLeft, scrollRight, typeOfCourse,courseType,setCourseType }
+
+    const value = { courses, selectedCategories, setSelectedCategories, handleCheckboxChange, categories, languages, mentors, scrollRef, scrollLeft, scrollRight, typeOfCourse, courseType, setCourseType, handleCourseClick }
     return (
         <CourseContext.Provider value={value}>
             {props.children}
+
+            <ProfessionModal
+                isOpen={showModal}
+                onClose={() => setShowModal(false)}
+                // baseRoute={currentCourse?.page_link || '/'}
+                onNavigate={(dest) => handleModalNavigate(dest)}
+            />
+
         </CourseContext.Provider>
     )
 }

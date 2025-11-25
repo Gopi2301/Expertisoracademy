@@ -1,19 +1,11 @@
-import React, { useState } from 'react'
+import React, { memo, useMemo } from 'react'
 import ImgRun from './ImgRun';
 
 import { assets } from '../../assets/assets'
 
 const AboutUs = () => {
 
-    const videos = {
-        id: 1,
-        url: "https://www.youtube.com/embed/wO0cNJOXqCs",
-        thumbnail: "https://img.youtube.com/vi/wO0cNJOXqCs/hqdefault.jpg"
-    };
-
-    const [playing, setPlaying] = useState(false);
-
-    const slide1 = [
+    const slide1 = useMemo(() => [
         assets.a,
         assets.b,
         assets.c,
@@ -24,7 +16,7 @@ const AboutUs = () => {
         assets.h,
         assets.i,
         assets.j,
-    ]
+    ], [])
 
 
     return (
@@ -66,14 +58,14 @@ const AboutUs = () => {
                             <div className='text-center '>
                                 <div className='flex justify-center  sm:hidden'>
                                     <div className='flex'>
-                                        <img src={assets.ragu} alt="" />
-                                        <img src={assets.sathish} alt="" />
+                                    <img src={assets.ragu} alt="Mentor Ragu" loading="lazy" decoding="async" width={120} height={120} />
+                                        <img src={assets.sathish} alt="Mentor Sathish" loading="lazy" decoding="async" width={120} height={120} />
                                     </div>
                                 </div>
                                 <div className='flex items-center justify-around'>
-                                    <img src={assets.ragu} alt="" className='hidden sm:block' />
+                                    <img src={assets.ragu} alt="Mentor Ragu" className='hidden sm:block' loading="lazy" decoding="async" width={160} height={160} />
                                     <h4 className='text-[#ffffff] font-clash font-normal text-[20px] sm:text-[24px] leading-[34px] tracking-[0%] text-center'>Two college-broken minds,<span className='xl:block'>One <span className='text-yellow font-semibold'>big vision</span>.</span></h4>
-                                    <img src={assets.sathish} alt="" className='hidden sm:block' />
+                                    <img src={assets.sathish} alt="Mentor Sathish" className='hidden sm:block' loading="lazy" decoding="async" width={160} height={160} />
                                 </div>
 
                                 <p className='mt-4 text-[#B8B8B8] font-inter font-normal text-[16px] sm:text-[18px] leading-[20px] sm:leading-[22px] tracking-[0%] align-middle'>We saw the gap ,education teaches but reality demands more. True mastery comes from learning directly from those who have done it, implemented it, and created real impact.</p>
@@ -99,4 +91,4 @@ const AboutUs = () => {
     )
 }
 
-export default AboutUs
+export default memo(AboutUs)

@@ -242,6 +242,8 @@ import Civil3D from './pages/Civil3D';
 import Mentorship from './pages/Mentorship';
 import MentDet from './components/MentorshipComponents/MentDet';
 import { getUtmParams, storeUtmParams } from './utils/utmUtils';
+import Blockchain from './pages/Blockchain';
+import { pages } from './constants/pages';
 
 const App = () => {
   const location = useLocation();
@@ -277,8 +279,8 @@ const App = () => {
   const currentPath = location.pathname.replace(/\/$/, '');
 
   // Header and main margin condition
-const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden;
-const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
+  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden;
+  const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
   return (
     <div className='font-inter bg-black min-h-screen flex flex-col text-white'>
@@ -308,15 +310,23 @@ const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
           <Route path='/techbundle' element={<Initiative />} />
           <Route path='/auth/success' element={<AuthSuccess />} />
           <Route path='/reels-affiliate-marketing-tamil' element={<AffilateMarketing />} />
-          <Route path='/3dsmax-tamil' element={<ThreeDMax />} />
+
+          <Route path='/3dsmax-tamil' element={<ThreeDMax data={pages.ThreeDMax} />} />
+          <Route path='/3dsmax-english' element={<ThreeDMax data={pages.ThreeDMax_english} />} />
+          
           <Route path='/termsandservices' element={<TermsAndServices />} />
           <Route path='/privacypolicy' element={<PrivacyPolicy />} />
           <Route path='/RefundAndCertificationPolicy' element={<RefundAndCertificationPolicy />} />
-          {/* <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} /> */}
+          <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} /> 
           <Route path='/creator-mentor' element={<BecomeMentor />} />
           <Route path="/whylearncourse/:slug" element={<WhyLearnCourse />} />
           <Route path='/solidworks-tamil' element={<SolidWorks />} />
-          <Route path='/civil3d-tamil' element={<Civil3D />} />
+          <Route path='/civil3d-tamil' element={<Civil3D data={pages.civil3d} />} />
+          <Route path='/civil3d-english' element={<Civil3D data={pages.civil3d_english} />} />
+
+          <Route path='/blockchain-course-for-students' element={<Blockchain data={pages.blockchain_students} />} />
+          <Route path='/blockchain-course-for-working-professionals' element={<Blockchain data={pages.blockchain_working} />} />
+          <Route path='/blockchain-course-for-business' element={<Blockchain data={pages.blockchain_bussiness} />} />
 
           {/* Eliteconnect Routes */}
           <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />

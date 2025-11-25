@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { assets } from '../../assets/assets'
 
 const Success = () => {
@@ -9,11 +9,13 @@ const Success = () => {
                     {/* bg image */}
                     <img
                         src={assets.test_bg}
-                        alt="Banner"
+                        alt="Success banner"
                         className="hidden sm:block w-full "
+                        loading="lazy"
+                        decoding="async"
                     />
 
-                    <img src={assets.test_bg_mob} alt="" className='block sm:hidden w-full' />
+                    <img src={assets.test_bg_mob} alt="Success banner mobile" className='block sm:hidden w-full' loading="lazy" decoding="async" />
 
                     {/* content overlay */}
                     <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-3">
@@ -33,4 +35,4 @@ const Success = () => {
     )
 }
 
-export default Success
+export default memo(Success)

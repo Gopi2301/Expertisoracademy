@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { memo, useMemo } from 'react'
 import { assets } from '../../assets/assets'
 import Marquee from 'react-fast-marquee'
 
 const Achieve = () => {
-    const datas = ['REAL SKILLS', 'REAL GROWTH', 'JOIN THE MOVEMENT','REAL SKILLS', 'REAL GROWTH', 'JOIN THE MOVEMENT',]
+    const datas = useMemo(() => (['REAL SKILLS', 'REAL GROWTH', 'JOIN THE MOVEMENT', 'REAL SKILLS', 'REAL GROWTH', 'JOIN THE MOVEMENT']), [])
     return (
         <div className='bg-black '>
             <div className='  px-3 sm:px-14 lg:px-20 pt-14 sm:pt-24'>
@@ -21,7 +21,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center'>
-                            <img src={assets.a1} alt="" />
+                            <img src={assets.a1} alt="Hired students collage" loading="lazy" decoding="async" width={196} height={140} />
                         </div>
                     </div>
 
@@ -32,7 +32,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center'>
-                            <img src={assets.a2} alt="" />
+                            <img src={assets.a2} alt="Highest salary graphic" loading="lazy" decoding="async" width={196} height={140} />
                         </div>
                     </div>
 
@@ -43,7 +43,7 @@ const Achieve = () => {
                         </div>
 
                         <div className='flex justify-center '>
-                            <img src={assets.a3} alt="" />
+                            <img src={assets.a3} alt="Highest hike graphic" loading="lazy" decoding="async" width={196} height={140} />
                         </div>
                     </div>
 
@@ -57,7 +57,7 @@ const Achieve = () => {
                         <div key={index} className='mr-10'>
                             <div className='flex gap-10'>
                                 <h2 className='text-yellow font-clash font-semibold text-[30px] md:text-[50.4px] leading-[55.2px] tracking-[0%] text-center'>{value}</h2>
-                                <img src={ index % 2 == 0 ? assets.star_des_1 : assets.star_des } alt="" />
+                                <img src={ index % 2 == 0 ? assets.star_des_1 : assets.star_des } alt="Decorative star" loading="lazy" decoding="async" width={48} height={48}/>
                             </div>
                         </div>
                     ))}
@@ -68,4 +68,4 @@ const Achieve = () => {
     )
 }
 
-export default Achieve
+export default memo(Achieve)

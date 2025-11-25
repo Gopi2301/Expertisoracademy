@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useMemo, useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import { FaCheck} from 'react-icons/fa';
 import { assets } from '../../assets/assets';
@@ -10,7 +10,7 @@ const OurMentors = () => {
         const [showDropdown, setShowDropdown] = useState(false);
         const [selected, setSelected] = useState("Best Match");
     
-        const options = ["Best Match", "Newest", "Most Popular"];
+        const options = useMemo(() => ["Best Match", "Newest", "Most Popular"], []);
 
     return (
         <>
@@ -73,7 +73,7 @@ const OurMentors = () => {
                     </div>
 
                     <div className='block sm:hidden'>
-                         <img src={assets.mob_filter} alt="" className='w-10 h-10'/>
+                         <img src={assets.mob_filter} alt="Filter icon" className='w-10 h-10' loading="lazy" decoding="async"/>
                     </div>
                 </div>
 
@@ -85,4 +85,4 @@ const OurMentors = () => {
     )
 }
 
-export default OurMentors
+export default memo(OurMentors)

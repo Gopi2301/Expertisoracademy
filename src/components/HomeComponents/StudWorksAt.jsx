@@ -1,11 +1,10 @@
-import React from 'react'
+import React, { memo, useMemo } from 'react'
 import { assets } from '../../assets/assets'
 import Marquee from 'react-fast-marquee'
 
 
 const StudWorksAt = () => {
-
-  const comp=[
+  const comp = useMemo(() => ([
     assets.c1,
     assets.c2,
     assets.c3,
@@ -22,7 +21,7 @@ const StudWorksAt = () => {
     assets.c6,
     assets.c7,
     assets.c8,
-  ]
+  ]), [])
 
   return (
     // <div className='my-32 w-full'   style={{
@@ -67,7 +66,7 @@ const StudWorksAt = () => {
           <Marquee speed={60}  >
             {comp.map((value, index) => (
               <div key={index} className='mr-20 '>
-                  <img src={value} alt="" />
+                  <img src={value} alt="Company logo" loading="lazy" decoding="async" width={120} height={48} />
               </div>
             ))}
           </Marquee>
@@ -80,4 +79,4 @@ const StudWorksAt = () => {
   )
 }
 
-export default StudWorksAt
+export default memo(StudWorksAt)

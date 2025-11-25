@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { memo, useContext, useEffect, useMemo, useState } from 'react'
 import { FaSearch, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import CoursesCard from '../CourseComponents/CoursesCard';
 import { CourseContext } from '../../context/CourseContextProvider';
@@ -10,28 +10,24 @@ import { Link } from 'react-router-dom';
 
 
 const Skills = () => {
+    const { courses, scrollLeft, scrollRight, scrollRef, categories: cate, handleCourseClick } = useContext(CourseContext)
 
-    const { courses, scrollLeft, scrollRight, scrollRef, categories: cate } = useContext(CourseContext)
-
-    const emojiMap = {
+    const emojiMap = useMemo(() => ({
         Technology: "📡",
         Bussiness: "📈",
         Civil: "👷",
         Mechanical: "🛠️",
         Medical: "🩺",
         Electrical: "⚡",
-    };
+    }), []);
 
-    const categories = [
+    const categories = useMemo(() => ([
         { label: "ALL", emoji: "🌍" },
         ...cate.map(cat => ({
-            label: cat.toUpperCase(),   // if you want uppercase like in your example
+            label: cat.toUpperCase(),
             emoji: emojiMap[cat]
         }))
-    ];
-
-
-
+    ]), [cate, emojiMap]);
 
     const [activeCategory, setActiveCategory] = useState("ALL");
 
@@ -43,7 +39,7 @@ const Skills = () => {
     useEffect(() => {
         let data = courses.slice()
 
-        data = data.filter((value, i) =>
+        data = data.filter((value) =>
             value.domain.toLowerCase().includes(searched.toLowerCase()) ||
             value.mentors.toLowerCase().includes(searched.toLowerCase()) ||
             value.language.toLowerCase().includes(searched.toLowerCase())
@@ -57,8 +53,7 @@ const Skills = () => {
                 value.category.toLowerCase().includes(activeCategory.toLowerCase()));
 
         setSearchCourse(data)
-
-    }, [searched, activeCategory])
+    }, [searched, activeCategory, courses])
 
 
 
@@ -132,6 +127,7 @@ const Skills = () => {
                                             key={i}
                                             course={data}
                                             width="305px"
+                                            onClick={() => handleCourseClick(data)}
                                         />
                                     )
                                 }
@@ -162,4 +158,4 @@ const Skills = () => {
     )
 }
 
-export default Skills
+export default memo(Skills)

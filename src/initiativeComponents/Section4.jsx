@@ -1,6 +1,6 @@
 import React from 'react'
 import JoinNowButton from '../components/JoinNowButton';
-import career from "../assets/career.png"
+import career from "../assets/career.svg"
 import Guide from './Guide'
 import Infinite from './Infinite'
 import three3 from "../assets/numbers/three3.png"

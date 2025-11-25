@@ -1,10 +1,9 @@
-import React from 'react'
+import React, { memo, useMemo } from 'react'
 import Marquee from 'react-fast-marquee';
 import Reviews from './Reviews';
 
 const Infinite = () => {
-
-    const datas = [
+    const datas = useMemo(() => [
         {
             para: "It was a very good session; it helped me a lot and gave me a solid roadmap to achieve my goal, and I feel much more confident about my next step. Thank you.",
             name: "Aswanth A",
@@ -126,7 +125,7 @@ const Infinite = () => {
             name: "Imran Khan V",
             course: "Full stack developer",
         },
-    ];
+    ], [])
 
 
     return (
@@ -142,4 +141,4 @@ const Infinite = () => {
     );
 }
 
-export default Infinite
+export default memo(Infinite)

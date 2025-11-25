@@ -35,7 +35,7 @@ const Aboutus = () => {
     const faqs = [
         { question: "How can I join the 1-Year Program?", answer: "Click the 'Join Now' button, complete your payment, and you'll receive an email with all the program details, including access to videos, the app, website, and community links." },
         { question: "Can I ask questions?", answer: "Absolutely! You can ask your doubts anytime. Our top creators and mentors are here to support you and provide personalized career guidance" },
-        { question: "Why are you charging only ₹700?", answer: "Great question! Similar programs in the market charge 20K to ₹1L with unrealistic promises of 100% job placement. We aim to make quality tech education accessible to everyone. For ₹700, you'll get: 24/7 course access on our app and website. Career guidance from experts. The best value you've ever experienced in tech learning" },
+        { question: "Why are you charging less?", answer: "Great question! Similar programs in the market charge 20K to ₹1L with unrealistic promises of 100% job placement. We aim to make quality tech education accessible to everyone. For this, you'll get: 24/7 course access on our app and website. Career guidance from experts. The best value you've ever experienced in tech learning" },
         { question: "Are these courses recorded?", answer: "Yes, all courses are recorded so you can watch them anytime, anywhere. Plus, you'll get 24/7 support and live career guidance to help you land your dream job." },
         { question: "Will I get a certificate?", answer: "Yes! Upon completion, you'll receive an industry-standard, Linkedin-shareable certificate for courses, hackathons, workshops, and tech meetups." },
     ];
