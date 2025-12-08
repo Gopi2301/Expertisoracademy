@@ -8,7 +8,7 @@ const Buttons = () => {
     return (
         <div className='sm:flex justify-center gap-4 mt-6 '>
 
-            <a href={`https://learn.expertisoracademy.in/courses/MasterTech-Creator-Mentorship-Program-67ec2a9a57589948c89aa275/`} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+            <a href={`https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header/`} target="_blank" rel="noopener noreferrer" className="cursor-pointer">
                 <div className='flex justify-center cursor-pointer'>
                     <div className='flex justify-center items-center border-[#B6AC00] bg-[#FFF761] border rounded-[4px]  w-[335px] sm:w-[251px] h-[40px] '>
                         <button className='font-inter font-semibold text-black  text-[16px] leading-[100%] tracking-[0%] align-middle '>Join Now</button>

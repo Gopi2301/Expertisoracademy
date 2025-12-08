@@ -175,7 +175,7 @@ import so5 from './images/3DMax/software/so5.svg'
 import so6 from './images/3DMax/software/so6.svg'
 import so7 from './images/3DMax/software/so7.svg'
 import raghulan_ment from './images/3DMax/mentor/raghulan_ment.svg'
-import videoBg from './images/3DMax/videoBg.mp4'
+import videoBg from './images/3DMax/videoBg.webm'
 // amazon
 import as1 from './images/ap_grow_faster/as1.svg'
 import as2 from './images/ap_grow_faster/as2.svg'
@@ -210,7 +210,7 @@ import chall1 from './images/solidworks/chall1.svg'
 import chall2 from './images/solidworks/chall2.svg'
 import chall3 from './images/solidworks/chall3.svg'
 import bg_car_rating from './images/solidworks/bg_car_rating.png'
-import Video_Solidworks from './images/solidworks/Video_Solidworks.mp4'
+import Video_Solidworks from './images/solidworks/Video_Solidworks.webm'
 import solidworks_mentor from './images/solidworks/solidworks_mentor.svg'
 import lang_i from './images/lang_i.svg'
 import sridhar_ment_i from './images/sridhar_ment_i.svg'
@@ -285,7 +285,7 @@ import tag_icon from './images/blockchain/tag_icon.svg'
 import growth from './images/blockchain/growth.svg'
 import rev_bg from './images/blockchain/rev_bg.png'
 import ment_img from './images/blockchain/ment_img.svg'
-import Blockchain from './images/blockchain/Blockchain.mp4'
+import Blockchain from './images/blockchain/Blockchain.webm'
 import avg_salary from './images/blockchain/avg_salary.svg'
 import adoption from './images/blockchain/adoption.svg'
 import military_tech from './images/blockchain/military_tech.svg'
@@ -377,12 +377,12 @@ export const assets = {
     i_mentor, i_comma, down_arrow_black, affilate_video,
     chall1, chall2, chall3, bg_car_rating, Video_Solidworks, solidworks_mentor, lang_i, sridhar_ment_i, affilate_card_img,
     sw_mentor, sw_bg, threeD_path2, threeD_path3, amz_mentor, amz_path1, amz_path2, amz_path3, amz_path4,
-    civil3D_hero_bg, glassdoor, naukri, ambition_box, stud_coursefor,threeD_stud_i,amz_stud_i,civil3D_stud_i,key_ben_mentors,
+    civil3D_hero_bg, glassdoor, naukri, ambition_box, stud_coursefor, threeD_stud_i, amz_stud_i, civil3D_stud_i, key_ben_mentors,
     // becomementors mentors
     sivaraman, javid, fakir, raghulan, sathesh, muthupandiyan, sridhar, reyroi, anton, swaminathan, dhivagar, therikumar, tharun, manosundar, elavarasan, akash, siva, ashok_kumar, allan,
-    highdemand_1,highdemand_2,highdemand_3,threeDsmax,solidworks,civil3D,amazon,raghulan_ment_i,swaminathan_ment_i,elavarasan_ment_i,
-    sld_path1,sld_path2,sld_path3,proj,rupee_circle,sld_stud_icon,
-    raghulan_profile,banner_raghulan,banner_raghulan_mob,spec_img1,spec_img2,share,silver_diamond,gold_diamond,
-    tag_icon,growth,rev_bg,ment_img,Blockchain,avg_salary,adoption,military_tech,global,blockchain_ment,
-    bc_bw_1,bc_bw_2,bc_bw_3,bc_y_1,bc_y_2,bc_y_3,income_bg,threeDMax_eng,civil_3d_eng
+    highdemand_1, highdemand_2, highdemand_3, threeDsmax, solidworks, civil3D, amazon, raghulan_ment_i, swaminathan_ment_i, elavarasan_ment_i,
+    sld_path1, sld_path2, sld_path3, proj, rupee_circle, sld_stud_icon,
+    raghulan_profile, banner_raghulan, banner_raghulan_mob, spec_img1, spec_img2, share, silver_diamond, gold_diamond,
+    tag_icon, growth, rev_bg, ment_img, Blockchain, avg_salary, adoption, military_tech, global, blockchain_ment,
+    bc_bw_1, bc_bw_2, bc_bw_3, bc_y_1, bc_y_2, bc_y_3, income_bg, threeDMax_eng, civil_3d_eng
 }

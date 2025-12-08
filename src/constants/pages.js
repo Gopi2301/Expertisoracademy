@@ -446,7 +446,7 @@ export const pages = {
     },
     ThreeDMax: {
         start_button: {
-            link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
             name: "Become a 3D Pro"
         },
         download: {
@@ -458,7 +458,7 @@ export const pages = {
 
             highlights: ["complex 3D software", "start"],
             start_button: {
-                link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                 name: "Become a 3D Pro"
             },
             download: {
@@ -625,7 +625,7 @@ export const pages = {
 
             mission: {
                 start_button: {
-                    link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+                    link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                     name: "Become a 3D Pro"
                 },
                 head: "My Mission",
@@ -736,7 +736,7 @@ export const pages = {
         ],
         passive_income: {
             start_button: {
-                link: "https://learn.expertisoracademy.in/courses/3ds-Max-Tamil--68da82a10fdb786eec2e26c6",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                 name: "Become a 3D Pro"
             },
             head: "Ready to dive into the 3D universe?",
@@ -827,7 +827,6 @@ export const pages = {
             d_broucher: "/3DSMax-Mastery-Program.pdf"
         }
     },
-
     // english
     ThreeDMax_english: {
         start_button: {
@@ -2944,7 +2943,7 @@ export const pages = {
     },
     civil3d: {
         start_button: {
-            link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
+            link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
             name: "Start Your Civil3D Journey"
         },
         download: {
@@ -2953,7 +2952,7 @@ export const pages = {
         },
         hero_section: {
             start_button: {
-                link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                 name: "Start Your Civil3D Journey"
             },
             download: {
@@ -3176,7 +3175,7 @@ export const pages = {
 
             mission: {
                 start_button: {
-                    link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
+                    link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                     name: "Start Your Civil3D Journey"
                 },
                 head: "My Mission",
@@ -3188,7 +3187,7 @@ export const pages = {
         },
         passive_income: {
             start_button: {
-                link: "https://learn.expertisoracademy.in/courses/AutoCAD-Civil-3D-Tamil-68dbe2fde101430490549d84",
+                link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
                 name: "Start Your Civil3D Journey"
             },
             head: "Join our Civil 3D course and kickstart your career!",
@@ -4562,7 +4561,7 @@ export const pages = {
                             "I will guide you to turn your idea into a sustainable business with market-ready strategies and an actionable growth path.",
                         diamond: assets.silver_diamond,
                         diamond_bg: "#FFFFFF",
-                        route: "https://docs.google.com/forms/d/e/1FAIpQLScwgRCQtZZpiosFbbN0zW6QDfpPtPbS6YLqPQopTpIU_go1hw/viewform?usp=header"
+                        route: "https://rzp.io/rzp/0ifnef6x?usp=header"
                     },
                     {
                         id: 2,
@@ -4577,7 +4576,7 @@ export const pages = {
                             "Discover the right, high-paying career path designed around your strengths, gain clarity and direction for your next move.",
                         diamond: assets.silver_diamond,
                         diamond_bg: "#FFFFFF",
-                        route: "https://docs.google.com/forms/d/e/1FAIpQLScwgRCQtZZpiosFbbN0zW6QDfpPtPbS6YLqPQopTpIU_go1hw/viewform?usp=header"
+                        route: "https://rzp.io/rzp/0ifnef6x?usp=header"
                     },
                     {
                         id: 3,
@@ -4592,7 +4591,7 @@ export const pages = {
                             "Help you shift your mindset, overcome limits, and move toward a more purposeful life.",
                         diamond: assets.silver_diamond,
                         diamond_bg: "#FFFFFF",
-                        route: "https://docs.google.com/forms/d/e/1FAIpQLScwgRCQtZZpiosFbbN0zW6QDfpPtPbS6YLqPQopTpIU_go1hw/viewform?usp=header"
+                        route: "https://rzp.io/rzp/0ifnef6x?usp=header"
                     },
                     {
                         id: 4,
@@ -4607,7 +4606,7 @@ export const pages = {
                             "Help you identify gaps, fix challenges, provide strategies, and create a clear roadmap for business growth.",
                         diamond: assets.silver_diamond,
                         diamond_bg: "#FFFFFF",
-                        route: "https://docs.google.com/forms/d/e/1FAIpQLScwgRCQtZZpiosFbbN0zW6QDfpPtPbS6YLqPQopTpIU_go1hw/viewform?usp=header"
+                        route: "https://rzp.io/rzp/0ifnef6x?usp=header"
                     },
                     {
                         id: 5,

@@ -43,11 +43,11 @@ const Section4 = (urlParams={}) => {
                             </div>
                             <div className='sm:flex justify-center xl:justify-start gap-4 mt-2 xl:mt-5'>
 
-                                {/* <a href={`https://learn.expertisoracademy.in/courses/MasterTech-Creator-Mentorship-Program-67ec2a9a57589948c89aa275/` } target="_blank" rel="noopener noreferrer" className="cursor-pointer"> */}
+                                {/* <a href={`https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header/` } target="_blank" rel="noopener noreferrer" className="cursor-pointer"> */}
                                 <a 
                               href={
                                 (() => {
-                                  const url = new URL('https://learn.expertisoracademy.in/courses/MasterTech-Creator-Mentorship-Program-67ec2a9a57589948c89aa275/');
+                                  const url = new URL('https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header/');
                                   if (urlParams) {
                                     Object.entries(urlParams).forEach(([key, value]) => {
                                       if (value) url.searchParams.set(key, value);

@@ -38,6 +38,7 @@ export default {
       fontFamily: {
         clash: ['"Clash Display Variable"', 'sans-serif'],
         inter: ["Inter", "sans-serif"],
+        cactus: ['"Cactus Classical Serif"', 'serif'],
       },
       backgroundImage: {
         'hero-pattern': "url('/bg_gradient.png')",

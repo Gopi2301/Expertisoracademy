@@ -243,6 +243,7 @@ import Mentorship from './pages/Mentorship';
 import MentDet from './components/MentorshipComponents/MentDet';
 import { getUtmParams, storeUtmParams } from './utils/utmUtils';
 import Blockchain from './pages/Blockchain';
+import SSRCourse from './pages/SSRCourse';
 import { pages } from './constants/pages';
 
 const App = () => {
@@ -268,8 +269,23 @@ const App = () => {
   }, []);
 
   // --- Layout visibility ---
-  const layoutHiddenRoutes = ['/techbundle', '/auth/success'];
+  const layoutHiddenRoutes = ['/auth/success'];
   const isLayoutHidden = layoutHiddenRoutes.includes(location.pathname);
+
+  const headerHiddenRoutes = [
+    '/techbundle',
+    '/ssr-course',
+    '/reels-affiliate-marketing-tamil',
+    '/3dsmax-tamil',
+    '/3dsmax-english',
+    '/amazon-seller-tamil-course',
+    '/solidworks-tamil',
+    '/civil3d-tamil',
+    '/civil3d-english',
+    '/blockchain-course-for-students',
+    '/blockchain-course-for-working-professionals',
+    '/blockchain-course-for-business'
+  ];
 
   const [showLoginModal, setShowLoginModal] = useState(false);
   const handleOpenLoginModal = useCallback(() => setShowLoginModal(true), []);
@@ -279,7 +295,7 @@ const App = () => {
   const currentPath = location.pathname.replace(/\/$/, '');
 
   // Header and main margin condition
-  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden;
+  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname);
   const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
   return (
@@ -313,11 +329,11 @@ const App = () => {
 
           <Route path='/3dsmax-tamil' element={<ThreeDMax data={pages.ThreeDMax} />} />
           <Route path='/3dsmax-english' element={<ThreeDMax data={pages.ThreeDMax_english} />} />
-          
+
           <Route path='/termsandservices' element={<TermsAndServices />} />
           <Route path='/privacypolicy' element={<PrivacyPolicy />} />
           <Route path='/RefundAndCertificationPolicy' element={<RefundAndCertificationPolicy />} />
-          <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} /> 
+          <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} />
           <Route path='/creator-mentor' element={<BecomeMentor />} />
           <Route path="/whylearncourse/:slug" element={<WhyLearnCourse />} />
           <Route path='/solidworks-tamil' element={<SolidWorks />} />
@@ -327,6 +343,8 @@ const App = () => {
           <Route path='/blockchain-course-for-students' element={<Blockchain data={pages.blockchain_students} />} />
           <Route path='/blockchain-course-for-working-professionals' element={<Blockchain data={pages.blockchain_working} />} />
           <Route path='/blockchain-course-for-business' element={<Blockchain data={pages.blockchain_bussiness} />} />
+
+          <Route path='/ssr-course' element={<SSRCourse />} />
 
           {/* Eliteconnect Routes */}
           <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />

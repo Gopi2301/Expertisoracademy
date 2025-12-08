@@ -1,7 +1,7 @@
 import React from 'react';
 import { getStoredUtmParams, appendUtmParamsToUrl } from '../utils/utmUtils';
 
-const GRAPHY_URL = 'https://learn.expertisoracademy.in/courses/MasterTech-Creator-Mentorship-Program-67ec2a9a57589948c89aa275';
+const GRAPHY_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header';
 
 const JoinNowButton = ({ children, className }) => {
   const handleRedirect = () => {

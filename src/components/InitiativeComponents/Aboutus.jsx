@@ -98,7 +98,7 @@ const Aboutus = () => {
                         </div>
                         <div className="flex flex-col items-center gap-6">
                             <p className="font-inter font-medium text-[22px] sm:text-[25px]  lg:text-[28px] leading-[100%] tracking-[0%] text-center">Everything and anything can be learned if we invest time and effort.</p>
-                            <a href={`https://learn.expertisoracademy.in/courses/MasterTech-Creator-Mentorship-Program-67ec2a9a57589948c89aa275/`} className='flex justify-center items-center text-[#ffff] w-[150px] h-[40px] rounded-[8px]  bg-[radial-gradient(99.88%_99.88%_at_53.29%_100.71%,_#6D6100_0%,_#000000_100%)] border border-[#B6AC00] cursor-pointer'>
+                            <a href={`https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header`} className='flex justify-center items-center text-[#ffff] w-[150px] h-[40px] rounded-[8px]  bg-[radial-gradient(99.88%_99.88%_at_53.29%_100.71%,_#6D6100_0%,_#000000_100%)] border border-[#B6AC00] cursor-pointer'>
                                 <p className='font-gordita font-medium text-[16px] leading-[100%] tracking-[0%] align-middle'>Join Now</p>
                             </a>
                         </div>

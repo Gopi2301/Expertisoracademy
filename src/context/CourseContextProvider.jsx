@@ -151,6 +151,27 @@ const CourseContextProvider = (props) => {
             category: "Technology"
         },
 
+        // Amazon
+        {
+            page_link: "/amazon-seller-tamil-course",
+            img: assets.amazon,
+            type: "individual course",
+            level: "All levels",
+            star_i: assets.star_i,
+            rating: 4.9,
+            rating_persons: 2376,
+            domain: "Amazon Business Profit Blueprint",
+            indi_lang_i: assets.lang_i,
+            lang_detail: "Tamil",
+            schedule_i: assets.schedule,
+            hours: "6h",
+            ment_icon: assets.swaminathan_ment_i,
+            mentors: "Swaminathan yuvaraj",
+            para: " Amazon Ads,Scaling Strategies,Listing Optimization,Product Research",
+            language: "Tamil",
+            category: "Bussiness",
+        },
+
         // civil3D english
         {
             page_link: "/civil3d-english",
@@ -198,36 +219,9 @@ const CourseContextProvider = (props) => {
             category: "Civil",
         },
 
-        // Amazon
-        {
-            page_link: "/amazon-seller-tamil-course",
-            img: assets.amazon,
-            type: "individual course",
-            level: "All levels",
-            star_i: assets.star_i,
-            rating: 4.9,
-            rating_persons: 2376,
-            domain: "Amazon Business Profit Blueprint",
-            // individual course
-            indi_lang_i: assets.lang_i,
-            lang_detail: "Tamil",
-            // -------
-            schedule_i: assets.schedule,
-            hours: "6h",
-            ment_icon: assets.swaminathan_ment_i,
-            mentors: "Swaminathan yuvaraj",
-            para: " Amazon Ads,Scaling Strategies,Listing Optimization,Product Research",
-            language: "Tamil",
-            category: "Bussiness",
-        },
 
 
-
-
-
-
-
-
+        // ... rest of the code remains the same ...
 
 
 
