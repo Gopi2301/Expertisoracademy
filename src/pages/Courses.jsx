@@ -5,14 +5,16 @@ import { MdKeyboardArrowDown, MdOutlineKeyboardArrowDown } from "react-icons/md"
 import { CourseContext } from '../context/CourseContextProvider';
 import FilterDrawer from '../components/CourseComponents/FilterDrawer';
 import { assets } from '../assets/assets';
-import BundleCourse from '../components/CourseComponents/BundleCourse'
+import BundleCourse from '../components/CourseComponents/BundleCourse';
+import Header from '../components/Header';
 
 const Courses = () => {
     const navigate = useNavigate();
     const { courses, categories, languages, mentors, selectedCategories, handleCheckboxChange, typeOfCourse, setCourseType, courseType, handleCourseClick } = useContext(CourseContext)
-        
+
     const [lan_more, setLan_more] = useState(true)
     const [ment_more, setMent_more] = useState(true)
+    const [showLoginModal, setShowLoginModal] = useState(false)
 
     // final course data
     const [searchCourse, setSearchCourse] = useState([""])
@@ -78,6 +80,7 @@ const Courses = () => {
 
     return (
         <>
+            <Header onLoginClick={() => setShowLoginModal(true)} />
             <div className='bg-black '>
                 <div className=' text-[#ffffff] px-4 2xl:px-0 pt-3 max-w-[1440px] mx-auto'>
                     <div className='flex justify-between '>
@@ -266,7 +269,7 @@ const Courses = () => {
                                         ) : (
                                             searchCourse.map((data, i) =>
                                                 data ? (
-                                                    <BundleCourse key={i} course={data}  onClick={() => handleCourseClick(data)} />
+                                                    <BundleCourse key={i} course={data} onClick={() => handleCourseClick(data)} />
                                                 ) : (
                                                     <div key={i} className="flex items-center justify-center space-x-1 p-6">
                                                         <p className="text-gray-300 font-medium">Loading</p>
