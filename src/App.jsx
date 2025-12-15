@@ -245,6 +245,7 @@ import { getUtmParams, storeUtmParams } from './utils/utmUtils';
 import Blockchain from './pages/Blockchain';
 import SSRCourse from './pages/SSRCourse';
 import { pages } from './constants/pages';
+import Simple_elite_temp from './pages/landingPages/Simple_elite_temp';
 
 const App = () => {
   const location = useLocation();
@@ -269,7 +270,7 @@ const App = () => {
   }, []);
 
   // --- Layout visibility ---
-  const layoutHiddenRoutes = ['/auth/success'];
+  const layoutHiddenRoutes = ['/auth/success','/simple_elite_page'];
   const isLayoutHidden = layoutHiddenRoutes.includes(location.pathname);
 
   const headerHiddenRoutes = [
@@ -295,7 +296,14 @@ const App = () => {
   const currentPath = location.pathname.replace(/\/$/, '');
 
   // Header and main margin condition
-  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname);
+  // const showHeader = !currentPath.includes('/eliteconnect')  && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname);
+  const showHeader =
+  !currentPath.includes('/eliteconnect') &&
+  !currentPath.includes('/simple_elite_page') &&
+  !isLayoutHidden &&
+  !headerHiddenRoutes.includes(location.pathname);
+
+
   const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
   return (
@@ -351,6 +359,10 @@ const App = () => {
           <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
           <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
 
+          {/* simple_elite_page */}
+          <Route path="/simple_elite_page" element={<Simple_elite_temp/>}/>
+
+
           {/* Fallback */}
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
@@ -362,11 +374,19 @@ const App = () => {
       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
 
       {/* WhatsApp Button */}
-      {!currentPath.includes('/eliteconnect') && (
+      {/* {!currentPath.includes('/eliteconnect') && (
         <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
           <WhatsAppButton />
         </div>
-      )}
+      )} */}
+
+      {!currentPath.includes('/eliteconnect') &&
+ !currentPath.includes('/simple_elite_page') && (
+  <div className="fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]">
+    <WhatsAppButton />
+  </div>
+)}
+
     </div>
   );
 };

@@ -46,6 +46,7 @@ const FAQ = () => {
         }
     ];
 
+    
     const [openIndex, setOpenIndex] = React.useState(null);
 
     const toggleAccordion = (index) => {
