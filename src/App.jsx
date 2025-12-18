@@ -246,6 +246,8 @@ import Blockchain from './pages/Blockchain';
 import SSRCourse from './pages/SSRCourse';
 import { pages } from './constants/pages';
 import Simple_elite_temp from './pages/landingPages/Simple_elite_temp';
+import Rhsca from './pages/landingPages/Rhsca';
+import PreviewPage from './components/Rhsca/PreviewPage';
 
 const App = () => {
   const location = useLocation();
@@ -270,7 +272,7 @@ const App = () => {
   }, []);
 
   // --- Layout visibility ---
-  const layoutHiddenRoutes = ['/auth/success','/simple_elite_page'];
+  const layoutHiddenRoutes = ['/auth/success','/simple_elite_page','/rhsca','/rhsca/video'];
   const isLayoutHidden = layoutHiddenRoutes.includes(location.pathname);
 
   const headerHiddenRoutes = [
@@ -300,9 +302,10 @@ const App = () => {
   const showHeader =
   !currentPath.includes('/eliteconnect') &&
   !currentPath.includes('/simple_elite_page') &&
+  !currentPath.includes('/rhsca') &&
+  !currentPath.includes('/rhsca/video') &&
   !isLayoutHidden &&
   !headerHiddenRoutes.includes(location.pathname);
-
 
   const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
@@ -361,6 +364,9 @@ const App = () => {
 
           {/* simple_elite_page */}
           <Route path="/simple_elite_page" element={<Simple_elite_temp/>}/>
+          <Route path="/rhsca" element={<Rhsca/>}/>
+          <Route path="/rhsca/video" element={<PreviewPage/>}/>
+          
 
 
           {/* Fallback */}
@@ -373,15 +379,13 @@ const App = () => {
       {/* Login Modal */}
       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
 
-      {/* WhatsApp Button */}
-      {/* {!currentPath.includes('/eliteconnect') && (
-        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
-          <WhatsAppButton />
-        </div>
-      )} */}
+
 
       {!currentPath.includes('/eliteconnect') &&
- !currentPath.includes('/simple_elite_page') && (
+ !currentPath.includes('/simple_elite_page') && 
+ !currentPath.includes('/rhsca') && 
+ !currentPath.includes('/rhsca/video') && 
+ (
   <div className="fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]">
     <WhatsAppButton />
   </div>
