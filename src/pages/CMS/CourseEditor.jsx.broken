@@ -1,0 +1,1019 @@
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import { ArrowLeft, Save, Eye, Globe, Trash2, ChevronDown, ChevronUp, Sparkles, CornerDownRight, FileText, Link as LinkIcon, UploadCloud, Palette, Undo, Redo, Clock } from 'lucide-react';
+import { getCourse, createCourse, updateCourse, publishCourse, unpublishCourse, deleteCourse, defaultCourseData, uploadFile } from '../../services/api';
+import toast from 'react-hot-toast';
+import TextHighlighter from '../../components/CMSComponents/TextHighlighter';
+import IconSelector from '../../components/CMSComponents/IconSelector';
+import { useAutoSave, useUndoRedo, useKeyboardShortcuts } from '../../hooks/useCMSFeatures';
+
+// ============================================
+// HELPER COMPONENTS (outside main component!)
+// ============================================
+
+const SectionHeader = ({ title, section, icon: Icon, expanded, onToggle }) => (
+    <button
+        onClick={() => onToggle(section)}
+        className="w-full flex items-center justify-between p-4 bg-neutral-900 hover:bg-neutral-800 rounded-lg transition-colors"
+    >
+        <div className="flex items-center gap-3">
+            <Icon className="w-5 h-5 text-yellow-400" />
+            <span className="font-semibold text-white">{title}</span>
+        </div>
+        {expanded ? (
+            <ChevronUp className="w-5 h-5 text-neutral-400" />
+        ) : (
+            <ChevronDown className="w-5 h-5 text-neutral-400" />
+        )}
+    </button>
+);
+
+// ============================================
+// MAIN COMPONENT
+// ============================================
+
+const SimplifiedCourseEditor = () => {
+    const { id } = useParams();
+    const navigate = useNavigate();
+    const isNew = !id || id === 'new';
+
+    const [course, setCourse] = useState({
+        ...defaultCourseData,
+        template_id: 'transformation-framework'
+    });
+    const [loading, setLoading] = useState(!isNew);
+    const [saving, setSaving] = useState(false);
+    const [deleteConfirm, setDeleteConfirm] = useState(false);
+    const [expandedSections, setExpandedSections] = useState({
+        info: true,
+        hero: true,
+        icon: false,
+        textStyling: false,
+        cta: false,
+        form: false,
+        settings: false
+    });
+
+    // Auto-save functionality
+    const { isSaving: isAutoSaving, lastSaved } = useAutoSave(
+        async (data) => {
+            if (!isNew && data.id) {
+                await updateCourse(data.id, data);
+            }
+        },
+        course,
+        3000 // 3 second delay
+    );
+
+    // Undo/Redo functionality  
+    const {
+        state: courseHistory,
+        setState: setCourseHistory,
+        undo,
+        redo,
+        canUndo,
+        canRedo
+    } = useUndoRedo(course, 50);
+
+    // Keyboard shortcuts
+    useKeyboardShortcuts(undo, redo, () => handleSave());
+
+    // Sync course with history
+    useEffect(() => {
+        setCourseHistory(course);
+    }, [course]);
+
+    // Handle undo
+    const handleUndo = () => {
+        if (canUndo) {
+            undo();
+            setCourse(courseHistory);
+        }
+    };
+
+    // Handle redo
+    const handleRedo = () => {
+        if (canRedo) {
+            redo();
+            setCourse(courseHistory);
+        }
+    };
+
+    useEffect(() => {
+        if (!isNew) loadCourse();
+    }, [id]);
+
+    const loadCourse = async () => {
+        try {
+            const data = await getCourse(id);
+            if (data) {
+                setCourse(data);
+            } else {
+                toast.error('Course not found');
+                navigate('/cms/courses');
+            }
+        } catch (error) {
+            toast.error('Failed to load course');
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const handleSave = async () => {
+        if (!course.title?.trim()) {
+            toast.error('Course title is required');
+            return;
+        }
+        if (!course.slug?.trim()) {
+            toast.error('URL slug is required');
+            return;
+        }
+
+        setSaving(true);
+        try {
+            if (isNew) {
+                const created = await createCourse(course);
+                toast.success('Course created!');
+                navigate(`/cms/courses/edit/${created.id}`);
+            } else {
+                await updateCourse(id, course);
+                toast.success('Saved!');
+            }
+        } catch (error) {
+            toast.error(error.message || 'Failed to save');
+        } finally {
+            setSaving(false);
+        }
+    };
+
+    const handlePublish = async () => {
+        if (isNew) {
+            toast.error('Save first');
+            return;
+        }
+        try {
+            if (course.status === 'PUBLISHED') {
+                await unpublishCourse(id);
+                setCourse({ ...course, status: 'DRAFT' });
+                toast.success('Unpublished');
+            } else {
+                await publishCourse(id);
+                setCourse({ ...course, status: 'PUBLISHED' });
+                toast.success('Published!');
+            }
+        } catch (error) {
+            toast.error('Failed');
+        }
+    };
+
+    const handleDelete = async () => {
+        try {
+            await deleteCourse(id);
+            toast.success('Deleted');
+            navigate('/cms/courses');
+        } catch (error) {
+            toast.error('Failed to delete');
+        }
+    };
+
+    const toggleSection = (section) => {
+        setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }));
+    };
+
+    const updateField = (field, value) => {
+        setCourse(prev => ({ ...prev, [field]: value }));
+    };
+
+    const updateHero = (key, value) => {
+        setCourse(prev => ({
+            ...prev,
+            hero_data: { ...prev.hero_data, [key]: value }
+        }));
+    };
+
+    const updateForm = (key, value) => {
+        setCourse(prev => ({
+            ...prev,
+            form_data: { ...prev.form_data, [key]: value }
+        }));
+    };
+
+    const updateHeadlinePart = (index, field, value) => {
+        const parts = [...(course.hero_data?.headline?.parts || [])];
+        parts[index] = { ...parts[index], [field]: value };
+        updateHero('headline', { parts });
+    };
+
+    const addHeadlinePart = () => {
+        const parts = [...(course.hero_data?.headline?.parts || []), { text: '', highlight: false }];
+        updateHero('headline', { parts });
+    };
+
+    const removeHeadlinePart = (index) => {
+        const parts = [...(course.hero_data?.headline?.parts || [])];
+        parts.splice(index, 1);
+        updateHero('headline', { parts });
+    };
+
+    const handleFileUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Validations
+        if (file.type !== 'application/pdf') {
+            toast.error('Please upload a PDF file');
+            return;
+        }
+        if (file.size > 5 * 1024 * 1024) { // 5MB limit
+            toast.error('File size must be less than 5MB');
+            return;
+        }
+
+        const toastId = toast.loading('Uploading brochure...');
+        try {
+            const result = await uploadFile(file);
+            updateHero('buttons', {
+                ...course.hero_data?.buttons,
+                secondary: {
+                    ...course.hero_data?.buttons?.secondary,
+                    url: result.url,
+                    type: 'file',
+                    fileName: file.name
+                }
+            });
+            toast.success('Brochure uploaded successfully', { id: toastId });
+        } catch (error) {
+            console.error(error);
+            toast.error('Upload failed', { id: toastId });
+        }
+    };
+
+
+    const handleThumbnailUpload = async (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        // Validations
+        if (!file.type.startsWith('image/')) {
+            toast.error('Please upload an image file');
+            return;
+        }
+        if (file.size > 2 * 1024 * 1024) { // 2MB limit
+            toast.error('Image size must be less than 2MB');
+            return;
+        }
+
+        const toastId = toast.loading('Uploading thumbnail...');
+        try {
+            const result = await uploadFile(file);
+            updateField('thumbnail', result.url);
+            toast.success('Thumbnail uploaded', { id: toastId });
+        } catch (error) {
+            console.error(error);
+            toast.error('Upload failed', { id: toastId });
+        }
+    };
+
+
+
+    const generateSlug = () => {
+        const slug = course.title.toLowerCase().trim()
+            .replace(/[^\w\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-+/g, '-');
+        updateField('slug', slug);
+    };
+
+    if (loading) {
+        return (
+            <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+                <div className="animate-spin w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full"></div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="min-h-screen bg-[#0a0a0a]">
+            {/* Header */}
+            <div className="sticky top-0 z-40 bg-[#0a0a0a]/95 backdrop-blur border-b border-neutral-800 px-6 py-4">
+                <div className="flex items-center justify-between max-w-4xl mx-auto">
+                    <div className="flex items-center gap-4">
+                        href={`/courses/${course.slug}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg transition-colors"
+                            >
+                        <Eye className="w-4 h-4" />
+                        Preview
+                    </a>
+                    <button
+                        onClick={handlePublish}
+                        className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${course.status === 'PUBLISHED'
+                            ? 'bg-green-500/20 text-green-400'
+                            : 'bg-neutral-800 text-white hover:bg-neutral-700'
+                            }`}
+                    >
+                        <Globe className="w-4 h-4" />
+                        {course.status === 'PUBLISHED' ? 'Unpublish' : 'Publish'}
+                    </button>
+                </>
+                    )}
+                <button
+                    onClick={handleSave}
+                    disabled={saving}
+                    className="flex items-center gap-2 px-6 py-2 bg-white hover:bg-neutral-100 text-black font-semibold rounded-lg transition-colors disabled:opacity-50"
+                >
+                    <Save className="w-4 h-4" />
+                    {saving ? 'Saving...' : 'Save'}
+                </button>
+            </div>
+        </div>
+        </div >
+
+    {/* Content */ }
+    < div className = "max-w-4xl mx-auto p-6 space-y-4" >
+
+        {/* Course Info Section */ }
+        < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+            <SectionHeader
+                title="Course Info"
+                section="info"
+                icon={Sparkles}
+                expanded={expandedSections.info}
+                onToggle={toggleSection}
+            />
+{
+    expandedSections.info && (
+        <div className="p-6 space-y-4 border-t border-neutral-800">
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Course Title</label>
+                <input
+                    type="text"
+                    value={course.title || ''}
+                    onChange={(e) => updateField('title', e.target.value)}
+                    placeholder="e.g., Master Video Editing"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+            <div className="flex gap-4">
+                <div className="flex-1">
+                    <label className="block text-sm text-neutral-400 mb-2">URL Slug</label>
+                    <input
+                        type="text"
+                        value={course.slug || ''}
+                        onChange={(e) => updateField('slug', e.target.value)}
+                        placeholder="master-video-editing"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+                <button
+                    onClick={generateSlug}
+                    className="self-end px-4 py-3 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg transition-colors"
+                >
+                    Generate
+                </button>
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Mentor Name</label>
+                <input
+                    type="text"
+                    value={course.mentor_name || ''}
+                    onChange={(e) => updateField('mentor_name', e.target.value)}
+                    placeholder="John Doe"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+
+            {/* Rating, Student Count, Duration */}
+            <div className="grid grid-cols-3 gap-4">
+                <div>
+                    <label className="block text-sm text-neutral-400 mb-2">Rating</label>
+                    <input
+                        type="number"
+                        step="0.1"
+                        min="0"
+                        max="5"
+                        value={course.rating || 4.9}
+                        onChange={(e) => updateField('rating', parseFloat(e.target.value))}
+                        placeholder="4.9"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm text-neutral-400 mb-2">Student Count</label>
+                    <input
+                        type="text"
+                        value={course.student_count || '0+'}
+                        onChange={(e) => updateField('student_count', e.target.value)}
+                        placeholder="1000+"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+                <div>
+                    <label className="block text-sm text-neutral-400 mb-2">Duration</label>
+                    <input
+                        type="text"
+                        value={course.duration || '0h'}
+                        onChange={(e) => updateField('duration', e.target.value)}
+                        placeholder="12h"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+            </div>
+
+            {/* Thumbnail Upload */}
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Course Thumbnail</label>
+                <div className="flex items-start gap-4">
+                    {course.thumbnail ? (
+                        <div className="relative group w-32 h-20 rounded-lg overflow-hidden border border-neutral-700">
+                            <img
+                                src={course.thumbnail}
+                                alt="Thumbnail"
+                                className="w-full h-full object-cover"
+                            />
+                            <button
+                                onClick={() => updateField('thumbnail', '')}
+                                className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                            >
+                                <Trash2 className="w-5 h-5 text-white" />
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="w-32 h-20 bg-neutral-800 border-2 border-dashed border-neutral-700 rounded-lg flex items-center justify-center text-neutral-500">
+                            <p className="text-xs">No Image</p>
+                        </div>
+                    )}
+
+                    <div className="flex-1">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleThumbnailUpload}
+                            className="hidden"
+                            id="thumbnail-upload"
+                        />
+                        <label
+                            htmlFor="thumbnail-upload"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-neutral-800 hover:bg-neutral-700 text-white rounded-lg cursor-pointer transition-colors"
+                        >
+                            <UploadCloud className="w-4 h-4" />
+                            Upload Thumbnail
+                        </label>
+                        <p className="text-xs text-neutral-500 mt-2">
+                            Recommended size: 1200x675px (16:9). Max 2MB.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}
+        </div >
+
+    {/* Hero Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="Hero Section"
+            section="hero"
+            icon={Eye}
+            expanded={expandedSections.hero}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.hero && (
+        <div className="p-6 space-y-6 border-t border-neutral-800">
+            {/* Badge */}
+            <div className="grid grid-cols-3 gap-4">
+                <div>
+                    <label className="block text-sm text-neutral-400 mb-2">Badge Emoji</label>
+                    <input
+                        type="text"
+                        value={course.hero_data?.badge?.emoji || ''}
+                        onChange={(e) => updateHero('badge', { ...course.hero_data?.badge, emoji: e.target.value })}
+                        placeholder="🚀"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+                <div className="col-span-2">
+                    <label className="block text-sm text-neutral-400 mb-2">Badge Text</label>
+                    <input
+                        type="text"
+                        value={course.hero_data?.badge?.text || ''}
+                        onChange={(e) => updateHero('badge', { ...course.hero_data?.badge, text: e.target.value })}
+                        placeholder="Limited Time Offer"
+                        className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                    />
+                </div>
+            </div>
+
+            {/* Headline Parts */}
+            <div>
+                <div className="flex items-center justify-between mb-3">
+                    <label className="text-sm text-neutral-400">Headline Parts</label>
+                    <button
+                        onClick={addHeadlinePart}
+                        className="text-sm text-yellow-400 hover:text-yellow-300"
+                    >
+                        + Add Part
+                    </button>
+                </div>
+                <div className="space-y-3">
+                    {(course.hero_data?.headline?.parts || []).map((part, index) => (
+                        <div
+                            key={index}
+                            className={`p-3 rounded-lg transition-all border ${part.highlight
+                                ? 'bg-yellow-400/10 border-yellow-400/30'
+                                : 'bg-neutral-800/50 border-neutral-700'
+                                }`}
+                        >
+                            <div className="flex items-center gap-2 mb-2">
+                                <input
+                                    type="text"
+                                    value={part.text}
+                                    onChange={(e) => updateHeadlinePart(index, 'text', e.target.value)}
+                                    placeholder="Enter text..."
+                                    className={`flex-1 px-4 py-3 border rounded-lg focus:outline-none focus:border-yellow-400 ${part.highlight
+                                        ? 'bg-yellow-400/5 border-yellow-400/50 text-yellow-400'
+                                        : 'bg-neutral-900 border-neutral-700 text-white'
+                                        }`}
+                                />
+                                <button
+                                    onClick={() => removeHeadlinePart(index)}
+                                    className="p-3 text-neutral-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg"
+                                    title="Remove"
+                                >
+                                    <Trash2 className="w-4 h-4" />
+                                </button>
+                            </div>
+                            {/* Action buttons row */}
+                            <div className="flex items-center gap-2 flex-wrap">
+                                {/* Highlight toggle */}
+                                <button
+                                    onClick={() => updateHeadlinePart(index, 'highlight', !part.highlight)}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${part.highlight
+                                        ? 'bg-yellow-400 text-black'
+                                        : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                                        }`}
+                                >
+                                    <Sparkles className="w-3.5 h-3.5" />
+                                    {part.highlight ? 'Yellow Text' : 'Highlight'}
+                                </button>
+
+                                {/* Line break toggle */}
+                                <button
+                                    onClick={() => updateHeadlinePart(index, 'lineBreak', !part.lineBreak)}
+                                    className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${part.lineBreak
+                                        ? 'bg-blue-500 text-white'
+                                        : 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600'
+                                        }`}
+                                >
+                                    <CornerDownRight className="w-3.5 h-3.5" />
+                                    {part.lineBreak ? 'New Line After' : 'Add Line Break'}
+                                </button>
+
+                                {/* Indicators */}
+                                <div className="flex-1"></div>
+                                <span className="text-xs text-neutral-500">#{index + 1}</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+                {/* Preview */}
+                {course.hero_data?.headline?.parts?.length > 0 && (
+                    <div className="mt-4 p-4 bg-neutral-900 rounded-lg border border-neutral-700">
+                        <p className="text-xs text-neutral-500 mb-2 uppercase tracking-wider">Live Preview</p>
+                        <p className="text-xl font-semibold leading-relaxed">
+                            {course.hero_data.headline.parts.map((p, i) => (
+                                <React.Fragment key={i}>
+                                    <span className={p.highlight ? 'text-yellow-400' : 'text-white'}>
+                                        {p.text}
+                                    </span>
+                                    {p.lineBreak && <br />}
+                                </React.Fragment>
+                            ))}
+                        </p>
+                    </div>
+                )}
+            </div>
+
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Subheadline</label>
+                <textarea
+                    value={course.hero_data?.subheadline || ''}
+                    onChange={(e) => updateHero('subheadline', e.target.value)}
+                    placeholder="Describe your course..."
+                    rows={3}
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 resize-none"
+                />
+            </div>
+
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">YouTube Video URL</label>
+                <input
+                    type="text"
+                    value={course.hero_data?.video_url || ''}
+                    onChange={(e) => updateHero('video_url', e.target.value)}
+                    placeholder="https://youtube.com/watch?v=..."
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+        </div>
+    )
+}
+        </div >
+
+    {/* Icon Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="Icon & Badge"
+            section="icon"
+            icon={Sparkles}
+            expanded={expandedSections.icon}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.icon && (
+        <div className="p-6 space-y-6 border-t border-neutral-800">
+            <IconSelector
+                selectedIconId={course.icon_id || 'sparkles'}
+                selectedColor={course.icon_color || '#FFF200'}
+                onChange={({ iconId, color }) => {
+                    setCourse(prev => ({
+                        ...prev,
+                        icon_id: iconId,
+                        icon_color: color
+                    }));
+                }}
+            />
+        </div>
+    )
+}
+        </div >
+
+    {/* Text Styling Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="Text Highlighting"
+            section="textStyling"
+            icon={Palette}
+            expanded={expandedSections.textStyling}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.textStyling && (
+        <div className="p-6 space-y-6 border-t border-neutral-800">
+            {/* Title Highlighting */}
+            <div>
+                <h3 className="text-sm font-medium text-white mb-4">Title Highlighting</h3>
+                <TextHighlighter
+                    text={course.title || ''}
+                    onChange={(text, highlights) => {
+                        setCourse(prev => ({
+                            ...prev,
+                            title: text,
+                            title_highlights: highlights
+                        }));
+                    }}
+                    placeholder="Enter course title..."
+                    label="Course Title"
+                />
+            </div>
+
+            {/* Subtitle Highlighting */}
+            <div className="pt-6 border-t border-neutral-800">
+                <h3 className="text-sm font-medium text-white mb-4">Subtitle Highlighting</h3>
+                <TextHighlighter
+                    text={course.hero_data?.subheadline || ''}
+                    onChange={(text, highlights) => {
+                        setCourse(prev => ({
+                            ...prev,
+                            hero_data: {
+                                ...prev.hero_data,
+                                subheadline: text
+                            },
+                            subtitle_highlights: highlights
+                        }));
+                    }}
+                    placeholder="Enter subtitle..."
+                    label="Subtitle"
+                />
+            </div>
+        </div>
+    )
+}
+        </div >
+
+    {/* CTA Buttons Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="CTA Buttons"
+            section="cta"
+            icon={Globe}
+            expanded={expandedSections.cta}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.cta && (
+        <div className="p-6 space-y-4 border-t border-neutral-800">
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Primary Button Text</label>
+                <input
+                    type="text"
+                    value={course.hero_data?.buttons?.primary?.text || ''}
+                    onChange={(e) => updateHero('buttons', {
+                        ...course.hero_data?.buttons,
+                        primary: { ...course.hero_data?.buttons?.primary, text: e.target.value }
+                    })}
+                    placeholder="Apply Now"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Secondary Button Text (Brochure)</label>
+                <input
+                    type="text"
+                    value={course.hero_data?.buttons?.secondary?.text || ''}
+                    onChange={(e) => updateHero('buttons', {
+                        ...course.hero_data?.buttons,
+                        secondary: { ...course.hero_data?.buttons?.secondary, text: e.target.value }
+                    })}
+                    placeholder="Download Brochure"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 mb-4"
+                />
+
+                {/* Brochure Enable Toggle */}
+                <div className="bg-neutral-900 p-4 rounded-lg border border-neutral-800 mb-4">
+                    <label className="flex items-center justify-between cursor-pointer">
+                        <div>
+                            <span className="text-sm text-white font-medium">Enable Brochure Download</span>
+                            <p className="text-xs text-neutral-500 mt-1">Show brochure download button on landing page</p>
+                        </div>
+                        <div className="relative">
+                            <input
+                                type="checkbox"
+                                checked={course.hero_data?.buttons?.secondary?.enabled !== false}
+                                onChange={(e) => updateHero('buttons', {
+                                    ...course.hero_data?.buttons,
+                                    secondary: {
+                                        ...course.hero_data?.buttons?.secondary,
+                                        enabled: e.target.checked
+                                    }
+                                })}
+                                className="sr-only peer"
+                            />
+                            <div className="w-11 h-6 bg-neutral-700 peer-focus:outline-none peer-focus:ring-2 peer-focus:ring-yellow-400 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-yellow-400"></div>
+                        </div>
+                    </label>
+                </div>
+
+                {/* Brochure Source Config - Only show if enabled */}
+                {course.hero_data?.buttons?.secondary?.enabled !== false && (
+                    <div className="bg-neutral-900 p-4 rounded-lg border border-neutral-800">
+                        <label className="block text-sm text-neutral-400 mb-3">Brochure Source</label>
+
+                        <div className="flex gap-2 mb-4">
+                            <button
+                                type="button"
+                                onClick={() => updateHero('buttons', {
+                                    ...course.hero_data?.buttons,
+                                    secondary: { ...course.hero_data?.buttons?.secondary, type: 'link' }
+                                })}
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-colors ${course.hero_data?.buttons?.secondary?.type !== 'file'
+                                    ? 'bg-yellow-400 text-black'
+                                    : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'
+                                    }`}
+                            >
+                                <LinkIcon className="w-4 h-4" />
+                                External Link
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => updateHero('buttons', {
+                                    ...course.hero_data?.buttons,
+                                    secondary: { ...course.hero_data?.buttons?.secondary, type: 'file' }
+                                })}
+                                className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg text-sm font-medium transition-colors ${course.hero_data?.buttons?.secondary?.type === 'file'
+                                    ? 'bg-yellow-400 text-black'
+                                    : 'bg-neutral-800 text-neutral-400 hover:bg-neutral-700'
+                                    }`}
+                            >
+                                <UploadCloud className="w-4 h-4" />
+                                Upload PDF
+                            </button>
+                        </div>
+
+                        {course.hero_data?.buttons?.secondary?.type === 'file' ? (
+                            <div>
+                                {course.hero_data?.buttons?.secondary?.url ? (
+                                    <div className="border-2 border-green-500/30 bg-green-500/5 rounded-lg p-4">
+                                        <div className="flex items-start gap-3">
+                                            <FileText className="w-8 h-8 text-green-400 flex-shrink-0" />
+                                            <div className="flex-1 min-w-0">
+                                                <p className="text-sm text-white font-medium truncate">
+                                                    {course.hero_data?.buttons?.secondary?.fileName || 'brochure.pdf'}
+                                                </p>
+                                                <p className="text-xs text-neutral-500 mt-1">
+                                                    Uploaded successfully
+                                                </p>
+                                            </div>
+                                            <button
+                                                type="button"
+                                                onClick={() => updateHero('buttons', {
+                                                    ...course.hero_data?.buttons,
+                                                    secondary: {
+                                                        ...course.hero_data?.buttons?.secondary,
+                                                        url: '',
+                                                        fileName: ''
+                                                    }
+                                                })}
+                                                className="p-2 text-neutral-500 hover:text-red-400 hover:bg-red-500/10 rounded-lg transition-colors"
+                                                title="Remove file"
+                                            >
+                                                <Trash2 className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    </div>
+                                ) : (
+                                    <div className="border-2 border-dashed border-neutral-700 rounded-lg p-6 text-center hover:border-yellow-400/50 transition-colors group">
+                                        <input
+                                            type="file"
+                                            accept="application/pdf"
+                                            onChange={handleFileUpload}
+                                            className="hidden"
+                                            id="brochure-upload"
+                                        />
+                                        <label htmlFor="brochure-upload" className="cursor-pointer">
+                                            <FileText className="w-8 h-8 text-neutral-500 mx-auto mb-2 group-hover:text-yellow-400 transition-colors" />
+                                            <span className="block text-sm text-neutral-300 font-medium mb-1">
+                                                Click to Upload PDF
+                                            </span>
+                                            <span className="block text-xs text-neutral-500">Max size 5MB</span>
+                                        </label>
+                                    </div>
+                                )}
+                            </div>
+                        ) : (
+                            <div className="relative">
+                                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-500" />
+                                <input
+                                    type="text"
+                                    value={course.hero_data?.buttons?.secondary?.url || ''}
+                                    onChange={(e) => updateHero('buttons', {
+                                        ...course.hero_data?.buttons,
+                                        secondary: {
+                                            ...course.hero_data?.buttons?.secondary,
+                                            url: e.target.value,
+                                            type: 'link'
+                                        }
+                                    })}
+                                    placeholder="https://drive.google.com/file/d/..."
+                                    className="w-full pl-10 pr-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                                />
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+
+        </div>
+
+    )
+}
+        </div >
+
+    {/* Lead Form Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="Lead Form"
+            section="form"
+            icon={Save}
+            expanded={expandedSections.form}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.form && (
+        <div className="p-6 space-y-4 border-t border-neutral-800">
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Form Title</label>
+                <input
+                    type="text"
+                    value={course.form_data?.title || ''}
+                    onChange={(e) => updateForm('title', e.target.value)}
+                    placeholder="Get Started Today"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Form Subtitle</label>
+                <textarea
+                    value={course.form_data?.subtitle || ''}
+                    onChange={(e) => updateForm('subtitle', e.target.value)}
+                    placeholder="Fill out the form to get started..."
+                    rows={3}
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 resize-none"
+                />
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Submit Button Text</label>
+                <input
+                    type="text"
+                    value={course.form_data?.submit_text || ''}
+                    onChange={(e) => updateForm('submit_text', e.target.value)}
+                    placeholder="Submit Application"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Terms & Conditions</label>
+                <textarea
+                    value={course.form_data?.terms || ''}
+                    onChange={(e) => updateForm('terms', e.target.value)}
+                    placeholder="By submitting, you agree to..."
+                    rows={3}
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 resize-none"
+                />
+            </div>
+        </div>
+    )
+}
+        </div >
+
+    {/* Settings Section */ }
+    < div className = "bg-[#111] rounded-xl border border-neutral-800 overflow-hidden" >
+        <SectionHeader
+            title="Settings"
+            section="settings"
+            icon={Sparkles}
+            expanded={expandedSections.settings}
+            onToggle={toggleSection}
+        />
+{
+    expandedSections.settings && (
+        <div className="p-6 space-y-4 border-t border-neutral-800">
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Guarantee Text</label>
+                <input
+                    type="text"
+                    value={course.hero_data?.guarantee || ''}
+                    onChange={(e) => updateHero('guarantee', e.target.value)}
+                    placeholder="100% Money Back Guarantee"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+            <div>
+                <label className="block text-sm text-neutral-400 mb-2">Country Code (for phone)</label>
+                <input
+                    type="text"
+                    value={course.form_data?.country_code || ''}
+                    onChange={(e) => updateForm('country_code', e.target.value)}
+                    placeholder="+91"
+                    className="w-full px-4 py-3 bg-neutral-800 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
+                />
+            </div>
+        </div>
+    )
+}
+        </div >
+
+    {/* Delete Section */ }
+{
+    !isNew && (
+        <div className="bg-[#111] rounded-xl border border-red-900/50 p-6">
+            <h3 className="text-lg font-semibold text-red-400 mb-2">Danger Zone</h3>
+            <p className="text-sm text-neutral-400 mb-4">
+                Once you delete a course, there is no going back.
+            </p>
+            {deleteConfirm ? (
+                <div className="flex gap-3">
+                    <button
+                        onClick={() => setDeleteConfirm(false)}
+                        className="px-4 py-2 bg-neutral-800 text-white rounded-lg"
+                    >
+                        Cancel
+                    </button>
+                    <button
+                        onClick={handleDelete}
+                        className="px-4 py-2 bg-red-500 text-white rounded-lg"
+                    >
+                        Confirm Delete
+                    </button>
+                </div>
+            ) : (
+                <button
+                    onClick={() => setDeleteConfirm(true)}
+                    className="flex items-center gap-2 px-4 py-2 bg-red-500/10 text-red-400 hover:bg-red-500/20 rounded-lg"
+                >
+                    <Trash2 className="w-4 h-4" />
+                    Delete Course
+                </button>
+            )}
+        </div>
+    )
+}
+    </div >
+        </div >
+    );
+};
+
+export default SimplifiedCourseEditor;

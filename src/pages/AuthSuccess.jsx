@@ -1,56 +1,63 @@
-// src/pages/AuthSuccess.jsx
-
 import React, { useEffect } from 'react';
-import { useSearchParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
+import toast from 'react-hot-toast';
 
+/**
+ * AuthSuccess - Handles OAuth callback redirect
+ * URL: /auth/success?appToken=...&graphyToken=...
+ */
 const AuthSuccess = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { handleAuthCallback } = useAuth();
 
   useEffect(() => {
-    // --- 1. Extract Tokens from the URL ---
-    const appToken = searchParams.get('appToken');
-    // ✅ FIX: Changed 'ssoToken' to 'graphyToken' to match the server's redirect URL.
-    const graphyToken = searchParams.get('graphyToken');
+    const processCallback = async () => {
+      const appToken = searchParams.get('appToken');
+      const graphyToken = searchParams.get('graphyToken');
+      const error = searchParams.get('error');
 
-    // --- 2. Validate and Store Tokens ---
-    // Check if both required tokens are present in the URL.
-    if (appToken && graphyToken) {
-      console.log('Tokens received successfully. Storing and redirecting.');
-      
-      const userInfo = {
-        appToken: appToken,
-        graphyToken: graphyToken,
-      };
+      // Handle error
+      if (error) {
+        toast.error('Authentication failed. Please try again.');
+        navigate('/');
+        return;
+      }
 
-      // Store the tokens in localStorage so the rest of the app can use them.
-      localStorage.setItem('userInfo', JSON.stringify(userInfo));
+      // Validate tokens
+      if (!appToken || !graphyToken) {
+        toast.error('Invalid authentication response.');
+        navigate('/');
+        return;
+      }
 
-      // --- 3. Redirect to the User Dashboard or Homepage ---
-      // The `replace: true` option is important to clear the auth success page from browser history.
-      navigate('/', { replace: true });
+      try {
+        // Store tokens and set user
+        const user = handleAuthCallback(appToken, graphyToken);
+        toast.success(`Welcome back, ${user.name}!`);
 
-    } else {
-      // --- 4. Handle Failure ---
-      console.error("AuthSuccess page reached without 'appToken' or 'graphyToken' URL parameters.");
-      navigate('/?error=frontend_token_missing', { replace: true });
-    }
-  }, [searchParams, navigate]);
+        // Redirect to homepage or original destination
+        const returnTo = sessionStorage.getItem('auth_return_to') || '/';
+        sessionStorage.removeItem('auth_return_to');
+        navigate(returnTo);
+      } catch (error) {
+        console.error('Auth callback error:', error);
+        toast.error('Failed to complete authentication.');
+        navigate('/');
+      }
+    };
 
-  // --- 5. Render a Loading State ---
+    processCallback();
+  }, [searchParams, navigate, handleAuthCallback]);
+
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: '100vh',
-      fontFamily: 'sans-serif',
-      color: 'white',
-      backgroundColor: 'black'
-    }}>
-      <h2>Finalizing Login...</h2>
-      <p>Please wait, you will be redirected shortly.</p>
+    <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+      <div className="text-center">
+        <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+        <p className="text-white text-lg">Completing sign in...</p>
+        <p className="text-neutral-500 text-sm mt-2">Please wait, you will be redirected shortly.</p>
+      </div>
     </div>
   );
 };

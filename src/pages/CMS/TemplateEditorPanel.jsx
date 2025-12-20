@@ -149,6 +149,35 @@ const TemplateEditorPanel = ({ course, setCourse }) => {
                     )}
                 </div>
             )}
+
+            {/* Template 3 Editor - Simple Elite */}
+            {currentTemplate === 'simple-elite' && (
+                <div className="bg-[#111] rounded-xl border border-neutral-800 overflow-hidden">
+                    <button
+                        onClick={() => toggleSection('template3')}
+                        className="w-full px-6 py-4 flex items-center justify-between hover:bg-neutral-800/50 transition-colors"
+                    >
+                        <div className="flex items-center gap-3">
+                            <Layout className="w-5 h-5 text-yellow-400" />
+                            <h3 className="text-base font-semibold text-white">Template 3 Configuration</h3>
+                        </div>
+                        {expandedSections.template3 ? (
+                            <ChevronUp className="w-5 h-5 text-neutral-400" />
+                        ) : (
+                            <ChevronDown className="w-5 h-5 text-neutral-400" />
+                        )}
+                    </button>
+
+                    {expandedSections.template3 && (
+                        <div className="px-6 py-4 border-t border-neutral-800">
+                            <LifeTransformationEditor
+                                course={course}
+                                updateCourse={setCourse}
+                            />
+                        </div>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

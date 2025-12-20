@@ -246,6 +246,19 @@ import Blockchain from './pages/Blockchain';
 import SSRCourse from './pages/SSRCourse';
 import { pages } from './constants/pages';
 
+// CMS Pages
+import CMSLayout from './components/CMSComponents/CMSLayout';
+import Settings from './pages/CMS/Settings';
+import LandingPage from './pages/LandingPage';
+import CourseList from './pages/CMS/CourseList';
+import CourseEditor from './pages/CMS/CourseEditor';
+import Dashboard from './pages/CMS/Dashboard';
+import CourseListing from './pages/CourseListing';
+import CourseDetail from './pages/CourseDetail';
+import Login from './pages/CMS/Login';
+import TemplatePreview from './pages/CMS/TemplatePreview';
+import ProtectedRoute from './components/ProtectedRoute';
+
 const App = () => {
   const location = useLocation();
 
@@ -294,8 +307,16 @@ const App = () => {
   // Normalize path
   const currentPath = location.pathname.replace(/\/$/, '');
 
+  // Check if this is a dynamic course page (single segment like /aman)
+  // Exclude known routes that should show header
+  const knownRoutes = ['', 'courses', 'courses-list', 'testimonials', 'mentors', 'techbundle', 'ssr-course', 'auth', '404'];
+  const pathSegments = currentPath.split('/').filter(Boolean);
+  const isDynamicCourseRoute = pathSegments.length === 1 && !knownRoutes.includes(pathSegments[0]);
+
   // Header and main margin condition
-  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname);
+  const isCMSRoute = currentPath.startsWith('/cms') || currentPath.startsWith('/courses');
+  const isHiddenLayout = isCMSRoute || isDynamicCourseRoute;
+  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname) && !isHiddenLayout;
   const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
   return (
@@ -351,18 +372,43 @@ const App = () => {
           <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
           <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
 
+          {/* CMS Login */}
+          <Route path="/cms/login" element={<Login />} />
+
+          {/* CMS Admin Routes - Protected */}
+          <Route path="/cms" element={
+            <ProtectedRoute>
+              <CMSLayout />
+            </ProtectedRoute>
+          }>
+            <Route index element={<CourseList />} />
+            <Route path="dashboard" element={<Dashboard />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="courses" element={<CourseList />} />
+            <Route path="courses/new" element={<CourseEditor />} />
+            <Route path="courses/edit/:id" element={<CourseEditor />} />
+            <Route path="preview/:id" element={<TemplatePreview />} />
+          </Route>
+
+          {/* Dynamic Landing Pages */}
+          <Route path="/courses/:slug" element={<LandingPage />} />
+
+          {/* Public Course Pages */}
+          <Route path="/courses-list" element={<CourseListing />} />
+          <Route path="/:slug" element={<CourseDetail />} />
+
           {/* Fallback */}
           <Route path="*" element={<div>Page Not Found</div>} />
         </Routes>
       </main>
 
       {/* Footer */}
-      {!isLayoutHidden && <Footer />}
+      {!isLayoutHidden && !isHiddenLayout && <Footer />}
       {/* Login Modal */}
       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
 
       {/* WhatsApp Button */}
-      {!currentPath.includes('/eliteconnect') && (
+      {!currentPath.includes('/eliteconnect') && !isCMSRoute && (
         <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
           <WhatsAppButton />
         </div>

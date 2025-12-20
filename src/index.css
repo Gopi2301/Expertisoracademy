@@ -170,3 +170,112 @@ body,
   width: 20px;
   height: 20px;
 }
+
+/* ============================================ */
+/* CMS GLOBAL STYLING OVERRIDES */
+/* ============================================ */
+
+/* CMS Primary Buttons - Yellow Theme */
+.cms-btn-primary,
+[class*="cms/"] button[class*="bg-blue"],
+[data-cms="true"] button[class*="bg-blue"] {
+  background-color: #FACC15 !important; /* Yellow-400 */
+  color: #000 !important;
+  border: none !important;
+}
+.cms-btn-primary:hover,
+[class*="cms/"] button[class*="bg-blue"]:hover {
+  background-color: #EAB308 !important; /* Yellow-500 */
+}
+
+/* Force all CMS text to be visible */
+[class*="/cms"] .text-neutral-400,
+[class*="/cms"] .text-neutral-500 {
+  color: #d4d4d4 !important; /* Lighter neutral */
+}
+
+/* CMS Labels - Always visible */
+[class*="/cms"] label,
+[class*="/cms"] .block.text-sm {
+  color: #e5e5e5 !important;
+}
+
+/* CMS Input Fields */
+[class*="/cms"] input,
+[class*="/cms"] textarea,
+[class*="/cms"] select {
+  background-color: #1a1a1a !important;
+  border-color: #404040 !important;
+  color: #ffffff !important;
+}
+[class*="/cms"] input::placeholder,
+[class*="/cms"] textarea::placeholder {
+  color: #737373 !important;
+}
+
+/* CMS Action Buttons Styling */
+[class*="/cms"] button.bg-yellow-400,
+[class*="/cms"] button.bg-yellow-500,
+[class*="/cms"] .bg-yellow-400,
+[class*="/cms"] .bg-yellow-500 {
+  background-color: #FACC15 !important;
+  color: #000 !important;
+  font-weight: 600 !important;
+}
+
+/* Generic CMS buttons */
+[class*="/cms"] button:not([class*="bg-"]):not([class*="text-"]) {
+  color: #ffffff;
+}
+
+/* CMS Table/List text visibility */
+[class*="/cms"] td,
+[class*="/cms"] th,
+[class*="/cms"] tr {
+  color: #ffffff !important;
+}
+
+/* CMS Card backgrounds */
+[class*="/cms"] .bg-neutral-900,
+[class*="/cms"] .bg-neutral-800 {
+  background-color: #171717 !important;
+  border-color: #404040 !important;
+}
+
+/* Publish/Save buttons in CMS */
+[class*="/cms"] button[class*="publish"],
+[class*="/cms"] button:contains("Save"),
+[class*="/cms"] button:contains("Publish"),
+[class*="/cms"] button:contains("Create") {
+  background-color: #FACC15 !important;
+  color: #000 !important;
+}
+
+/* Delete buttons - keep red */
+[class*="/cms"] button[class*="bg-red"],
+[class*="/cms"] button.bg-red-600,
+[class*="/cms"] button.bg-red-500 {
+  background-color: #dc2626 !important;
+  color: #ffffff !important;
+}
+
+/* Fix modal text visibility */
+.fixed[class*="z-50"] .text-neutral-400 {
+  color: #d4d4d4 !important;
+}
+.fixed[class*="z-50"] label {
+  color: #e5e5e5 !important;
+}
+.fixed[class*="z-50"] input,
+.fixed[class*="z-50"] select {
+  background-color: #1a1a1a !important;
+  border-color: #404040 !important;
+  color: #ffffff !important;
+}
+
+/* Toast notifications visibility */
+[data-sonner-toast] {
+  background-color: #171717 !important;
+  color: #ffffff !important;
+  border-color: #404040 !important;
+}

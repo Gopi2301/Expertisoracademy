@@ -23,6 +23,9 @@ import App from './App.jsx';
 // managing the current course) to any child components that need it, without "prop drilling".
 import CourseContextProvider from './context/CourseContextProvider.jsx';
 
+// `AuthProvider` provides authentication state and methods (Google/GitHub OAuth, logout, etc.)
+import { AuthProvider } from './contexts/AuthContext.jsx';
+
 
 // --- 3. Import Global Styles ---
 
@@ -30,8 +33,20 @@ import CourseContextProvider from './context/CourseContextProvider.jsx';
 // and utilities. Importing it here ensures that these styles are applied to the entire application.
 import './index.css';
 
+// Import visitor tracking utility for Zoho CRM lead enrichment
+import { initVisitorTracking } from './utils/visitorTracking';
 
-// --- 4. Application Root Creation and Rendering ---
+
+// --- 4. Initialize Visitor Tracking ---
+
+// Initialize visitor tracking on app load to track:
+// - First visit timestamp
+// - Days visited count
+// - Time spent on pages
+initVisitorTracking();
+
+
+// --- 5. Application Root Creation and Rendering ---
 
 // First, we get a reference to the root DOM element in your `index.html` file.
 // This is the anchor point where your entire React application will be mounted.
@@ -46,15 +61,20 @@ root.render(
   // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
   // to provide the necessary routing context.
   <BrowserRouter>
-    
-    {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
-        inside <App> can access the course context via the `useContext` hook. */}
-    <CourseContextProvider>
-      
-      {/* <App /> is the entry point of your component hierarchy. */}
-      <App />
 
-    </CourseContextProvider>
+    {/* AuthProvider enables SSO authentication (Google/GitHub OAuth) throughout the app */}
+    <AuthProvider>
+
+      {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
+          inside <App> can access the course context via the `useContext` hook. */}
+      <CourseContextProvider>
+
+        {/* <App /> is the entry point of your component hierarchy. */}
+        <App />
+
+      </CourseContextProvider>
+
+    </AuthProvider>
 
   </BrowserRouter>
 );

@@ -8,6 +8,7 @@ import { MdEmail, MdLock } from "react-icons/md";
 import { IoPersonSharp } from "react-icons/io5";
 import { assets } from '../../assets/assets'; // For images
 import apiClient from '../../api/apiClient'; // For making API calls
+import authService from '../../services/authService'; // For OAuth login
 
 // Get the dynamic API URL from environment variables.
 const API_URL = import.meta.env.VITE_API_URL;
@@ -53,9 +54,9 @@ const LoginModal = ({ onClose }) => {
       setError("Passwords do not match.");
       return;
     }
-    
+
     setLoading(true); // Start loading state
-    
+
     try {
       await apiClient.post('/api/auth/initiate-otp', { name, email, password });
       setShowOtpScreen(true);
@@ -144,7 +145,7 @@ const LoginModal = ({ onClose }) => {
 
         {/* Right side form content with responsive padding */}
         <div className="w-full md:w-1/2 py-6 px-4 sm:px-6 md:px-8 lg:px-10 flex flex-col justify-center">
-          
+
           {showOtpScreen ? (
             // --- OTP Verification Form ---
             <form onSubmit={handleVerifyOtp}>
@@ -179,13 +180,19 @@ const LoginModal = ({ onClose }) => {
               <p className="mt-2 mb-6 text-gray-300 text-center text-sm">Begin your journey of learning with us today.</p>
 
               {/* Social Login Buttons */}
-              <a href={`${API_URL}/auth/google`} className="flex items-center justify-center gap-3 px-4 py-2 bg-[#0F0F0F] hover:bg-gray-800 rounded-md mb-2">
+              <button
+                onClick={() => authService.initiateGoogleLogin()}
+                className="flex items-center justify-center gap-3 px-4 py-2 bg-[#0F0F0F] hover:bg-gray-800 rounded-md mb-2 w-full"
+              >
                 <FcGoogle className="w-5 h-5" /> Continue with Google
-              </a>
-              <a href={`${API_URL}/auth/github`} className="flex items-center justify-center gap-3 px-4 py-2 bg-[#0F0F0F] hover:bg-gray-800 rounded-md">
+              </button>
+              <button
+                onClick={() => authService.initiateGitHubLogin()}
+                className="flex items-center justify-center gap-3 px-4 py-2 bg-[#0F0F0F] hover:bg-gray-800 rounded-md w-full"
+              >
                 <FaGithub className="w-5 h-5" /> Continue with GitHub
-              </a>
-{/* 
+              </button>
+              {/* 
               {/* <div className="text-center text-sm text-gray-400 my-4">or</div> */}
 
               {/* Conditional Signup Fields */}
@@ -220,7 +227,7 @@ const LoginModal = ({ onClose }) => {
               {/* <button type="submit" disabled={loading} className="bg-yellow text-black w-full py-2 rounded-md font-semibold disabled:opacity-50">
                 {loading ? 'Processing...' : (mode === 'signup' ? 'Create Account' : 'Continue with Email')}
               </button> */}
-              
+
               {/* Toggle link between Login and Signup modes */}
               {/* <p className="text-sm mt-4 text-center">
                 {mode === 'signup' ? "Already have an account?" : "Don't have an account?"}{' '}

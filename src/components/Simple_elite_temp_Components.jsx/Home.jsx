@@ -126,10 +126,11 @@ const Home = ({ heading, guarantee, video, ctas, form }) => {
                 open={showApplyModal}
                 onClose={() => setShowApplyModal(false)}
                 formData={form}
+                formAction={form?.formAction}
+                courseName={heading?.parts?.map(p => p.text).join(' ') || 'Expertisor Academy Course'}
             />
         </div>
     );
 };
 
 export default Home
-

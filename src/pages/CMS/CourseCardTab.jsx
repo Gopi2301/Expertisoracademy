@@ -50,7 +50,7 @@ const CourseCardTab = ({ course, setCourse, isNew }) => {
 
         try {
             const token = localStorage.getItem('token');
-            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/upload.php`, {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/upload.php`, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -59,11 +59,13 @@ const CourseCardTab = ({ course, setCourse, isNew }) => {
             });
 
             const data = await response.json();
-            if (data.url) {
-                handleChange(field, data.url);
+            const uploadUrl = data.url || data.data?.url;
+            if (uploadUrl) {
+                handleChange(field, uploadUrl);
+                alert('Image uploaded successfully!');
             } else {
-                console.error('Upload failed:', data.error || 'Unknown error');
-                alert('Failed to upload image: ' + (data.error || 'Unknown error'));
+                console.error('Upload failed:', data.error || data.data?.error || 'Unknown error');
+                alert('Failed to upload image: ' + (data.error || data.data?.error || 'Unknown error'));
             }
         } catch (error) {
             console.error('Upload error:', error);
@@ -242,6 +244,27 @@ const CourseCardTab = ({ course, setCourse, isNew }) => {
                             min="0"
                             className="w-full px-4 py-3 bg-[#0a0a0a] border border-neutral-700 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-yellow-400 transition-colors"
                         />
+                    </div>
+
+                    {/* Rating */}
+                    <div>
+                        <label className="block text-sm font-medium text-neutral-400 mb-2">
+                            <Star className="w-4 h-4 inline mr-1" />
+                            Rating (out of 5)
+                        </label>
+                        <input
+                            type="number"
+                            value={course.rating || 4.9}
+                            onChange={(e) => handleChange('rating', parseFloat(e.target.value) || 4.9)}
+                            placeholder="4.9"
+                            step="0.1"
+                            min="0"
+                            max="5"
+                            className="w-full px-4 py-3 bg-[#0a0a0a] border border-neutral-700 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-yellow-400 transition-colors"
+                        />
+                        <p className="mt-1 text-xs text-neutral-500">
+                            Star rating displayed on course card (0-5)
+                        </p>
                     </div>
 
                     {/* Duration */}

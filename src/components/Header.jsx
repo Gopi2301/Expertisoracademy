@@ -5,39 +5,29 @@ import { NavLink, Link } from 'react-router-dom';
 import { IoRocketOutline, IoClose } from 'react-icons/io5';
 import { assets } from '../assets/assets';
 import UserProfile from './UserProfile';
-import { logout } from '../api/apiClient';
-import { decodeJwt } from '../utils/decodeJwt';
+import { useAuth } from '../contexts/AuthContext';
 import { getStoredUtmParams, appendUtmParamsToUrl } from '../utils/utmUtils';
 
 const GRAPHY_URL = "https://learn.expertisoracademy.in/t/u/activecourses";
 
 const Header = ({ onLoginClick }) => {
-  const [userInfo, setUserInfo] = useState(null);
+  const { user, logout } = useAuth();
   const [dashboardUrl, setDashboardUrl] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const [isMenuVisible, setIsMenuVisible] = useState(false);
 
   useEffect(() => {
-    const checkLoginStatus = () => {
-      try {
-        const storedUserInfo = localStorage.getItem('userInfo');
-        if (storedUserInfo) {
-          const parsedInfo = JSON.parse(storedUserInfo);
-          if (parsedInfo && parsedInfo.appToken && parsedInfo.graphyToken) {
-            const decodedToken = decodeJwt(parsedInfo.appToken);
-            if (decodedToken && decodedToken.name) {
-              setUserInfo({ name: decodedToken.name });
-              const utmParams = getStoredUtmParams();
-              const baseUrl = `${GRAPHY_URL}?ssoToken=${parsedInfo.graphyToken}`;
-              const finalUrl = appendUtmParamsToUrl(baseUrl, utmParams);
-              setDashboardUrl(finalUrl);
-            } else { logout(); }
-          }
-        }
-      } catch (error) { logout(); }
-    };
-    checkLoginStatus();
-  }, []);
+    if (user) {
+      // Get Graphy token from localStorage
+      const graphyToken = localStorage.getItem('expertisor_graphy_token');
+      if (graphyToken) {
+        const utmParams = getStoredUtmParams();
+        const baseUrl = `${GRAPHY_URL}?ssoToken=${graphyToken}`;
+        const finalUrl = appendUtmParamsToUrl(baseUrl, utmParams);
+        setDashboardUrl(finalUrl);
+      }
+    }
+  }, [user]);
 
 
 
@@ -51,7 +41,7 @@ const Header = ({ onLoginClick }) => {
   };
 
   const handleMobileMenuClick = () => {
-    if (userInfo) {
+    if (user) {
       setIsMenuVisible(true);
     } else {
       onLoginClick();
@@ -105,13 +95,13 @@ const Header = ({ onLoginClick }) => {
           <div className="flex-shrink-0">
             {/* Desktop Login/Profile Buttons */}
             <div className="hidden sm:flex items-center gap-3">
-              {userInfo ? (
+              {user ? (
                 <>
                   <a href={dashboardUrl} target="_blank" rel="noopener noreferrer" className="dashboard-btn">
-                    <span>Dashboard</span>
+                    <span>My Learning Hub</span>
                     <IoRocketOutline />
                   </a>
-                  <UserProfile userName={userInfo.name} onLogout={logout} />
+                  <UserProfile userName={user.name} onLogout={logout} />
                 </>
               ) : (
                 <button onClick={onLoginClick} className="text-black py-2.5 px-5 bg-[#FFF200] font-semibold text-base rounded-md">
@@ -129,16 +119,16 @@ const Header = ({ onLoginClick }) => {
       </header>
 
       {/* Mobile Menu Overlay (for logged-in users) */}
-      {isMenuVisible && userInfo && (
+      {isMenuVisible && user && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[1001] flex flex-col items-center justify-center text-white p-4">
           <button onClick={() => setIsMenuVisible(false)} className="absolute top-5 right-5 text-white">
             <IoClose size={32} />
           </button>
 
           <div className="flex flex-col items-center gap-8">
-            <UserProfile userName={userInfo.name} onLogout={handleLogout} />
+            <UserProfile userName={user.name} onLogout={handleLogout} />
             <a href={dashboardUrl} target="_blank" rel="noopener noreferrer" className="dashboard-btn inline-flex text-xl">
-              <span>Dashboard</span>
+              <span>My Learning Hub</span>
               <IoRocketOutline />
             </a>
             <nav>

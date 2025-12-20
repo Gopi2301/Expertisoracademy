@@ -2,15 +2,18 @@
   position: relative;
   width: 100vw;
   left: 50%;
-  transform: translateX(-50%); /* ensures full-bleed across the screen */
+  transform: translateX(-50%);
+  /* ensures full-bleed across the screen */
   overflow: hidden;
   background: #000;
-  min-height: 700px; /* can be adjusted */
+  min-height: 700px;
+  /* can be adjusted */
 }
 
 #hero-lottie {
   position: absolute;
-  inset: 0; /* top:0, right:0, bottom:0, left:0 */
+  inset: 0;
+  /* top:0, right:0, bottom:0, left:0 */
   width: 100%;
   height: 100%;
   z-index: 0;
@@ -20,6 +23,31 @@
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
+}
+
+/* Mobile-specific Lottie sizing */
+@media (max-width: 767px) {
+  .hero-section {
+    min-height: 600px;
+  }
+
+  #hero-lottie {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  #hero-lottie svg {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    transform: scale(1.2);
+    /* Slight scale to ensure full coverage */
+    transform-origin: center center;
+  }
 }
 
 

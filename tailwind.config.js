@@ -39,6 +39,7 @@ export default {
         clash: ['"Clash Display Variable"', 'sans-serif'],
         inter: ["Inter", "sans-serif"],
         cactus: ['"Cactus Classical Serif"', 'serif'],
+        playfair: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'hero-pattern': "url('/bg_gradient.png')",

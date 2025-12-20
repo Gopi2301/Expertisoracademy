@@ -1,4 +1,4 @@
-import React, { createContext, useState, useRef } from 'react'
+import React, { createContext, useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets'
 import ProfessionModal from '../components/ProfessionModal'
@@ -13,7 +13,7 @@ const CourseContextProvider = (props) => {
     const navigate = useNavigate();
 
 
-    const courses = [
+    const hardcodedCourses = [
         {
             page_link: "/techbundle",
             img: assets.all_bundle,
@@ -218,28 +218,87 @@ const CourseContextProvider = (props) => {
             language: "English",
             category: "Civil",
         },
-
-
-
-        // ... rest of the code remains the same ...
-
-
-
-
-
-
-
-    ]
-
-
-    const categories = [
-        "Technology",
-        "Bussiness",
-        "Civil",
-        "Mechanical",
-        "Medical",
-        "Electrical",
     ];
+
+    const [courses, setCourses] = useState(hardcodedCourses);
+
+    // API imports
+    // import { getPublishedCourses } from '../services/api'; // Assuming this import will be added at top
+
+    useEffect(() => {
+        const fetchCourses = async () => {
+            try {
+                // Dynamically import to avoid circular dependency issues if any
+                const { getPublishedCourses } = await import('../services/api');
+                const data = await getPublishedCourses();
+
+                const mappedCourses = data.map(course => ({
+                    id: course.id,
+                    page_link: course.slug ? `/courses/${course.slug}` : '#',
+                    img: course.thumbnail || assets.all_bundle, // Fallback image
+                    type: "individual course", // Default type
+                    level: course.level || "All levels",
+                    star_i: assets.star_i,
+                    rating: course.rating || 4.9,
+                    rating_persons: course.reviews_count || 0,
+                    domain: course.title,
+                    // individual course
+                    indi_lang_i: assets.lang_i,
+                    lang_detail: course.language || "Tamil",
+                    // -------
+                    schedule_i: assets.schedule,
+                    hours: course.duration || "0h",
+                    ment_icon: course.mentor_image || assets.ment_img, // Use mentor image if available
+                    mentors: course.instructor || course.mentor_name || "Instructor",
+                    para: course.description || course.hero_data?.subheadline || course.title,
+                    language: course.language || "Tamil",
+                    category: course.category_name || "Technology", // Fallback category
+                }));
+
+                setCourses([...hardcodedCourses, ...mappedCourses]);
+            } catch (error) {
+                console.error("Failed to fetch courses:", error);
+                // Fallback to empty or show error
+                setCourses(hardcodedCourses);
+            }
+        };
+
+        fetchCourses();
+    }, []);
+
+
+
+
+
+
+
+    const [categories, setCategories] = useState([]);
+
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const { getCategories } = await import('../services/api');
+                const data = await getCategories();
+                // Map to just strings if that's what the component expects, 
+                // or keep objects if refactoring Courses.jsx. 
+                // Looking at Courses.jsx, it maps categories directly: {categories.map((category) => ...)}
+                // and expects strings based on: const isChecked = selectedCategories.includes(category.toLowerCase());
+
+                // If API returns objects {id, name, slug}, we need to map to names.
+                const categoryNames = data.map(c => c.name);
+                setCategories(categoryNames);
+
+                // Fallback or seed if empty?
+                if (categoryNames.length === 0) {
+                    setCategories(["Technology", "Business", "Civil", "Mechanical", "Medical", "Electrical"]);
+                }
+            } catch (error) {
+                console.error("Failed to fetch categories:", error);
+                setCategories(["Technology", "Business", "Civil", "Mechanical", "Medical", "Electrical"]);
+            }
+        };
+        fetchCategories();
+    }, []);
 
     const languages = [
         "English",
