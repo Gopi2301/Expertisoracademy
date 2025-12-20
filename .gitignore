@@ -26,3 +26,25 @@ dist-ssr
 
 distdist.zip
 .env.local
+
+# Large files and build artifacts
+*.tar.gz
+*.webm
+*.mp4
+*.mov
+stats.html
+frontend-dist.zip
+
+# Deployment and backup files
+deploy_staging/
+deploy_dev_*.tar.gz
+staging_*.tar.gz
+backup_*.tar.gz
+
+# API tokens (keep structure, ignore tokens)
+api/zoho_tokens.json
+
+# Temporary and test files
+test_*.php
+check_tables.php
+*.broken
