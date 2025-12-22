@@ -30,6 +30,8 @@ import CourseContextProvider from './context/CourseContextProvider.jsx';
 // and utilities. Importing it here ensures that these styles are applied to the entire application.
 import './index.css';
 
+import { FormProvider } from './context/FormContext.jsx';
+
 
 // --- 4. Application Root Creation and Rendering ---
 
@@ -46,16 +48,16 @@ root.render(
   // <BrowserRouter> must wrap your entire application (or at least the part that uses routing)
   // to provide the necessary routing context.
   <BrowserRouter>
-    
-    {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
+    <FormProvider>
+      {/* By wrapping <App /> with <CourseContextProvider>, you ensure that any component
         inside <App> can access the course context via the `useContext` hook. */}
-    <CourseContextProvider>
-      
-      {/* <App /> is the entry point of your component hierarchy. */}
-      <App />
+      <CourseContextProvider>
 
-    </CourseContextProvider>
+        {/* <App /> is the entry point of your component hierarchy. */}
+        <App />
 
+      </CourseContextProvider>
+    </FormProvider>
   </BrowserRouter>
 );
 

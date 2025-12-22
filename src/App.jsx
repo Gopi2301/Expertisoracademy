@@ -248,6 +248,7 @@ import { pages } from './constants/pages';
 import Simple_elite_temp from './pages/landingPages/Simple_elite_temp';
 import Rhsca from './pages/landingPages/Rhsca';
 import PreviewPage from './components/Rhsca/PreviewPage';
+import Template from './pages/landingPages/Template';
 
 const App = () => {
   const location = useLocation();
@@ -272,7 +273,7 @@ const App = () => {
   }, []);
 
   // --- Layout visibility ---
-  const layoutHiddenRoutes = ['/auth/success','/simple_elite_page','/rhsca','/rhsca/video'];
+  const layoutHiddenRoutes = ['/auth/success', '/simple_elite_page', '/rhsca', '/rhsca/video'];
   const isLayoutHidden = layoutHiddenRoutes.includes(location.pathname);
 
   const headerHiddenRoutes = [
@@ -300,12 +301,12 @@ const App = () => {
   // Header and main margin condition
   // const showHeader = !currentPath.includes('/eliteconnect')  && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname);
   const showHeader =
-  !currentPath.includes('/eliteconnect') &&
-  !currentPath.includes('/simple_elite_page') &&
-  !currentPath.includes('/rhsca') &&
-  !currentPath.includes('/rhsca/video') &&
-  !isLayoutHidden &&
-  !headerHiddenRoutes.includes(location.pathname);
+    !currentPath.includes('/eliteconnect') &&
+    !currentPath.includes('/simple_elite_page') &&
+    !currentPath.includes('/rhsca') &&
+    !currentPath.includes('/rhsca/video') &&
+    !isLayoutHidden &&
+    !headerHiddenRoutes.includes(location.pathname);
 
   const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
 
@@ -363,10 +364,14 @@ const App = () => {
           <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
 
           {/* simple_elite_page */}
-          <Route path="/simple_elite_page" element={<Simple_elite_temp/>}/>
-          <Route path="/rhsca" element={<Rhsca/>}/>
-          <Route path="/rhsca/video" element={<PreviewPage/>}/>
-          
+          <Route path="/simple_elite_page" element={<Simple_elite_temp />} />
+          <Route path="/rhsca" element={<Rhsca />} />
+          <Route path="/rhsca/video" element={<PreviewPage />} />
+
+          {/* template */}
+
+          <Route path="/template" element={ <Template data={pages.template} /> } />
+
 
 
           {/* Fallback */}
@@ -382,14 +387,15 @@ const App = () => {
 
 
       {!currentPath.includes('/eliteconnect') &&
- !currentPath.includes('/simple_elite_page') && 
- !currentPath.includes('/rhsca') && 
- !currentPath.includes('/rhsca/video') && 
- (
-  <div className="fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]">
-    <WhatsAppButton />
-  </div>
-)}
+        !currentPath.includes('/simple_elite_page') &&
+        !currentPath.includes('/rhsca') &&
+        !currentPath.includes('/rhsca/video') &&
+        !currentPath.includes('/template') &&
+        (
+          <div className="fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]">
+            <WhatsAppButton />
+          </div>
+        )}
 
     </div>
   );

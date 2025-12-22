@@ -306,6 +306,14 @@ import simple_bg from './images/simple_elite/simple_bg.png'
 import outer_line from './images/simple_elite//outer_line.svg'
 import help from './images/simple_elite/help.svg'
 
+import our_promise from './images/template/our_promise.png'
+import you_get from './images/template/you_get.png'
+
+import transperency from './images/template/transperency.svg'
+import goal from './images/template/goal.svg'
+import honest from './images/template/honest.svg'
+
+
 export const assets = {
     logo_ex,
     icon,
@@ -388,5 +396,7 @@ export const assets = {
     sld_path1, sld_path2, sld_path3, proj, rupee_circle, sld_stud_icon,
     raghulan_profile, banner_raghulan, banner_raghulan_mob, spec_img1, spec_img2, share, silver_diamond, gold_diamond,
     tag_icon, growth, rev_bg, ment_img, Blockchain, avg_salary, adoption, military_tech, global, blockchain_ment,
-    bc_bw_1, bc_bw_2, bc_bw_3, bc_y_1, bc_y_2, bc_y_3, income_bg, threeDMax_eng, civil_3d_eng, simple_bg, outer_line, help
+    bc_bw_1, bc_bw_2, bc_bw_3, bc_y_1, bc_y_2, bc_y_3, income_bg, threeDMax_eng, civil_3d_eng, simple_bg, outer_line, help, our_promise, you_get, transperency, honest, goal,
 }
+
+
