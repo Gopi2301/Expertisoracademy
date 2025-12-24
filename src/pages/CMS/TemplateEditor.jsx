@@ -355,16 +355,7 @@ const TemplateEditor = () => {
                                 />
                             </div>
 
-                            <div>
-                                <label className="block text-sm text-neutral-400 mb-2">Form Action URL (Zoho)</label>
-                                <input
-                                    type="text"
-                                    value={template.sections.form.formAction}
-                                    onChange={(e) => updateSection('form', 'formAction', e.target.value)}
-                                    className="w-full px-4 py-2 bg-neutral-900 border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400"
-                                    placeholder="https://forms.zohopublic.in/..."
-                                />
-                            </div>
+
 
                             {/* Form Fields */}
                             <div>

@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Search, ChevronDown } from 'lucide-react';
 import toast from 'react-hot-toast';
-
-import { useZohoForm } from '../../hooks/useZohoForm';
+import { detectCountryCode, getPhonePrefix } from '../../utils/geolocation';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
         question: '',
+        countryCode: '+91',
         phone: ''
     });
+    const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isDetectingCountry, setIsDetectingCountry] = useState(true);
 
-    // Use Zoho form hook
-    const { submitToZoho, isSubmitting, scriptLoaded } = useZohoForm({
-        leadSource: 'Architecture Course Landing Page'
-    });
+    // Detect country code on mount
+    useEffect(() => {
+        const detectCountry = async () => {
+            setIsDetectingCountry(true);
+            const countryCode = await detectCountryCode();
+            const phonePrefix = getPhonePrefix(countryCode);
+            setFormData(prev => ({ ...prev, countryCode: phonePrefix }));
+            setIsDetectingCountry(false);
+        };
+        detectCountry();
+    }, []);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -23,7 +34,6 @@ const Contact = () => {
             [name]: value
         }));
     };
-
 
     const validateForm = () => {
         if (!formData.name.trim()) {
@@ -34,7 +44,6 @@ const Contact = () => {
             toast.error('Please enter your email');
             return false;
         }
-        // Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             toast.error('Please enter a valid email address');
@@ -44,35 +53,52 @@ const Contact = () => {
             toast.error('Please enter your phone number');
             return false;
         }
-        // Basic phone validation (10 digits)
-        const phoneRegex = /^\d{10}$/;
-        if (!phoneRegex.test(formData.phone.replace(/\s/g, ''))) {
-            toast.error('Please enter a valid 10-digit phone number');
-            return false;
-        }
         return true;
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
 
         if (!validateForm()) {
+            setIsSubmitting(false);
             return;
         }
 
-        // Submit to Zoho using the hook
-        const success = await submitToZoho(formData);
+        try {
+            // Combine country code and phone number
+            const fullPhone = formData.countryCode + formData.phone;
+            console.log('🚀 [Contact] Submitting form...', { ...formData, phone: fullPhone });
 
-        // Reset form on success
-        if (success) {
-            setFormData({
-                name: '',
-                email: '',
-                question: '',
-                phone: ''
+            const response = await fetch('/api/zoho/submit-form.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: fullPhone,
+                    question: formData.question,
+                    courseName: 'Contact Form'
+                })
             });
+
+            const result = await response.json();
+            console.log('✅ [Contact] Submission response:', result);
+
+            if (!result.success) {
+                throw new Error(result.error || 'Submission failed');
+            }
+
+            toast.success('Thank you! We will contact you soon.');
+            setFormData({ name: '', email: '', question: '', countryCode: '+91', phone: '' });
+        } catch (error) {
+            console.error('❌ [Contact] Submission error:', error);
+            toast.error(error.message || 'Failed to submit form. Please try again.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
+
 
     return (
         <div className="flex flex-col gap-[16px] items-start self-stretch shrink-0 flex-nowrap relative z-[328] w-full max-w-7xl mx-auto py-4 px-4 overflow-hidden">
@@ -100,7 +126,6 @@ const Contact = () => {
                             <div className="h-[500px] sm:h-[600px] lg:h-[716px] grow basis-0 rounded-[8px] relative overflow-hidden z-[339] bg-[#0A0A0A] border border-neutral-800">
                                 <div className="absolute inset-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-12-02/bDDpzfCD0O.png)] bg-cover bg-center bg-no-repeat z-[340]" />
                                 <div className="absolute bottom-0 left-[12px] right-[12px] sm:left-[24px] sm:right-[24px] h-full bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-12-02/3W0TwD11Bj.png)] bg-contain bg-bottom bg-no-repeat z-[343]" />
-                                <div className="hidden sm:block w-[90%] max-w-[597px] h-[97px] bg-[rgba(0,0,0,0.1)] rounded-[10px] absolute bottom-[18px] left-[18px] z-[344]" />
                             </div>
                         </div>
 
@@ -113,8 +138,7 @@ const Contact = () => {
                                         Have Questions? Reach out to us.
                                     </span>
                                     <span className="flex w-full justify-start items-center self-stretch shrink-0 font-inter text-[16px] font-normal leading-[19px] text-[#8a8a8a] relative text-left z-[350]">
-                                        Have doubts about starting or scaling your architecture,
-                                        interior, or construction firm? Ask directly.{" "}
+                                        Have doubts about starting or scaling your architecture firm? Ask directly.
                                     </span>
                                 </div>
                             </div>
@@ -174,19 +198,66 @@ const Contact = () => {
                                     </div>
                                 </div>
 
-                                {/* Phone Input */}
+                                {/* Phone Input with Country Picker */}
                                 <div className="flex flex-col gap-[8px] items-start self-stretch shrink-0 flex-nowrap relative z-[364]">
                                     <span className="h-[17px] self-stretch shrink-0 basis-auto font-inter text-[14px] font-normal leading-[17px] text-[#9c9c9c] relative text-left whitespace-nowrap z-[365]">
                                         Phone Number*
                                     </span>
                                     <div className="flex gap-[8px] items-start self-stretch shrink-0 flex-nowrap relative z-[366]">
-                                        <div className="flex w-[85px] py-[4px] pl-[12px] gap-[4px] items-center self-stretch shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[367]">
-                                            <div className="w-[20px] h-[15px] shrink-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-12-02/u6epP17GUB.png)] bg-cover bg-no-repeat relative overflow-hidden z-[368]" />
-                                            <span className="h-[17px] shrink-0 basis-auto font-inter text-[14px] font-normal leading-[17px] text-[#fff] relative text-left whitespace-nowrap z-[369]">
-                                                +91
-                                            </span>
-                                            <div className="w-[16px] h-[16px] shrink-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-12-02/E4KQFSMyth.png)] bg-[length:100%_100%] bg-no-repeat relative z-[370]" />
+                                        {/* Country Code Picker */}
+                                        <div className="relative" ref={dropdownRef}>
+                                            <button
+                                                type="button"
+                                                onClick={countryCodeHook.toggleDropdown}
+                                                disabled={isSubmitting}
+                                                className="flex w-[85px] h-[40px] py-[4px] px-[12px] gap-[4px] items-center shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[367] cursor-pointer disabled:opacity-50"
+                                            >
+                                                {countryCodeHook.isLoading ? (
+                                                    <div className="w-4 h-4 border-2 border-neutral-400 border-t-transparent rounded-full animate-spin" />
+                                                ) : (
+                                                    <>
+                                                        <span className="text-base">{countryCodeHook.selectedCountry.flag}</span>
+                                                        <span className="font-inter text-[14px] font-normal text-[#fff]">
+                                                            {countryCodeHook.selectedCountry.code}
+                                                        </span>
+                                                        <ChevronDown className="w-[14px] h-[14px] text-neutral-400" />
+                                                    </>
+                                                )}
+                                            </button>
+
+                                            {/* Dropdown */}
+                                            {countryCodeHook.isDropdownOpen && (
+                                                <div className="absolute z-50 top-full left-0 mt-1 w-64 bg-neutral-900 border border-neutral-700 rounded-lg shadow-xl overflow-hidden">
+                                                    <div className="p-2 border-b border-neutral-700">
+                                                        <div className="relative">
+                                                            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
+                                                            <input
+                                                                type="text"
+                                                                value={countryCodeHook.searchQuery}
+                                                                onChange={(e) => countryCodeHook.setSearchQuery(e.target.value)}
+                                                                placeholder="Search country..."
+                                                                className="w-full pl-9 pr-3 py-2 bg-neutral-800 border border-neutral-700 rounded-md text-white text-sm placeholder-neutral-500 focus:outline-none focus:border-yellow-400"
+                                                            />
+                                                        </div>
+                                                    </div>
+                                                    <div className="max-h-60 overflow-y-auto">
+                                                        {countryCodeHook.filteredCountries.map((country, index) => (
+                                                            <button
+                                                                key={`${country.iso}-${index}`}
+                                                                type="button"
+                                                                onClick={() => countryCodeHook.selectCountry(country)}
+                                                                className={`w-full flex items-center gap-3 px-3 py-2.5 text-left hover:bg-neutral-800 transition-colors ${countryCodeHook.selectedCountry.iso === country.iso ? 'bg-neutral-800' : ''}`}
+                                                            >
+                                                                <span className="text-lg">{country.flag}</span>
+                                                                <span className="text-sm text-white flex-1">{country.name}</span>
+                                                                <span className="text-sm text-neutral-400">{country.code}</span>
+                                                            </button>
+                                                        ))}
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
+
                                         <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center grow shrink-0 basis-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[371]">
                                             <input
                                                 type="tel"
@@ -195,7 +266,6 @@ const Contact = () => {
                                                 onChange={handleChange}
                                                 placeholder="Enter WhatsApp Number"
                                                 disabled={isSubmitting}
-                                                maxLength="10"
                                                 className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                             />
                                         </div>

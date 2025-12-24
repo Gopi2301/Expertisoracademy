@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { pages } from '../../constants/pages'
 import StartButton from '../StartButton'
 import Download from '../Download'
 import { assets } from '../../assets/assets'
+import ApplyModal from '../Simple_elite_temp_Components.jsx/ApplyModal'
 
-const Hero = ({data}) => {
+const Hero = ({ data }) => {
+    const [isApplyOpen, setIsApplyOpen] = useState(false);
     return (
         <div className='  '>
             <div className='px-3 sm:px-14 lg:px-20 mt-10 sm:mt-14 '>
@@ -22,9 +24,9 @@ const Hero = ({data}) => {
                 </div>
 
                 <div className='sm:flex-row flex flex-col   justify-center gap-3 w-full'>
-                    <StartButton data={pages?.solidworks?.start_button}/>
+                    <StartButton data={pages?.solidworks?.start_button} onClick={() => setIsApplyOpen(true)} />
 
-                    <Download data={pages?.solidworks?.download}/>
+                    <Download data={pages?.solidworks?.download} />
                 </div>
 
 
@@ -53,6 +55,11 @@ const Hero = ({data}) => {
                 ></video>
             </div>
 
+            {/* Apply Modal */}
+            <ApplyModal
+                open={isApplyOpen}
+                onClose={() => setIsApplyOpen(false)}
+            />
 
         </div>)
 }

@@ -58,13 +58,15 @@
 
 
 
-import React from "react";
+import React, { useState } from "react";
 import StartButton from "../StartButton";
 import Download from "../Download";
 import { assets } from "../../assets/assets";
+import ApplyModal from '../Simple_elite_temp_Components.jsx/ApplyModal';
 
 const Hero = ({ data }) => {
   const { icon, head, highlights, para, features, start_button, download } = data;
+  const [isApplyOpen, setIsApplyOpen] = useState(false);
 
   // ✅ Highlight selected words inside heading
   const renderHeading = () => {
@@ -99,7 +101,7 @@ const Hero = ({ data }) => {
       />
 
       <div className="px-3 sm:px-14 lg:px-20 absolute top-0 flex flex-col justify-center items-center h-full w-full">
-        
+
         {/* Top Badge */}
         <div className="flex justify-center">
           <div className="flex gap-2 p-2 bg-[#02020299] border border-[#FFFFFF] rounded-lg items-center">
@@ -121,7 +123,7 @@ const Hero = ({ data }) => {
 
         {/* Buttons */}
         <div className="flex flex-col sm:flex-row justify-center gap-3 w-full">
-          <StartButton data={start_button} />
+          <StartButton data={start_button} onClick={() => setIsApplyOpen(true)} />
           <Download data={download} />
         </div>
 
@@ -138,6 +140,12 @@ const Hero = ({ data }) => {
         </div>
 
       </div>
+
+      {/* Apply Modal */}
+      <ApplyModal
+        open={isApplyOpen}
+        onClose={() => setIsApplyOpen(false)}
+      />
     </div>
   );
 };

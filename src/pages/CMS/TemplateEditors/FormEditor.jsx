@@ -1,4 +1,5 @@
 import React from 'react';
+import { Info } from 'lucide-react';
 
 /**
  * Lead Form Editor
@@ -61,27 +62,64 @@ const FormEditor = ({ course, setCourse }) => {
                 />
             </div>
 
-            {/* Form Action URL */}
-            <div>
-                <label className="block text-sm font-medium text-neutral-400 mb-2">
-                    Form Action URL (Zoho/Webhook)
-                </label>
-                <input
-                    type="url"
-                    value={formData.formAction || ''}
-                    onChange={(e) => updateFormData('formAction', e.target.value)}
-                    placeholder="https://your-webhook-url.com/submit"
-                    className="w-full px-4 py-2 bg-[#0a0a0a] border border-neutral-700 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-yellow-400 font-mono text-sm"
-                />
-                <p className="mt-1 text-xs text-neutral-500">
-                    The URL where form submissions will be sent
-                </p>
+            {/* Zoho Forms Configuration */}
+            <div className="mt-6 p-4 bg-neutral-800/50 rounded-lg border border-neutral-700">
+                <h3 className="text-lg font-semibold text-white mb-4">Zoho Integration</h3>
+
+                {/* Zoho Form ID */}
+                <div className="mb-4">
+                    <label className="block text-sm font-medium text-neutral-400 mb-2">
+                        Zoho Form ID (Optional)
+                    </label>
+                    <input
+                        type="text"
+                        value={formData.zohoFormId || ''}
+                        onChange={(e) => updateFormData('zohoFormId', e.target.value)}
+                        placeholder="Leave empty to use default form"
+                        className="w-full px-4 py-2 bg-[#0a0a0a] border border-neutral-700 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-yellow-400"
+                    />
+                    <p className="text-xs text-neutral-500 mt-1">
+                        Custom Zoho Form endpoint for this course
+                    </p>
+                </div>
+
+                {/* Lead Source */}
+                <div>
+                    <label className="block text-sm font-medium text-neutral-400 mb-2">
+                        Lead Source Tag
+                    </label>
+                    <input
+                        type="text"
+                        value={formData.leadSource || 'Website Form'}
+                        onChange={(e) => updateFormData('leadSource', e.target.value)}
+                        placeholder="Website Form"
+                        className="w-full px-4 py-2 bg-[#0a0a0a] border border-neutral-700 rounded-lg text-white placeholder-neutral-600 focus:outline-none focus:border-yellow-400"
+                    />
+                    <p className="text-xs text-neutral-500 mt-1">
+                        How this lead will be tagged in Zoho CRM
+                    </p>
+                </div>
             </div>
 
-            {/* Info */}
-            <div className="p-4 bg-neutral-800/50 rounded-lg border border-neutral-700">
+            {/* Status Info - Active Integration */}
+            <div className="p-4 bg-green-900/20 rounded-lg border border-green-700/50 mt-4">
+                <div className="flex items-start gap-3">
+                    <Info className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                    <div>
+                        <p className="text-sm text-green-300 font-medium mb-1">
+                            Zoho Integration Active
+                        </p>
+                        <p className="text-xs text-neutral-400">
+                            Form submissions will be sent to Zoho Forms and stored locally. Check browser console for detailed submission logs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            {/* Form Fields Info */}
+            <div className="p-4 bg-neutral-800/50 rounded-lg border border-neutral-700 mt-4">
                 <p className="text-sm text-neutral-400">
-                    <strong className="text-white">Form Fields:</strong> The modal uses a fixed set of fields (Name, Email, Phone, Education, Profile). Field customization coming soon.
+                    <strong className="text-white">Form Fields:</strong> Name, Email, Phone, Educational Qualification, Current Profile
                 </p>
             </div>
 

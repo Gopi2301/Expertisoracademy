@@ -4,6 +4,8 @@ import { getCourseBySlug } from '../services/api';
 import TransformationTemplate from './LandingPages/TransformationTemplate';
 import LifeTransformationTemplate from './LandingPages/LifeTransformationTemplate';
 import Simple_elite_temp from './LandingPages/Simple_elite_temp';
+import FullCourseTemplate from './LandingPages/FullCourseTemplate';
+
 
 const LandingPage = () => {
     const { slug } = useParams();
@@ -134,6 +136,13 @@ const LandingPage = () => {
                     formAction: course.form_data?.formAction || ''
                 }}
             />
+        );
+    }
+
+    // Template 4: Full Course Template
+    if (course && course.template_id === 'full-course') {
+        return (
+            <FullCourseTemplate data={course.template_data} />
         );
     }
 

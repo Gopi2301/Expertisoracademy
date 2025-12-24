@@ -258,6 +258,8 @@ import CourseDetail from './pages/CourseDetail';
 import Login from './pages/CMS/Login';
 import TemplatePreview from './pages/CMS/TemplatePreview';
 import ProtectedRoute from './components/ProtectedRoute';
+import Rhcsa from './pages/Rhcsa';
+import RhscaVideo from './pages/RhscaVideo';
 
 const App = () => {
   const location = useLocation();
@@ -297,7 +299,9 @@ const App = () => {
     '/civil3d-english',
     '/blockchain-course-for-students',
     '/blockchain-course-for-working-professionals',
-    '/blockchain-course-for-business'
+    '/blockchain-course-for-business',
+    '/rhcsa-exam-training-tamil',
+    '/rhcsa-exam-training-tamil/video'
   ];
 
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -367,6 +371,10 @@ const App = () => {
 
           <Route path='/ssr-course' element={<SSRCourse />} />
 
+          {/* RHCSA Route */}
+          <Route path='/rhcsa-exam-training-tamil' element={<Rhcsa />} />
+          <Route path='/rhcsa-exam-training-tamil/video' element={<RhscaVideo />} />
+
           {/* Eliteconnect Routes */}
           <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />
           <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
@@ -408,7 +416,7 @@ const App = () => {
       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
 
       {/* WhatsApp Button */}
-      {!currentPath.includes('/eliteconnect') && !isCMSRoute && (
+      {!currentPath.includes('/eliteconnect') && !currentPath.includes('/solidworks') && !isCMSRoute && (
         <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
           <WhatsAppButton />
         </div>

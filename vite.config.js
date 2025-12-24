@@ -14,14 +14,13 @@ export default defineConfig({
     })
   ],
 
-  // Development server configuration
+  // Proxy API requests to PHP backend
   server: {
     proxy: {
-      // Proxy API requests to PHP server
       '/api': {
         target: 'http://localhost:8000',
         changeOrigin: true,
-        secure: false,
+        secure: false
       }
     }
   },

@@ -644,7 +644,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "Master the fundamentals of 3D modeling, texturing, lighting, ",
             p2: "animation, and rendering to bring your creative visions to life!",
-            video_id: "eCIW1fNqjg4",
+            video_id: "SMtfL74mwZU",
             video_thumbnail: assets.affilate_video
         },
         students_say_video: {
@@ -1029,7 +1029,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "Master the fundamentals of 3D modeling, texturing, lighting, ",
             p2: "animation, and rendering to bring your creative visions to life!",
-            video_id: "wUyHHTPHcdQ",
+            video_id: "Ual8h0X_d_w",
             video_thumbnail: assets.affilate_video
         },
         students_say_video: {
@@ -2597,7 +2597,7 @@ export const pages = {
                 },
                 {
                     i: assets.ArrowClockwise,
-                    para: "Get free course updates!",
+                    para: "Direct Mentor Access",
                 },
                 {
                     i: assets.sld_stud_icon,
@@ -2611,8 +2611,8 @@ export const pages = {
             rating: [
                 { number: "1000+", label: "Students Enrolled" },
                 { number: "4.8/5", label: "Average Rating" },
-                { number: "12+", label: "Hours of Content" },
-                { number: "Tamil", label: "Languages" },
+                { number: "47+", label: "Modules" },
+                { number: "Tamil", label: "Language" },
             ],
             bg_img: assets.bg_car_rating,
         },
@@ -2686,7 +2686,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "Master the fundamentals of 3D modeling, texturing, lighting, ",
             p2: "animation, and rendering to bring your creative visions to life!",
-            video_id: "JEKEeyPyIis",
+            video_id: "F-XTRGCoqHs",
         },
         mentor_section: {
             ment_img: assets.sw_mentor,
@@ -2775,34 +2775,32 @@ export const pages = {
                 link: "https://learn.expertisoracademy.in/courses/SolidWorks-Mastery-Tamil-68dbbc8dbbb2bc35f09266c1",
                 name: "Begin Your Design Journey"
             },
-            head: "Explore the 3D World of Mechanical Engineering with SolidWorks!",
-            highlights: ["Mechanical", "Engineering"],
+            head: "Join our SolidWorks course and kickstart your career!",
+            highlights: ["kickstart", "your", "career!"],
             p1: "Get ready to explore the vast 3D universe! Unleash your creativity and start your ",
             p2: "adventure. Don't forget to use the coupon before it expires!",
             bg: assets.sw_bg,
             card: {
-                price: "₹ 7999",
-                original_price: "₹ 14285",
+                price: "₹ 15999",
+                original_price: "₹ 37600",
                 name: "SolidWorks Design Mastery Program",
                 token_img: assets.token,
                 time: assets.time,
-                coupon_code: "DESIGN44",
-                discount_percent: "44%",
+                coupon_code: "DESIGN",
+                discount_percent: "57%",
                 expires_in: "1 days 23 hours 59 minutes"
             },
 
+            show_form: true,
             what_you_get: {
                 head: "What you'll get",
                 tick_img: assets.verified,
+                img: assets.sw_what_you_get,
                 benefit: [
-                    "Master 3D modeling, part & assembly design, and technical drawing skills",
-                    "Learn simulation and analysis for product development",
-                    "Monthly mentor live Q&A sessions for expert guidance",
-                    "24/7 dedicated support to help you anytime",
-                    "Lifetime access to all lessons, updates, and course materials",
-                    "Community & peer support to collaborate and enhance your learning"
+                    "24/7 dedicated support",
+                    "Monthly mentor live Career sessions",
+                    "Direct mentor access"
                 ]
-
             }
         },
         course_review: [
@@ -2934,8 +2932,8 @@ export const pages = {
         ],
         OfferBanner: {
             title: "SolidWorks Design Mastery Program",
-            coupen_code: "DESIGN44",
-            discount_percent: 44,
+            coupen_code: "DESIGN",
+            discount_percent: 57,
             no_days: 2,
             joinNow_link: "https://docs.google.com/forms/d/e/1FAIpQLSc0CBZ7_pgSvGR_TD0dVyMxxEMuQXK5sGggZGEIaAHCf5j2hQ/viewform?usp=header",
             d_broucher: "/SolidWorks-Design-Mastery-Program.pdf"

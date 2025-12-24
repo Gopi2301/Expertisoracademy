@@ -269,6 +269,7 @@ import sld_path3 from './images/solidworks/sld_path3.svg'
 import proj from './images/proj.svg'
 import rupee_circle from './images/rupee_circle.svg'
 import sld_stud_icon from './images/solidworks/sld_stud_icon.svg'
+import sw_what_you_get from './images/solidworks/what_you_get.png'
 
 // mentorship
 import banner_raghulan from './images/mentorship/raghulan_mentor/banner_raghulan.svg'
@@ -385,7 +386,7 @@ export const assets = {
     // becomementors mentors
     sivaraman, javid, fakir, raghulan, sathesh, muthupandiyan, sridhar, reyroi, anton, swaminathan, dhivagar, therikumar, tharun, manosundar, elavarasan, akash, siva, ashok_kumar, allan,
     highdemand_1, highdemand_2, highdemand_3, threeDsmax, solidworks, civil3D, amazon, raghulan_ment_i, swaminathan_ment_i, elavarasan_ment_i,
-    sld_path1, sld_path2, sld_path3, proj, rupee_circle, sld_stud_icon,
+    sld_path1, sld_path2, sld_path3, proj, rupee_circle, sld_stud_icon, sw_what_you_get,
     raghulan_profile, banner_raghulan, banner_raghulan_mob, spec_img1, spec_img2, share, silver_diamond, gold_diamond,
     tag_icon, growth, rev_bg, ment_img, Blockchain, avg_salary, adoption, military_tech, global, blockchain_ment,
     bc_bw_1, bc_bw_2, bc_bw_3, bc_y_1, bc_y_2, bc_y_3, income_bg, threeDMax_eng, civil_3d_eng, simple_bg, outer_line, help

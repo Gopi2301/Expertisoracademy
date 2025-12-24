@@ -3,6 +3,7 @@ import { Monitor, Smartphone } from 'lucide-react';
 import TransformationTemplate from '../LandingPages/TransformationTemplate';
 import LifeTransformationTemplate from '../LandingPages/LifeTransformationTemplate';
 import Simple_elite_temp from '../LandingPages/Simple_elite_temp';
+import FullCourseTemplate from '../LandingPages/FullCourseTemplate';
 import TemplateEditorPanel from './TemplateEditorPanel';
 
 /**
@@ -108,6 +109,11 @@ const TemplateTab = ({ course, setCourse }) => {
                             }}
                             form={course.form_data || {}}
                         />
+                    )}
+
+                    {/* Template 4 - Full Course */}
+                    {course.template_id === 'full-course' && (
+                        <FullCourseTemplate data={course.template_data || {}} />
                     )}
                 </div>
             </div>

@@ -61,11 +61,12 @@
 
 
 
-import React from "react";
+import React, { useState } from "react";
 import StartButton from "../StartButton";
 import Download from "../Download";
 import { assets } from "../../assets/assets";
 import { pages } from "../../constants/pages";
+import ApplyModal from '../Simple_elite_temp_Components.jsx/ApplyModal';
 
 const Hero = ({ data }) => {
 
@@ -132,7 +133,7 @@ const Hero = ({ data }) => {
 
                 {/* Buttons */}
                 <div className="sm:flex-row flex flex-col justify-center gap-3 w-full">
-                    <StartButton data={data.start_button} />
+                    <StartButton data={data.start_button} onClick={() => setIsApplyOpen(true)} />
                     {/* <Download data={data.download} /> */}
                 </div>
 
@@ -148,6 +149,12 @@ const Hero = ({ data }) => {
                     ))}
                 </div>
             </div>
+
+            {/* Apply Modal */}
+            <ApplyModal
+                open={isApplyOpen}
+                onClose={() => setIsApplyOpen(false)}
+            />
 
         </div>
     );

@@ -28,7 +28,17 @@ const Home = ({ heading, guarantee, video, ctas, form }) => {
     // Helper to render heading with highlights
     const renderHeading = () => {
         if (!heading?.parts || heading.parts.length === 0) {
-            return "Transform your mindset, career, and business in 90 days";
+            // Default heading matching guna-dev
+            return (
+                <>
+                    Transform your{" "}
+                    <span className="text-yellow">mindset</span>,{" "}
+                    <span className="text-yellow">career</span>, and{" "}
+                    <span className="text-yellow">business</span> in{" "}
+                    <span className="text-yellow">90 days</span> with my
+                    personalized transformation framework.
+                </>
+            );
         }
 
         return heading.parts.map((part, index) => {
@@ -39,22 +49,30 @@ const Home = ({ heading, guarantee, video, ctas, form }) => {
         });
     };
 
+    // Default guarantee text
+    const guaranteeText = guarantee || "If you don't get results, I'll work with you again for free until you get results.";
+
     return (
-        <div className="px-3 sm:px-14 lg:px-20 bg-cover bg-center bg-no-repeat" style={{
-            backgroundImage: `url(${assets.simple_bg})`,
-        }}>
-            <section className=" text-white flex flex-col justify-center items-center pt-6 md:py-10">
+        <div
+            className="px-3 min-h-screen sm:px-14 lg:px-20
+             bg-cover bg-center bg-no-repeat
+             flex items-center justify-center py-10"
+            style={{ backgroundImage: `url(${assets.simple_bg})` }}
+        >
+            <section className="text-white flex flex-col items-center w-full">
+
                 {/* Heading Section */}
-                <div className="max-w-5xl text-center ">
-                    <h1 className="font-clash font-semibold text-[25px] sm:text-[35px] lg:text-[41px] leading-[100%] tracking-[0.02em] text-center">
+                <div className="max-w-5xl text-center">
+                    <h1 className="font-clash font-semibold text-[25px] sm:text-[35px] lg:text-[41px]
+                     leading-[100%] tracking-[0.02em]">
                         {renderHeading()}
                     </h1>
 
-                    {guarantee && (
-                        <p className="font-inter mt-4 md:mt-6 inline-block bg-yellow/10 text-yellow-400 text-[14px] md:text-[18px] border border-yellow/20 rounded-lg px-4 py-2">
-                            🎁 {guarantee}
-                        </p>
-                    )}
+                    <p className="font-inter mt-4 md:mt-6 inline-block bg-yellow/10
+                    text-yellow-400 text-[14px] md:text-[18px]
+                    border border-yellow/20 rounded-lg px-4 py-2">
+                        🎁 {guaranteeText}
+                    </p>
                 </div>
 
                 {/* Video Section */}
@@ -98,38 +116,38 @@ const Home = ({ heading, guarantee, video, ctas, form }) => {
                     </div>
                 </div>
 
-                {/* CTA Buttons */}
-                <div>
-                    <div className='sm:flex-row flex flex-col cursor-pointer justify-center gap-3 w-full'>
-                        {/* Primary CTA */}
-                        <div onClick={() => setShowApplyModal(true)}>
-                            <div className="flex justify-center gap-1 rounded-[4px] px-[22px] py-[12px] sm:py-[14px] bg-yellow items-center w-full">
-                                <p className="text-black font-inter font-semibold text-[18px] leading-[100%] text-nowrap">
-                                    {ctas?.primary?.text || 'Apply Now'}
-                                </p>
-                                <img src={assets.r_long_arrow} alt="Right arrow" />
-                            </div>
+                {/* Buttons */}
+                <div className="sm:flex-row flex flex-col cursor-pointer
+                    justify-center gap-3 w-full">
+                    <div onClick={() => setShowApplyModal(true)}>
+                        <div className="flex justify-center gap-1 rounded-[4px]
+                        px-[22px] py-[12px] sm:py-[14px]
+                        bg-yellow items-center w-full">
+                            <p className="text-black font-inter font-semibold
+                        text-[18px] leading-[100%] whitespace-nowrap">
+                                {ctas?.primary?.text || 'Apply Now'}
+                            </p>
+                            <img src={assets.r_long_arrow} alt="Right arrow" />
                         </div>
-
-                        {/* Secondary CTA */}
-                        {ctas?.secondary?.enabled !== false && (
-                            <Download data={{
-                                name: ctas?.secondary?.text || "Download Brochure",
-                                link: ctas?.secondary?.url || ""
-                            }} />
-                        )}
                     </div>
+
+                    {ctas?.secondary?.enabled !== false && (
+                        <Download data={{
+                            name: ctas?.secondary?.text || "Download Brochure",
+                            link: ctas?.secondary?.url || ""
+                        }} />
+                    )}
                 </div>
+
             </section>
 
+            {/* Modal */}
             <ApplyModal
                 open={showApplyModal}
                 onClose={() => setShowApplyModal(false)}
-                formData={form}
-                formAction={form?.formAction}
-                courseName={heading?.parts?.map(p => p.text).join(' ') || 'Expertisor Academy Course'}
             />
         </div>
+
     );
 };
 

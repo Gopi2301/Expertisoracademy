@@ -41,11 +41,12 @@ const Header = ({ onLoginClick }) => {
   };
 
   const handleMobileMenuClick = () => {
-    if (user) {
-      setIsMenuVisible(true);
-    } else {
-      onLoginClick();
-    }
+    setIsMenuVisible(true);
+  };
+
+  const handleMobileLogin = () => {
+    setIsMenuVisible(false);
+    onLoginClick();
   };
 
   const handleLinkClick = useCallback(() => {
@@ -118,25 +119,50 @@ const Header = ({ onLoginClick }) => {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay (for logged-in users) */}
-      {isMenuVisible && user && (
-        <div className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[1001] flex flex-col items-center justify-center text-white p-4">
+      {/* Mobile Menu Overlay */}
+      {isMenuVisible && (
+        <div className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[1001] flex flex-col items-center justify-start pt-20 text-white p-4">
           <button onClick={() => setIsMenuVisible(false)} className="absolute top-5 right-5 text-white">
             <IoClose size={32} />
           </button>
 
-          <div className="flex flex-col items-center gap-8">
-            <UserProfile userName={user.name} onLogout={handleLogout} />
-            <a href={dashboardUrl} target="_blank" rel="noopener noreferrer" className="dashboard-btn inline-flex text-xl">
-              <span>My Learning Hub</span>
-              <IoRocketOutline />
-            </a>
-            <nav>
-              <ul className="flex flex-col items-center gap-6 text-xl text-gray-300">
-                <li onClick={handleLinkClick}><NavLink to="/">Home</NavLink></li>
-                <li onClick={handleLinkClick}><NavLink to="/courses">Courses</NavLink></li>
-                <li onClick={handleLinkClick}><NavLink to="/testimonials">Testimonials</NavLink></li>
-                <li onClick={handleLinkClick}><NavLink to="/mentors">Mentors</NavLink></li>
+          <div className="flex flex-col items-center gap-6 w-full max-w-sm">
+
+            {/* Login/Profile Section */}
+            {user ? (
+              <div className="flex flex-col items-center gap-4 pb-6 border-b border-white/20 w-full">
+                <UserProfile userName={user.name} onLogout={handleLogout} />
+                <a href={dashboardUrl} target="_blank" rel="noopener noreferrer" className="dashboard-btn inline-flex text-lg" onClick={handleLinkClick}>
+                  <span>My Learning Hub</span>
+                  <IoRocketOutline />
+                </a>
+              </div>
+            ) : (
+              <div className="pb-6 border-b border-white/20 w-full flex justify-center">
+                <button
+                  onClick={handleMobileLogin}
+                  className="text-black py-3 px-8 bg-[#FFF200] font-semibold text-lg rounded-md"
+                >
+                  Login
+                </button>
+              </div>
+            )}
+
+            {/* Main Navigation Links */}
+            <nav className="w-full">
+              <ul className="flex flex-col items-center gap-5 text-xl text-gray-300">
+                <li onClick={handleLinkClick}>
+                  <NavLink to="/" className={({ isActive }) => isActive ? 'text-yellow font-semibold' : ''}>Home</NavLink>
+                </li>
+                <li onClick={handleLinkClick}>
+                  <NavLink to="/courses" className={({ isActive }) => isActive ? 'text-yellow font-semibold' : ''}>Courses</NavLink>
+                </li>
+                <li onClick={handleLinkClick}>
+                  <NavLink to="/testimonials" className={({ isActive }) => isActive ? 'text-yellow font-semibold' : ''}>Testimonials</NavLink>
+                </li>
+                <li onClick={handleLinkClick}>
+                  <NavLink to="/mentors" className={({ isActive }) => isActive ? 'text-yellow font-semibold' : ''}>Mentors</NavLink>
+                </li>
               </ul>
             </nav>
           </div>

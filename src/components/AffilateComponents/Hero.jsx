@@ -1,8 +1,11 @@
 import { assets } from "../../assets/assets"
 import StartButton from "../StartButton"
 import { pages } from "../../constants/pages"
+import { useState } from "react"
+import ApplyModal from '../Simple_elite_temp_Components.jsx/ApplyModal'
 
 const Hero = () => {
+    const [isApplyOpen, setIsApplyOpen] = useState(false);
     return (
         <div>
             <div className='bg-black px-3 sm:px-14 lg:px-20  '>
@@ -25,7 +28,7 @@ const Hero = () => {
 
                         <div className="hidden sm:flex justify-center">
                             {pages?.marketing_affilate?.start_button && (
-                                <StartButton data={pages.marketing_affilate.start_button} />
+                                <StartButton data={pages.marketing_affilate.start_button} onClick={() => setIsApplyOpen(true)} />
                             )}
                         </div>
 

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Download } from "lucide-react";
 import { assets } from "../assets/assets";
+import ApplyModal from "./Simple_elite_temp_Components.jsx/ApplyModal";
 
 
 const OfferBanner = ({ offer_detail }) => {
@@ -8,6 +9,7 @@ const OfferBanner = ({ offer_detail }) => {
   const DURATION = offer_detail.no_days * 24 * 60 * 60;
 
   const [timeLeft, setTimeLeft] = useState(DURATION);
+  const [showApplyModal, setShowApplyModal] = useState(false);
 
 
   useEffect(() => {
@@ -67,9 +69,13 @@ const OfferBanner = ({ offer_detail }) => {
 
   const Actions = () => (
     <div className="flex items-center gap-2">
-      <a href={offer_detail.joinNow_link} className="bg-yellow text-black text-[14px] lg:text-[18px] font-semibold px-4 lg:px-5 py-2 lg:py-3  rounded">
+      {/* Join Now - opens popup modal instead of external link */}
+      <button
+        onClick={() => setShowApplyModal(true)}
+        className="bg-yellow text-black text-[14px] lg:text-[18px] font-semibold px-4 lg:px-5 py-2 lg:py-3 rounded cursor-pointer hover:bg-[#FFD500] transition-colors"
+      >
         Join Now
-      </a>
+      </button>
 
       {
         offer_detail.d_broucher &&
@@ -78,9 +84,6 @@ const OfferBanner = ({ offer_detail }) => {
           <Download size={18} />
         </a>
       }
-
-
-
     </div>
   );
 
@@ -142,9 +145,14 @@ const OfferBanner = ({ offer_detail }) => {
         {/* Right Section */}
         <Actions />
       </div>
+
+      {/* Apply Modal - Simple Elite Template 3 style with Zoho */}
+      <ApplyModal
+        open={showApplyModal}
+        onClose={() => setShowApplyModal(false)}
+      />
     </div>
   );
 };
 
 export default OfferBanner;
-

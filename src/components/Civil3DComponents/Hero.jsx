@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { pages } from '../../constants/pages'
 import StartButton from '../StartButton'
 import Download from '../Download'
 import { assets } from '../../assets/assets'
+import ApplyModal from '../Simple_elite_temp_Components.jsx/ApplyModal'
 
 
 const Hero = ({ data }) => {
+    const [isApplyOpen, setIsApplyOpen] = useState(false);
+
     return (
         <div className=' relative w-full h-screen '>
             <img src={assets.civil3D_hero_bg} alt="" className='w-full h-full object-cover ' />
@@ -24,9 +27,9 @@ const Hero = ({ data }) => {
                 </div>
 
                 <div className='sm:flex-row flex flex-col   justify-center gap-3 w-full'>
-                    <StartButton data={data?.start_button}/>
+                    <StartButton data={data?.start_button} onClick={() => setIsApplyOpen(true)} />
 
-                    <Download data={data?.download}/>
+                    <Download data={data?.download} />
                 </div>
 
 
@@ -44,7 +47,11 @@ const Hero = ({ data }) => {
 
             </div>
 
-
+            {/* Apply Modal */}
+            <ApplyModal
+                open={isApplyOpen}
+                onClose={() => setIsApplyOpen(false)}
+            />
 
         </div>)
 }

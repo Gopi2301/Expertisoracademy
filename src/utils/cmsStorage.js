@@ -139,7 +139,7 @@ export const createTemplate = (name) => {
                     { name: 'profile', label: 'Current Profile', type: 'select', placeholder: 'Select', required: false, options: ['Student', 'Working Professional', 'Business Owner', 'Other'] }
                 ],
                 submitButton: 'Submit',
-                formAction: 'https://forms.zohopublic.in/expertisoracademy/form/ExpositorAcademy/formperma/P1rrC2yHkjDofZeF96UQj773L0oA1Lb2EeIBdut-6Rs/htmlRecords/submit'
+                formAction: ''
             }
         }
     };

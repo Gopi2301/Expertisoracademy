@@ -1,41 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { X, MessageCircle } from 'lucide-react';
 import toast from 'react-hot-toast';
-import { useZohoForm } from '../../hooks/useZohoForm';
+import { extractCourseFromURL } from '../../utils/geolocation';
+import CountryCodePicker from '../CountryCodePicker';
 
 /**
- * Apply Now Modal Component - Matching Reference Design Exactly
+ * Apply Now Modal Component
  */
 const ApplyNowModal = ({
     isOpen,
     onClose,
     formConfig = {},
-    onSubmit,
-    successMessage = 'Application submitted successfully!',
-    errorMessage = 'Failed to submit. Please try again.'
+    onSubmit
 }) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
+        countryCode: '+91', // Default to India
         phone: '',
         education: '',
         profile: ''
     });
-    const [submitStatus, setSubmitStatus] = useState(null);
-    const [errorMsg, setErrorMsg] = useState('');
-    const [countryCode, setCountryCode] = useState('+91');
-
-    // Use Zoho form hook
-    const { submitToZoho, isSubmitting } = useZohoForm({
-        formAction: formConfig.formAction
-    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
 
     // Reset form when modal opens/closes
     useEffect(() => {
         if (!isOpen) {
-            setFormData({ name: '', email: '', phone: '', education: '', profile: '' });
-            setSubmitStatus(null);
-            setErrorMsg('');
+            setFormData(prev => ({
+                ...prev,
+                name: '',
+                email: '',
+                phone: '',
+                education: '',
+                profile: ''
+            }));
         }
     }, [isOpen]);
 
@@ -54,44 +52,53 @@ const ApplyNowModal = ({
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    // Handle form submission to Zoho
+    // Handle form submission
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setSubmitStatus(null);
-        setErrorMsg('');
-
-        console.log('[ApplyNowModal] Form submission started');
-        console.log('[ApplyNowModal] Form config:', formConfig);
-        console.log('[ApplyNowModal] Form data:', formData);
+        setIsSubmitting(true);
 
         try {
-            // Submit using the hook
-            const success = await submitToZoho({
-                name: formData.name,
-                email: formData.email,
-                phone: `${countryCode}${formData.phone}`, // Combine country code with phone
-                education: formData.education,
-                profile: formData.profile,
-                courseName: formConfig.courseName || formConfig.title || 'Expertisor Academy Course'
+            // Extract course name from URL
+            const courseName = extractCourseFromURL() || formConfig.courseName || 'General Inquiry';
+
+            // Combine country code and phone number
+            const fullPhone = formData.countryCode + formData.phone;
+            console.log('🚀 [ApplyNowModal] Submitting form...', { ...formData, phone: fullPhone, courseName });
+
+            const response = await fetch('/api/zoho/submit-form.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: fullPhone, // Send combined phone with country code
+                    education: formData.education,
+                    profile: formData.profile,
+                    courseName: courseName, // Auto-extracted from URL
+                    courseId: formConfig.courseId
+                })
             });
 
-            if (success) {
-                console.log('[ApplyNowModal] ✅ Form submitted successfully');
-                setSubmitStatus('success');
-                // Don't close immediately - show success state
-            } else {
-                console.log('[ApplyNowModal] ❌ Form submission failed');
-                setSubmitStatus('error');
-                setErrorMsg(errorMessage);
+            const result = await response.json();
+            console.log('✅ [ApplyNowModal] Submission response:', result);
+
+            if (!result.success) {
+                throw new Error(result.error || 'Submission failed');
             }
 
+            toast.success('Thank you! We will contact you soon.');
+
+            setTimeout(() => {
+                onClose();
+            }, 1500);
         } catch (error) {
-            console.error('[ApplyNowModal] ❌ Form submission error:', error);
-            setSubmitStatus('error');
-            setErrorMsg(errorMessage);
-            toast.error(errorMessage);
+            console.error('❌ [ApplyNowModal] Submission error:', error);
+            toast.error(error.message || 'Failed to submit form. Please try again.');
+        } finally {
+            setIsSubmitting(false);
         }
     };
+
 
     if (!isOpen) return null;
 
@@ -167,17 +174,10 @@ const ApplyNowModal = ({
                                 Phone Number<span className="text-red-500">*</span>
                             </label>
                             <div className="flex gap-2">
-                                <select
-                                    value={countryCode}
-                                    onChange={(e) => setCountryCode(e.target.value)}
-                                    className="px-3 py-3 bg-[#1A1A1A] border border-neutral-700 rounded-lg text-white focus:outline-none focus:border-yellow-400 transition-colors"
-                                >
-                                    <option value="+91">🇮🇳 +91</option>
-                                    <option value="+1">🇺🇸 +1</option>
-                                    <option value="+44">🇬🇧 +44</option>
-                                    <option value="+971">🇦🇪 +971</option>
-                                    <option value="+65">🇸🇬 +65</option>
-                                </select>
+                                <CountryCodePicker
+                                    value={formData.countryCode}
+                                    onChange={(code) => setFormData(prev => ({ ...prev, countryCode: code }))}
+                                />
                                 <input
                                     type="tel"
                                     name="phone"
@@ -242,13 +242,6 @@ const ApplyNowModal = ({
                                 <>
                                     <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
                                     Submitting...
-                                </>
-                            ) : submitStatus === 'success' ? (
-                                <>
-                                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                                    </svg>
-                                    Submitted!
                                 </>
                             ) : (
                                 <>

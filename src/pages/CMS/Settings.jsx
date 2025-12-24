@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Save, RefreshCw, ExternalLink } from 'lucide-react';
+import { Save, RefreshCw } from 'lucide-react';
 import toast from 'react-hot-toast';
 
 const SETTINGS_KEY = 'cms_settings';
 
 const defaultSettings = {
     landingPagePrefix: 'courses', // Default: /courses/:slug
-    siteName: 'Expertisor Academy',
-    defaultFormAction: 'https://forms.zohopublic.in/expertisoracademy/form/ExpositorAcademy/formperma/P1rrC2yHkjDofZeF96UQj773L0oA1Lb2EeIBdut-6Rs/htmlRecords/submit'
+    siteName: 'Expertisor Academy'
 };
 
 export const getSettings = () => {
@@ -106,29 +105,6 @@ const Settings = () => {
                                 placeholder="My Site"
                                 className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-yellow-400"
                             />
-                        </div>
-                    </div>
-                </div>
-
-                {/* Form Configuration */}
-                <div className="bg-[#111] rounded-xl border border-neutral-800 p-6">
-                    <h2 className="text-xl font-semibold text-white mb-4">Default Form Settings</h2>
-
-                    <div className="space-y-4">
-                        <div>
-                            <label className="block text-sm text-neutral-400 mb-2">
-                                Default Zoho Form Action URL
-                            </label>
-                            <input
-                                type="url"
-                                value={settings.defaultFormAction}
-                                onChange={(e) => setSettings({ ...settings, defaultFormAction: e.target.value })}
-                                placeholder="https://forms.zoho..."
-                                className="w-full px-4 py-3 bg-neutral-900 border border-neutral-700 rounded-lg text-white placeholder-neutral-500 focus:outline-none focus:border-yellow-400 font-mono text-sm"
-                            />
-                            <p className="text-xs text-neutral-500 mt-2">
-                                This URL will be used as default for new templates.
-                            </p>
                         </div>
                     </div>
                 </div>

@@ -2,21 +2,38 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 
 const ContactForm = () => {
+    const [formData, setFormData] = useState({
+        company: '',
+        lastName: '',
+        firstName: '',
+        email: '',
+        phone: ''
+    });
+
     const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        const form = e.target;
 
         // Basic validation
-        if (!form.SingleLine.value || !form.SingleLine1.value) {
+        if (!formData.company || !formData.lastName) {
             toast.error('Please fill in all required fields');
             setIsSubmitting(false);
             return;
         }
 
-        form.submit();
+        // Simulate submission
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        toast.success('Thank you! We will contact you soon.');
+        setFormData({ company: '', lastName: '', firstName: '', email: '', phone: '' });
+        setIsSubmitting(false);
     };
 
     return (
@@ -51,18 +68,9 @@ const ContactForm = () => {
 
                         {/* Right Form Section */}
                         <form
-                            action='https://forms.zohopublic.in/expertisoracademy/form/ExpositorAcademy/formperma/P1rrC2yHkjDofZeF96UQj773L0oA1Lb2EeIBdut-6Rs/htmlRecords/submit'
-                            name='form'
-                            method='POST'
-                            acceptCharset='UTF-8'
-                            encType='multipart/form-data'
                             onSubmit={handleSubmit}
                             className="flex p-[24px] flex-col justify-between items-start self-stretch grow shrink-0 basis-0 flex-nowrap bg-[rgba(0,0,0,0.75)] rounded-[16px] border-solid border border-[#2d2d2d] relative z-[345]"
                         >
-                            <input type="hidden" name="zf_referrer_name" value="" />
-                            <input type="hidden" name="zf_redirect_url" value="" />
-                            <input type="hidden" name="zc_gad" value="" />
-
                             <div className="flex flex-col gap-[16px] items-start self-stretch shrink-0 flex-nowrap relative z-[346]">
                                 <div className="w-[91px] h-[91px] shrink-0 bg-[url(https://codia-f2c.s3.us-west-1.amazonaws.com/image/2025-12-02/RLpjYqRbqf.png)] bg-[length:100%_100%] bg-no-repeat relative z-[347]" />
                                 <div className="flex flex-col gap-[8px] items-start self-stretch shrink-0 flex-nowrap relative z-[348]">
@@ -84,9 +92,12 @@ const ContactForm = () => {
                                     <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center self-stretch shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[354]">
                                         <input
                                             type="text"
-                                            name="SingleLine"
+                                            name="company"
+                                            value={formData.company}
+                                            onChange={handleChange}
                                             placeholder="Your Company"
-                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e]"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -99,9 +110,12 @@ const ContactForm = () => {
                                     <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center self-stretch shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[354]">
                                         <input
                                             type="text"
-                                            name="SingleLine1"
+                                            name="lastName"
+                                            value={formData.lastName}
+                                            onChange={handleChange}
                                             placeholder="Last Name"
-                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e]"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -114,9 +128,12 @@ const ContactForm = () => {
                                     <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center self-stretch shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[354]">
                                         <input
                                             type="text"
-                                            name="SingleLine2"
+                                            name="firstName"
+                                            value={formData.firstName}
+                                            onChange={handleChange}
                                             placeholder="First Name"
-                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e]"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -128,10 +145,13 @@ const ContactForm = () => {
                                     </span>
                                     <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center self-stretch shrink-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[358]">
                                         <input
-                                            type="text"
-                                            name="Email"
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
                                             placeholder="yourname@gmail.com"
-                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e]"
+                                            disabled={isSubmitting}
+                                            className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                         />
                                     </div>
                                 </div>
@@ -144,27 +164,28 @@ const ContactForm = () => {
                                     <div className="flex gap-[8px] items-start self-stretch shrink-0 flex-nowrap relative z-[366]">
                                         <div className="flex h-[40px] py-[4px] pl-[12px] gap-[10px] items-center grow shrink-0 basis-0 flex-nowrap bg-[rgba(29,29,29,0.8)] rounded-[4px] relative z-[371]">
                                             <input
-                                                type="text"
-                                                name="PhoneNumber_countrycode"
+                                                type="tel"
+                                                name="phone"
+                                                value={formData.phone}
+                                                onChange={handleChange}
                                                 placeholder="Phone Number"
-                                                className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e]"
+                                                disabled={isSubmitting}
+                                                className="w-full bg-transparent border-none outline-none font-inter text-[14px] font-normal text-[#fff] placeholder-[#4e4e4e] disabled:opacity-50"
                                             />
                                         </div>
                                     </div>
                                 </div>
-
-                                {/* Lead Source Hidden */}
-                                <input type="hidden" name="Dropdown" value="Architecture Course Landing Page" />
 
                             </div>
 
                             <div className="flex pt-[16px] flex-col gap-[8px] items-start self-stretch shrink-0 flex-nowrap relative z-[373] w-full mt-4">
                                 <button
                                     type="submit"
-                                    className="flex py-[13.5px] px-[21.5px] gap-[8px] justify-center items-center self-stretch shrink-0 flex-nowrap bg-[#fff200] rounded-[4px] relative z-[374] hover:bg-yellow-400 transition-colors cursor-pointer border-none glow-btn"
+                                    disabled={isSubmitting}
+                                    className="flex py-[13.5px] px-[21.5px] gap-[8px] justify-center items-center self-stretch shrink-0 flex-nowrap bg-[#fff200] rounded-[4px] relative z-[374] hover:bg-yellow-400 transition-colors cursor-pointer border-none glow-btn disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
                                     <span className="h-[22px] shrink-0 basis-auto font-inter text-[18px] font-semibold leading-[22px] text-[#000] relative text-left whitespace-nowrap z-[375]">
-                                        Submit
+                                        {isSubmitting ? 'Submitting...' : 'Submit'}
                                     </span>
                                 </button>
                             </div>

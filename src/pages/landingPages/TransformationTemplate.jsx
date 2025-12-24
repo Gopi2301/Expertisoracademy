@@ -20,20 +20,6 @@ const TransformationTemplate = ({
 }) => {
     const [isApplyOpen, setIsApplyOpen] = useState(false);
 
-
-    const handleFormSubmit = async (formData) => {
-        if (form.formAction) {
-            const response = await fetch(form.formAction, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
-            });
-            if (!response.ok) {
-                throw new Error('Form submission failed');
-            }
-        }
-    };
-
     return (
         <div
             className="min-h-screen text-white font-sans selection:bg-[#FFF200]/30 overflow-x-hidden relative flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed"
@@ -147,7 +133,6 @@ const TransformationTemplate = ({
                     courseName: heading?.parts?.map(p => p.text).join(' ') || 'Expertisor Academy Course',
                     title: heading?.parts?.map(p => p.text).join(' ')
                 }}
-                onSubmit={handleFormSubmit}
             />
         </div>
     );
