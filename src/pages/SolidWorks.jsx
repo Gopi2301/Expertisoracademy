@@ -10,6 +10,7 @@ import DreamJob from '../components/SolidworksComponents/DreamJob'
 import Hero from '../components/SolidworksComponents/Hero'
 import Rating from '../components/SolidworksComponents/Rating'
 import ReviewOnly from '../components/ReviewOnly'
+import CivilDemands from '../components/Civil3DComponents/CivilDemands'
 
 
 
@@ -18,6 +19,7 @@ const SolidWorks = () => {
         <div className=''>
             <Hero data={pages.solidworks.hero_section} />
             <Rating data={pages.solidworks.rating_sec} />
+            <CivilDemands data={pages.solidworks.solidworks_demands} />
             <DreamJob dreamjob={pages.solidworks.dream_job} />
             <div className='pt-20 pb-24 sm:pb-20 md:pb-[120px]'>
                 <CoursePreview lessons_data={pages.solidworks.lessons_comp} />

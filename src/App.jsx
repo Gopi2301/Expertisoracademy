@@ -260,6 +260,8 @@ import TemplatePreview from './pages/CMS/TemplatePreview';
 import ProtectedRoute from './components/ProtectedRoute';
 import Rhcsa from './pages/Rhcsa';
 import RhscaVideo from './pages/RhscaVideo';
+import Template from './pages/landingPages/Template';
+import { FormProvider } from './context/FormContext';
 
 const App = () => {
   const location = useLocation();
@@ -374,6 +376,13 @@ const App = () => {
           {/* RHCSA Route */}
           <Route path='/rhcsa-exam-training-tamil' element={<Rhcsa />} />
           <Route path='/rhcsa-exam-training-tamil/video' element={<RhscaVideo />} />
+
+          {/* Template Route */}
+          <Route path='/template' element={
+            <FormProvider>
+              <Template data={pages.template || pages.solidworks} />
+            </FormProvider>
+          } />
 
           {/* Eliteconnect Routes */}
           <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />

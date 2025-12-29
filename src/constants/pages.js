@@ -2607,6 +2607,40 @@ export const pages = {
             ],
             car_video: assets.Video_Solidworks
         },
+        solidworks_demands: {
+            title: "Why SolidWorks is in High Demand",
+            highlights: ["SolidWorks"],
+            p1: "SolidWorks professionals are in growing demand across India, especially in sectors",
+            p2: "like automotive, aerospace, machinery, and manufacturing.",
+            card1: {
+                salary_range: "5.2-12.4 LPA",
+                title: "Average Annual Salary",
+                description: "Salary increases with hands-on project experience, especially in product design, automotive components, manufacturing workflows, and industrial projects.",
+                sources: [
+                    {
+                        link: "",
+                        img: assets.glassdoor
+                    },
+                    {
+                        link: "",
+                        img: assets.naukri
+                    },
+                ],
+                desc_img: assets.highdemand_1
+            },
+            card2: {
+                percentage: "85%",
+                title: "Widespread Industry Use",
+                description: "Most manufacturing, automotive, aerospace, and product design companies rely on SolidWorks as their primary tool.",
+                desc_img: assets.highdemand_2
+            },
+            card3: {
+                percentage: "190%",
+                title: "Rising Demand Across India",
+                description: "With rapid growth in manufacturing, automotive, aerospace, robotics, and product design, the need for skilled SolidWorks professionals is skyrocketing worldwide.",
+                desc_img: assets.highdemand_3
+            }
+        },
         rating_sec: {
             rating: [
                 { number: "1000+", label: "Students Enrolled" },
@@ -3097,7 +3131,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "Learn to design roads, surfaces, profiles, and pipe networks using Civil 3D with real  ",
             p2: "world civil engineering projects.",
-            video_id: "ImWU_sqQUa0",
+            video_id: "Jk_QfULahkU",
         },
         mentor_section: {
             ment_img: assets.raghulan_ment,
@@ -3516,7 +3550,7 @@ export const pages = {
             highlights: ["Learn"],
             p1: "Learn to design roads, surfaces, profiles, and pipe networks using Civil 3D with real  ",
             p2: "world civil engineering projects.",
-            video_id: "wYCJ_EdKZwA",
+            video_id: "YSW6NhtxU_M",
         },
         mentor_section: {
             ment_img: assets.raghulan_ment,
