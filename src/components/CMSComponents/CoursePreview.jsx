@@ -1,5 +1,5 @@
 import React from 'react';
-import TransformationTemplate from '../../pages/LandingPages/TransformationTemplate';
+import TransformationTemplate from '../../pages/landingPages/TransformationTemplate';
 
 /**
  * CoursePreview - Live preview component for the course editor

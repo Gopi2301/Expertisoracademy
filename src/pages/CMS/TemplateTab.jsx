@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Monitor, Smartphone } from 'lucide-react';
-import TransformationTemplate from '../LandingPages/TransformationTemplate';
-import LifeTransformationTemplate from '../LandingPages/LifeTransformationTemplate';
-import Simple_elite_temp from '../LandingPages/Simple_elite_temp';
-import FullCourseTemplate from '../LandingPages/FullCourseTemplate';
+import TransformationTemplate from '../landingPages/TransformationTemplate';
+import LifeTransformationTemplate from '../landingPages/LifeTransformationTemplate';
+import Simple_elite_temp from '../landingPages/Simple_elite_temp';
+import FullCourseTemplate from '../landingPages/FullCourseTemplate';
 import TemplateEditorPanel from './TemplateEditorPanel';
 
 /**

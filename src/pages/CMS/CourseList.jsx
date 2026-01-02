@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Plus, Edit2, Trash2, Eye, Copy, Globe, BookOpen, Search, Download, X } from 'lucide-react';
 import { getAllCourses, deleteCourse, publishCourse, unpublishCourse, archiveCourse, getCategories, duplicateCourse, exportLeadsCSV, getLeads } from '../../services/api';
 import BulkActionBar from '../../components/CMSComponents/BulkActionBar';
-import TransformationTemplate from '../LandingPages/TransformationTemplate';
+import TransformationTemplate from '../landingPages/TransformationTemplate';
 import toast from 'react-hot-toast';
 
 const CourseList = () => {

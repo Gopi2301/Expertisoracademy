@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { getCourseBySlug } from '../services/api';
-import TransformationTemplate from './LandingPages/TransformationTemplate';
-import LifeTransformationTemplate from './LandingPages/LifeTransformationTemplate';
-import Simple_elite_temp from './LandingPages/Simple_elite_temp';
-import FullCourseTemplate from './LandingPages/FullCourseTemplate';
+import TransformationTemplate from './landingPages/TransformationTemplate';
+import LifeTransformationTemplate from './landingPages/LifeTransformationTemplate';
+import Simple_elite_temp from './landingPages/Simple_elite_temp';
+import FullCourseTemplate from './landingPages/FullCourseTemplate';
 
 
 const LandingPage = () => {
