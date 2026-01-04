@@ -240,6 +240,7 @@ import WhyLearnCourse from './pages/WhyLearnCourse';
 import SolidWorks from './pages/SolidWorks';
 import Civil3D from './pages/Civil3D';
 import Mentorship from './pages/Mentorship';
+import BusinessWebinar from './pages/BusinessWebinar';
 import MentDet from './components/MentorshipComponents/MentDet';
 import { getUtmParams, storeUtmParams } from './utils/utmUtils';
 import Blockchain from './pages/Blockchain';
@@ -366,7 +367,7 @@ const App = () => {
           <Route path='/solidworks-tamil' element={<SolidWorks />} />
           <Route path='/civil3d-tamil' element={<Civil3D data={pages.civil3d} />} />
           <Route path='/civil3d-english' element={<Civil3D data={pages.civil3d_english} />} />
-
+          <Route path='/business-webinar' element={<BusinessWebinar data={pages.business_webinar}/>} />
           <Route path='/blockchain-course-for-students' element={<Blockchain data={pages.blockchain_students} />} />
           <Route path='/blockchain-course-for-working-professionals' element={<Blockchain data={pages.blockchain_working} />} />
           <Route path='/blockchain-course-for-business' element={<Blockchain data={pages.blockchain_bussiness} />} />

@@ -37,7 +37,12 @@ body,
   padding: 0;
 }
 
-
+.brand-text {
+  color: #FFF200;
+}
+.hero-text{
+    color:#DBDBDB
+}
 /* --- 3. Custom Utility and Component Styles --- */
 
 /* A custom class to create a gradient border effect. */

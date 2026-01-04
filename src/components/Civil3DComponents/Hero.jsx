@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { pages } from '../../constants/pages'
 import StartButton from '../StartButton'
 import Download from '../Download'
 import { assets } from '../../assets/assets'

@@ -1,5 +1,5 @@
 import { X } from "lucide-react";
-import React, { useState, useEffect } from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { assets } from "../../assets/assets";
 import { extractCourseFromURL } from '../../utils/geolocation';
