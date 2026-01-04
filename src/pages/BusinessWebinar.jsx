@@ -3,7 +3,7 @@ import Hero from '../components/BusinessWebinar/Hero'
 
 const BusinessWebinar = ({data}) => {
   return (
-    <div className='w-full h-screen bg-[#050400] max-w-[1200px] mx-auto'>
+    <div className='w-full h-full bg-[#050400]  mx-auto'>
         <Hero data={data.hero_section} />
 
           {/* <Rating data={pages.civil3d.rating_sec}/>

@@ -6407,6 +6407,28 @@ export const pages = {
           para: "No business experience required",
         },
       ],
+      webinar_details: [
+        {
+          label: "Date",
+          value: "20th Dec 2025",
+          icon: assets.schedule,
+        },
+        {
+          label: "Time",
+          value: "11:00 Am (IST)",
+          icon: assets.clock_icon,
+        },
+        {
+          label: "Language",
+          value: "English",
+          icon: assets.lang_icon,
+        },
+        {
+          label: "Duration",
+          value: "2 hours",
+          icon: assets.schedule,
+        },
+      ],
     },
   },
 };
