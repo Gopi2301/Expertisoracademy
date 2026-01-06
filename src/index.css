@@ -284,3 +284,25 @@ body,
   color: #ffffff !important;
   border-color: #404040 !important;
 }
+
+/* === Hero Section Gradients === */
+.bg-hero-gradient {
+  /* Combined radial glow and vertical linear blend */
+  background: 
+    /* Radial glow from bottom right */
+    radial-gradient(
+      ellipse 100% 60% at 95% 100%,
+      #ffffea 0%,
+      rgba(255, 196, 0, 0.8) 25%,
+      rgba(255, 196, 0, 0) 70%
+    ),
+    /* Main vertical blend */
+    linear-gradient(
+      to bottom,
+      #000000 0%,
+      #000000 30%,
+      #000000 45%,
+      #ffcc00 100%
+    );
+  background-color: #000;
+}

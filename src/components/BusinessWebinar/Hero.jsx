@@ -50,7 +50,7 @@ const Hero = ({ data }) => {
         </div>
         {/* Video/Image Preview Container */}
         <div className="flex flex-col items-center justify-center gap-3 max-h-[50vh]">
-          <div className="relative flex flex-col gap-3 flew-full w-full aspect-video rounded-xl overflow-hidden ">
+          <div className="relative flex flex-col gap-3 w-full aspect-video rounded-xl overflow-hidden ">
             <img
               src={data.hero_image}
               className="max-h-full w-full h-full object-contain"
@@ -73,33 +73,6 @@ const Hero = ({ data }) => {
           {/* Webinar Info Cards */}
         </div>
       </div>
-
-      {/* Background Styling - Moved to CSS for cleanliness */}
-      <style jsx>{`
-        .bg-hero-gradient {
-          /* We combine everything into one clean transition. 
-       The radial gradients in your previous code were likely 
-       fighting with the linear blend.
-    */
-          background: 
-      /* This radial adds that slight "glow" from the bottom right corner */ radial-gradient(
-              ellipse 100% 60% at 95% 100%,
-              #ffffea 0%,
-              rgba(255, 196, 0, 0.8) 25%,
-              rgba(255, 196, 0, 0) 70%
-            ),
-            /* The main vertical blend */
-              linear-gradient(
-                to bottom,
-                #000000 0%,
-                #000000 30%,
-                #000000 45%,
-                /* Dark 'earthy' gold bridge */ #ffcc00 100%
-                  /* Final pop of gold */
-              );
-          background-color: #000;
-        }
-      `}</style>
     </section>
   );
 };
