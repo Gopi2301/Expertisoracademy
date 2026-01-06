@@ -6393,6 +6393,7 @@ export const pages = {
         "Struggling to make your firm consistently profitable?  Even if you’re working 10+ hours a day?",
       highlights: ["Struggling", "consistently profitable?", "10+ hours"],
       para: "Learn the exact ₹100M+ business systems I used to price confidently, attract steady clients, and run a profitable firm without undercharging, chasing leads, or guessing what works.",
+      hero_image: "/webinar-hero-img.svg",
       features: [
         {
           i: assets.dangerous,
