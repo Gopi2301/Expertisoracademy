@@ -1,10 +1,27 @@
-/* src/index.css */
-
-
-
 /* Google Fonts: Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cactus+Classical+Serif:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    @apply bg-white text-black;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+}
 
 /* Self-hosted Clash Display Variable */
 @font-face {
@@ -13,28 +30,6 @@
        url("/src/assets/fonts/ClashDisplay-Variable.woff") format("woff");
   font-weight: 200 700; /* adjust based on available range */
   font-style: normal;
-}
-
-/* --- 1. Tailwind CSS Directives --- */
-/* These lines are essential for Tailwind CSS. They inject Tailwind's base styles,
-   component classes, and utility classes into your CSS build. */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-
-/* --- 2. Global Layout and Sizing Fix --- */
-/* ✅ THIS IS THE FIX FOR THE BLANK SCREEN ISSUE.
-   This rule ensures that the main containers of your single-page application
-   (html, body, and the React root div) fill the entire viewport height.
-   Without this, they can collapse to a height of 0, making your app invisible. */
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
 }
 
 .brand-text {

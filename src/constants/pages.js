@@ -6431,5 +6431,28 @@ export const pages = {
         },
       ],
     },
+    lead_gen_card: {
+      title: "Why Your Firm Isn't Stable Yet?",
+      cta: "Learn More",
+      highlight_word: "Isn't Stable",
+      subtitle: "Mistakes",
+      tags: [
+        { label: "Need More experience", type: "error" },
+        { label: "More contacts", type: "error" },
+        { label: "More efforts", type: "error" },
+        { label: "Better design", type: "error" },
+      ],
+      costingTitle: "What This Belief Is Costing You",
+      costingList: [
+        "Income feels unpredictable",
+        "Clients push scope without paying more",
+        "Pricing is guesswork",
+        "Hiring feels risky",
+        "Everything depends on you",
+      ],
+      systemLabel: "system",
+      systemText: "This is a talent problem.",
+      systemHighlight: "talent",
+    },
   },
 };

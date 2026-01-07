@@ -33,7 +33,7 @@ const Hero = ({ data }) => {
         {/* Header Section */}
         <div className="max-h-[50vh]">
           <div className="text-center max-w-5xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
               {formatHeading(heading, highlights)}
             </h1>
             <p className="mt-6 text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
