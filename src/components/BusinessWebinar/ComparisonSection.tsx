@@ -62,7 +62,7 @@ const ComparisonSection = ({
   };
 
   return (
-    <div className="md:mt-24 bg-[linear-gradient(180deg,rgba(4,3,0,1)0%,rgba(48,39,0,1)100%)]">
+    <div className="md:mt-24 bottom-gradient">
       <h3 className="font-clash font-weight-600 text-4xl text-center font-bold">
         How Most Firms Try to Fix This (And
         <span className="text-[#FF0000]"> Why It Backfires</span>)

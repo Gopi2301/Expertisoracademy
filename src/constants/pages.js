@@ -6478,5 +6478,18 @@ export const pages = {
       },
       cta: "Yes, I've Been Doing This Wrong",
     },
+    learn_section: {
+      title: "What You'll Learn?",
+      highlightWord: "Learn",
+      subtitle: "In this 2-hour Live ProClass, you’ll learn",
+      image: "/business-webinar/author.svg", // Using a placeholder for now, user can update
+      cta: "I Want to Learn This Live",
+      list: [
+        "How to price without negotiating",
+        "How to stop scope creep before it Starts",
+        "How to select the right clients",
+        "How to build a Proven firm system",
+      ],
+    },
   },
 };
