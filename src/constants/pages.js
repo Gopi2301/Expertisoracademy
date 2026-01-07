@@ -6454,5 +6454,29 @@ export const pages = {
       systemText: "This is a talent problem.",
       systemHighlight: "talent",
     },
+    comparison_section: {
+      mistakes: {
+        title: "What most firms do under pressure",
+        highlight: "under pressure",
+        items: [
+          "Take more projects to stabilize income",
+          "Say yes to every client",
+          "Discount fees to close deals",
+          "Handle everything themselves",
+        ],
+      },
+      solutions: {
+        title: "What actually creates stability",
+        highlight: "stability",
+        items: [
+          "Clear positioning",
+          "Pricing systems that protect margins",
+          "Scope control before execution",
+          "Client selection rules",
+          "A repeatable delivery structure",
+        ],
+      },
+      cta: "Yes, I've Been Doing This Wrong",
+    },
   },
 };

@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../components/BusinessWebinar/Hero";
 import LogoCarousel from "../components/BusinessWebinar/LogoCarousel";
 import LeadGenCard from "../components/BusinessWebinar/LeadGenCard";
+import ComparisonSection from "../components/BusinessWebinar/ComparisonSection";
 const BusinessWebinar = ({ data }) => {
   return (
     <div className="w-full h-full bg-[#050400]  mx-auto">
@@ -21,6 +22,8 @@ const BusinessWebinar = ({ data }) => {
         systemText={data.lead_gen_card.systemText}
         systemHighlight={data.lead_gen_card.systemHighlight}
       />
+      {/* comparison */}
+      <ComparisonSection {...data.comparison_section} />
     </div>
   );
 };
