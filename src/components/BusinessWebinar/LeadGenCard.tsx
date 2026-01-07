@@ -91,26 +91,26 @@ const LeadGenCard = ({
         }}
       >
         <CardContent>
-          <Typography
-            variant="h3"
-            component="h2"
-            sx={{
-              fontWeight: "bold",
-              mb: 4,
-              color: "white",
-              lineHeight: 1.2,
-              textAlign: "center",
-              fontSize: { xs: "1.75rem", md: "2.5rem" },
-            }}
+          <h2
+            className="font-clash font-bold text-white text-4xl mb-4"
+            // sx={{
+            //   // 
+            //   fontWeight: "semi-bold",
+            //   mb: 4,
+            //   color: "white",
+            //   lineHeight: 1,
+            //   textAlign: "center",
+            //   fontSize: { xs: "1.75rem", md: "2.5rem" },
+            // }}
           >
             {renderTitle()}
-          </Typography>
+          </h2>
 
           {/* Tags / Subtitle Area */}
           <div className="flex flex-col gap-4 mb-8">
             {subtitle && (
               <div className="relative">
-                <span className="font-cactus text-yellow-400 text-3xl italic relative z-10 block mb-2">
+                <span className="font-caveat brand-text text-4xl italic relative z-10 block mb-2">
                   {subtitle}
                 </span>
               </div>
@@ -122,8 +122,8 @@ const LeadGenCard = ({
                   className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-[#3f0d0d] text-gray-200 border border-[#5c1c1c]`}
                 >
                   {tag.type === "error" && (
-                    <span className="flex items-center justify-center w-5 h-5 rounded-full bg-red-600 text-white text-[10px] font-bold">
-                      x
+                    <span className="flex items-center justify-center w-5 h-5 rounded-full text-white text-[10px] font-bold">
+                      <img src="/business-webinar/icons/dangerous.png" alt="alert" />
                     </span>
                   )}
                   {tag.label}
@@ -155,9 +155,9 @@ const LeadGenCard = ({
             <div className="bg-black/40 rounded-xl p-8 flex flex-col items-center justify-center border border-white/10 min-h-[200px]">
               {/* Red Alert Icon */}
               <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
-                <div className="absolute inset-0 bg-red-600 rotate-45 rounded-sm"></div>
+                <div className="absolute inset-0 "></div>
                 <span className="relative z-10 text-3xl font-bold text-black">
-                  !
+                  <img src="/business-webinar/icons/brightness_alert.png" alt="alert" />
                 </span>
               </div>
 
@@ -171,7 +171,7 @@ const LeadGenCard = ({
                 }}
               >
                 {systemLabel && (
-                  <span className="block font-cactus text-yellow-400 text-xl mb-1 italic">
+                  <span className="block font-caveat brand-text text-2xl mb-1 italic">
                     {systemLabel}
                   </span>
                 )}
@@ -185,12 +185,14 @@ const LeadGenCard = ({
             variant="contained"
             fullWidth
             sx={{
-              background: "linear-gradient(180deg, #FF1F1F 0%, #D60000 100%)",
+              background:
+                "linear-gradient(to left, #ff0000, #ff1d18, #ff2c28, #ff3936, #ff4442, #ff4442, #ff4442, #ff4442, #ff3936, #ff2c28, #ff1d18, #ff0000) padding-box, linear-gradient(to bottom, #FF8484, rgba(255, 255, 255, 0)) border-box",
+              border: "1px solid transparent",
               color: "white",
               fontWeight: "bold",
               "&:hover": {
                 background:
-                  "linear-gradient(180deg, #D60000 0%, #900000 100%)",
+                  "linear-gradient(180deg, #D60000 0%, #900000 100%) padding-box, linear-gradient(to bottom, #FF8484, rgba(255, 255, 255, 0)) border-box",
               },
               padding: "16px",
               borderRadius: "8px",

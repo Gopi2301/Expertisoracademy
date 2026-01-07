@@ -6433,7 +6433,7 @@ export const pages = {
     },
     lead_gen_card: {
       title: "Why Your Firm Isn't Stable Yet?",
-      cta: "Learn More",
+      cta: "Yes, This is Exactly My Problem",
       highlight_word: "Isn't Stable",
       subtitle: "Mistakes",
       tags: [

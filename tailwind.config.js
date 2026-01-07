@@ -8,6 +8,7 @@ export default {
         inter: ["Inter", "sans-serif"],
         cactus: ['"Cactus Classical Serif"', "serif"],
         playfair: ['"Playfair Display"', "Georgia", "serif"],
+        caveat: ['"Caveat"', "cursive"],
       },
       backgroundImage: {
         "hero-pattern": "url('/bg_gradient.png')",
