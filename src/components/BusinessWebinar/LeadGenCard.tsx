@@ -184,22 +184,7 @@ const LeadGenCard = ({
           <Button
             variant="contained"
             fullWidth
-            sx={{
-              background:
-                "linear-gradient(to left, #ff0000, #ff1d18, #ff2c28, #ff3936, #ff4442, #ff4442, #ff4442, #ff4442, #ff3936, #ff2c28, #ff1d18, #ff0000) padding-box, linear-gradient(to bottom, #FF8484, rgba(255, 255, 255, 0)) border-box",
-              border: "1px solid transparent",
-              color: "white",
-              fontWeight: "bold",
-              "&:hover": {
-                background:
-                  "linear-gradient(180deg, #D60000 0%, #900000 100%) padding-box, linear-gradient(to bottom, #FF8484, rgba(255, 255, 255, 0)) border-box",
-              },
-              padding: "16px",
-              borderRadius: "8px",
-              textTransform: "none",
-              fontSize: "1.1rem",
-              boxShadow: "0px 4px 12px rgba(255, 0, 0, 0.4)",
-            }}
+            className="gradient-btn-dynamic"
           >
             {cta}
           </Button>
