@@ -5,12 +5,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
-interface ComparisonItem {
-  text: string;
-  icon: string; // URL or identifier for icon
-  type: "mistake" | "solution";
-}
-
 interface ComparisonSectionProps {
   mistakes: {
     title: string;
@@ -30,12 +24,12 @@ const ComparisonSection = ({
   solutions,
   cta,
 }: ComparisonSectionProps) => {
-  // Enhanced highlighting helper
+  // Helper to render the "Hand-Drawn" style underline
   const renderHighlightedText = (
     text: string,
     highlight: string,
     colorClass: string,
-    underlineColor: string
+    underlineAssetPath: string // Path to your SVG/PNG underline
   ) => {
     if (!highlight) return text;
     const parts = text.split(new RegExp(`(${highlight})`, "gi"));
@@ -45,12 +39,19 @@ const ComparisonSection = ({
           part.toLowerCase() === highlight.toLowerCase() ? (
             <span
               key={i}
-              className={`${colorClass} relative inline-block`}
+              className={`${colorClass} relative inline-block z-10 px-1`}
             >
               {part}
-              <span
-                className={`absolute bottom-1 left-0 w-full h-[2px] ${underlineColor}`}
-              ></span>
+              {/* The Image Asset Underline */}
+              <img
+                src={underlineAssetPath}
+                alt=""
+                className="absolute -bottom-2 left-0 w-full h-auto min-h-[8px] -z-10 object-contain pointer-events-none"
+                style={{
+                  // Adjusting scale to make it slightly wider than the word
+                  transform: "scaleX(1.1)",
+                }}
+              />
             </span>
           ) : (
             <span key={i}>{part}</span>
@@ -61,168 +62,154 @@ const ComparisonSection = ({
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 py-12">
-      <div className="grid md:grid-cols-2 gap-8 mb-10">
-        {/* Mistakes Card (Red) */}
-        <Card
-          sx={{
-            background:
-              "linear-gradient(180deg, #2a0a0a 0%, #1a0505 100%)", // Darker red gradient
-            border: "1px solid #7f1d1d",
-            borderRadius: "16px",
-            boxShadow: "0px 0px 40px rgba(127, 29, 29, 0.2)",
-            position: "relative",
-            overflow: "visible",
-          }}
-        >
-          {/* Top colored line/glow */}
-          <Box
+    <div className="md:mt-24 bg-[linear-gradient(180deg,rgba(4,3,0,1)0%,rgba(48,39,0,1)100%)]">
+      <h3 className="font-clash font-weight-600 text-4xl text-center font-bold">
+        How Most Firms Try to Fix This (And
+        <span className="text-[#FF0000]"> Why It Backfires</span>)
+      </h3>
+      <div className="w-full max-w-6xl mx-auto px-4 py-12 font-sans">
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          {/* Mistakes Card (Red/Dark Theme) */}
+          <Card
             sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "2px",
               background:
-                "linear-gradient(90deg, transparent, #ef4444, transparent)",
-              boxShadow: "0 0 15px #ef4444",
+                "radial-gradient(circle at 10% 10%, #3d0a0a 0%, #120303 100%)",
+              border: "1px solid rgba(127, 29, 29, 0.4)",
+              borderRadius: "24px",
+              position: "relative",
+              overflow: "hidden",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
             }}
-          />
-          
-          <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-            <Typography
-              variant="h5"
-              component="h3"
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                mb: 4,
-                fontSize: { xs: "1.5rem", md: "1.75rem" },
-              }}
-            >
-              {renderHighlightedText(
-                mistakes.title,
-                mistakes.highlight,
-                "text-[#ff4d4d]",
-                "bg-[#ff4d4d]"
-              )}
-            </Typography>
+          >
+            <CardContent sx={{ p: { xs: 4, md: 6 } }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "white",
+                  fontWeight: "400",
+                  mb: 5,
+                  fontSize: { xs: "1rem", md: "1.5rem" },
+                  lineHeight: 1.3,
+                }}
+              >
+                {renderHighlightedText(
+                  mistakes.title,
+                  mistakes.highlight,
+                  "text-[#ff4d4d]",
+                  "/business-webinar/icons/red_underline.svg"
+                )}
+              </Typography>
 
-            <ul className="space-y-4">
-              {mistakes.items.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <div className="mt-1 flex-shrink-0">
+              <ul className="flex flex-col gap-3">
+                {mistakes.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="bg-white/5 border border-white/10 backdrop-blur-sm flex items-center gap-3 px-4 py-3 rounded-xl w-fit text-gray-200 text-base font-medium"
+                  >
                     <img
-                      src="/business-webinar/dangerous.png" // Assuming this exists or using generic
+                      src="/business-webinar/icons/dangerous.png"
                       alt="x"
-                      className="w-6 h-6 object-contain"
-                      onError={(e) => {
-                         // Fallback if image missing
-                         (e.target as HTMLImageElement).style.display='none';
-                         ((e.target as HTMLImageElement).nextSibling as HTMLElement).style.display='block';
-                      }}
+                      className="w-5 h-5 object-contain"
                     />
-                     {/* <span className="hidden text-red-500 font-bold text-xl">✕</span> */}
-                  </div>
-                  <div className="bg-white/5 text-white flex flex-row gap-1 px-4 py-3 rounded-lg w-full text-base font-medium">
-                     <img src="/business-webinar/icons/dangerous.png" alt="x" className="w-6 h-6 object-contain" />
-                     {item}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-
-        {/* Solutions Card (Yellow/Gold) */}
-        <Card
-          sx={{
-            background:
-              "linear-gradient(180deg, #2a2500 0%, #1a1500 100%)", // Dark gold gradient
-            border: "1px solid #854d0e",
-            borderRadius: "16px",
-            boxShadow: "0px 0px 40px rgba(234, 179, 8, 0.15)",
-            position: "relative",
-            overflow: "visible",
-          }}
-        >
-           {/* Top colored line/glow */}
-           <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              height: "2px",
-              background:
-                "linear-gradient(90deg, transparent, #facc15, transparent)",
-              boxShadow: "0 0 15px #facc15",
-            }}
-          />
-
-          <CardContent sx={{ p: { xs: 3, md: 5 } }}>
-            <Typography
-              variant="h5"
-              component="h3"
-              sx={{
-                color: "white",
-                fontWeight: "bold",
-                mb: 4,
-                fontSize: { xs: "1.5rem", md: "1.75rem" },
-              }}
-            >
-              {renderHighlightedText(
-                solutions.title,
-                solutions.highlight,
-                "text-[#facc15]",
-                "bg-[#facc15]"
-              )}
-            </Typography>
-
-            <ul className="space-y-4">
-              {solutions.items.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <div className="mt-1 flex-shrink-0">
-                    <img
-                      src="/business-webinar/icons/check_circle.png" // Assuming this exists
-                      alt="check"
-                      className="w-6 h-6 object-contain"
-                       onError={(e) => {
-                         // Fallback if image missing
-                         (e.target as HTMLImageElement).style.display='none';
-                         ((e.target as HTMLImageElement).nextSibling as HTMLElement).style.display='block';
-                      }}
-                    />
-                    {/* <span className="hidden text-yellow-400 font-bold text-xl">✓</span> */}
-                  </div>
-                  <div className="bg-[#362f0a] border border-[#634e08] flex flex-row gap-1 text-gray-200 px-4 py-3 rounded-lg w-full text-base font-medium">
-                    <img src="/business-webinar/icons/check_circle.png" alt="check" className="w-6 h-6 object-contain" />
                     {item}
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
-      </div>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
 
-      <div className="flex justify-center">
-        <Button
-          className="gradient-btn-dynamic"
-          sx={{
-             // Override to Yellow Theme for this CTA
-            "--btn-bg": "linear-gradient(90deg, #FACC15 0%, #EAB308 100%)", // Yellow gradient
-            "--btn-border": "linear-gradient(to bottom, #FEF08A, rgba(255, 255, 255, 0))", // Light yellow border fade
-            "--btn-bg-hover": "linear-gradient(90deg, #EAB308 0%, #CA8A04 100%)",
-            "--btn-shadow": "0px 4px 20px rgba(250, 204, 21, 0.4)",
-            color: "black !important", // High contrast for yellow button
-            fontSize: "1.2rem !important",
-            px: 6,
-            py: 2
-          } as React.CSSProperties}
-        >
-          {cta}
-        </Button>
+          {/* Solutions Card (Yellow/Dark Theme) */}
+          <Card
+            sx={{
+              background:
+                "radial-gradient(circle at 10% 10%, #362f0a 0%, #0f0d02 100%)",
+              border: "1px solid rgba(133, 77, 14, 0.4)",
+              borderRadius: "24px",
+              position: "relative",
+              overflow: "hidden",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
+            }}
+          >
+            <CardContent sx={{ p: { xs: 4, md: 6 } }}>
+              <Typography
+                variant="h5"
+                sx={{
+                  color: "white",
+                  fontWeight: "400",
+                  mb: 5,
+                  fontSize: { xs: "1rem", md: "1.5rem" },
+                  lineHeight: 1.5,
+                }}
+              >
+                {renderHighlightedText(
+                  solutions.title,
+                  solutions.highlight,
+                  "text-[#facc15]",
+                  "/business-webinar/icons/yellow_underline.svg"
+                )}
+              </Typography>
+
+              <ul className="flex flex-col gap-3">
+                {solutions.items.map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="bg-white/5 border border-white/10 backdrop-blur-sm flex items-center gap-3 px-4 py-3 rounded-xl w-fit text-gray-200 text-base font-medium"
+                  >
+                    <img
+                      src="/business-webinar/icons/check_circle.png"
+                      alt="check"
+                      className="w-5 h-5 object-contain"
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* CTA Button */}
+        <div className="flex justify-center mt-8">
+          <Button
+            variant="contained"
+            sx={{
+              // 1. Multi-stepped horizontal gradient (Yellow to Light Yellow to Yellow)
+              background:
+                "linear-gradient(to right, #fff200, #FFF876, #FFF200, #FFF876, #fff200)",
+
+              color: "#000",
+              fontWeight: "800",
+              fontSize: "1.1rem",
+              px: 6,
+              py: 1.5,
+              borderRadius: "8px",
+              textTransform: "none",
+              border: "1px solid rgba(255, 255, 255, 0.5)", // Bright edge highlight
+
+              // 2. Spreaded Glow Effect
+              // The first shadow is a tight glow, the second is a wide spread
+              boxShadow: `
+        0px 0px 15px 1px rgba(255, 242, 0, .2), 
+        0px 0px 40px 5px rgba(255, 242, 0, .2),
+        inset 0px 1px 1px rgba(255, 255, 255, 0.8)
+      `,
+
+              transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+
+              "&:hover": {
+                // Subtle shift in glow intensity on hover
+                boxShadow: `
+          0px 0px 25px 2px rgba(255, 242, 0, 0.2), 
+          0px 0px 60px 8px rgba(255, 242, 0, 0.2)
+        `,
+                transform: "scale(1.02)",
+                filter: "brightness(1.05)",
+              },
+            }}
+          >
+            {cta}
+          </Button>
+        </div>
       </div>
     </div>
   );

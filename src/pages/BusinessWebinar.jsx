@@ -5,7 +5,7 @@ import LeadGenCard from "../components/BusinessWebinar/LeadGenCard";
 import ComparisonSection from "../components/BusinessWebinar/ComparisonSection";
 const BusinessWebinar = ({ data }) => {
   return (
-    <div className="w-full h-full bg-[#050400]  mx-auto">
+    <div className="w-full h-full bg-[#050400]">
       <Hero data={data.hero_section} />
       {/* Logo carousel */}
       <LogoCarousel />
