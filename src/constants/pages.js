@@ -6491,5 +6491,64 @@ export const pages = {
         "How to build a Proven firm system",
       ],
     },
+    results_section: {
+      title: "Real Results From Professionals Like You",
+      highlight: "Real Results",
+      subtitle: "Your win can be the Next one!",
+      cta: "Yes, I Want Results Like This",
+      main_video_image: "/business-webinar/result_author.png",
+      floating_profiles: [
+        {
+          src: "/business-webinar/happyClients/client_1.png",
+          size: 90,
+          style: { bottom: "450px", left: "220px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_2.png",
+          size: 70,
+          style: { bottom: "10px", right: "280px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_3.png",
+          size: 60,
+          style: { top: "200px", right: "0px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_4.png",
+          size: 50,
+          style: { bottom: "100px", left: "160px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_5.png",
+          size: 85,
+          style: { top: "40px", right: "150px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_6.png",
+          size: 75,
+          style: { bottom: "50px", left: "50px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_7.png",
+          size: 55,
+          style: { top: "120px", left: "80px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_8.png",
+          size: 65,
+          style: { bottom: "200px", right: "50px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_9.png",
+          size: 95,
+          style: { top: "-20px", left: "400px" },
+        },
+        {
+          src: "/business-webinar/happyClients/client_10.png",
+          size: 45,
+          style: { bottom: "-30px", left: "500px" },
+        },
+      ],
+    },
   },
 };

@@ -1,7 +1,47 @@
 import { Box, Typography, Button } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { CSSProperties } from 'react';
 
-const ResultsSection = () => {
+interface ResultsSectionProps {
+  title: string;
+  highlight: string;
+  subtitle: string;
+  cta: string;
+  main_video_image: string;
+  floating_profiles: Array<{
+    src: string;
+    size: number;
+    style: CSSProperties;
+  }>;
+}
+
+const ResultsSection = ({ 
+  title, 
+  highlight, 
+  subtitle, 
+  cta, 
+  main_video_image, 
+  floating_profiles 
+}: ResultsSectionProps) => {
+
+  const renderTitle = (text: string, highlightText: string) => {
+    if (!text || !highlightText) return text;
+    const parts = text.split(new RegExp(`(${highlightText})`, 'gi'));
+    return (
+      <>
+        {parts.map((part, index) =>
+          part.toLowerCase() === highlightText.toLowerCase() ? (
+            <span key={index} className="text-[#FFE500]">
+              {part}
+            </span>
+          ) : (
+            part
+          )
+        )}
+      </>
+    );
+  };
+
   return (
     <Box className="relative w-full py-20 overflow-hidden flex flex-col items-center bg-black">
       {/* Background Gradient & Orbit Lines */}
@@ -18,9 +58,9 @@ const ResultsSection = () => {
       {/* Content Wrapper */}
       <div className="relative z-10 flex flex-col items-center max-w-6xl w-full px-4 text-center">
         <Typography variant="h3" className="font-clash text-white mb-2 font-bold font-weight-bold max-w-[500px] text-lg md:text-2xl lg:text-3xl">
-          <span className="text-[#FFE500]">Real Results</span> From Professionals Like You
+          {renderTitle(title, highlight)}
         </Typography>
-        <p className="text-gray-400 ">Your win can be the Next one!</p>
+        <p className="text-gray-400 ">{subtitle}</p>
 
         {/* The Floating Container */}
         <div className="relative w-full mt-40 h-[500px] flex justify-center items-center">
@@ -41,7 +81,7 @@ const ResultsSection = () => {
 
           {/* Central Video/Image Card */}
           <Box className="relative z-20 w-[60%] h-[60%] aspect-video rounded-2xl overflow-hidden border-4 border-[#FFE500] shadow-2xl">
-            <img src="/business-webinar/result_author.png" alt="Results" className="w-full h-full object-cover" />
+            <img src={main_video_image} alt="Results" className="w-full h-full object-cover" />
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="bg-[#FFE500] rounded-full p-4 cursor-pointer hover:scale-110 transition-transform">
                 <PlayArrowIcon sx={{ fontSize: 40 }} />
@@ -50,48 +90,32 @@ const ResultsSection = () => {
           </Box>
 
           {/* Floating Profiles - Aligned to Orbit Lines */}
-          {/* Box 1 (Index 1) */}
-          <FloatingProfile src="/business-webinar/happyClients/client_1.png" size={90} style={{ bottom: '450px', left: '220px' }} /> 
-
-          {/* Box 2 (Index 2) */}
-          <FloatingProfile src="/business-webinar/happyClients/client_2.png" size={70} style={{ bottom: '10px', right: '280px' }} />
-
-          {/* Box 3 (Index 3) */}
-          <FloatingProfile src="/business-webinar/happyClients/client_3.png" size={60} style={{ top: '200px', right: '0px' }} />
-
-           {/* Box 0 (Index 0) */}
-          <FloatingProfile src="/business-webinar/happyClients/client_4.png" size={50} style={{ bottom: '100px', left: '160px' }} />
-
-          {/* New Profiles */}
-          {/* Box 4 (Index 4) - Top Rightish */}
-          <FloatingProfile src="/business-webinar/happyClients/client_5.png" size={85} style={{ top: '40px', right: '150px' }} />
-
-          {/* Box 5 (Index 5) - Bottom Leftish */}
-          <FloatingProfile src="/business-webinar/happyClients/client_6.png" size={75} style={{ bottom: '50px', left: '50px' }} />
-
-          {/* Box 2 (Index 2) - Top Leftish */}
-          <FloatingProfile src="/business-webinar/happyClients/client_7.png" size={55} style={{ top: '120px', left: '80px' }} />
-
-          {/* Box 5 (Index 5) - Middle Right */}
-          <FloatingProfile src="/business-webinar/happyClients/client_8.png" size={65} style={{ bottom: '200px', right: '50px' }} />
-
-           {/* Box 3 (Index 3) - Top Centerish */}
-          <FloatingProfile src="/business-webinar/happyClients/client_9.png" size={95} style={{ top: '-20px', left: '400px' }} />
-
-          {/* Box 4 (Index 4) - Bottom Centerish */}
-          <FloatingProfile src="/business-webinar/happyClients/client_10.png" size={45} style={{ bottom: '-30px', left: '500px' }} />
+          {floating_profiles?.map((profile, i) => (
+             <FloatingProfile 
+               key={i}
+               src={profile.src} 
+               size={profile.size} 
+               style={profile.style} 
+             />
+          ))}
         </div>
 
         <button className='primary-btn-gradient text-black font-bold py-4 px-10 rounded-lg mt-20 hover:scale-105 transition-all'>
-          Yes, I Want Results Like This
+          {cta}
         </button>
       </div>
     </Box>
   );
 };
+    
+interface FloatingProfileProps {
+  src: string;
+  style?: CSSProperties;
+  size?: number;
+}
 
 // Sub-component for small floating cards
-const FloatingProfile = ({ src, style, size = 80 }) => (
+const FloatingProfile = ({ src, style, size = 80 }: FloatingProfileProps) => (
   <Box 
     sx={{ 
       position: 'absolute', 
@@ -100,7 +124,7 @@ const FloatingProfile = ({ src, style, size = 80 }) => (
       p: 0.5,
     //   background: 'linear-gradient(to bottom, #FFE500, #FFFFFF)',
       zIndex: 10,
-      borderRadius: 1, 
+      borderRadius: 1,
       ...style 
     }}
   >
