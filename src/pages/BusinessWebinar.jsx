@@ -8,6 +8,8 @@ import ResultsSection from "../components/BusinessWebinar/ResultsSection";
 import AboutAuthor from "../components/BusinessWebinar/AboutAuthor";
 import WithOutSystem from "../components/BusinessWebinar/WithOutSystem";
 import Cta from "../components/BusinessWebinar/Cta";
+import FAQ from "../components/BusinessWebinar/FAQ";
+import Footer from "../components/Footer";
 
 const BusinessWebinar = ({ data }) => {
   return (
@@ -38,8 +40,12 @@ const BusinessWebinar = ({ data }) => {
       <AboutAuthor {...data.about_author} />
       {/* with & without System */}
       <WithOutSystem {...data.without_system} />
+
       {/* Cta */}
       <Cta {...data.cta} />
+      {/* FAQ */}
+      <FAQ {...data.faq} />
+      <Footer />
     </div>
   );
 };

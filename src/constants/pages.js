@@ -6604,5 +6604,37 @@ export const pages = {
       disclaimer: "* Seats are limited to keep the session interactive",
       image: "/business-webinar/cta-author.png", // specific image for CTA
     },
+    faq: {
+      title: "FREQUENTLY ASKED QUESTIONS (FAQ)",
+      highlight: "(FAQ)",
+      subtitle: "Got questions? We've got answers.",
+      list: [
+        {
+          question: "Is this webinar really live?",
+          answer:
+            "Yes! This is a live, interactive session where I’ll be teaching in real-time. You’ll also have the chance to ask questions directly during the Q&A segment.",
+        },
+        {
+          question: "Will there be a recording provided?",
+          answer:
+            "We highly recommend attending live to get the full experience and bonuses. However, a limited-time replay might be available for registered attendees, but showing up live ensures you don't miss anything.",
+        },
+        {
+          question: "Who is this Masterclass for?",
+          answer:
+            "This is specifically for Architects, Interior Designers, and Civil Engineers who are running their own firms or planning to start one and want to build a stable, profitable business.",
+        },
+        {
+          question: "Do I need any prior business experience?",
+          answer:
+            "Not at all. The systems I teach are designed to be simple and actionable, whether you're just starting out or have been running a firm for years without consistent results.",
+        },
+        {
+          question: "How long is the session?",
+          answer:
+            "The core training will be about 90 minutes, followed by a Q&A session. I recommend setting aside 2 hours to get the most out of it.",
+        },
+      ],
+    },
   },
 };

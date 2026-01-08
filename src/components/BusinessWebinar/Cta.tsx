@@ -66,7 +66,7 @@ const Cta = ({
   };
 
   return (
-    <div className="w-full py-20 px-5 md:px-20 relative overflow-hidden" style={{ background: "linear-gradient(to top, #A38200 5%, #00000000 50%)" }}>
+    <div className="w-full pt-20 pb-0 px-5 md:px-20 relative overflow-hidden" style={{ background: "linear-gradient(to top, #A38200 5%, #00000000 50%)" }}>
       {/* Background Gradient Effect - approximated from image */}
       <div className="absolute inset-0  opacity-30 pointer-events-none" />
       
@@ -134,7 +134,7 @@ const Cta = ({
         </div>
 
         {/* Right Content - Image */}
-        <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-2/5 flex justify-center lg:justify-end lg:self-end">
              <div className="relative">
                 {/* Image Decoration - Circuit background effect could go here behind image if needed, for now just the image */}
                  <img 
