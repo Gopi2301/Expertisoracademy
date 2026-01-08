@@ -1,6 +1,7 @@
 import { Box, Typography, Button } from '@mui/material';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import { CSSProperties } from 'react';
+import VideoPlayButton from './VideoPlayButton';
 
 interface ResultsSectionProps {
   title: string;
@@ -80,14 +81,11 @@ const ResultsSection = ({
           ))}
 
           {/* Central Video/Image Card */}
+          {/* Central Video/Image Card */}
           <Box className="relative z-20 w-[60%] h-[60%] aspect-video rounded-2xl overflow-hidden border-4 border-[#FFE500] shadow-2xl">
             <img src={main_video_image} alt="Results" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-[#FFE500] rounded-full p-4 cursor-pointer hover:scale-110 transition-transform">
-                <PlayArrowIcon sx={{ fontSize: 40 }} />
-              </div>
-            </div>
-          </Box>
+            <VideoPlayButton /> 
+          </Box> 
 
           {/* Floating Profiles - Aligned to Orbit Lines */}
           {floating_profiles?.map((profile, i) => (

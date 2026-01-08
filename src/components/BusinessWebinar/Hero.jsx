@@ -1,5 +1,6 @@
 import FeatureBadge from "./FeatureBadge";
 import WebinarDetailCard from "./WebinarDetailCard";
+import VideoPlayButton from "./VideoPlayButton";
 
 const Hero = ({ data }) => {
   const { heading, highlights, para, features, webinar_details } = data || {};
@@ -27,7 +28,7 @@ const Hero = ({ data }) => {
   };
 
   return (
-    <section className="w-full flex flex-col items-center pt-12 pb-20 overflow-x-hidden bg-hero-gradient">
+    <section className="w-full min-h-screen flex flex-col items-center justify-center pt-12 pb-20 overflow-x-hidden bg-hero-gradient">
       {/* Content Container */}
       <div className="container mx-auto px-4 z-10 flex flex-col items-center gap-8">
         {/* Header Section */}
@@ -57,11 +58,7 @@ const Hero = ({ data }) => {
               alt="Webinar Preview"
             />
             {/* play button */}
-            {/* <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
-              <button className="bg-white text-black px-6 py-2 rounded-full">
-                 
-              </button>
-            </div> */}
+            <VideoPlayButton />
           </div>
           <div className="flex flex-row justify-start gap-3">
             {webinar_details?.map((detail, index) => (

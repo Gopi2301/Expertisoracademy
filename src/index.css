@@ -339,6 +339,23 @@
   transition: all 0.3s ease !important;
 }
 
+
 .gradient-btn-dynamic:hover {
   background: var(--btn-bg-hover) padding-box, var(--btn-border) border-box !important;
+}
+
+/* === Ripple Animation === */
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.animate-ripple {
+  animation: ripple 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
