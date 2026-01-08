@@ -66,28 +66,27 @@ const Cta = ({
   };
 
   return (
-    <div className="w-full bg-[#050400] py-20 px-5 md:px-20 relative overflow-hidden">
+    <div className="w-full py-20 px-5 md:px-20 relative overflow-hidden" style={{ background: "linear-gradient(to top, #A38200 5%, #00000000 50%)" }}>
       {/* Background Gradient Effect - approximated from image */}
       <div className="absolute inset-0  opacity-30 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 gap-10">
         {/* Left Content */}
-        <div className="w-full lg:w-1/2 space-y-8">
+        <div className="w-full lg:w-3/5 space-y-8">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
                 <HighlightText text={title} highlight={titleHighlight} />
             </h2>
 
-            <div className="font-clash flex flex-wrap items-center gap-4 md:gap-6">
+            <div className="font-clash flex flex-wrap lg:flex-nowrap items-center gap-4 md:gap-6">
                 <div className="flex items-center gap-3">
                     <div className="relative leading-none">
-                       <span className="text-[100px] md:text-[120px] font-black italic bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-[#FFF200] via-[#FFFA89] to-[#FFF200] text-transparent bg-clip-text" style={{ fontFamily: 'sans-serif' }}>2</span>
+                       <span className="text-[80px] md:text-[100px] lg:text-[120px] font-black italic bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-[#FFF200] via-[#FFFA89] to-[#FFF200] text-transparent bg-clip-text" style={{ fontFamily: 'sans-serif' }}>2</span>
                        <span className="absolute bottom-4 right-1 text-2xl md:text-3xl font-bold italic text-[#FCEE21] tracking-tighter transform -skew-x-12">HR</span>
                     </div>
                     
                     <div className="flex flex-col justify-center h-full pt-2">
                         <div className="flex items-center gap-3 mb-[-5px]">
                             <span className="text-3xl md:text-4xl font-black italic tracking-wider bg-[linear-gradient(120deg,var(--tw-gradient-stops))] from-[#FFFFBE] via-[#FCEE21] to-[#D4C811] text-transparent bg-clip-text transform -skew-x-12">LIVE</span>
-                            {/* Broadcasting Icon */}
                             {/* Broadcasting Icon */}
                             <svg width="50" height="30" viewBox="0 0 50 30" fill="none" xmlns="http://www.w3.org/2000/svg" className="mx-2">
                                 <circle cx="25" cy="15" r="5" fill="#FF0000" />
@@ -102,7 +101,7 @@ const Cta = ({
                 </div>
 
                 {/* Timer Pill */}
-                <div className="flex items-center gap-3 bg-[#1A1A1A] border border-[#333] rounded-full px-6 py-3 backdrop-blur-sm">
+                <div className="flex items-center gap-2 bg-white/5 rounded-full p-[10px] shadow-[inset_0px_0px_12px_0px_rgba(255,255,255,0.15)] backdrop-blur-sm shrink-0">
                     <div className="text-[#FCEE21]">
                         {/* Clock Icon SVG */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -110,7 +109,7 @@ const Cta = ({
                         </svg>
                     </div>
                     <div className="text-white font-mono text-sm md:text-base">
-                        <span className="text-gray-400 mr-2">Ends in</span>
+                        <span className="text-white mr-2">Ends in</span>
                         <span className="text-red-500 font-bold">{formatTime(timeLeft.days)}d</span> :{" "}
                         <span className="text-red-500 font-bold">{formatTime(timeLeft.hours)}h</span> :{" "}
                         <span className="text-red-500 font-bold">{formatTime(timeLeft.minutes)}m</span> :{" "}
@@ -135,7 +134,7 @@ const Cta = ({
         </div>
 
         {/* Right Content - Image */}
-        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end">
+        <div className="w-full lg:w-2/5 flex justify-center lg:justify-end">
              <div className="relative">
                 {/* Image Decoration - Circuit background effect could go here behind image if needed, for now just the image */}
                  <img 

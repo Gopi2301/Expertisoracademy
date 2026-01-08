@@ -6602,7 +6602,7 @@ export const pages = {
       subtitleHighlight: "One Clear Step",
       buttonText: "Join the Live ProClass",
       disclaimer: "* Seats are limited to keep the session interactive",
-      image: "/business-webinar/author_cta.png", // specific image for CTA
+      image: "/business-webinar/cta-author.png", // specific image for CTA
     },
   },
 };
