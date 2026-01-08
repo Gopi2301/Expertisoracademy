@@ -68,12 +68,12 @@ const Cta = ({
   return (
     <div className="w-full bg-[#050400] py-20 px-5 md:px-20 relative overflow-hidden">
       {/* Background Gradient Effect - approximated from image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#050400] via-[#2a2500] to-[#4d4500] opacity-30 pointer-events-none" />
+      <div className="absolute inset-0  opacity-30 pointer-events-none" />
       
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10 gap-10">
         {/* Left Content */}
         <div className="w-full lg:w-1/2 space-y-8">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-white leading-tight">
                 <HighlightText text={title} highlight={titleHighlight} />
             </h2>
 
@@ -102,7 +102,7 @@ const Cta = ({
                 </div>
 
                 {/* Timer Pill */}
-                <div className="flex items-center gap-3 bg-[#1A1A1A]/80 border border-[#333] rounded-full px-6 py-3 backdrop-blur-sm">
+                <div className="flex items-center gap-3 bg-[#1A1A1A] border border-[#333] rounded-full px-6 py-3 backdrop-blur-sm">
                     <div className="text-[#FCEE21]">
                         {/* Clock Icon SVG */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -124,7 +124,7 @@ const Cta = ({
                      <HighlightText text={subtitle} highlight={subtitleHighlight} />
                 </p>
 
-                <button className="bg-[#FCEE21] hover:bg-[#e6d81e] text-black font-bold text-lg px-8 py-4 rounded-lg transform transition hover:scale-105 duration-200">
+                <button className="bg-[#FCEE21] hover:bg-[#e6d81e] text-black font-bold font-inter text-lg px-8 py-4 rounded-lg transform transition hover:scale-105 duration-200">
                     {buttonText}
                 </button>
 
