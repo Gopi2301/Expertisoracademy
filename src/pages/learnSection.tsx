@@ -1,4 +1,8 @@
+import Card from '@mui/material/Card';
 import React from "react";
+import { Box, Typography } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 // Actually LeadGenCard used MUI Button, so I will stick to it for the CTA to be safe, or just use a styled button.
 // The image shows a yellow button. I'll style it to match.
@@ -39,11 +43,18 @@ const LearnSection: React.FC<LearnSectionProps> = ({
     );
   };
 
+  const items = [
+    { text: "Architects, Interior designers, Construction professionals planning to Start & Scale their own firm", type: "success", fullWidth: true },
+    { text: "Firm owners stuck at the same revenue level", type: "success" },
+    { text: "People unwilling to change how they work", type: "error" },
+    { text: "People looking for shortcuts", type: "error" },
+  ];
+
   return (
-    <div className="w-full bg-red py-16 px-6 md:px-20 text-white">
-      <div className="max-w-7xl mx-auto">
+    <div className="w-full  text-white">
+      <div className="mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-12">
+        <div className="text-center my-12">
           <h2 className="text-4xl md:text-5xl font-bold font-clash mb-4">
             {renderTitle()}
           </h2>
@@ -51,7 +62,7 @@ const LearnSection: React.FC<LearnSectionProps> = ({
         </div>
 
         {/* Content Section */}
-        <div className="flex max-h-[400px]flex-col md:flex-row gap-12 justify-center items-center">
+        <div className="flex max-h-[400px]flex-col md:flex-row gap-12 justify-center items-center mx-1 md:mx-0">
           {/* Left Column: Image */}
           <div className="">
             {/* Placeholder for the image if not provided, or use the provided image prop */}
@@ -101,7 +112,7 @@ const LearnSection: React.FC<LearnSectionProps> = ({
                     </div>
 
                     {/* Text */}
-                    <div className={`text-xl md:text-2xl font-medium pt-0.5 ${isActive ? "text-[#FFE500]" : "text-gray-500"}`}>
+                    <div className={`text-md md:text-lg font-medium pt-0.5 ${isActive ? "text-[#FFE500]" : "text-gray-500"}`}>
                       {item}
                     </div>
                   </li>
@@ -117,6 +128,69 @@ const LearnSection: React.FC<LearnSectionProps> = ({
             </div>
           </div>
         </div>
+        {/* For whom */}
+        <div className="relative mt-20 py-20 bg-[url('/business-webinar/background-people.png')] bg-cover bg-center bg-no-repeat flex flex-col gap-6 items-center justify-center overflow-hidden">
+  
+  {/* 1. The Gradient Overlay: Sitting between BG image and Content */}
+  <div className="absolute inset-0 bottom-gradient z-0 opacity-90 pointer-events-none" />
+
+  {/* 2. Content Wrapper: Higher Z-index to stay above the overlay */}
+  <div className="relative z-10 flex flex-col items-center gap-6 w-full px-4">
+    
+    <h3 className="text-4xl font-semibold font-clash mb-4 tracking-[-0.04em] leading-[100%] text-white text-center">
+      Who this is <span className="text-[#FFE500]">for</span> and <span className="text-[#FF0000]">Not for?</span>
+    </h3>
+
+    <Box
+      className="gold-bottom-gradient"
+      sx={{
+        p: { xs: 2, md: 3 },
+        borderRadius: 4,
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 1.5,
+        justifyContent: 'center',
+        maxWidth: 900,
+        width: '100%',
+      }}
+    >
+      {items.map((item, index) => (
+        <Card
+          key={index}
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            p: 2,
+            gap: 2,
+            bgcolor: 'rgba(0, 0, 0, 0.4)', // Darker fill for the tags to pop against the gold
+            borderRadius: 2,
+            border: '1px solid rgba(255, 255, 255, 0.05)',
+            boxShadow: 'none',
+            flex: {
+              xs: '1 1 100%',
+              sm: item.fullWidth ? '1 1 100%' : '1 1 auto'
+            },
+          }}
+        >
+          {item.type === 'success' ? (
+            <CheckCircleIcon sx={{ color: '#FFE500' }} />
+          ) : (
+            <CancelIcon sx={{ color: '#FF0000' }} />
+          )}
+          <Typography sx={{ color: '#fff', fontSize: '0.95rem', fontWeight: 400 }}>
+            {item.text}
+          </Typography>
+        </Card>
+      ))}
+    </Box>
+
+    <button className='primary-btn-gradient hover:bg-yellow-400 text-black font-bold py-4 px-8 rounded-lg text-md w-full max-w-[384px] transition-all duration-300 transform hover:scale-[1.02] shadow-xl mt-4'>
+      Yes, I've Been Doing this Wrong
+    </button>
+  </div>
+</div>
+        {/* cta */}
+        
       </div>
     </div>
   );
