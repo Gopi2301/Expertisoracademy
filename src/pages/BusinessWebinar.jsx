@@ -4,6 +4,7 @@ import LogoCarousel from "../components/BusinessWebinar/LogoCarousel";
 import LeadGenCard from "../components/BusinessWebinar/LeadGenCard";
 import ComparisonSection from "../components/BusinessWebinar/ComparisonSection";
 import LearnSection from "../components/BusinessWebinar/LearnSection";
+import ResultsSection from "../components/BusinessWebinar/ResultsSection";
 const BusinessWebinar = ({ data }) => {
   return (
     <div className="w-full h-full bg-[#050400]">
@@ -27,6 +28,8 @@ const BusinessWebinar = ({ data }) => {
       <ComparisonSection {...data.comparison_section} />
       {/* LearnSection */}
       <LearnSection {...data.learn_section} />
+      {/* ResultsSection */}
+      <ResultsSection {...data.results_section} />
     </div>
   );
 };
