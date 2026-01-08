@@ -6584,5 +6584,14 @@ export const pages = {
         },
       ],
     },
+    without_system: {
+      title: "With A System Vs Without A System",
+      highlight: "With A System",
+      highlight2: "Without A System",
+      subtitle:
+        "This is a 2 hour live ProClass Focused on business systems, not motivation",
+      image: "/business-webinar/without_system.png",
+      cta: "I Want a Clear System for My Firm",
+    },
   },
 };

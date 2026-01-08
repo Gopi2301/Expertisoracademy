@@ -6,6 +6,8 @@ import ComparisonSection from "../components/BusinessWebinar/ComparisonSection";
 import LearnSection from "../components/BusinessWebinar/LearnSection";
 import ResultsSection from "../components/BusinessWebinar/ResultsSection";
 import AboutAuthor from "../components/BusinessWebinar/AboutAuthor";
+import WithOutSystem from "../components/BusinessWebinar/WithOutSystem";
+
 const BusinessWebinar = ({ data }) => {
   return (
     <div className="w-full h-full bg-[#050400]">
@@ -33,6 +35,8 @@ const BusinessWebinar = ({ data }) => {
       <ResultsSection {...data.results_section} />
       {/* about author */}
       <AboutAuthor {...data.about_author} />
+      {/* with & without System */}
+      <WithOutSystem {...data.without_system} />
     </div>
   );
 };
