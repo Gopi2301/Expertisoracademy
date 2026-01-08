@@ -77,7 +77,7 @@ const LeadGenCard = ({
   };
 
   return (
-    <div className="flex items-center justify-center w-full py-10 px-4">
+    <div className="flex items-center justify-center w-full py-6 md:py-10 px-4">
       <Card
         sx={{
           minWidth: 275,
@@ -86,40 +86,35 @@ const LeadGenCard = ({
           boxShadow: "inset 0px 0px 39px 0px rgba(255, 168, 168, 0.1)",
           color: "#fff",
           border: "1px solid #450a0a",
-          borderRadius: "16px",
-          padding: { xs: "16px", md: "32px" },
+          borderRadius: { xs: "24px", md: "32px" },
+          padding: { xs: "24px", md: "48px" },
         }}
       >
         <CardContent>
           <h2
-            className="font-clash font-bold text-white text-4xl mb-4"
-            // sx={{
-            //   // 
-            //   fontWeight: "semi-bold",
-            //   mb: 4,
-            //   color: "white",
-            //   lineHeight: 1,
-            //   textAlign: "center",
-            //   fontSize: { xs: "1.75rem", md: "2.5rem" },
-            // }}
+            className="font-clash font-bold text-white text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-tight text-center"
           >
             {renderTitle()}
           </h2>
 
           {/* Tags / Subtitle Area */}
-          <div className="flex flex-col gap-4 mb-8">
+          <div className="flex flex-col gap-4 mb-8 items-center md:items-start">
             {subtitle && (
               <div className="relative">
-                <span className="font-caveat brand-text text-4xl italic relative z-10 block mb-2">
+                <span className="font-caveat brand-text text-3xl md:text-4xl italic relative z-10 block mb-2">
                   {subtitle}
                 </span>
+                {/* Optional: Add Arrow Graphic if available */}
+                 <div className="hidden md:block absolute -right-24 top-1/2 -translate-y-1/2">
+                   {/* <img src="/business-webinar/icons/arrow_white.svg" className="w-16 opacity-80" /> */}
+                 </div>
               </div>
             )}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center md:justify-start">
               {tags?.map((tag, index) => (
                 <span
                   key={index}
-                  className={`flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-medium bg-[#3f0d0d] text-gray-200 border border-[#5c1c1c]`}
+                  className={`flex items-center gap-2 px-4 py-2 md:py-3 rounded-lg text-sm font-medium bg-[#3f0d0d] text-gray-200 border border-[#5c1c1c]`}
                 >
                   {tag.type === "error" && (
                     <span className="flex items-center justify-center w-5 h-5 rounded-full text-white text-[10px] font-bold">
@@ -133,31 +128,37 @@ const LeadGenCard = ({
           </div>
 
           {/* Main Content Columns */}
-          <div className="grid md:grid-cols-2 gap-8 mb-8">
+          <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-8">
             <div>
               <Typography
                 variant="h6"
-                sx={{ color: "white", mb: 3, fontWeight: "medium" }}
+                sx={{ 
+                  color: "white", 
+                  mb: 3, 
+                  fontWeight: "medium",
+                  fontSize: { xs: "1.1rem", md: "1.25rem" },
+                  textAlign: { xs: "center", md: "left" }
+                }}
               >
                 {costingTitle}
               </Typography>
               <ul className="space-y-3 text-gray-300">
                 {costingList?.map((item, i) => (
-                  <li key={i} className="flex items-center gap-2">
-                    <span className="min-w-1.5 min-h-1.5 rounded-full bg-gray-500"></span>
-                    {item}
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="min-w-1.5 min-h-1.5 mt-2 rounded-full bg-gray-500 shrink-0"></span>
+                    <span className="text-base md:text-lg leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Right side 'System' card mimic */}
-            <div className="bg-black/40 rounded-xl p-8 flex flex-col items-center justify-center border border-white/10 min-h-[200px]">
+            <div className="bg-black/40 rounded-xl p-6 md:p-8 flex flex-col items-center justify-center border border-white/10 min-h-[180px] md:min-h-[200px]">
               {/* Red Alert Icon */}
-              <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
+              <div className="relative w-12 h-12 md:w-16 md:h-16 mb-4 flex items-center justify-center">
                 <div className="absolute inset-0 "></div>
                 <span className="relative z-10 text-3xl font-bold text-black">
-                  <img src="/business-webinar/icons/brightness_alert.png" alt="alert" />
+                  <img src="/business-webinar/icons/brightness_alert.png" alt="alert" className="w-full h-full object-contain" />
                 </span>
               </div>
 
@@ -168,10 +169,11 @@ const LeadGenCard = ({
                   color: "white",
                   textAlign: "center",
                   lineHeight: 1.4,
+                  fontSize: { xs: "1rem", md: "1.25rem" }
                 }}
               >
                 {systemLabel && (
-                  <span className="block font-caveat brand-text text-2xl mb-1 italic">
+                  <span className="block font-caveat brand-text text-xl md:text-2xl mb-1 italic">
                     {systemLabel}
                   </span>
                 )}
@@ -180,11 +182,15 @@ const LeadGenCard = ({
             </div>
           </div>
         </CardContent>
-        <CardActions>
+        <CardActions sx={{ p: 0, mt: 2 }}>
           <Button
             variant="contained"
             fullWidth
             className="gradient-btn-dynamic"
+            sx={{
+              fontSize: { xs: "1rem", md: "1.25rem" },
+              py: { xs: 1.5, md: 2 },
+            }}
           >
             {cta}
           </Button>

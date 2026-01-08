@@ -32,9 +32,9 @@ const Hero = ({ data }) => {
       {/* Content Container */}
       <div className="container mx-auto px-4 z-10 flex flex-col items-center gap-8">
         {/* Header Section */}
-        <div className="max-h-[50vh]">
+        <div className="md:max-h-[50vh]">
           <div className="text-center max-w-5xl">
-            <h1 className="font-clash text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
+            <h1 className="font-clash text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight">
               {formatHeading(heading, highlights)}
             </h1>
             <p className="mt-6 text-base md:text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -50,7 +50,7 @@ const Hero = ({ data }) => {
           </div>
         </div>
         {/* Video/Image Preview Container */}
-        <div className="flex flex-col items-center justify-center gap-3 max-h-[50vh]">
+        <div className="flex flex-col items-center justify-center gap-3 md:max-h-[50vh] w-full">
           <div className="relative flex flex-col gap-3 w-full aspect-video rounded-xl overflow-hidden ">
             <img
               src={data.hero_image}
@@ -60,7 +60,7 @@ const Hero = ({ data }) => {
             {/* play button */}
             <VideoPlayButton />
           </div>
-          <div className="flex flex-row justify-start gap-3">
+          <div className="grid grid-cols-2 md:flex md:flex-row justify-start gap-3 w-full md:w-auto">
             {webinar_details?.map((detail, index) => (
               <WebinarDetailCard key={index} {...detail} />
             ))}
