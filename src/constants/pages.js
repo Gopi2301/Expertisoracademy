@@ -6491,6 +6491,40 @@ export const pages = {
         "How to build a Proven firm system",
       ],
     },
+    about_author: {
+      title: "Who You're Learning From?",
+      highlightWord: "Learning From?",
+      subtitle: "In this 2-hour Live ProClass, you'll learn",
+      image: "/business-webinar/result_author.png", // Placeholder, user should update
+      cta: "Guide Me to Build a Profitable Firm",
+      list: [
+        {
+          text: "Left a CEO role to build his own firm",
+          highlight: "CEO",
+          icon: "/business-webinar/icons/apartment.png",
+        },
+        {
+          text: "Scaled Space Mush to ₹100M+ in revenue",
+          highlight: "₹100M+",
+          icon: "/business-webinar/icons/ruppee.png",
+        },
+        {
+          text: "Founder of DeHub (India's 2nd largest architect community)",
+          highlight: "DeHub",
+          icon: "/business-webinar/icons/groups.png",
+        },
+        {
+          text: "15+ years across architecture, interiors, and construction",
+          highlight: "15+ years",
+          icon: "/business-webinar/icons/home_work.png",
+        },
+        {
+          text: "Mentored 1000's of firm founder",
+          highlight: "1000's",
+          icon: "/business-webinar/icons/school.png",
+        },
+      ],
+    },
     results_section: {
       title: "Real Results From Professionals Like You",
       highlight: "Real Results",

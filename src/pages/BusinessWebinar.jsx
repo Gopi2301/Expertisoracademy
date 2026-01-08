@@ -5,6 +5,7 @@ import LeadGenCard from "../components/BusinessWebinar/LeadGenCard";
 import ComparisonSection from "../components/BusinessWebinar/ComparisonSection";
 import LearnSection from "../components/BusinessWebinar/LearnSection";
 import ResultsSection from "../components/BusinessWebinar/ResultsSection";
+import AboutAuthor from "../components/BusinessWebinar/AboutAuthor";
 const BusinessWebinar = ({ data }) => {
   return (
     <div className="w-full h-full bg-[#050400]">
@@ -30,6 +31,8 @@ const BusinessWebinar = ({ data }) => {
       <LearnSection {...data.learn_section} />
       {/* ResultsSection */}
       <ResultsSection {...data.results_section} />
+      {/* about author */}
+      <AboutAuthor {...data.about_author} />
     </div>
   );
 };
