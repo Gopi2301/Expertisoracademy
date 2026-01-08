@@ -6593,5 +6593,16 @@ export const pages = {
       image: "/business-webinar/without_system.png",
       cta: "I Want a Clear System for My Firm",
     },
+    cta: {
+      title: "You Don't Need Another Year Of Trial And Error.",
+      titleHighlight: "Trial And Error.",
+      label: "2 HR LIVE PROCLASS",
+      subtitle:
+        "You Can Keep Figuring It Out For Years... (Or) Take One Clear Step Now",
+      subtitleHighlight: "One Clear Step",
+      buttonText: "Join the Live ProClass",
+      disclaimer: "* Seats are limited to keep the session interactive",
+      image: "/business-webinar/author_cta.png", // specific image for CTA
+    },
   },
 };

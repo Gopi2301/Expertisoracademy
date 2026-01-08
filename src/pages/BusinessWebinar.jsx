@@ -7,10 +7,11 @@ import LearnSection from "../components/BusinessWebinar/LearnSection";
 import ResultsSection from "../components/BusinessWebinar/ResultsSection";
 import AboutAuthor from "../components/BusinessWebinar/AboutAuthor";
 import WithOutSystem from "../components/BusinessWebinar/WithOutSystem";
+import Cta from "../components/BusinessWebinar/Cta";
 
 const BusinessWebinar = ({ data }) => {
   return (
-    <div className="w-full h-full bg-[#050400]">
+    <div className="w-full h-full bg-[#050400] font-clash">
       <Hero data={data.hero_section} />
       {/* Logo carousel */}
       <LogoCarousel />
@@ -37,6 +38,8 @@ const BusinessWebinar = ({ data }) => {
       <AboutAuthor {...data.about_author} />
       {/* with & without System */}
       <WithOutSystem {...data.without_system} />
+      {/* Cta */}
+      <Cta {...data.cta} />
     </div>
   );
 };

@@ -57,7 +57,7 @@ const ResultsSection = ({
       
       {/* Content Wrapper */}
       <div className="relative z-10 flex flex-col items-center max-w-6xl w-full px-4 text-center">
-        <Typography variant="h3" className="font-clash text-white mb-2 font-bold font-weight-bold max-w-[500px] text-lg md:text-2xl lg:text-3xl">
+        <Typography variant="h3" className="text-white mb-2 font-bold font-weight-bold max-w-[500px] text-lg md:text-2xl lg:text-3xl">
           {renderTitle(title, highlight)}
         </Typography>
         <p className="text-gray-400 ">{subtitle}</p>

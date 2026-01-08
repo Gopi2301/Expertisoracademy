@@ -41,7 +41,7 @@ const AboutAuthor: React.FC<AboutAuthorProps> = ({
   };
 
   return (
-    <div className="w-full bg-black py-20 px-6 md:px-20 text-white font-sans">
+    <div className="w-full font-clash bg-black py-20 px-6 md:px-20 text-white font-sans">
       <div className="max-w-7xl mx-auto flex flex-col items-center">
         {/* Header */}
         <div className="text-center mb-12">
