@@ -89,79 +89,64 @@ const LearnSection: React.FC<LearnSectionProps> = ({
             {/* Positioned absolutely relative to the container. 
                 left-4 is 1rem (16px), which is exactly the center of the w-8 (32px) icon container.
                 top-4 is the center of the first star (approx).
-            */}
-            <div className="absolute left-4 top-4 bottom-16 w-[2px] -translate-x-1/2 bg-gradient-to-b from-[#FFE500] via-gray-800 to-transparent opacity-80"></div>
+            {/* Refactored Layout: List and Line wrapper */}
+            <div className="relative">
+              {/* Centered vertical line
+                  - Centered in w-12 (48px) column -> left-6 (24px).
+                  - Width 2px.
+                  - top-[48px]: Starts below the active star (which is h-12).
+                  - bottom-[50px]: Stops roughly above the last item content/star.
+              */}
+              <div className="absolute left-6 top-[40px] bottom-[50px] w-[2px] -translate-x-1/2 flex flex-col items-center pointer-events-none">
+                 <div className="w-full h-[60px] shrink-0 bg-gradient-to-b from-[#fff200] from-10% to-transparent" />
+                 <div className="w-full flex-1 bg-[#242424]" />
+              </div>
 
-            <ul className="space-y-10 relative z-10">
-              {list?.map((item, index) => {
-                const isActive = index === 0;
-                return (
-                  <li key={index} className="flex items-start gap-6 group">
-                    {/* Icon/Marker Container - Fixed width to align line perfectly */}
-                    <div className="relative flex-shrink-0 w-8 flex justify-center bg-black z-10">
-                      {isActive ? (
-                        <div className="w-8 h-8 flex items-center justify-center relative">
-                          {/* Glow effect */}
-                          <div className="absolute inset-0 bg-yellow-400 blur-md opacity-50 rounded-full"></div>
-                          {/* Star Icon Active */}
-                          <svg
-                            width="28"
-                            height="28"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="relative z-10"
-                          >
-                            <path
-                              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                              fill="#FFE500"
-                              stroke="#FFE500"
-                              strokeWidth="1"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      ) : (
-                        <div className="w-8 h-8 flex items-center justify-center">
-                          {/* Star Icon Inactive */}
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                              fill="#3D3D3D"
-                              stroke="#3D3D3D"
-                              strokeWidth="1"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            />
-                          </svg>
-                        </div>
-                      )}
-                    </div>
+              <ul className="space-y-8 relative z-10">
+                {list?.map((item, index) => {
+                  const isActive = index === 0;
+                  const activeStar = "/business-webinar/glowing_star.svg";
+                  const inactiveStar = "/business-webinar/Star.svg";
+                  return (
+                    <li key={index} className="flex items-start gap-4 min-h-[40px]">
+                      {/* Icon Column: Fixed width w-12 (48px) to house the big star */}
+                      <div className="relative shrink-0 w-12 flex justify-center pt-1">
+                         {/* Stars: Active is bigger (w-12), Inactive is smaller (w-7) */}
+                        <img
+                          src={isActive ? activeStar : inactiveStar}
+                          alt="star"
+                          className={`block object-contain ${isActive ? 'w-10 h-10 -mt-1' : 'w-6 h-6'}`}
+                          style={isActive ? { filter: 'drop-shadow(0 0 15px #fff200cc)' } : {}}
+                        />
+                      </div>
+                      
+                      <span
+                        className={
+                          isActive
+                            ? "font-inter font-medium text-[20px] bg-gradient-to-b from-[#fff200] from-1/6 to-white to-11/12 bg-clip-text text-transparent pt-1"
+                            : "font-inter font-medium text-[20px] text-[#5c5c5c] pt-1"
+                        }
+                        style={isActive ? { WebkitTextFillColor: 'transparent', fontWeight: 500, letterSpacing: 0 } : { fontWeight: 500, letterSpacing: 0 }}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
 
-                    {/* Text */}
-                    <div
-                      className={`text-md md:text-lg font-medium pt-0.5 ${
-                        isActive ? "text-[#FFE500]" : "text-gray-500"
-                      }`}
-                    >
-                      {item}
-                    </div>
-                  </li>
-                );
-              })}
-            </ul>
-
-            {/* CTA Button */}
-            <div className="mt-12 pl-14">
-              <button className="primary-btn-gradient hover:bg-yellow-400 text-black font-bold py-4 px-8 rounded-lg text-lg w-full transition-colors duration-300 transform hover:scale-[1.02]">
-                {cta}
+            {/* Figma-style CTA Button - Moved outside relative wrapper */}
+            <div className="mt-12 pl-16">
+              <button
+                className="border border-solid border-white px-10 py-[13.5px] rounded-[4px] font-semibold text-[14px] text-black w-full"
+                style={{
+                  backgroundImage:
+                    'linear-gradient(93.9deg, rgba(255, 242, 0, 1) 0%, rgba(255, 248, 118, 1) 29.8%, rgba(255, 242, 0, 1) 54.7%, rgba(255, 248, 118, 1) 78.4%, rgba(255, 242, 0, 1) 100%)',
+                  boxShadow: '0 2px 8px 0 rgba(255, 242, 0, 0.10)',
+                }}
+              >
+                I Want to Learn This Live
               </button>
             </div>
           </div>
