@@ -11,6 +11,7 @@ interface AboutAuthorProps {
   highlightWord: string;
   subtitle: string;
   image: string;
+  btnImage: string;
   cta: string;
   list: ListItem[];
 }
@@ -20,6 +21,7 @@ const AboutAuthor: React.FC<AboutAuthorProps> = ({
   highlightWord,
   subtitle,
   image,
+  btnImage,
   cta,
   list,
 }) => {
@@ -93,7 +95,7 @@ const AboutAuthor: React.FC<AboutAuthorProps> = ({
             <button className="w-full primary-btn-gradient text-black font-semibold text-sm md:text-base py-4 px-6 rounded-lg flex items-center justify-center gap-3 transition-colors mt-4">
                {/* Small Avatar in Button - optional, hardcoding standard icon or omitting if not in props but shown in design */}
                <div className="w-8 h-8 rounded-full bg-black overflow-hidden relative">
-                 <img src={image} alt="User" className="w-full h-full object-contain" />
+                 <img src={btnImage} alt="User" className="w-full h-full object-contain" />
                </div>
               <span>{cta}</span>
             </button>

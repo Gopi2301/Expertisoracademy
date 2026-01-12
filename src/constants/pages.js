@@ -6497,6 +6497,7 @@ export const pages = {
       subtitle: "In this 2-hour Live ProClass, you'll learn",
       image: "/business-webinar/result_author.png", // Placeholder, user should update
       cta: "Guide Me to Build a Profitable Firm",
+      btnImage:"/business-webinar/btnImg.png",
       list: [
         {
           text: "Left a CEO role to build his own firm",
