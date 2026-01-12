@@ -11,6 +11,7 @@ interface CtaProps {
   buttonText: string;
   disclaimer: string;
   image: string;
+  onCtaClick?: () => void;
 }
 
 const Cta = ({
@@ -22,6 +23,7 @@ const Cta = ({
   buttonText,
   disclaimer,
   image,
+  onCtaClick,
 }: CtaProps) => {
   const [timeLeft, setTimeLeft] = useState({
     days: 4,
@@ -131,7 +133,10 @@ const Cta = ({
                      <HighlightText text={subtitle} highlight={subtitleHighlight} />
                 </p>
 
-                <button className="bg-[#FCEE21] hover:bg-[#e6d81e] text-black font-bold font-inter text-lg px-8 py-4 rounded-lg transform transition hover:scale-105 duration-200">
+                <button 
+                    onClick={onCtaClick}
+                    className="bg-[#FCEE21] hover:bg-[#e6d81e] text-black font-bold font-inter text-lg px-8 py-4 rounded-lg transform transition hover:scale-105 duration-200"
+                >
                     {buttonText}
                 </button>
 

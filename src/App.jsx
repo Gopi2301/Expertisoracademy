@@ -42,9 +42,6 @@
 // import MentDet from './components/MentorshipComponents/MentDet';
 // import { Navigate } from 'react-router-dom';
 
-
-
-
 // /**
 //  * The main root component of the application.
 //  * It sets up the overall page structure, routing, and modal visibility.
@@ -92,11 +89,6 @@
 //   const handleOpenLoginModal = useCallback(() => setShowLoginModal(true), []);
 //   const handleCloseLoginModal = useCallback(() => setShowLoginModal(false), []);
 
-
-
-
-
-
 //   // --- 3. JSX Render with Layout Fix ---
 
 //   return (
@@ -124,16 +116,11 @@
 //         <Header onLoginClick={handleOpenLoginModal} />
 //       )}
 
-
 //       {/* The <main> element wraps the page content. */}
 //       {/* ✅ `flex-grow`: This crucial class tells the main content area to expand and
 //           take up all available free space, pushing the Footer to the bottom of the screen. */}
 //       {/* The margin-top (`mt-20`) creates space for the fixed header. */}
 //       <main className={`flex-grow ${!isLayoutHidden  ? 'mt-20 sm:mt-20' : ''}`}>
-
-
-
-
 
 //         {/* React Router's <Routes> component manages all the page routes. */}
 //         <Routes>
@@ -169,20 +156,17 @@
 //           {/* eliteconnect booking route */}
 //           <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
 
-
-
 //           {/* Optional: fallback / home route */}
 //           <Route path="*" element={<div>Page Not Found</div>} />
 //         </Routes>
 //       </main>
-
 
 //       {/* Conditionally render the Footer. It will be at the bottom because <main> grew to fill the space. */}
 //       {!isLayoutHidden && <Footer />}
 
 //       {/* Conditionally render the Login Modal based on the `showLoginModal` state. */}
 //       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
-//       {/* 
+//       {/*
 //       <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-10 '>
 //         <WhatsAppButton />
 //       </div> */}
@@ -200,80 +184,74 @@
 
 // export default App;
 
-
-
-
-
-
-
-
 // src/App.jsx
-import React, { useState, useCallback, useEffect } from 'react';
-import { Route, Routes, useLocation, Navigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import React, { useState, useCallback, useEffect } from "react";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 import "@fontsource/inter";
 
 // Layout components
-import Header from './components/Header';
-import Footer from './components/Footer';
-import LoginModal from './components/HomeComponents/LoginModal';
-import WhatsAppButton from './components/WhatsAppButton';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import LoginModal from "./components/HomeComponents/LoginModal";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 // Pages
-import Home from './pages/Home';
-import Courses from './pages/Courses';
-import Testimonials from './pages/Testimonials';
-import Course from './pages/Course';
-import Videos from './components/CourseComponents/Videos';
-import StudRev from './components/CourseComponents/StudRev';
-import Mentors from './pages/Mentors';
-import Initiative from './pages/Initiative';
-import AuthSuccess from './pages/AuthSuccess';
-import AffilateMarketing from './pages/AffilateMarketing';
-import ThreeDMax from './pages/ThreeDMax';
-import TermsAndServices from './pages/TermsAndServices';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import RefundAndCertificationPolicy from './pages/RefundAndCertificationPolicy';
-import AmazonCourse from './pages/AmazonCourse';
-import BecomeMentor from './pages/BecomeMentor';
-import WhyLearnCourse from './pages/WhyLearnCourse';
-import SolidWorks from './pages/SolidWorks';
-import Civil3D from './pages/Civil3D';
-import Mentorship from './pages/Mentorship';
-import BusinessWebinar from './pages/BusinessWebinar';
-import MentDet from './components/MentorshipComponents/MentDet';
-import { getUtmParams, storeUtmParams } from './utils/utmUtils';
-import Blockchain from './pages/Blockchain';
-import SSRCourse from './pages/SSRCourse';
-import { pages } from './constants/pages';
+import Home from "./pages/Home";
+import Courses from "./pages/Courses";
+import Testimonials from "./pages/Testimonials";
+import Course from "./pages/Course";
+import Videos from "./components/CourseComponents/Videos";
+import StudRev from "./components/CourseComponents/StudRev";
+import Mentors from "./pages/Mentors";
+import Initiative from "./pages/Initiative";
+import AuthSuccess from "./pages/AuthSuccess";
+import AffilateMarketing from "./pages/AffilateMarketing";
+import ThreeDMax from "./pages/ThreeDMax";
+import TermsAndServices from "./pages/TermsAndServices";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import RefundAndCertificationPolicy from "./pages/RefundAndCertificationPolicy";
+import AmazonCourse from "./pages/AmazonCourse";
+import BecomeMentor from "./pages/BecomeMentor";
+import WhyLearnCourse from "./pages/WhyLearnCourse";
+import SolidWorks from "./pages/SolidWorks";
+import Civil3D from "./pages/Civil3D";
+import Mentorship from "./pages/Mentorship";
+import BusinessWebinar from "./pages/BusinessWebinar";
+import MentDet from "./components/MentorshipComponents/MentDet";
+import { getUtmParams, storeUtmParams } from "./utils/utmUtils";
+import Blockchain from "./pages/Blockchain";
+import SSRCourse from "./pages/SSRCourse";
+import { pages } from "./constants/pages";
 
 // CMS Pages
-import CMSLayout from './components/CMSComponents/CMSLayout';
-import Settings from './pages/CMS/Settings';
-import LandingPage from './pages/LandingPage';
-import CourseList from './pages/CMS/CourseList';
-import CourseEditor from './pages/CMS/CourseEditor';
-import Dashboard from './pages/CMS/Dashboard';
-import CourseListing from './pages/CourseListing';
-import CourseDetail from './pages/CourseDetail';
-import Login from './pages/CMS/Login';
-import TemplatePreview from './pages/CMS/TemplatePreview';
-import ProtectedRoute from './components/ProtectedRoute';
-import Rhcsa from './pages/Rhcsa';
-import RhscaVideo from './pages/RhscaVideo';
-import Template from './pages/landingPages/Template';
-import { FormProvider } from './context/FormContext';
+import CMSLayout from "./components/CMSComponents/CMSLayout";
+import Settings from "./pages/CMS/Settings";
+import LandingPage from "./pages/LandingPage";
+import CourseList from "./pages/CMS/CourseList";
+import CourseEditor from "./pages/CMS/CourseEditor";
+import Dashboard from "./pages/CMS/Dashboard";
+import CourseListing from "./pages/CourseListing";
+import CourseDetail from "./pages/CourseDetail";
+import Login from "./pages/CMS/Login";
+import TemplatePreview from "./pages/CMS/TemplatePreview";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Rhcsa from "./pages/Rhcsa";
+import RhscaVideo from "./pages/RhscaVideo";
+import Template from "./pages/landingPages/Template";
+import { FormProvider } from "./context/FormContext";
+import BusinessWebinarOnboarding from "./pages/BusinessWebinarOnboarding";
 
 const App = () => {
   const location = useLocation();
 
   // --- Scroll to top on route change ---
   useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
     }
     const id = requestAnimationFrame(() => {
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      window.scrollTo({ top: 0, left: 0, behavior: "auto" });
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
     });
@@ -287,24 +265,24 @@ const App = () => {
   }, []);
 
   // --- Layout visibility ---
-  const layoutHiddenRoutes = ['/auth/success'];
+  const layoutHiddenRoutes = ["/auth/success"];
   const isLayoutHidden = layoutHiddenRoutes.includes(location.pathname);
 
   const headerHiddenRoutes = [
-    '/techbundle',
-    '/ssr-course',
-    '/reels-affiliate-marketing-tamil',
-    '/3dsmax-tamil',
-    '/3dsmax-english',
-    '/amazon-seller-tamil-course',
-    '/solidworks-tamil',
-    '/civil3d-tamil',
-    '/civil3d-english',
-    '/blockchain-course-for-students',
-    '/blockchain-course-for-working-professionals',
-    '/blockchain-course-for-business',
-    '/rhcsa-exam-training-tamil',
-    '/rhcsa-exam-training-tamil/video'
+    "/techbundle",
+    "/ssr-course",
+    "/reels-affiliate-marketing-tamil",
+    "/3dsmax-tamil",
+    "/3dsmax-english",
+    "/amazon-seller-tamil-course",
+    "/solidworks-tamil",
+    "/civil3d-tamil",
+    "/civil3d-english",
+    "/blockchain-course-for-students",
+    "/blockchain-course-for-working-professionals",
+    "/blockchain-course-for-business",
+    "/rhcsa-exam-training-tamil",
+    "/rhcsa-exam-training-tamil/video",
   ];
 
   const [showLoginModal, setShowLoginModal] = useState(false);
@@ -312,28 +290,48 @@ const App = () => {
   const handleCloseLoginModal = useCallback(() => setShowLoginModal(false), []);
 
   // Normalize path
-  const currentPath = location.pathname.replace(/\/$/, '');
+  const currentPath = location.pathname.replace(/\/$/, "");
 
   // Check if this is a dynamic course page (single segment like /aman)
   // Exclude known routes that should show header
-  const knownRoutes = ['', 'courses', 'courses-list', 'testimonials', 'mentors', 'techbundle', 'ssr-course', 'auth', '404'];
-  const pathSegments = currentPath.split('/').filter(Boolean);
-  const isDynamicCourseRoute = pathSegments.length === 1 && !knownRoutes.includes(pathSegments[0]);
+  const knownRoutes = [
+    "",
+    "courses",
+    "courses-list",
+    "testimonials",
+    "mentors",
+    "techbundle",
+    "ssr-course",
+    "auth",
+    "404",
+  ];
+  const pathSegments = currentPath.split("/").filter(Boolean);
+  const isDynamicCourseRoute =
+    pathSegments.length === 1 && !knownRoutes.includes(pathSegments[0]);
 
   // Header and main margin condition
-  const isCMSRoute = currentPath.startsWith('/cms') || currentPath.startsWith('/courses');
+  const isCMSRoute =
+    currentPath.startsWith("/cms") || currentPath.startsWith("/courses");
   const isHiddenLayout = isCMSRoute || isDynamicCourseRoute;
-  const showHeader = !currentPath.includes('/eliteconnect') && !isLayoutHidden && !headerHiddenRoutes.includes(location.pathname) && !isHiddenLayout;
-  const mainClasses = `flex-grow${showHeader ? ' mt-20 sm:mt-20' : ''}`;
+  const showHeader =
+    !currentPath.includes("/eliteconnect") &&
+    !isLayoutHidden &&
+    !headerHiddenRoutes.includes(location.pathname) &&
+    !isHiddenLayout;
+  const mainClasses = `flex-grow${showHeader ? " mt-20 sm:mt-20" : ""}`;
 
   return (
-    <div className='font-inter bg-black min-h-screen flex flex-col text-white'>
+    <div className="font-inter bg-black min-h-screen flex flex-col text-white">
       <Toaster
         position="top-center"
         reverseOrder={false}
         toastOptions={{
-          style: { background: '#333', color: '#fff', border: '1px solid #555' },
-          error: { style: { background: '#EF4444', color: '#fff' } }
+          style: {
+            background: "#333",
+            color: "#fff",
+            border: "1px solid #555",
+          },
+          error: { style: { background: "#EF4444", color: "#fff" } },
         }}
       />
 
@@ -343,62 +341,115 @@ const App = () => {
       {/* Main Content */}
       <main className={mainClasses}>
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/courses' element={<Courses />} />
-          <Route path='/testimonials' element={<Testimonials />} />
-          <Route path='/course/:id' element={<Course />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/course/:id" element={<Course />}>
             <Route index element={<Videos />} />
-            <Route path='review' element={<StudRev />} />
+            <Route path="review" element={<StudRev />} />
           </Route>
-          <Route path='/mentors' element={<Mentors />} />
-          <Route path='/techbundle' element={<Initiative />} />
-          <Route path='/auth/success' element={<AuthSuccess />} />
-          <Route path='/reels-affiliate-marketing-tamil' element={<AffilateMarketing />} />
+          <Route path="/mentors" element={<Mentors />} />
+          <Route path="/techbundle" element={<Initiative />} />
+          <Route path="/auth/success" element={<AuthSuccess />} />
+          <Route
+            path="/reels-affiliate-marketing-tamil"
+            element={<AffilateMarketing />}
+          />
 
-          <Route path='/3dsmax-tamil' element={<ThreeDMax data={pages.ThreeDMax} />} />
-          <Route path='/3dsmax-english' element={<ThreeDMax data={pages.ThreeDMax_english} />} />
+          <Route
+            path="/3dsmax-tamil"
+            element={<ThreeDMax data={pages.ThreeDMax} />}
+          />
+          <Route
+            path="/3dsmax-english"
+            element={<ThreeDMax data={pages.ThreeDMax_english} />}
+          />
 
-          <Route path='/termsandservices' element={<TermsAndServices />} />
-          <Route path='/privacypolicy' element={<PrivacyPolicy />} />
-          <Route path='/RefundAndCertificationPolicy' element={<RefundAndCertificationPolicy />} />
-          <Route path='/amazon-seller-tamil-course' element={<AmazonCourse />} />
-          <Route path='/creator-mentor' element={<BecomeMentor />} />
+          <Route path="/termsandservices" element={<TermsAndServices />} />
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route
+            path="/RefundAndCertificationPolicy"
+            element={<RefundAndCertificationPolicy />}
+          />
+          <Route
+            path="/amazon-seller-tamil-course"
+            element={<AmazonCourse />}
+          />
+          <Route path="/creator-mentor" element={<BecomeMentor />} />
           <Route path="/whylearncourse/:slug" element={<WhyLearnCourse />} />
-          <Route path='/solidworks-tamil' element={<SolidWorks />} />
-          <Route path='/civil3d-tamil' element={<Civil3D data={pages.civil3d} />} />
-          <Route path='/civil3d-english' element={<Civil3D data={pages.civil3d_english} />} />
-          <Route path='/business-webinar' element={<BusinessWebinar data={pages.business_webinar}/>} />
-          <Route path='/blockchain-course-for-students' element={<Blockchain data={pages.blockchain_students} />} />
-          <Route path='/blockchain-course-for-working-professionals' element={<Blockchain data={pages.blockchain_working} />} />
-          <Route path='/blockchain-course-for-business' element={<Blockchain data={pages.blockchain_bussiness} />} />
+          <Route path="/solidworks-tamil" element={<SolidWorks />} />
+          <Route
+            path="/civil3d-tamil"
+            element={<Civil3D data={pages.civil3d} />}
+          />
+          <Route
+            path="/civil3d-english"
+            element={<Civil3D data={pages.civil3d_english} />}
+          />
+          <Route
+            path="/business-webinar"
+            element={<BusinessWebinar data={pages.business_webinar} />}
+          />
+          <Route
+            path="/blockchain-course-for-students"
+            element={<Blockchain data={pages.blockchain_students} />}
+          />
+          <Route
+            path="/blockchain-course-for-working-professionals"
+            element={<Blockchain data={pages.blockchain_working} />}
+          />
+          <Route
+            path="/blockchain-course-for-business"
+            element={<Blockchain data={pages.blockchain_bussiness} />}
+          />
 
-          <Route path='/ssr-course' element={<SSRCourse />} />
-
+          <Route path="/ssr-course" element={<SSRCourse />} />
+          <Route
+            path="/business-webinar-onboarding"
+            element={
+              <BusinessWebinarOnboarding data={pages.business_webinar} />
+            }
+          />
           {/* RHCSA Route */}
-          <Route path='/rhcsa-exam-training-tamil' element={<Rhcsa />} />
-          <Route path='/rhcsa-exam-training-tamil/video' element={<RhscaVideo />} />
+          <Route path="/rhcsa-exam-training-tamil" element={<Rhcsa />} />
+          <Route
+            path="/rhcsa-exam-training-tamil/video"
+            element={<RhscaVideo />}
+          />
 
           {/* Template Route */}
-          <Route path='/template' element={
-            <FormProvider>
-              <Template data={pages.template || pages.solidworks} />
-            </FormProvider>
-          } />
+          <Route
+            path="/template"
+            element={
+              <FormProvider>
+                <Template data={pages.template || pages.solidworks} />
+              </FormProvider>
+            }
+          />
 
           {/* Eliteconnect Routes */}
-          <Route path="/eliteconnect" element={<Navigate to="/eliteconnect/askraghulan" />} />
+          <Route
+            path="/eliteconnect"
+            element={<Navigate to="/eliteconnect/askraghulan" />}
+          />
           <Route path="/eliteconnect/:mentorKey" element={<Mentorship />} />
-          <Route path="/eliteconnect/:mentorKey/life-transformation" element={<MentDet />} />
+          <Route
+            path="/eliteconnect/:mentorKey/life-transformation"
+            element={<MentDet />}
+          />
 
           {/* CMS Login */}
           <Route path="/cms/login" element={<Login />} />
 
           {/* CMS Admin Routes - Protected */}
-          <Route path="/cms" element={
-            <ProtectedRoute>
-              <CMSLayout />
-            </ProtectedRoute>
-          }>
+          <Route
+            path="/cms"
+            element={
+              <ProtectedRoute>
+                <CMSLayout />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<CourseList />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="settings" element={<Settings />} />
@@ -426,11 +477,13 @@ const App = () => {
       {showLoginModal && <LoginModal onClose={handleCloseLoginModal} />}
 
       {/* WhatsApp Button */}
-      {!currentPath.includes('/eliteconnect') && !currentPath.includes('/solidworks') && !isCMSRoute && (
-        <div className='fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]'>
-          <WhatsAppButton />
-        </div>
-      )}
+      {!currentPath.includes("/eliteconnect") &&
+        !currentPath.includes("/solidworks") &&
+        !isCMSRoute && (
+          <div className="fixed bottom-24 lg:bottom-32 right-6 md:right-10 z-[9999]">
+            <WhatsAppButton />
+          </div>
+        )}
     </div>
   );
 };

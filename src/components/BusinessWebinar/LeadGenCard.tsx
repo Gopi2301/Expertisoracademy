@@ -20,6 +20,7 @@ interface LeadGenCardProps {
   systemLabel: string;
   systemText: string;
   systemHighlight: string;
+  onCtaClick?: () => void;
 }
 
 const LeadGenCard = ({
@@ -33,6 +34,7 @@ const LeadGenCard = ({
   systemLabel,
   systemText,
   systemHighlight,
+  onCtaClick,
 }: LeadGenCardProps) => {
   // Highlighting logic for Title (Red Highlight)
   const renderTitle = () => {
@@ -187,6 +189,7 @@ const LeadGenCard = ({
             variant="contained"
             fullWidth
             className="gradient-btn-dynamic"
+            onClick={onCtaClick}
             sx={{
               fontSize: { xs: "1rem", md: "1.25rem" },
               py: { xs: 1.5, md: 2 },

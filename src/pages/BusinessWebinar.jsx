@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Hero from "../components/BusinessWebinar/Hero";
 import LogoCarousel from "../components/BusinessWebinar/LogoCarousel";
 import LeadGenCard from "../components/BusinessWebinar/LeadGenCard";
@@ -12,6 +13,12 @@ import FAQ from "../components/BusinessWebinar/FAQ";
 import Footer from "../components/Footer";
 
 const BusinessWebinar = ({ data }) => {
+  const navigate = useNavigate();
+
+  const handleCtaClick = () => {
+    navigate("/business-webinar-onboarding");
+  };
+
   return (
     <div className="w-full h-full bg-[#050400] font-clash">
       <Hero data={data.hero_section} />
@@ -29,6 +36,7 @@ const BusinessWebinar = ({ data }) => {
         systemLabel={data.lead_gen_card.systemLabel}
         systemText={data.lead_gen_card.systemText}
         systemHighlight={data.lead_gen_card.systemHighlight}
+        onCtaClick={handleCtaClick}
       />
       {/* comparison */}
       <ComparisonSection {...data.comparison_section} />
@@ -42,7 +50,7 @@ const BusinessWebinar = ({ data }) => {
       <WithOutSystem {...data.without_system} />
 
       {/* Cta */}
-      <Cta {...data.cta} />
+      <Cta {...data.cta} onCtaClick={handleCtaClick} />
       {/* FAQ */}
       <FAQ {...data.faq} />
       <Footer />
