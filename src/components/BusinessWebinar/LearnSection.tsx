@@ -59,7 +59,7 @@ const LearnSection: React.FC<LearnSectionProps> = ({
       <div className="mx-auto">
         {/* Header Section */}
         <div className="text-center my-12">
-          <h2 className="text-4xl md:text-5xl font-bold font-clash mb-4">
+          <h2 className="text-4xl md:text-5xl font-semibold font-clash mb-4">
             {renderTitle()}
           </h2>
           <p className="text-gray-400 text-lg md:text-xl">{subtitle}</p>
