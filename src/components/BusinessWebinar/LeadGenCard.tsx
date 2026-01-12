@@ -94,7 +94,7 @@ const LeadGenCard = ({
       >
         <CardContent>
           <h2
-            className="font-clash font-bold text-white text-3xl md:text-4xl lg:text-5xl mb-6 md:mb-8 leading-tight text-center"
+            className="font-clash font-semibold text-white text-[36px] leading-normal tracking-[1.44px] mb-6 md:mb-8 text-center"
           >
             {renderTitle()}
           </h2>
@@ -107,8 +107,8 @@ const LeadGenCard = ({
                   {subtitle}
                 </span>
                 {/* Optional: Add Arrow Graphic if available */}
-                 <div className="hidden md:block absolute -right-24 top-1/2 -translate-y-1/2">
-                   {/* <img src="/business-webinar/icons/arrow_white.svg" className="w-16 opacity-80" /> */}
+                 <div className="hidden md:block absolute -right-20 top-1/2 -translate-y-1/2">
+                   <img src="/business-webinar/white_arrow.svg" className="w-16 opacity-80" />
                  </div>
               </div>
             )}

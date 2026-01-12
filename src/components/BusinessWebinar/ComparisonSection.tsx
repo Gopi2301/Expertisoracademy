@@ -63,7 +63,18 @@ const ComparisonSection = ({
 
   return (
     <div className="md:mt-24 bottom-gradient">
-      <h3 className="font-clash font-weight-600 text-4xl text-center font-bold">
+      <h3
+        style={{
+          color: "#FFF",
+          textAlign: "center",
+          fontFamily: '"Clash Display Variable"',
+          fontSize: "36px",
+          fontStyle: "normal",
+          fontWeight: 600,
+          lineHeight: "normal",
+          letterSpacing: "1.44px",
+        }}
+      >
         How Most Firms Try to Fix This (And
         <span className="text-[#FF0000]"> Why It Backfires</span>)
       </h3>
@@ -72,13 +83,13 @@ const ComparisonSection = ({
           {/* Mistakes Card (Red/Dark Theme) */}
           <Card
             sx={{
+              borderRadius: "8px",
+              border: "1px solid #4A0000",
               background:
-                "radial-gradient(circle at 10% 10%, #3d0a0a 0%, #120303 100%)",
-              border: "1px solid rgba(127, 29, 29, 0.4)",
-              borderRadius: "24px",
+                "radial-gradient(170.97% 65.56% at 84.73% 100%, #5C0000 0%, rgba(0, 0, 0, 0.00) 100%), radial-gradient(91.79% 96.12% at 5.63% 100%, #2D0000 0%, rgba(0, 0, 0, 0.00) 100%), #150000",
+              backgroundBlendMode: "screen, screen, normal",
               position: "relative",
               overflow: "hidden",
-              boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
             }}
           >
             <CardContent sx={{ p: { xs: 4, md: 6 } }}>
@@ -121,13 +132,13 @@ const ComparisonSection = ({
           {/* Solutions Card (Yellow/Dark Theme) */}
           <Card
             sx={{
+              borderRadius: "8px",
+              border: "1px solid #4A3A00",
               background:
-                "radial-gradient(circle at 10% 10%, #362f0a 0%, #0f0d02 100%)",
-              border: "1px solid rgba(133, 77, 14, 0.4)",
-              borderRadius: "24px",
+                "radial-gradient(170.97% 55% at 84.73% 100%, #B18800 0%, rgba(0, 0, 0, 0.00) 100%), radial-gradient(91.79% 85% at 5.63% 100%, #A38200 0%, rgba(0, 0, 0, 0.00) 100%), #151100",
+              backgroundBlendMode: "screen, screen, normal",
               position: "relative",
               overflow: "hidden",
-              boxShadow: "0 20px 50px rgba(0,0,0,0.5)",
             }}
           >
             <CardContent sx={{ p: { xs: 4, md: 6 } }}>
