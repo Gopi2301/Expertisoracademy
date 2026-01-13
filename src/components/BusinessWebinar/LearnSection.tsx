@@ -3,7 +3,8 @@ import React from "react";
 import { Box, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import CancelIcon from "@mui/icons-material/Cancel";
-
+import Lottie from "lottie-react";
+import animationData from "../../assets/lottie/what_you_will_learn.json";
 // Actually LeadGenCard used MUI Button, so I will stick to it for the CTA to be safe, or just use a styled button.
 // The image shows a yellow button. I'll style it to match.
 
@@ -66,7 +67,7 @@ const LearnSection: React.FC<LearnSectionProps> = ({
         </div>
 
         {/* Content Section */}
-        <div className="flex max-h-[400px]flex-col md:flex-row gap-12 justify-center items-center mx-1 md:mx-0">
+        <div className="flex max-h-[400px] flex-col md:flex-row gap-12 justify-center items-center mx-1 md:mx-0">
           {/* Left Column: Image */}
           <div className="">
             {/* Placeholder for the image if not provided, or use the provided image prop */}
@@ -85,55 +86,8 @@ const LearnSection: React.FC<LearnSectionProps> = ({
 
           {/* Right Column: List & CTA */}
           <div className="relative">
-            {/* Vertical Line for Timeline Effect */}
-            {/* Positioned absolutely relative to the container. 
-                left-4 is 1rem (16px), which is exactly the center of the w-8 (32px) icon container.
-                top-4 is the center of the first star (approx).
-            {/* Refactored Layout: List and Line wrapper */}
-            <div className="relative">
-              {/* Centered vertical line
-                  - Centered in w-12 (48px) column -> left-6 (24px).
-                  - Width 2px.
-                  - top-[48px]: Starts below the active star (which is h-12).
-                  - bottom-[50px]: Stops roughly above the last item content/star.
-              */}
-              <div className="absolute left-6 top-[40px] bottom-[50px] w-[2px] -translate-x-1/2 flex flex-col items-center pointer-events-none">
-                 <div className="w-full h-[60px] shrink-0 bg-gradient-to-b from-[#fff200] from-10% to-transparent" />
-                 <div className="w-full flex-1 bg-[#242424]" />
-              </div>
-
-              <ul className="space-y-8 relative z-10">
-                {list?.map((item, index) => {
-                  const isActive = index === 0;
-                  const activeStar = "/business-webinar/glowing_star.svg";
-                  const inactiveStar = "/business-webinar/Star.svg";
-                  return (
-                    <li key={index} className="flex items-start gap-4 min-h-[40px]">
-                      {/* Icon Column: Fixed width w-12 (48px) to house the big star */}
-                      <div className="relative shrink-0 w-12 flex justify-center pt-1">
-                         {/* Stars: Active is bigger (w-12), Inactive is smaller (w-7) */}
-                        <img
-                          src={isActive ? activeStar : inactiveStar}
-                          alt="star"
-                          className={`block object-contain ${isActive ? 'w-10 h-10 -mt-1' : 'w-6 h-6'}`}
-                          style={isActive ? { filter: 'drop-shadow(0 0 15px #fff200cc)' } : {}}
-                        />
-                      </div>
-                      
-                      <span
-                        className={
-                          isActive
-                            ? "font-inter font-medium text-[20px] bg-gradient-to-b from-[#fff200] from-1/6 to-white to-11/12 bg-clip-text text-transparent pt-1"
-                            : "font-inter font-medium text-[20px] text-[#5c5c5c] pt-1"
-                        }
-                        style={isActive ? { WebkitTextFillColor: 'transparent', fontWeight: 500, letterSpacing: 0 } : { fontWeight: 500, letterSpacing: 0 }}
-                      >
-                        {item}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
+            <div className="relative w-full max-w-[500px]">
+              <Lottie animationData={animationData} loop={true} />
             </div>
 
             {/* Figma-style CTA Button - Moved outside relative wrapper */}
