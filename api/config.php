@@ -11,13 +11,14 @@
  */
 
 // Database credentials - UPDATE THESE!
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'yppgpgkj_expertisor_dev');
-define('DB_USER', 'yppgpgkj_devuser');
-define('DB_PASS', 'Expertisor@2024');
+// Database credentials
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'yppgpgkj_expertisor_dev');
+define('DB_USER', getenv('DB_USER') ?: 'yppgpgkj_devuser');
+define('DB_PASS', getenv('DB_PASS') ?: 'Expertisor@2024');
 
 // JWT Configuration
-define('JWT_SECRET', 'fb3e769c95c44e7e8a1be8e0847d814d9bdfc31f91d58d7588ae37e0ce2ef5b7');
+define('JWT_SECRET', getenv('JWT_SECRET') ?: 'fb3e769c95c44e7e8a1be8e0847d814d9bdfc31f91d58d7588ae37e0ce2ef5b7');
 define('JWT_EXPIRY', 86400); // 24 hours in seconds
 
 // Environment detection

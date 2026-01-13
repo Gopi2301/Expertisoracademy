@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  expertisor-app:
+    build:
+      context: .
+      args:
+        - VITE_API_URL=${VITE_API_URL}
+        - VITE_SSO_URL=${VITE_SSO_URL}
+    container_name: expertisor-app
+    restart: always
+    ports:
+      - "3022:80"
+    networks:
+      - coolify
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASS=${DB_PASS}
+      - JWT_SECRET=${JWT_SECRET}
+
+networks:
+  coolify:
+    external: true
